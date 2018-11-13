@@ -1,0 +1,6 @@
+# don't version target directory
+/target
+
+#don't version IntelliJ files
+/*.iml
+/.idea
