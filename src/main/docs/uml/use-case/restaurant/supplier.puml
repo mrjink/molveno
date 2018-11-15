@@ -1,0 +1,19 @@
+@startuml
+
+left to right direction
+
+actor Chef
+
+rectangle "Supplier Management System" {
+    (View all suppliers) as (SupplierAll)
+    (View supplier) as (SupplierView)
+    (Add supplier) as (SupplierAdd)
+    (Modify supplier) as (SupplierUpdate)
+
+    Chef --> (SupplierAll)
+    Chef --> (SupplierView)
+    Chef --> (SupplierAdd)
+    Chef --> (SupplierUpdate)
+}
+
+@enduml

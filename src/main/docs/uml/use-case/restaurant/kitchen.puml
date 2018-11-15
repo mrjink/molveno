@@ -1,0 +1,40 @@
+@startuml
+
+left to right direction
+
+actor Chef
+actor "Kitchen Staff" as KS
+
+rectangle "Kitchen Management System" {
+    (View menu) as (MenuView)
+    (Modify menu) as (MenuUpdate)
+
+    (View menu item) as (MenuItemView)
+    (Modify menu item) as (MenuItemUpdate)
+
+    (View all ingredients) as (IngredientAll)
+    (View ingredient) as (IngredientView)
+    (Modify ingredient) as (IngredientUpdate)
+    (Order ingredients) as (IngredientOrder)
+    (Order beverages) as (BeverageOrder)
+    (View orders) as (KitchenOrderView)
+
+    Chef --> (MenuView)
+    Chef --> (MenuUpdate)
+    Chef --> (MenuItemView)
+    Chef --> (MenuItemUpdate)
+
+    Chef --> (IngredientAll)
+    Chef --> (IngredientView)
+    Chef --> (IngredientUpdate)
+    Chef --> (IngredientOrder)
+    Chef --> (BeverageOrder)
+    Chef --> (KitchenOrderView)
+
+    (MenuView) <-- KS
+    (MenuItemView) <-- KS
+    (IngredientAll) <-- KS
+    (IngredientView) <-- KS
+}
+
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+
+left to right direction
+
+actor Guest
+
+rectangle "Order from menu" {
+    Guest --> (View menu)
+    Guest --> (Order food from menu)
+    Guest --> (Order drink from menu)
+}
+
+@enduml

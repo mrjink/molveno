@@ -4,20 +4,21 @@ left to right direction
 
 actor Receptionist
 actor Guest
-actor "Floor Manager" as FM
 
 rectangle "Restaurant Reservation System" {
+    (View available dates) as (TableAll)
     (Book table reservation for guest) as (TableBook)
+    (Select 3-, 5-, 7-course menu) as (TableCourse)
     (Cancel table reservation of guest) as (TableCancel)
+
+    Guest --> (TableAll)
+    Guest --> (TableBook)
+'    Guest ..> (TableCourse) : optional
+    (TableBook) .> (TableCourse) : optional
+    Guest --> (TableCancel)
 
     (TableBook) <-- Receptionist
     (TableCancel) <-- Receptionist
-
-    Guest --> (TableBook)
-    Guest --> (TableCancel)
-
-    FM --> (TableBook)
-    FM --> (TableCancel)
 }
 
 @enduml

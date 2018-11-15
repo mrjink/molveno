@@ -1,0 +1,24 @@
+@startuml
+
+left to right direction
+
+actor Receptionist
+actor Guest
+actor Waiter
+
+rectangle "Restaurant Billing System" {
+    (View restaurant bill) as (TableBillView)
+    (Pay restaurant bill) as (TableBillPay)
+    (Print restaurant bill) as (TableBillPrint)
+
+    Guest --> (TableBillView)
+    Guest --> (TableBillPay)
+
+    (TableBillView) <-- Receptionist
+    (TableBillPrint) <-- Receptionist
+
+    (TableBillView) <-- Waiter
+    (TableBillPrint) <-- Waiter
+}
+
+@enduml

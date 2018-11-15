@@ -7,13 +7,16 @@ actor Guest
 
 rectangle "Room Service System" {
     (View room service menu) as (RSMenu)
-    (Order room service item) as (RSOrder)
+    (Order food from menu) as (RSFood)
+    (Order drink from menu) as (RSDrink)
 
     (RSMenu) <-- Receptionist
-    (RSOrder) <-- Receptionist
+    (RSFood) <-- Receptionist
+    (RSDrink) <-- Receptionist
 
     Guest --> (RSMenu)
-    Guest --> (RSOrder)
+    Guest --> (RSFood)
+    Guest --> (RSDrink)
 }
 
 @enduml
