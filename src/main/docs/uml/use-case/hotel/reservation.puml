@@ -1,0 +1,30 @@
+@startuml
+
+left to right direction
+
+actor Receptionist
+actor Guest
+
+rectangle "Hotel Reservation System" {
+    (Book room reservation for guest) as (RoomBook)
+    (Cancel room reservation of guest) as (RoomCancel)
+    (See availability of a room) as (RoomAvailable)
+    (See room occupancy) as (RoomOccupancy)
+    (Pay room reservation) as (RoomPay)
+    (View invoice) as (RoomInvoice)
+
+    (RoomBook) <-- Receptionist
+    (RoomCancel) <-- Receptionist
+    (RoomAvailable) <-- Receptionist
+    (RoomOccupancy) <-- Receptionist
+    (RoomInvoice) <-- Receptionist
+
+    Guest --> (RoomBook)
+    Guest --> (RoomCancel)
+    Guest --> (RoomAvailable)
+    Guest --> (RoomOccupancy)
+    Guest --> (RoomPay)
+    Guest --> (RoomInvoice)
+}
+
+@enduml

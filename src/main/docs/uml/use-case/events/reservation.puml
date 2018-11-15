@@ -1,0 +1,35 @@
+@startuml
+
+left to right direction
+
+actor Guest
+actor "Event Manager" as EM
+
+rectangle "Event Reservation System" {
+    (Register for an event) as (EventBook)
+    (Cancel an event reservation) as (EventCancel)
+    (View all events) as (EventAll)
+    (View one event information) as (EventView)
+    (Choose language for event information) as (EventLanguage)
+    (Create an event) as (EventCreate)
+    (Change an event) as (EventChange)
+    (Schedule an event) as (EventSchedule)
+    (Delete an event) as (EventDelete)
+
+    Guest --> (EventBook)
+    Guest --> (EventCancel)
+    Guest --> (EventAll)
+    Guest --> (EventView)
+    Guest --> (EventLanguage)
+
+    (EventAll) <-- EM
+    (EventView) <-- EM
+    (EventLanguage) <-- EM
+    (EventCreate) <-- EM
+    (EventChange) <-- EM
+    (EventSchedule) <-- EM
+    (EventDelete) <-- EM
+    (EventCancel) <-- EM
+}
+
+@enduml

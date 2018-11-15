@@ -1,0 +1,7 @@
+@startuml
+rectangle "Generic" #eeffee {
+    !include "login.puml"
+    !include "administration.puml"
+    !include "guest.puml"
+}
+@enduml

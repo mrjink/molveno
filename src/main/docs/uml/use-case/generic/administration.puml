@@ -1,0 +1,14 @@
+@startuml
+
+left to right direction
+
+actor Administrator
+
+rectangle "User Administration System" {
+    Administrator --> (Register employee)
+    Administrator --> (View information of all employees)
+    Administrator --> (Delete employee)
+    Administrator --> (Assign roles to employee)
+}
+
+@enduml

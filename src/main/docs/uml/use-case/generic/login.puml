@@ -1,0 +1,20 @@
+@startuml
+
+left to right direction
+
+actor Guest
+actor Employee
+
+rectangle "Authentication System" {
+    (Logon to the system) as (Login)
+    (Logoff from the system) as (Logout)
+
+    Guest --> (Register)
+    Guest --> (Login)
+    Guest --> (Logout)
+
+    (Login) <-- Employee
+    (Logout) <-- Employee
+}
+
+@enduml

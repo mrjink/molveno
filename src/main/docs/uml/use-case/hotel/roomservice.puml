@@ -1,0 +1,19 @@
+@startuml
+
+left to right direction
+
+actor Receptionist
+actor Guest
+
+rectangle "Room Service System" {
+    (View room service menu) as (RSMenu)
+    (Order room service item) as (RSOrder)
+
+    (RSMenu) <-- Receptionist
+    (RSOrder) <-- Receptionist
+
+    Guest --> (RSMenu)
+    Guest --> (RSOrder)
+}
+
+@enduml

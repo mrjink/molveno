@@ -1,0 +1,14 @@
+@startuml
+
+actor Receptionist
+actor Guest
+actor "Floor Manager" as FM
+actor Administrator
+actor Employee
+
+!include "generic/overview.puml"
+!include "hotel/overview.puml"
+!include "restaurant/overview.puml"
+!include "events/overview.puml"
+
+@enduml

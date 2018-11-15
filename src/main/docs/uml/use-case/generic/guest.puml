@@ -1,0 +1,20 @@
+@startuml
+
+left to right direction
+
+actor Receptionist
+actor Guest
+
+rectangle "Guest Administration System" {
+    (Update guest information) as (Update)
+
+    (Register a guest) <-- Receptionist
+    (View information of all guests) <-- Receptionist
+    (Delete guest information) <-- Receptionist
+    (Update) <-- Receptionist
+
+    Guest --> (Update)
+    Guest --> (Subscribe to newsletter)
+}
+
+@enduml

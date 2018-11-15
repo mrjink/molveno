@@ -1,0 +1,5 @@
+@startuml
+rectangle "Events" #ffffee {
+    !include "reservation.puml"
+}
+@enduml

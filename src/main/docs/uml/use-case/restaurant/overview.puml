@@ -1,0 +1,5 @@
+@startuml
+rectangle "Restaurant" #eeeeff {
+    !include "reservation.puml"
+}
+@enduml

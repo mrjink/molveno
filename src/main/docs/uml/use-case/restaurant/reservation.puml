@@ -1,0 +1,23 @@
+@startuml
+
+left to right direction
+
+actor Receptionist
+actor Guest
+actor "Floor Manager" as FM
+
+rectangle "Restaurant Reservation System" {
+    (Book table reservation for guest) as (TableBook)
+    (Cancel table reservation of guest) as (TableCancel)
+
+    (TableBook) <-- Receptionist
+    (TableCancel) <-- Receptionist
+
+    Guest --> (TableBook)
+    Guest --> (TableCancel)
+
+    FM --> (TableBook)
+    FM --> (TableCancel)
+}
+
+@enduml
