@@ -2,18 +2,31 @@
 
 left to right direction
 
+actor "Front of House" as FoH
 actor Chef
 
-rectangle "Supplier Management System" {
-    (View all suppliers) as (SupplierAll)
-    (View supplier) as (SupplierView)
-    (Add supplier) as (SupplierAdd)
-    (Modify supplier) as (SupplierUpdate)
+rectangle "Bar Supply Management System" {
+    (View all suppliers) as (BarSupplyAll)
+    (View supplier) as (BarSupplyView)
+    (Add supplier) as (BarSupplyAdd)
+    (Modify supplier) as (BarSupplyUpdate)
 
-    Chef --> (SupplierAll)
-    Chef --> (SupplierView)
-    Chef --> (SupplierAdd)
-    Chef --> (SupplierUpdate)
+    FoH --> (BarSupplyAll)
+    FoH --> (BarSupplyView)
+    FoH --> (BarSupplyAdd)
+    FoH --> (BarSupplyUpdate)
+}
+
+rectangle "Restaurant Supply Management System" {
+    (View all suppliers) as (RestaurantSupplyAll)
+    (View supplier) as (RestaurantSupplyView)
+    (Add supplier) as (RestaurantSupplyAdd)
+    (Modify supplier) as (RestaurantSupplyUpdate)
+
+    Chef --> (RestaurantSupplyAll)
+    Chef --> (RestaurantSupplyView)
+    Chef --> (RestaurantSupplyAdd)
+    Chef --> (RestaurantSupplyUpdate)
 }
 
 @enduml
