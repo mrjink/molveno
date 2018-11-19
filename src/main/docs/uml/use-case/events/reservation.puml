@@ -2,25 +2,34 @@
 
 left to right direction
 
-actor Guest
+actor "Internal Guest (Hotel)" as Guest
 actor "Event Manager" as EM
+actor "External Guest" as EX
 
 rectangle "Event Reservation System" {
-    (Register for an event) as (EventBook)
-    (Cancel an event reservation) as (EventCancel)
+    (Register as a participant for an event) as (EventBook)
+    (Cancel event participation reservation) as (EventReservationCancel)
     (View all events) as (EventAll)
     (View one event information) as (EventView)
     (Choose language for event information) as (EventLanguage)
-    (Create an event) as (EventCreate)
+    (Create an event [information, date, location, logistics, etc.]) as (EventCreate)
     (Change an event) as (EventChange)
     (Schedule an event) as (EventSchedule)
     (Delete an event) as (EventDelete)
+    (Cancel an event due to circumstances) as (EventCancel)
 
     Guest --> (EventBook)
-    Guest --> (EventCancel)
+    Guest --> (EventReservationCancel)
     Guest --> (EventAll)
     Guest --> (EventView)
     Guest --> (EventLanguage)
+
+    (EventBook) <-- EX
+    (EventReservationCancel) <-- EX
+    (EventAll) <-- EX
+    (EventView) <-- EX
+    (EventLanguage) <-- EX
+    (Register contact information) <-- EX
 
     (EventAll) <-- EM
     (EventView) <-- EM
@@ -29,7 +38,9 @@ rectangle "Event Reservation System" {
     (EventChange) <-- EM
     (EventSchedule) <-- EM
     (EventDelete) <-- EM
+    (EventReservationCancel) <-- EM
     (EventCancel) <-- EM
+    (View list of all participants of an event) <-- EM
 }
 
 @enduml
