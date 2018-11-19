@@ -7,6 +7,132 @@
     <groupId>com.molvenolakeresort</groupId>
     <artifactId>molvenolakeresort</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <name>Molveno Lake Resort</name>
+    <description>Molveno Lake Resort web application for managing the Hotel, Restaurant and Events.</description>
+    <inceptionYear>2018</inceptionYear>
+    <developers>
+        <developer>
+            <name>Gillis J. de Nijs</name>
+            <id>mrjink</id>
+            <roles>
+                <role>Trainer</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Hans van Os</name>
+            <id>HVANOS</id>
+            <roles>
+                <role>Trainer</role>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Oussama Aalili</name>
+            <id>oussamacap</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Taoufik Abou</name>
+            <id>taoufik321</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Nathan Blanchard</name>
+            <id>nathanblanchard</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Ryan van den Bogaard</name>
+            <id>KuroPSPiso</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Naoufal Haddou</name>
+            <id>NaoHad</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Erwin Jabocs</name>
+            <id>EJ-Capgemini</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Juul Lenders</name>
+            <id>JuulCapgemini</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Gary Mikoen</name>
+            <id>GaryMikoen</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Sandeleen Mirza</name>
+            <id>Sandeleen</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Yoran Mulder</name>
+            <id>Mills315</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Mustafa Kece</name>
+            <id>MoesKece</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Marlou van de Sande</name>
+            <id>marlouvdS</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Justin Stam</name>
+            <id>JustinStam</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Melchior Vrolijk</name>
+            <id>mel182</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+        <developer>
+            <name>Lucas Walters</name>
+            <id>LucasWalters</id>
+            <roles>
+                <role>Developer</role>
+            </roles>
+        </developer>
+    </developers>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
