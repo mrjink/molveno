@@ -4,6 +4,7 @@ left to right direction
 
 actor Receptionist
 actor Guest
+actor Manager
 
 rectangle "Guest Administration System" {
     (Update guest information) as (Update)
@@ -12,6 +13,11 @@ rectangle "Guest Administration System" {
     (View information of all guests) <-- Receptionist
     (Delete guest information) <-- Receptionist
     (Update) <-- Receptionist
+
+    (Register a guest) <-- Manager
+    (View information of all guests) <-- Manager
+    (Delete guest information) <-- Manager
+    (Update) <-- Manager
 
     Guest --> (Update)
     Guest --> (Subscribe to newsletter)

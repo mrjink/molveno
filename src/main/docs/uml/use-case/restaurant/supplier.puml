@@ -5,7 +5,7 @@ left to right direction
 actor "Front of House" as FoH
 actor Chef
 
-rectangle "Bar Supply Management System" {
+rectangle "Beverage Supply Management System" {
     (View all suppliers) as (BarSupplyAll)
     (View supplier) as (BarSupplyView)
     (Add supplier) as (BarSupplyAdd)
@@ -17,7 +17,7 @@ rectangle "Bar Supply Management System" {
     FoH --> (BarSupplyUpdate)
 }
 
-rectangle "Restaurant Supply Management System" {
+rectangle "Food Supply Management System" {
     (View all suppliers) as (RestaurantSupplyAll)
     (View supplier) as (RestaurantSupplyView)
     (Add supplier) as (RestaurantSupplyAdd)
