@@ -1,6 +1,6 @@
 @startuml
 
-actor Receptionist
+actor "Front of House" as FoH
 actor Guest
 actor "Floor Manager" as FM
 actor Administrator

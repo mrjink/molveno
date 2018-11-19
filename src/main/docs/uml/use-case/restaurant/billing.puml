@@ -2,7 +2,7 @@
 
 left to right direction
 
-actor Receptionist
+actor "Front of House" as FoH
 actor Guest
 actor Waiter
 
@@ -14,8 +14,8 @@ rectangle "Restaurant Billing System" {
     Guest --> (TableBillView)
     Guest --> (TableBillPay)
 
-    (TableBillView) <-- Receptionist
-    (TableBillPrint) <-- Receptionist
+    (TableBillView) <-- FoH
+    (TableBillPrint) <-- FoH
 
     (TableBillView) <-- Waiter
     (TableBillPrint) <-- Waiter

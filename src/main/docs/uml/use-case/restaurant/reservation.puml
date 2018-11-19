@@ -2,7 +2,8 @@
 
 left to right direction
 
-actor Receptionist
+actor "Front of House" as FoH
+actor Waiter
 actor Guest
 
 rectangle "Restaurant Reservation System" {
@@ -17,8 +18,12 @@ rectangle "Restaurant Reservation System" {
     (TableBook) .> (TableCourse) : optional
     Guest --> (TableCancel)
 
-    (TableBook) <-- Receptionist
-    (TableCancel) <-- Receptionist
+    (TableBook) <-- Waiter
+    (TableCancel) <-- Waiter
+
+    (TableBook) <-- FoH
+    (TableCancel) <-- FoH
+
 }
 
 @enduml

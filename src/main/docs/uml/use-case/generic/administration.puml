@@ -3,12 +3,23 @@
 left to right direction
 
 actor Administrator
+actor Manager
 
 rectangle "User Administration System" {
-    Administrator --> (Register employee)
-    Administrator --> (View information of all employees)
-    Administrator --> (Delete employee)
-    Administrator --> (Assign roles to employee)
+    (Register employee) as (reg)
+    (View  all employees) as (view)
+    (Delete employee) as (del)
+    (Assign roles to employee) as (ass)
+
+    Administrator --> (reg)
+    Administrator --> (view)
+    Administrator --> (del)
+    Administrator --> (ass)
+
+    (reg) <-- Manager
+    (view) <-- Manager
+    (del) <-- Manager
+    (ass) <-- Manager
 }
 
 @enduml

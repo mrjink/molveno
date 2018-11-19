@@ -1,0 +1,42 @@
+@startuml
+
+left to right direction
+
+actor "Front of House" as FoH
+actor Waiter
+
+rectangle "Food & Beverage Management System" {
+    (View menu) as (MenuView)
+    (Modify menu) as (MenuUpdate)
+
+    (View menu item) as (MenuItemView)
+    (Modify menu item) as (MenuItemUpdate)
+
+    (View all ingredients) as (IngredientAll)
+    (View ingredient) as (IngredientView)
+    (Modify ingredient) as (IngredientUpdate)
+    (Order ingredients) as (IngredientOrder)
+    (View orders) as (BarOrderView)
+    (KG, Gram, pieces) as (IngredientQuantity)
+
+    (IngredientOrder) .> (IngredientQuantity) : optional
+
+    FoH --> (MenuView)
+    FoH --> (MenuUpdate)
+    FoH --> (MenuItemView)
+    FoH --> (MenuItemUpdate)
+
+    FoH --> (IngredientAll)
+    FoH --> (IngredientView)
+    FoH --> (IngredientUpdate)
+    FoH --> (IngredientOrder)
+    FoH --> (BarOrderView)
+
+    (MenuView) <-- Waiter
+    (MenuItemView) <-- Waiter
+    (IngredientAll) <-- Waiter
+    (IngredientView) <-- Waiter
+    (BarOrderView) <-- Waiter
+}
+
+@enduml
