@@ -17,7 +17,7 @@ rectangle "Food & Beverage Management System" {
     (Modify ingredient) as (IngredientUpdate)
     (Order ingredients) as (IngredientOrder)
     (View orders) as (BarOrderView)
-    (Gram, amount, centilitre) as (IngredientQuantity)
+    (KG,Gram, pieces) as (IngredientQuantity)
 
     (IngredientOrder) .> (IngredientQuantity) : optional
 
