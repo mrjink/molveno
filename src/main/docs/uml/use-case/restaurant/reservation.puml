@@ -6,7 +6,7 @@ actor "Front of House" as FoH
 actor Waiter
 actor Guest
 
-rectangle "Restaurant Reservation System" {
+rectangle "Restaurant Reservation System v 0.2" {
     (View available dates) as (TableAll)
     (Book table reservation for guest) as (TableBook)
     (Select 3-, 5-, 7-course menu) as (TableCourse)
