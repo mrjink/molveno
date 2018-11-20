@@ -5,7 +5,7 @@ left to right direction
 actor Chef
 actor "Kitchen Staff" as KS
 
-rectangle "Kitchen Management System" {
+rectangle "Kitchen Management System v 0.2" {
     (View menu) as (MenuView)
     (Modify menu) as (MenuUpdate)
 

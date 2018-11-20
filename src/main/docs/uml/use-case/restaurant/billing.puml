@@ -6,7 +6,7 @@ actor "Front of House" as FoH
 actor Guest
 actor Waiter
 
-rectangle "Restaurant Billing System" {
+rectangle "Restaurant Billing System v 0.2" {
     (View restaurant bill) as (TableBillView)
     (Pay restaurant bill) as (TableBillPay)
     (Print restaurant bill) as (TableBillPrint)
