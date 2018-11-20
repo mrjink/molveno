@@ -17,7 +17,7 @@ rectangle "Kitchen Management System v 0.2" {
     (Modify ingredient) as (IngredientUpdate)
     (Order ingredients) as (IngredientOrder)
     (View orders) as (KitchenOrderView)
-    (Gram, amount, centilitre) as (IngredientQuantity)
+    (KG, Gram, pieces) as (IngredientQuantity)
 
     (IngredientOrder) .> (IngredientQuantity) : optional
 
