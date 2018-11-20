@@ -13,7 +13,6 @@ rectangle "Food & Beverage Management System v 0.2" {
     (Modify menu item) as (MenuItemUpdate)
 
     (View all ingredients) as (IngredientAll)
-    (View ingredient) as (IngredientView)
     (Modify ingredient) as (IngredientUpdate)
     (Order ingredients) as (IngredientOrder)
     (View orders) as (BarOrderView)
