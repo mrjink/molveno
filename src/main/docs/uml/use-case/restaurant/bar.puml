@@ -25,7 +25,6 @@ rectangle "Food & Beverage Management System v 0.2" {
     FoH --> (MenuItemUpdate)
 
     FoH --> (IngredientAll)
-    FoH --> (IngredientView)
     FoH --> (IngredientUpdate)
     FoH --> (IngredientOrder)
     FoH --> (BarOrderView)
@@ -33,7 +32,6 @@ rectangle "Food & Beverage Management System v 0.2" {
     (MenuView) <-- Waiter
     (MenuItemView) <-- Waiter
     (IngredientAll) <-- Waiter
-    (IngredientView) <-- Waiter
     (BarOrderView) <-- Waiter
 }
 
