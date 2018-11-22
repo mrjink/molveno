@@ -2,7 +2,7 @@ package com.molvenolakeresort.restaurant.stock;
 
 public class SupplyOrder {
 //    status
-//////    list ingredients + quantity aka dictinary (LinkedHashMap?)
+//////    list suplpyitem
 //    supplier
     //leverdatum
 //    orderdatum
