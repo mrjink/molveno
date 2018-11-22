@@ -1,7 +1,8 @@
 package com.molvenolakeresort.restaurant.order;
 
 public class Order {
-//    destination (roomservice, restaurant, bar)
+//    destinationType (roomservice, restaurant, bar)
+//    String destinationID (tableId of roomid)
 //        list orderitem
-
+//    status (ontvangen, wordt bereid, klaar, afgeleverd, betaald(?))
 }
