@@ -8,6 +8,7 @@ actor "Event Manager" as EM
 actor "General Manager" as GM
 actor "External Guest" as EX
 actor "Receptionist" as REC
+actor Administrator
 
 rectangle "Event Reservation System" {
     (Register as a participant for an event) as (EventBook)
@@ -22,7 +23,7 @@ rectangle "Event Reservation System" {
     (Cancel an event due to circumstances) as (EventCancel)
     (Register guest as a participant for an event) as (RegisterParticipant)
     (View list of all participants of an event) as (ViewAll)
-
+    (Export events for each month) as (export)
 
     Guest --> (EventBook)
     Guest --> (EventReservationCancel)
@@ -50,6 +51,7 @@ rectangle "Event Reservation System" {
     (EventCancel) <-- EM
     (ViewAll) <-- EM
     (RegisterParticipant) <-- EM
+    (export) <-- EM
 
     GM --> (EventAll)
     GM --> (EventView)
@@ -62,6 +64,20 @@ rectangle "Event Reservation System" {
     GM --> (EventCancel)
     GM --> (ViewAll)
     GM --> (RegisterParticipant)
+    GM --> (export)
+
+    Administrator --> (EventAll)
+    Administrator --> (EventView)
+    Administrator --> (EventLanguage)
+    Administrator --> (EventCreate)
+    Administrator --> (EventChange)
+    Administrator --> (EventSchedule)
+    Administrator --> (EventDelete)
+    Administrator --> (EventReservationCancel)
+    Administrator --> (EventCancel)
+    Administrator --> (ViewAll)
+    Administrator --> (RegisterParticipant)
+    Administrator --> (export)
 
     REC --> (RegisterParticipant)
 
