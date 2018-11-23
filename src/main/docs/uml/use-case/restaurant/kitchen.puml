@@ -33,6 +33,7 @@ rectangle "Kitchen Management System v 0.2" {
     (MenuView) <-- KS
     (MenuItemView) <-- KS
     (IngredientAll) <-- KS
+    (KitchenOrderView) <-- KS
 }
 
 @enduml

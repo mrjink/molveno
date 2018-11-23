@@ -14,7 +14,6 @@ rectangle "Restaurant Reservation System v 0.2" {
 
     Guest --> (TableAll)
     Guest --> (TableBook)
-'    Guest ..> (TableCourse) : optional
     (TableBook) .> (TableCourse) : optional
     Guest --> (TableCancel)
 

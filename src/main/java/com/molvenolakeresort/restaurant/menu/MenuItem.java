@@ -9,5 +9,7 @@ public class MenuItem {
 //    String name;
     // list ingredients -> mag leeg zijn zoals bijv bij cola.
 
+//    opm: belangrijk dat al het eten via restaurant wordt besteld en al het drinken namens bar.
+//        indien er dus voor bar eten moet worden besteld doet de FoH dit via restaurant
 
 }
