@@ -4,7 +4,8 @@ left to right direction
 
 actor Guest
 actor Employee
-actor Manager
+actor Administrator
+actor "General Manager" as GM
 
 rectangle "Authentication System" {
     (Logon to the system) as (Login)
@@ -17,8 +18,11 @@ rectangle "Authentication System" {
     (Login) <-- Employee
     (Logout) <-- Employee
 
-    (Login) <-- Manager
-    (Logout) <-- Manager
+    (Login) <-- Administrator
+    (Logout) <-- Administrator
+
+    GM --> (Login)
+    GM --> (Logout)
 }
 
 @enduml
