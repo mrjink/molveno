@@ -5,4 +5,7 @@ public class Ingredient {
 //    name
 //    unit
 //category
+    //supplier.
+
+    //2 unieke items met meerdere suppliers zijn 2 verschillende ingredienten.
 }
