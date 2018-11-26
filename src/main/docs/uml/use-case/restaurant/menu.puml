@@ -4,7 +4,7 @@ left to right direction
 
 actor Guest
 
-rectangle "Order from menu" {
+rectangle "Order from menu v 0.2" {
     Guest --> (View menu)
     Guest --> (Order food from menu)
     Guest --> (Order drink from menu)
