@@ -1,5 +1,5 @@
 @startuml
-rectangle "Events" #ffffee {
+rectangle "Events (Version 0.4)" #ffffee {
     !include "reservation.puml"
 }
 @enduml

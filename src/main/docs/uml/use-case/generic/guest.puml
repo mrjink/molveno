@@ -4,23 +4,35 @@ left to right direction
 
 actor Receptionist
 actor Guest
-actor Manager
+actor Administrator
+actor "General Manager" as GM
+actor "Security" as sec
 
 rectangle "Guest Administration System" {
     (Update guest information) as (Update)
+    (Subscribe guest to newsletter) as (news)
 
     (Register a guest) <-- Receptionist
     (View information of all guests) <-- Receptionist
-    (Delete guest information) <-- Receptionist
     (Update) <-- Receptionist
+    (news) <-- Receptionist
 
-    (Register a guest) <-- Manager
-    (View information of all guests) <-- Manager
-    (Delete guest information) <-- Manager
-    (Update) <-- Manager
+    (Register a guest) <-- Administrator
+    (View information of all guests) <-- Administrator
+    (Delete guest information) <-- Administrator
+    (Update) <-- Administrator
+    (news) <-- Administrator
+
+    GM --> (Register a guest)
+    GM --> (View information of all guests)
+    GM --> (Delete guest information)
+    GM --> (Update)
+    GM --> (news)
 
     Guest --> (Update)
     Guest --> (Subscribe to newsletter)
+
+    (View information of all guests) <-- sec
 }
 
 @enduml
