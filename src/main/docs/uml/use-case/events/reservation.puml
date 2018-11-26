@@ -2,9 +2,13 @@
 
 left to right direction
 
+
 actor "Internal Guest (Hotel)" as Guest
 actor "Event Manager" as EM
+actor "General Manager" as GM
 actor "External Guest" as EX
+actor "Receptionist" as REC
+actor Administrator
 
 rectangle "Event Reservation System" {
     (Register as a participant for an event) as (EventBook)
@@ -17,6 +21,9 @@ rectangle "Event Reservation System" {
     (Schedule an event) as (EventSchedule)
     (Delete an event) as (EventDelete)
     (Cancel an event due to circumstances) as (EventCancel)
+    (Register guest as a participant for an event) as (RegisterParticipant)
+    (View list of all participants of an event) as (ViewAll)
+    (Export events for each month) as (export)
 
     Guest --> (EventBook)
     Guest --> (EventReservationCancel)
@@ -31,6 +38,8 @@ rectangle "Event Reservation System" {
     (EventLanguage) <-- EX
     (Register contact information) <-- EX
 
+    (Send confirmation E-Mail) .> (EventBook)
+
     (EventAll) <-- EM
     (EventView) <-- EM
     (EventLanguage) <-- EM
@@ -40,7 +49,39 @@ rectangle "Event Reservation System" {
     (EventDelete) <-- EM
     (EventReservationCancel) <-- EM
     (EventCancel) <-- EM
-    (View list of all participants of an event) <-- EM
+    (ViewAll) <-- EM
+    (RegisterParticipant) <-- EM
+    (export) <-- EM
+
+    GM --> (EventAll)
+    GM --> (EventView)
+    GM --> (EventLanguage)
+    GM --> (EventCreate)
+    GM --> (EventChange)
+    GM --> (EventSchedule)
+    GM --> (EventDelete)
+    GM --> (EventReservationCancel)
+    GM --> (EventCancel)
+    GM --> (ViewAll)
+    GM --> (RegisterParticipant)
+    GM --> (export)
+
+    Administrator --> (EventAll)
+    Administrator --> (EventView)
+    Administrator --> (EventLanguage)
+    Administrator --> (EventCreate)
+    Administrator --> (EventChange)
+    Administrator --> (EventSchedule)
+    Administrator --> (EventDelete)
+    Administrator --> (EventReservationCancel)
+    Administrator --> (EventCancel)
+    Administrator --> (ViewAll)
+    Administrator --> (RegisterParticipant)
+    Administrator --> (export)
+
+    REC --> (RegisterParticipant)
+
+    (Send confirmation E-Mail) .> (RegisterParticipant)
 }
 
 @enduml
