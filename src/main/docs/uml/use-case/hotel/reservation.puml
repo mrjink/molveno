@@ -4,20 +4,31 @@ left to right direction
 
 actor Receptionist
 actor Guest
+actor Head.maid
 
 rectangle "Hotel Reservation System" {
     (Book room reservation for guest) as (RoomBook)
     (Cancel room reservation of guest) as (RoomCancel)
+    (Make a booking definitive) as (BookingDefinite)
     (See availability of a room) as (RoomAvailable)
     (See room occupancy) as (RoomOccupancy)
     (Pay room reservation) as (RoomPay)
     (View invoice) as (RoomInvoice)
+    (View Guest information) as (GuestInfo)
+    (Check-in) as (Checkin)
+    (Check-out) as (Checkout)
+    (Set status clean) as (StatusClean)
+    (Set status unclean) as (StatusUnclean)
 
     (RoomBook) <-- Receptionist
     (RoomCancel) <-- Receptionist
+    (BookingDefinite) <-- Receptionist
     (RoomAvailable) <-- Receptionist
     (RoomOccupancy) <-- Receptionist
     (RoomInvoice) <-- Receptionist
+    (GuestInfo) <--  Receptionist
+    (Checkin) <-- Receptionist
+    (Checkout) <-- Receptionist
 
     Guest --> (RoomBook)
     Guest --> (RoomCancel)
@@ -25,6 +36,10 @@ rectangle "Hotel Reservation System" {
     Guest --> (RoomOccupancy)
     Guest --> (RoomPay)
     Guest --> (RoomInvoice)
+    Head.maid--> (StatusClean)
+    Head.maid--> (StatusUnclean)
+
+
 }
 
 @enduml
