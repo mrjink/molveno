@@ -3,9 +3,21 @@
 left to right direction
 
 actor "Front of House" as FoH
-actor Chef
+actor "FoH and Chef" as FC
 
-rectangle "Beverage Supply Management System v 0.2" {
+rectangle "Food Supply Management System v0.3" {
+    (View all suppliers) as (RestaurantSupplyAll)
+    (View supplier) as (RestaurantSupplyView)
+    (Add supplier) as (RestaurantSupplyAdd)
+    (Modify supplier) as (RestaurantSupplyUpdate)
+
+    FC --> (RestaurantSupplyAll)
+    FC --> (RestaurantSupplyView)
+    FC --> (RestaurantSupplyAdd)
+    FC --> (RestaurantSupplyUpdate)
+}
+
+rectangle "Beverage Supply Management System v0.3" {
     (View all suppliers) as (BarSupplyAll)
     (View supplier) as (BarSupplyView)
     (Add supplier) as (BarSupplyAdd)
@@ -15,18 +27,6 @@ rectangle "Beverage Supply Management System v 0.2" {
     FoH --> (BarSupplyView)
     FoH --> (BarSupplyAdd)
     FoH --> (BarSupplyUpdate)
-}
-
-rectangle "Food Supply Management System" {
-    (View all suppliers) as (RestaurantSupplyAll)
-    (View supplier) as (RestaurantSupplyView)
-    (Add supplier) as (RestaurantSupplyAdd)
-    (Modify supplier) as (RestaurantSupplyUpdate)
-
-    Chef --> (RestaurantSupplyAll)
-    Chef --> (RestaurantSupplyView)
-    Chef --> (RestaurantSupplyAdd)
-    Chef --> (RestaurantSupplyUpdate)
 }
 
 @enduml
