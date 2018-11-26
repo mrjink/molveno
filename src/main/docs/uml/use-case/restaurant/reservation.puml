@@ -20,9 +20,12 @@ rectangle "Restaurant Reservation System v 0.2" {
 
     (TableBook) <-- Waiter
     (TableCancel) <-- Waiter
+    (TableAll) <-- Waiter
+
 
     (TableBook) <-- FoH
     (TableCancel) <-- FoH
+    (TableAll) <-- FoH
 
 }
 

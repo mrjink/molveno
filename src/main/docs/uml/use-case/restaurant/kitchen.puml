@@ -13,11 +13,10 @@ rectangle "Kitchen Management System v 0.2" {
     (Modify menu item) as (MenuItemUpdate)
 
     (View all ingredients) as (IngredientAll)
-    (View ingredient) as (IngredientView)
-    (Modify ingredient) as (IngredientUpdate)
+    (Modify ingredient order list) as (IngredientUpdate)
     (Order ingredients) as (IngredientOrder)
     (View orders) as (KitchenOrderView)
-    (Gram, amount, centilitre) as (IngredientQuantity)
+    (KG, Gram, pieces) as (IngredientQuantity)
 
     (IngredientOrder) .> (IngredientQuantity) : optional
 
@@ -27,7 +26,6 @@ rectangle "Kitchen Management System v 0.2" {
     Chef --> (MenuItemUpdate)
 
     Chef --> (IngredientAll)
-    Chef --> (IngredientView)
     Chef --> (IngredientUpdate)
     Chef --> (IngredientOrder)
     Chef --> (KitchenOrderView)
@@ -35,7 +33,6 @@ rectangle "Kitchen Management System v 0.2" {
     (MenuView) <-- KS
     (MenuItemView) <-- KS
     (IngredientAll) <-- KS
-    (IngredientView) <-- KS
 }
 
 @enduml

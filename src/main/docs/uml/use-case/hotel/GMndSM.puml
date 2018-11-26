@@ -1,0 +1,51 @@
+@startuml
+
+left to right direction
+
+actor General.Manager
+actor Security.Guard
+
+
+rectangle "Hotel Reservation System" {
+    (Book room reservation for guest) as (RoomBook)
+    (Cancel room reservation of guest) as (RoomCancel)
+    (Make a booking definitive) as (BookingDefinite)
+    (See availability of a room) as (RoomAvailable)
+    (See room occupancy) as (RoomOccupancy)
+    (Pay room reservation) as (RoomPay)
+    (View invoice) as (RoomInvoice)
+    (View Guest information) as (GuestInfo)
+    (Check-in) as (Checkin)
+    (Check-out) as (Checkout)
+    (Set Room availability) as (SetRoomAvailable)
+    (Set status clean) as (StatusClean)
+    (Set status unclean) as (StatusUnclean)
+
+    (RoomBook) <-- General.Manager
+    (RoomCancel) <-- General.Manager
+    (BookingDefinite) <-- General.Manager
+    (RoomAvailable) <-- General.Manager
+    (RoomOccupancy) <-- General.Manager
+    (RoomInvoice) <-- General.Manager
+    (RoomPay) <-- General.Manager
+    (StatusClean) <-- General.Manager
+    (StatusUnclean) <-- General.Manager
+    (GuestInfo) <-- General.Manager
+    (Checkin) <-- General.Manager
+    (Checkout) <-- General.Manager
+    (SetRoomAvailable) <-- General.Manager
+
+     Security.Guard --> (RoomBook)
+     Security.Guard --> (RoomCancel)
+     Security.Guard --> (RoomAvailable)
+     Security.Guard --> (RoomOccupancy)
+     Security.Guard --> (RoomInvoice)
+     Security.Guard --> (RoomPay)
+     Security.Guard --> (GuestInfo)
+     Security.Guard --> (Checkin)
+     Security.Guard --> (Checkout)
+
+
+}
+
+@enduml
