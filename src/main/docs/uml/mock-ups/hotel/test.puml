@@ -8,6 +8,6 @@ salt
   []  Unchecked box
   [X] Checked box
   "Enter text here   "
-  ^This is a droplist^
+  ^This is a droplist^.
 }
 @enduml
