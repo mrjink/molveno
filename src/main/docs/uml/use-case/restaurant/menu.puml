@@ -2,9 +2,9 @@
 
 left to right direction
 
-actor Guest
+actor "Hotel/Walk-in guest" as Guest
 
-rectangle "Order from menu v 0.2" {
+rectangle "Order from menu v0.3" {
     Guest --> (View menu)
     Guest --> (Order food from menu)
     Guest --> (Order drink from menu)

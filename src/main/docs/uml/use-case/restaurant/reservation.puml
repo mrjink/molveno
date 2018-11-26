@@ -4,13 +4,16 @@ left to right direction
 
 actor "Front of House" as FoH
 actor Waiter
-actor Guest
+actor "Hotel/Walk-in guest" as Guest
 
-rectangle "Restaurant Reservation System v 0.2" {
+rectangle "Reservation System v0.3" {
     (View available dates) as (TableAll)
     (Book table reservation for guest) as (TableBook)
     (Select 3-, 5-, 7-course menu) as (TableCourse)
     (Cancel table reservation of guest) as (TableCancel)
+    (Edit table) as (EditTable)
+    (View reservation) as (ViewReservation)
+    (Modify reservation) as (ModifyReservation)
 
     Guest --> (TableAll)
     Guest --> (TableBook)
@@ -19,13 +22,14 @@ rectangle "Restaurant Reservation System v 0.2" {
 
     (TableBook) <-- Waiter
     (TableCancel) <-- Waiter
-    (TableAll) <-- Waiter
-
+    (EditTable) <--  Waiter
+    (ViewReservation) <--  Waiter
 
     (TableBook) <-- FoH
     (TableCancel) <-- FoH
-    (TableAll) <-- FoH
-
+    (EditTable) <--  FoH
+    (ViewReservation) <--  FoH
+    (ModifyReservation) <--  FoH
 }
 
 @enduml
