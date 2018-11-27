@@ -1,6 +1,8 @@
 package com.molvenolakeresort.restaurant.stock;
 
+import com.molvenolakeresort.restaurant.order.OrderItem;
+
 public class SupplyOrderItem {
-//    SupplyOrderItem
-//    Quantity
+    private OrderItem orderItem;
+    private int quantity;
 }
