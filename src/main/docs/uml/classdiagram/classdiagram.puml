@@ -1,26 +1,54 @@
 @startuml
 
-abstract class AbstractList
-abstract AbstractCollection
-interface List
-interface Collection
-
-List <|-- AbstractList
-Collection <|-- AbstractCollection
-
-Collection <|- List
-AbstractCollection <|- AbstractList
-AbstractList <|-- ArrayList
-
-class ArrayList {
-Object[] elementData
-size()
+interface User{
+    long id
+    String firstName
+    String middleName
+    String lastName
+    String emailAdress
 }
 
-enum TimeUnit {
-DAYS
-HOURS
-MINUTES
+class Guest{
+    Date birthDate
+    String adress
+    String homeNumber
+    String buildingName
+    String postalCode
+    String country
+    String phoneNumber
+    String password
+    boolean isSubscribedToNews
 }
+
+class Participant{
+
+}
+
+class Visitor{
+
+}
+User <|-- Participant
+User <|-- Guest
+User <|-- Visitor
+
+package Event {
+    class Event{
+        long id
+        Hashmap<String language, String eventName>
+        Hashmap<String language, String activity>
+        Hashmap<String language, String eventInformation>
+        DateTime startDate
+        DateTime endDate
+        String location
+        List<Participant> participants
+        int maxParticipants
+        long price
+        boolean catering
+    }
+
+}
+
+Event -- Participant
+
 
 @enduml
