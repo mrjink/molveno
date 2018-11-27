@@ -3,18 +3,22 @@
 left to right direction
 
 actor "Front of House" as FoH
-actor Guest
+actor "Walk-in guest" as WG
+actor "Hotel guest" as HG
 actor Waiter
 
-rectangle "Restaurant Billing System v 0.2" {
+rectangle "Billing System v0.3" {
     (View restaurant bill) as (TableBillView)
     (Pay restaurant bill) as (TableBillPay)
     (Print restaurant bill) as (TableBillPrint)
     (Add bill to existing hotel invoice) as (TableBillAdd)
 
-    Guest --> (TableBillView)
-    Guest --> (TableBillPay)
-    Guest --> (TableBillAdd)
+    WG --> (TableBillView)
+    WG --> (TableBillPay)
+
+    HG --> (TableBillView)
+    HG --> (TableBillPay)
+    HG --> (TableBillAdd)
 
     (TableBillView) <-- FoH
     (TableBillPrint) <-- FoH

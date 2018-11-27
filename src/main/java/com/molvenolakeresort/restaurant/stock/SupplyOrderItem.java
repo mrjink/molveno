@@ -1,6 +1,6 @@
 package com.molvenolakeresort.restaurant.stock;
 
-public class SupplyItem {
-//    SupplyItem
+public class SupplyOrderItem {
+//    SupplyOrderItem
 //    Quantity
 }
