@@ -24,10 +24,6 @@ class Participant{
 
 }
 
-class Visitor{
-
-}
-User <|-- Participant
 User <|-- Guest
 User <|-- Visitor
 
@@ -48,7 +44,6 @@ package Event {
 
 }
 
-Event -- Participant
-
+Event -- User
 
 @enduml
