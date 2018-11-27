@@ -1,9 +1,15 @@
 package com.molvenolakeresort.restaurant.order;
 
+import com.molvenolakeresort.restaurant.enums.DestinationType;
+import com.molvenolakeresort.restaurant.enums.Status;
+
+import java.util.List;
+
 public class Order {
-//    destinationType (roomservice, restaurant, bar)
-//    String destinationID (tableId of roomid)
-//        list orderitem
-//    status (ontvangen, wordt bereid, klaar, afgeleverd, betaald(?))
-//    int totalprice
+    private int id;
+    private DestinationType destination;
+    private String destinationId;
+    private List<OrderItem> orderItems;
+    private Status status;
+    private int totalPrice;
 }
