@@ -1,0 +1,10 @@
+@startuml
+class EventBezoeker
+
+
+class Event {
+Object[] ListEventBezoekers
+
+}
+
+@enduml
