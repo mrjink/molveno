@@ -5,4 +5,5 @@ public class Order {
 //    String destinationID (tableId of roomid)
 //        list orderitem
 //    status (ontvangen, wordt bereid, klaar, afgeleverd, betaald(?))
+//    int totalprice
 }

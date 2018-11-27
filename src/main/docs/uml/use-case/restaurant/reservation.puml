@@ -20,11 +20,13 @@ rectangle "Reservation System v0.3" {
     (TableBook) .> (TableCourse) : optional
     Guest --> (TableCancel)
 
+    (TableAll) <-- Waiter
     (TableBook) <-- Waiter
     (TableCancel) <-- Waiter
     (EditTable) <--  Waiter
     (ViewReservation) <--  Waiter
 
+    (TableAll) <-- FoH
     (TableBook) <-- FoH
     (TableCancel) <-- FoH
     (EditTable) <--  FoH
