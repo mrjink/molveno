@@ -1,7 +1,8 @@
 package com.molvenolakeresort.restaurant.stock;
 
 public class Supplier {
-//    id
-    //name
-    //contactinfo
+    private int id;
+    private String name;
+    private String email;
+    private String telephone;
 }
