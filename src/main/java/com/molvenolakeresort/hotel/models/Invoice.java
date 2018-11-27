@@ -1,8 +1,6 @@
 package com.molvenolakeresort.hotel.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Invoice {
@@ -12,7 +10,9 @@ public class Invoice {
     private int id;
     private String billNumber;
     private String payType;
-//    private Invoice invoice;
+    @ManyToOne
+    @JoinColumn
+    private Invoice parentInvoice;
     private boolean isPaid;
     private String deposit;
     private boolean isDepositPaid;
@@ -62,5 +62,13 @@ public class Invoice {
 
     public void setDepositPaid(boolean depositPaid) {
         isDepositPaid = depositPaid;
+    }
+
+    public Invoice getParentInvoice() {
+        return parentInvoice;
+    }
+
+    public void setParentInvoice(Invoice parentInvoice) {
+        this.parentInvoice = parentInvoice;
     }
 }

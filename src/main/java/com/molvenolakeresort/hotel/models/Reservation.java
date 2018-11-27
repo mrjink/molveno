@@ -1,8 +1,6 @@
 package com.molvenolakeresort.hotel.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -14,7 +12,10 @@ public class Reservation {
     private LocalDateTime bookedDate;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private Invoice reservationInvoice;
+
+    @ManyToOne
+    @JoinColumn
+    private Invoice invoice;
 
     public Reservation() {
     }
@@ -47,11 +48,11 @@ public class Reservation {
         this.endDate = endDate;
     }
 
-    public Invoice getReservationInvoice() {
-        return reservationInvoice;
+    public Invoice getInvoice() {
+        return invoice;
     }
 
-    public void setReservationInvoice(Invoice reservationInvoice) {
-        this.reservationInvoice = reservationInvoice;
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
     }
 }

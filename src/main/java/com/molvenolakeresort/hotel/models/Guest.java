@@ -11,7 +11,7 @@ public class Guest {
     private String firstName;
     private String lastName;
     @ManyToOne
-    @JoinColumn ()
+    @JoinColumn
     private Address address;
     private String phoneNumber;
     private String email;
@@ -75,4 +75,6 @@ public class Guest {
     public void setNewsletterSubscribed(boolean newsletterSubscribed) {
         this.newsletterSubscribed = newsletterSubscribed;
     }
+
+
 }
