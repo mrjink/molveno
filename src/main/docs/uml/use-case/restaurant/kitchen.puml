@@ -2,12 +2,13 @@
 
 left to right direction
 
-actor Chef
+actor "FoH and Chef" as FC
 actor "Kitchen Staff" as KS
 
-rectangle "Kitchen Management System v 0.2" {
+rectangle "Kitchen Management System v0.3" {
     (View menu) as (MenuView)
     (Modify menu) as (MenuUpdate)
+    
 
     (View menu item) as (MenuItemView)
     (Modify menu item) as (MenuItemUpdate)
@@ -20,19 +21,19 @@ rectangle "Kitchen Management System v 0.2" {
 
     (IngredientOrder) .> (IngredientQuantity) : optional
 
-    Chef --> (MenuView)
-    Chef --> (MenuUpdate)
-    Chef --> (MenuItemView)
-    Chef --> (MenuItemUpdate)
-
-    Chef --> (IngredientAll)
-    Chef --> (IngredientUpdate)
-    Chef --> (IngredientOrder)
-    Chef --> (KitchenOrderView)
+    FC --> (MenuView)
+    FC --> (MenuUpdate)
+    FC --> (MenuItemView)
+    FC --> (MenuItemUpdate)
+    FC --> (IngredientAll)
+    FC --> (IngredientUpdate)
+    FC --> (IngredientOrder)
+    FC --> (KitchenOrderView)
 
     (MenuView) <-- KS
     (MenuItemView) <-- KS
     (IngredientAll) <-- KS
+    (KitchenOrderView) <-- KS
 }
 
 @enduml

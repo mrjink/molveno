@@ -1,8 +1,10 @@
 @startuml
-rectangle "Restaurant v0.2" #eeeeff {
+rectangle "Restaurant v0.3" #eeeeff {
     !include "reservation.puml"
     !include "menu.puml"
     !include "billing.puml"
     !include "kitchen.puml"
+    !include "bar.puml"
+    !include "supplier.puml"
 }
 @enduml
