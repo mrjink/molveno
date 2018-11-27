@@ -5,7 +5,7 @@ left to right direction
 actor "Front of House" as FoH
 actor Waiter
 
-rectangle "Food & Beverage Management System" {
+rectangle "Food & Beverage Management System v 0.2" {
     (View menu) as (MenuView)
     (Modify menu) as (MenuUpdate)
 
@@ -13,12 +13,10 @@ rectangle "Food & Beverage Management System" {
     (Modify menu item) as (MenuItemUpdate)
 
     (View all ingredients) as (IngredientAll)
-    (View ingredient) as (IngredientView)
-    (Modify ingredient) as (IngredientUpdate)
+    (Modify ingredient order list) as (IngredientUpdate)
     (Order ingredients) as (IngredientOrder)
     (View orders) as (BarOrderView)
     (KG, Gram, pieces) as (IngredientQuantity)
-
     (IngredientOrder) .> (IngredientQuantity) : optional
 
     FoH --> (MenuView)
@@ -27,7 +25,6 @@ rectangle "Food & Beverage Management System" {
     FoH --> (MenuItemUpdate)
 
     FoH --> (IngredientAll)
-    FoH --> (IngredientView)
     FoH --> (IngredientUpdate)
     FoH --> (IngredientOrder)
     FoH --> (BarOrderView)
@@ -35,7 +32,6 @@ rectangle "Food & Beverage Management System" {
     (MenuView) <-- Waiter
     (MenuItemView) <-- Waiter
     (IngredientAll) <-- Waiter
-    (IngredientView) <-- Waiter
     (BarOrderView) <-- Waiter
 }
 
