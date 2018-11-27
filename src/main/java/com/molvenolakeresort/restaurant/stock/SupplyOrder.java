@@ -1,9 +1,14 @@
 package com.molvenolakeresort.restaurant.stock;
 
+import com.molvenolakeresort.restaurant.enums.Status;
+
+import java.util.Date;
+import java.util.List;
+
 public class SupplyOrder {
-//    status
-//   list suplpyorderitem
-//    supplier
-    //leverdatum
-//    orderdatum
+    private Status status;
+    private List<SupplyOrderItem> supplyOrderItems;
+    private Supplier supplier;
+    private Date deliveryDate;
+    private Date orderDate;
 }

@@ -1,11 +1,14 @@
 package com.molvenolakeresort.restaurant.stock;
 
-public class Ingredient {
-    //type (food, drink)
-//    name
-//    unit
-//category
-    //supplier.
+import com.molvenolakeresort.restaurant.enums.MenuCategory;
+import com.molvenolakeresort.restaurant.enums.MenuItemType;
+import com.molvenolakeresort.restaurant.enums.Unit;
 
-    //2 unieke items met meerdere suppliers zijn 2 verschillende ingredienten.
+public class Ingredient {
+    private int id;
+    private MenuItemType type;
+    private String name;
+    private Unit unit;
+    private MenuCategory category;
+    private Supplier supplier;
 }
