@@ -2,6 +2,8 @@ package com.molvenolakeresort.hotel.models;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Reservation {
@@ -13,10 +15,25 @@ public class Reservation {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn
     private Invoice invoice;
 
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            },
+            mappedBy = "reservations")
+    private Set<Guest> guests = new HashSet<>();
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            },
+            mappedBy = "reservations")
+    private Set<Room> rooms = new HashSet<>();
     public Reservation() {
     }
 
@@ -54,5 +71,13 @@ public class Reservation {
 
     public void setInvoice(Invoice invoice) {
         this.invoice = invoice;
+    }
+
+    public Set<Guest> getGuests() {
+        return guests;
+    }
+
+    public void setGuests(Set<Guest> guests) {
+        this.guests = guests;
     }
 }

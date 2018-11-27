@@ -1,6 +1,8 @@
 package com.molvenolakeresort.hotel.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Guest {
@@ -17,8 +19,19 @@ public class Guest {
     private String email;
     private boolean newsletterSubscribed;
 
+
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            })
+    @JoinTable(name = "ReservationGuest",
+            joinColumns = { @JoinColumn },
+            inverseJoinColumns = { @JoinColumn })
+    private Set<Reservation> reservations = new HashSet<>();
     public Guest() {
     }
+
 
     public int getId() {
         return id;
@@ -76,5 +89,11 @@ public class Guest {
         this.newsletterSubscribed = newsletterSubscribed;
     }
 
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
 
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 }
