@@ -88,9 +88,10 @@
 
             <h2>Your reservation</h2>
             <p>
-
-                Amount of people <input type="number" class="form-control" name="people">
+                Amount of people <input type="number" class="form-control" name="people" min="1" max="12">
+                <!--TODO: Show only available dates-->
                 Date <input type="date" class="form-control" name="date">
+                <!--TODO: Time slots (variates per day) -->
                 Time <input type="time" class="form-control" name="time">
             </p>
             <h2>Your information</h2>
