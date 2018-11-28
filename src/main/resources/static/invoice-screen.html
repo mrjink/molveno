@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
 </head>
 <body>
+<style>
+
+</style>
 <div class="container-fluid">
     <div class="row" role="heading">
         <header id="header" class="col-xs-12">
@@ -20,18 +23,29 @@
 <div class="container-fluid">
     <div role="heading">
         <header class="col-xs-12">
-         </header>
-        <div class="row">Hier komt een search Bar</div>
-        <div class="row">Hier komt een search Bar</div>
-        <div class="row">Hier komt een search Bar</div>
+        </header>
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0 btnroominfo" type="submit">Search</button>
+            </form>
+        </nav>
+        <div class="row">
+            <div class="input-group-text roominfocheckboxes">
+                <input type="checkbox" aria-label="Checkbox for following text input">Filter booked rooms
+            </div>
+            <div class="input-group-text roominfocheckboxes">
+                <input type="checkbox" aria-label="Checkbox for following text input">Filter empty rooms
+            </div>
+        </div>
     </div>
 </div>
 <div class="container-fluid">
     <div class="table-wrapper-scroll-y">
-        <table class="table table-bordered">
+        <table class="table table-hover table-bordered">
             <div class="w-auto p-3" style="background-color: #eee;">
                 <thead>
-                <tr>
+                <tr id="g315">
                     <th scope="col"><b>Room No.</b></th>
                     <th scope="col"><b>Last Name</b></th>
                     <th scope="col"><b>First Name</b></th>
@@ -184,6 +198,7 @@
     </div>
 </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -195,4 +210,5 @@
         crossorigin="anonymous"></script>
 
 </body>
+<footer></footer>
 </html>
