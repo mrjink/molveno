@@ -59,9 +59,10 @@ a.pill:hover{
     margin: 0;
     padding: 0;
     top: 0;
-    height: 80px;
+    height: 60px;
     width: 100%;
     background-color: #006EAD;
+    position: fixed;
 }
 
 a.nav-item{
@@ -69,10 +70,11 @@ a.nav-item{
     color: white;
     background-color: #006EAD;
     padding: 10px;
-    top: 25px;
+    top: 20px;
     position: relative;
     border: none;
 }
+
 a.nav-item:hover{
     font-weight: bolder;
     color: #0084C4;
@@ -93,17 +95,35 @@ li{
     padding: 0;
 }
 
+.logo{
+    background-image: url("../img/logo-whitebg.png");
+    float: left;
+    margin-left: 10px;
+    display: block;
+    min-heigth: 60px;
+    min-width: 60px;
+    max-heigth: 60px;
+    max-width: 60px;
+    height: 60px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.nav-settings{
+    float: right;
+}
+
 .btn-login{
     font-weight: bolder;
     color: #145e00;
     background-color: #71EA19;
     padding: 10px;
-    top: 20px;
+    top: 10px;
     position: relative;
     border: none;
     border-radius: 4px;
-    float: right;
     margin-right: 10px;
+    float: left;
 }
 
 .btn-register{
@@ -111,12 +131,35 @@ li{
     color: #005693;
     background-color: white;
     padding: 10px;
+    top: 10px;
+    position: relative;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    float: left;
+}
+
+.btn-flag{
+    font-weight: bolder;
     top: 20px;
     position: relative;
     border: none;
     border-radius: 4px;
-    float: right;
     margin-right: 10px;
+    transition: 0.5s;
+    min-width: 40px;
+    min-height: 20px;
+    width: 40px;
+    height: 20px;
+    float: left;
+}
+
+.btn-flag:hover{
+    font-weight: bolder;
+    top: 15px;
+    width: 60px;
+    height: 30px;
+    display: block;
 }
 
 .btn-register:hover{

@@ -1,6 +1,6 @@
-package com.molvenolakeresort.restaurant.order;
+package com.molvenolakeresort.models.restaurant.order;
 
-import com.molvenolakeresort.restaurant.menu.MenuItem;
+import com.molvenolakeresort.models.restaurant.menu.MenuItem;
 
 public class OrderItem {
 //    MenuItem
