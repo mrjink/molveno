@@ -10,6 +10,11 @@ public class Invoice {
     private int id;
     private String billNumber;
     private String payType;
+
+
+    @OneToOne(mappedBy = "invoice")
+    private Reservation reservation;
+
     @ManyToOne
     @JoinColumn
     private Invoice parentInvoice;
@@ -70,5 +75,13 @@ public class Invoice {
 
     public void setParentInvoice(Invoice parentInvoice) {
         this.parentInvoice = parentInvoice;
+    }
+
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
     }
 }
