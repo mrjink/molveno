@@ -1,7 +1,9 @@
 package com.molvenolakeresort.event;
 
+import javax.persistence.Entity;
 import java.time.LocalDate;
 
+@Entity
 public class Guest implements User {
     LocalDate birthDate;
     String adress;
