@@ -1,11 +1,10 @@
 package com.molvenolakeresort.models.restaurant;
 
+import com.molvenolakeresort.models.kitchen.restaurant.Reservation;
 import com.molvenolakeresort.restaurant.enums.TableShape;
-import org.apache.tomcat.jni.Library;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity

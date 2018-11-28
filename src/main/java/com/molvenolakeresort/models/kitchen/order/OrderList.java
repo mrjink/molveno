@@ -1,4 +1,6 @@
-package com.molvenolakeresort.restaurant.order;
+package com.molvenolakeresort.models.kitchen.order;
+
+import com.molvenolakeresort.models.restaurant.order.OrderItem;
 
 import java.util.List;
 

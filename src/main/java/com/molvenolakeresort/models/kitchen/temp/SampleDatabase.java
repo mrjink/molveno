@@ -1,18 +1,11 @@
-package com.molvenolakeresort.restaurant.temp;
+package com.molvenolakeresort.models.kitchen.temp;
 
 
-
-import com.molvenolakeresort.restaurant.enums.Course;
-import com.molvenolakeresort.restaurant.restaurant.Reservation;
-import com.molvenolakeresort.restaurant.restaurant.ReservationRepository;
+import com.molvenolakeresort.models.kitchen.restaurant.ReservationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.sql.Date;
-import java.sql.Time;
-import java.util.Calendar;
 
 @Configuration
 @Slf4j

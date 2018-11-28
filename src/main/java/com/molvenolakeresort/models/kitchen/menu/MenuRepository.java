@@ -1,4 +1,7 @@
-package com.molvenolakeresort.restaurant.menu;
+package com.molvenolakeresort.models.kitchen.menu;
+
+import com.molvenolakeresort.models.restaurant.menu.Menu;
+import com.molvenolakeresort.models.restaurant.menu.MenuItem;
 
 import java.util.List;
 

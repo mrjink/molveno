@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.restaurant;
+package com.molvenolakeresort.models.kitchen.restaurant;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

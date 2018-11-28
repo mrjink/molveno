@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.restaurant;
+package com.molvenolakeresort.models.kitchen.restaurant;
 
 import com.molvenolakeresort.restaurant.enums.Course;
 import com.molvenolakeresort.restaurant.temp.User;

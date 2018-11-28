@@ -1,6 +1,6 @@
-package com.molvenolakeresort.restaurant.stock;
+package com.molvenolakeresort.models.kitchen.stock;
 
-import com.molvenolakeresort.restaurant.order.OrderItem;
+import com.molvenolakeresort.models.restaurant.order.OrderItem;
 
 public class SupplyOrderItem {
     private OrderItem orderItem;
