@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.stock;
+package com.molvenolakeresort.models.kitchen.stock;
 
 import java.util.LinkedHashMap;
 

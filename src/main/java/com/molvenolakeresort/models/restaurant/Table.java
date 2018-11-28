@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.restaurant;
+package com.molvenolakeresort.models.restaurant;
 
 import com.molvenolakeresort.restaurant.enums.TableShape;
 import org.apache.tomcat.jni.Library;

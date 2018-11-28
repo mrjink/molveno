@@ -1,4 +1,4 @@
-package com.molvenolakeresort.hotel.models;
+package com.molvenolakeresort.models.hotel;
 
 import javax.persistence.*;
 

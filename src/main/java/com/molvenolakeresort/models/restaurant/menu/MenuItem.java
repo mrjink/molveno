@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.menu;
+package com.molvenolakeresort.models.restaurant.menu;
 
 import com.molvenolakeresort.restaurant.enums.MenuCategory;
 import com.molvenolakeresort.restaurant.enums.MenuItemType;

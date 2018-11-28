@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.order;
+package com.molvenolakeresort.models.restaurant.order;
 
 import com.molvenolakeresort.restaurant.enums.DestinationType;
 import com.molvenolakeresort.restaurant.enums.Status;
