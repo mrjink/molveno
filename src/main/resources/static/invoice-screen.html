@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,9 +10,6 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
 </head>
 <body>
-<style>
-
-</style>
 <div class="container-fluid">
     <div class="row" role="heading">
         <header id="header" class="col-xs-12">
@@ -30,20 +27,23 @@
                 <button class="btn btn-outline-success my-2 my-sm-0 btnroominfo" type="submit">Search</button>
             </form>
         </nav>
-        <div class="row">
+        <div class="row" style="margin-top: 15px;">
+            <div style="margin-left: 10px;"></div>
             <div class="input-group-text roominfocheckboxes">
-                <input type="checkbox" aria-label="Checkbox for following text input">Filter booked rooms
+                <input type="checkbox" aria-label="Checkbox for following text input">
+                <div style="margin-left: 10px;">Filter empty rooms</div>
             </div>
+            <div style="margin-left: 10px;"></div>
             <div class="input-group-text roominfocheckboxes">
-                <input type="checkbox" aria-label="Checkbox for following text input">Filter empty rooms
+                <input type="checkbox" aria-label="Checkbox for following text input">
+                <div style="margin-left: 10px;">Filter empty rooms</div>
             </div>
         </div>
     </div>
 </div>
-<div class="container-fluid">
+<div class="container-fluid"  style="margin-top: 15px;">
     <div class="table-wrapper-scroll-y">
         <table class="table table-hover table-bordered">
-            <div class="w-auto p-3" style="background-color: #eee;">
                 <thead>
                 <tr id="g315">
                     <th scope="col"><b>Room No.</b></th>
@@ -177,12 +177,14 @@
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>
+                    <td>-</td>
                     <td>Clean</td>
                     <td></td>
                     <td>Yes</td>
                 </tr>
                 <tr>
                     <td><b>#110</b></td>
+                    <td>-</td>
                     <td>-</td>
                     <td>-</td>
                     <td>-</td>

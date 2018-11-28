@@ -26,7 +26,7 @@
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #eeeeee;
 }
 
 .container, .container-fluid {
@@ -119,11 +119,13 @@ li a:hover {
 table {
     border-radius: 5px;
     width: 100%;
-    margin: auto;
+
+    margin: margin-top 15px;
 }
 
 .roominfocheckboxes {
 border-color: #005693;
+color: #005693;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
