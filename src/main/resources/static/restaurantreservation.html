@@ -86,12 +86,32 @@
 
         <main id="content" class="col-xs-12">
 
-            <h1>Reserve a table</h1>
-            <p>Choose an available date</p>
-
-            <div class="input-group date">
-                <input type="date" class="form-control">
-            </div>
+            <h2>Your reservation</h2>
+            <p>
+                Amount of people <input type="number" class="form-control" name="people" min="1" max="12">
+                <!--TODO: Show only available dates-->
+                Date <input type="date" class="form-control" name="date">
+                <!--TODO: Time slots (variates per day) -->
+                Time <input type="time" class="form-control" name="time">
+            </p>
+            <h2>Your information</h2>
+            <p>
+                <span class="subtitle">Fill in your contact details below (no account necessary). Or <b>log in</b> / <b>register</b></span>
+                Name
+                <input type="text" class="form-control" name="name">
+                Phone
+                <input type="tel" class="form-control" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+                E-mail
+                <input type="email" class="form-control" name="email">
+                Courses[info]
+                <select class="form-control" name="course">
+                    <option value="0">Unspecified</option>
+                    <option value="3">3-course menu</option>
+                    <option value="5">5-course menu</option>
+                    <option value="7">7-course menu</option>
+                </select>
+            </p>
+            <input type="submit" name="reserve" value="Submit">
         </main>
     </div>
     <!--FOOTER-->
