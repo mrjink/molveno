@@ -113,3 +113,9 @@ li a:hover {
     background-color: #006ead;
     color: #ffffff;
 }
+
+table {
+    border-radius: 5px;
+    width: 100%;
+    margin: 0px auto;
+}
