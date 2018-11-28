@@ -9,10 +9,10 @@ import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 
-@Entity
+//@Entity
 public class Event {
-    @Id
-    @GeneratedValue
+    //@Id
+    //@GeneratedValue
     private long id;
     LocalDateTime startDate;
     LocalDateTime endData;

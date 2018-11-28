@@ -4,10 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+//@Entity
 public interface User {
-    @Id
-    @GeneratedValue
+    //@Id
+    //@GeneratedValue
     long id = 0;
     String firstName = "";
     String middleName = "";
