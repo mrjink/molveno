@@ -28,7 +28,6 @@ class SampleDatabase {
 
 //            Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 //            Time time = new Time(20000000);
-
 //            repository.save(new Reservation(user1, date, time, Course.NONE));
 //            repository.save(new Reservation(user2, date, time, Course.FIVE));
         };
