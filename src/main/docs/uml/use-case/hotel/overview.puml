@@ -1,5 +1,5 @@
 @startuml
-rectangle "Hotel" #ffeeee {
+rectangle "Hotel (Version 0.3)" #ffeeee {
     !include "reservation.puml"
     !include "roomservice.puml"
 }

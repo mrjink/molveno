@@ -12,35 +12,38 @@ rectangle "Hotel Reservation System" {
     (Make a booking definitive) as (BookingDefinite)
     (See availability of a room) as (RoomAvailable)
     (See room occupancy) as (RoomOccupancy)
-    (Pay room reservation) as (RoomPay)
+    (See room information) as (RoomInfo)
     (View invoice) as (RoomInvoice)
+    (Print invoice) as (PrintInvoice)
     (View Guest information) as (GuestInfo)
     (Check-in) as (Checkin)
     (Check-out) as (Checkout)
     (Set Room availability) as (SetRoomAvailable)
     (Set status clean) as (StatusClean)
-    (Set status unclean) as (StatusUnclean)
+    (Set status to clean) as (StatusToclean)
+    (Enlist guest for newsletter) as (NewsLetter)
 
     (RoomBook) <-- General.Manager
     (RoomCancel) <-- General.Manager
     (BookingDefinite) <-- General.Manager
     (RoomAvailable) <-- General.Manager
     (RoomOccupancy) <-- General.Manager
+    (RoomInfo) <-- General.Manager
     (RoomInvoice) <-- General.Manager
-    (RoomPay) <-- General.Manager
+    (PrintInvoice) <-- General.Manager
     (StatusClean) <-- General.Manager
-    (StatusUnclean) <-- General.Manager
+    (StatusToclean) <-- General.Manager
     (GuestInfo) <-- General.Manager
     (Checkin) <-- General.Manager
     (Checkout) <-- General.Manager
     (SetRoomAvailable) <-- General.Manager
+    (NewsLetter) <-- General.Manager
 
-     Security.Guard --> (RoomBook)
-     Security.Guard --> (RoomCancel)
      Security.Guard --> (RoomAvailable)
      Security.Guard --> (RoomOccupancy)
+     Security.Guard --> (RoomInfo)
      Security.Guard --> (RoomInvoice)
-     Security.Guard --> (RoomPay)
+     Security.Guard --> (PrintInvoice)
      Security.Guard --> (GuestInfo)
      Security.Guard --> (Checkin)
      Security.Guard --> (Checkout)

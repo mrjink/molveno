@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.restaurant;
+package com.molvenolakeresort.models.restaurant;
 
 public class Table {
 //    id
