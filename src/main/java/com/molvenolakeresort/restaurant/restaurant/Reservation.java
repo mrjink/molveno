@@ -2,15 +2,13 @@ package com.molvenolakeresort.restaurant.restaurant;
 
 import com.molvenolakeresort.restaurant.enums.Course;
 import com.molvenolakeresort.restaurant.temp.User;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.sql.Time;
 import java.sql.Date;
 import java.util.List;
 
 import lombok.Data;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 
 @Data
 @Entity
@@ -23,22 +21,24 @@ public class Reservation {
     private String time;
     private Course course;
 
-    @OneToOne
-    private Table table;
+    @OneToMany(mappedBy = "reservation")
+    private List<Table> tables;
 
-    public Reservation(User user, String date, String time, Course course) {
+    public Reservation(User user, String date, String time, Course course, List<Table> tables) {
         this.user = user;
         this.date = date;
         this.time = time;
+        //deze strings omzetten naar timestamp.
         this.course = course;
+        this.tables = tables;
     }
 
     public User getUser() {
         return user;
     }
 
-    public Table getTable() {
-        return table;
+    public List<Table> getTables() {
+        return tables;
     }
 
     public String getDate() {
