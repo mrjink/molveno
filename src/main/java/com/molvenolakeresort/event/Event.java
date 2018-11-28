@@ -8,17 +8,18 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
-//@Entity
+@Entity
 public class Event {
-    //@Id
-    //@GeneratedValue
+    @Id
+    @GeneratedValue
     private long id;
     LocalDateTime startDate;
     LocalDateTime endData;
     String adress;
     //@OneToMany
-    List<User> users;
+    //Set<User> users;
     int maxParticipants;
     long price;
     boolean catering;
@@ -88,13 +89,7 @@ public class Event {
         this.eventinformationCollection = eventinformationCollection;
     }
 
-    public List<User> getUsers() {
-        return users;
-    }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
 
     public int getMaxParticipants() {
         return maxParticipants;
