@@ -1,8 +1,6 @@
 package com.molvenolakeresort.event.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
@@ -14,12 +12,14 @@ public class Event {
     @GeneratedValue
     long id;
     LocalDateTime startDate;
-    LocalDateTime endData;
-    String adress;
+    LocalDateTime endDate;
+    String address;
+    @OneToMany
     List<User> users;
     int maxUsers;
     long price;
     boolean catering;
+    String location;
 
     //Hashmap for the language and the eventname
     HashMap<String, String> eventnameCollection = new HashMap<String, String>();
@@ -62,20 +62,20 @@ public class Event {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndData() {
-        return endData;
+    public LocalDateTime getEndDate() {
+        return endDate;
     }
 
-    public void setEndData(LocalDateTime endData) {
-        this.endData = endData;
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public HashMap<String, String> getEventinformationCollection() {
