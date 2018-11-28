@@ -107,9 +107,43 @@ li a:hover {
     padding: 14px 16px;
 }
 
+
+/* TEAM HOTEL CSS AANPASSINGEN*/
+
 #footer {
     width: 100%;
     padding: 14px 16px;
     background-color: #006ead;
     color: #ffffff;
 }
+table {
+    border-radius: 5px;
+    width: 100%;
+    margin: auto;
+}
+
+.roominfocheckboxes {
+border-color: #005693;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  border-color: #005693;
+}
+
+.navbar-default {
+    background-color: #eeeeee;
+    border-color: #E7E7E7;
+    }
+
+.btnroominfo {
+    background-color: #eeeeee;
+    border-color: #005693;
+    color: #005693;
+    }
+    .btnroominfo:hover {
+        background-color: #005693;
+        border-color: #005693;
+        color: #eeeeee;
+        }
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   TEAM HOTEL CSS AANPASSINGEN*/
