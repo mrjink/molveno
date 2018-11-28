@@ -11,33 +11,39 @@ rectangle "Hotel Reservation System" {
     (Cancel room reservation of guest) as (RoomCancel)
     (Make a booking definitive) as (BookingDefinite)
     (See availability of a room) as (RoomAvailable)
+    (See room availability between dates) as (RoomOccupancyBetweenDates)
     (See room occupancy) as (RoomOccupancy)
     (Pay room reservation) as (RoomPay)
     (View invoice) as (RoomInvoice)
+    (Print invoice) as (PrintInvoice)
     (View Guest information) as (GuestInfo)
     (Check-in) as (Checkin)
     (Check-out) as (Checkout)
     (Set status clean) as (StatusClean)
-    (Set status unclean) as (StatusUnclean)
+    (Set status to clean) as (StatusToclean)
+    (Enlist guest for newsletter) as (NewsLetter)
 
     (RoomBook) <-- Receptionist
     (RoomCancel) <-- Receptionist
     (BookingDefinite) <-- Receptionist
     (RoomAvailable) <-- Receptionist
+    (RoomOccupancyBetweenDates) <-- Receptionist
     (RoomOccupancy) <-- Receptionist
     (RoomInvoice) <-- Receptionist
+    (PrintInvoice) <-- Receptionist
     (GuestInfo) <--  Receptionist
+    (NewsLetter) <-- Receptionist
     (Checkin) <-- Receptionist
     (Checkout) <-- Receptionist
 
     Guest --> (RoomBook)
     Guest --> (RoomCancel)
-    Guest --> (RoomAvailable)
-    Guest --> (RoomOccupancy)
+    Guest --> (RoomOccupancyBetweenDates)
     Guest --> (RoomPay)
     Guest --> (RoomInvoice)
+    Guest --> (NewsLetter)
     Head.maid--> (StatusClean)
-    Head.maid--> (StatusUnclean)
+    Head.maid--> (StatusToclean)
 
 
 }
