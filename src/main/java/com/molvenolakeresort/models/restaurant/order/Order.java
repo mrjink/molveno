@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.order;
+package com.molvenolakeresort.models.restaurant.order;
 
 public class Order {
 //    destinationType (roomservice, restaurant, bar)
