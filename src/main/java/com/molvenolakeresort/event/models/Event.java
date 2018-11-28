@@ -1,17 +1,23 @@
-package com.molvenolakeresort.event;
+package com.molvenolakeresort.event.models;
 
-import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 
+
+@Entity
 public class Event {
+    @Id
+    @GeneratedValue
     long id;
     LocalDateTime startDate;
     LocalDateTime endData;
     String adress;
-    List<Participant> participants;
-    int maxParticipants;
+    List<User> users;
+    int maxUsers;
     long price;
     boolean catering;
 
@@ -80,20 +86,20 @@ public class Event {
         this.eventinformationCollection = eventinformationCollection;
     }
 
-    public List<Participant> getParticipants() {
-        return participants;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setParticipants(List<Participant> participants) {
-        this.participants = participants;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
-    public int getMaxParticipants() {
-        return maxParticipants;
+    public int getMaxUsers() {
+        return maxUsers;
     }
 
-    public void setMaxParticipants(int maxParticipants) {
-        this.maxParticipants = maxParticipants;
+    public void setMaxUsers(int maxUsers) {
+        this.maxUsers = maxUsers;
     }
 
     public long getPrice() {
