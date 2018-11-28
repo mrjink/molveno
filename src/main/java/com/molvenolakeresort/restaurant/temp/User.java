@@ -1,6 +1,13 @@
 package com.molvenolakeresort.restaurant.temp;
 
+import lombok.Data;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class User {
+
+    @Id
     private int id;
     private String name;
     private String phoneNumber;
