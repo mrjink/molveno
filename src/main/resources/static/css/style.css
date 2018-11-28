@@ -27,6 +27,7 @@
 
 body {
     background-color: #ffffff;
+
 }
 
 .container, .container-fluid {
@@ -75,6 +76,13 @@ body {
     width: 100%;
 }
 
+
+#content{
+display: flex;
+flex-direction: row;
+
+}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -102,9 +110,24 @@ li a:hover {
     background-color: #0084c4;
     text-decoration: none;
 }
+#group-menu {
+width:100%
 
-#content {
-    padding: 14px 16px;
+}
+#welcome{
+width:100%;
+
+}
+#welcome li {
+ width: 50%;
+}
+h2 {
+    padding: 10px 10px;
+    margin:15px
+}
+p {
+    padding: 10px 10px;
+    margin:15px
 }
 
 #footer {
