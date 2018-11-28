@@ -18,31 +18,34 @@ public class Reservation {
     private @Id @GeneratedValue long id;
 
     @OneToOne
-    private final User user;
-    private final Date date;
-    private final Time time;
-    private final Course course;
+    private User user;
+    private String date;
+    private String time;
+    private Course course;
 
     @OneToOne
     private Table table;
 
-    public Reservation(User user, Date date, Time time, Course course, Table table) {
+    public Reservation(User user, String date, String time, Course course) {
         this.user = user;
         this.date = date;
         this.time = time;
         this.course = course;
-        this.table = table;
     }
 
     public User getUser() {
         return user;
     }
 
-    public Date getDate() {
+    public Table getTable() {
+        return table;
+    }
+
+    public String getDate() {
         return date;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
