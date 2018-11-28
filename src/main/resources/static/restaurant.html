@@ -28,7 +28,7 @@
         </nav>
         <nav id="group-menu"><ul>
             <li><a href="#menu">Menu</a></li>
-            <li><a href="#reserveren">Reservations</a></li>
+            <li><a href="/restaurantreservation.html">Reservations</a></li>
         </ul></nav>
     </div>
     <div class="row">
@@ -63,7 +63,7 @@
     </div>
     <div class="row">
         <main id="content" class="col-xs-12">
-            <div id="info" class="w3-container w3-twothird">
+            <div id="info" class="w3-container w3-half">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sit amet consectetur massa. Sed fringilla
                     ullamcorper justo, eget tincidunt turpis gravida in. Mauris scelerisque felis sed sagittis ullamcorper.
                     Nunc eu mi sed risus maximus tristique. Sed sit amet egestas lectus. Maecenas condimentum leo eget dolor
@@ -101,7 +101,20 @@
                     eu risus vel semper. Donec ultrices nisl eros, at finibus orci vestibulum quis. Nam ut ante lobortis,
                     ultrices felis ac, molestie ante.</p>
             </div>
-            <div id="reservation"></div>
+            <div id="reservation">
+                <div class="formContainer">
+                    <h2>Your reservation</h2>
+                    <p>
+                        Amount of people <input type="number" class="form-control" name="people" min="1" max="12">
+                        <!--TODO: Show only available dates-->
+                        Date <input type="date" class="form-control" name="date">
+                        <!--TODO: Time slots (variates per day) -->
+                        Time <input type="time" class="form-control" name="time">
+                    </p>
+                    <a href="/restaurantreservation.html" type="button" class="btn btn-outline-primary">Reserve Table</a>
+                </div>
+
+            </div>
 
         </main>
     </div>
