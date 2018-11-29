@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.controllers;
+package com.molvenolakeresort.controllers.restaurant;
 
 import org.hibernate.sql.Update;
 

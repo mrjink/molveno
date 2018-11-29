@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.menu;
+package com.molvenolakeresort.models.restaurant.menu;
 
 public class MenuItem {
 //    enum type; (beverage of food)
