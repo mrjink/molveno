@@ -1,18 +1,15 @@
 package com.molvenolakeresort.restaurant.order;
 
-import com.molvenolakeresort.models.restaurant.order.Order;
-import com.molvenolakeresort.models.kitchen.temp.User;
+import java.time.LocalDateTime;
 
-import java.sql.Date;
-import java.sql.Time;
+import com.molvenolakeresort.models.kitchen.temp.User;
+import com.molvenolakeresort.models.restaurant.order.Order;
 
 public class Invoice {
     private int id;
     private User user;
     private Order order;
 
-    private Date dateCreated;
-    private Time timeCreated;
-
+    private LocalDateTime created;
 
 }

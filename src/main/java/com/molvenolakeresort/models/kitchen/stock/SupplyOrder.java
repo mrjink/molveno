@@ -1,9 +1,9 @@
 package com.molvenolakeresort.models.kitchen.stock;
 
-import com.molvenolakeresort.restaurant.enums.Status;
-
 import java.util.Date;
 import java.util.List;
+
+import com.molvenolakeresort.models.kitchen.enums.Status;
 
 public class SupplyOrder {
     private Status status;

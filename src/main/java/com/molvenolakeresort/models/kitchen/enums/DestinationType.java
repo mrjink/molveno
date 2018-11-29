@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.enums;
+package com.molvenolakeresort.models.kitchen.enums;
 
 public enum DestinationType {
     ROOMSERVICE,
