@@ -1,7 +1,7 @@
 package com.molvenolakeresort.models.restaurant;
 
+import com.molvenolakeresort.models.kitchen.enums.TableShape;
 import com.molvenolakeresort.models.kitchen.restaurant.Reservation;
-import com.molvenolakeresort.restaurant.enums.TableShape;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

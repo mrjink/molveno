@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.exceptions;
+package com.molvenolakeresort.models.kitchen.exceptions;
 
 public class ReservationNotFoundException extends Exception {
 
