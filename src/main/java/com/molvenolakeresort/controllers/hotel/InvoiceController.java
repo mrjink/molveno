@@ -11,8 +11,6 @@ import java.util.List;
 @RequestMapping("api/invoices/")
 public class InvoiceController {
 
-
-
     private InvoiceRepository invoiceRepository;
 
     public InvoiceController(InvoiceRepository invoiceRepository) {
@@ -29,8 +27,8 @@ public class InvoiceController {
         this.invoiceRepository.save(invoice);
     }
 
-    @RequestMapping(value = "{billNumber}", method = RequestMethod.PUT)
-    public void toggleWatched(@PathVariable String billNumber) {
+    @RequestMapping(value = "togglepaid/{billNumber}", method = RequestMethod.PUT)
+    public void togglePaid(@PathVariable String billNumber) {
         for (Invoice invoice : this.invoiceRepository.findAll()) {
             if (invoice.getBillNumber().equals(billNumber)) {
                 invoice.setPaid(!invoice.isPaid());
@@ -39,7 +37,7 @@ public class InvoiceController {
         }
     }
 
-    @RequestMapping(value = "{billNumber}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "delete/{billNumber}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String billNumber) {
         for (Invoice invoice : this.invoiceRepository.findAll()) {
             if (invoice.getBillNumber().equals(billNumber)) {
@@ -48,7 +46,7 @@ public class InvoiceController {
         }
     }
 
-    @RequestMapping(value = "{billNumber}", method = RequestMethod.GET)
+    @RequestMapping(value = "get/{billNumber}", method = RequestMethod.GET)
     public Iterable<Invoice> getInvoice(@PathVariable String billNumber) {
         List<Invoice> invoices = new ArrayList<>();
         for (Invoice invoice : this.invoiceRepository.findAll()) {
