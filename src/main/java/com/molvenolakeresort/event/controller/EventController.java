@@ -3,6 +3,7 @@ package com.molvenolakeresort.event.controller;
 
 import com.molvenolakeresort.event.models.Event;
 import com.molvenolakeresort.event.repository.EventRepository;
+import com.molvenolakeresort.models.hotel.Address;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -30,15 +31,13 @@ public class EventController {
         this.eventRepository.save(event);
     }
 
-    //    //Event Aanpassen nog niet gelukt
+    //    //1 Event Aanpassen
     @RequestMapping(value = "update/{id}", method = RequestMethod.PATCH)
     public void updateEvent(@PathVariable long id, @RequestBody Event event) {
         Event dBevent = this.eventRepository.getOne(id);
-        event.setAddress(dBevent.getAddress());
+        dBevent.setAddress(event.getAddress());
         this.eventRepository.save(event);
     }
-
-    // patcch voor 1
 
 //    //Event verwijderen
     @RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
