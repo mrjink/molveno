@@ -1,6 +1,6 @@
 package com.molvenolakeresort.restaurant.enums;
 
-public enum MenuItemType {
-    BEVERAGE,
-    FOOD;
+public enum TableShape {
+    ROUND,
+    SQUARE;
 }

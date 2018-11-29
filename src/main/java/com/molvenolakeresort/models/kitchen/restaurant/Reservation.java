@@ -12,24 +12,35 @@ import com.molvenolakeresort.models.kitchen.enums.Course;
 import com.molvenolakeresort.models.kitchen.temp.User;
 import com.molvenolakeresort.models.restaurant.Table;
 
+import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Reservation {
-    private @Id @GeneratedValue long id;
 
-    @OneToOne
+    private @Id
+    @GeneratedValue
+    Long id;
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
-    private String date;
-    private String time;
+    private LocalDate date;
+    private LocalTime time;
     private Course course;
 
-    @OneToMany(mappedBy = "reservation")
+    //TODO: Relation is incorrect? Adding to database does not work atm.
+    @OneToMany(mappedBy = "id", cascade = {CascadeType.ALL, CascadeType.ALL})
     private List<Table> tables;
 
-    public Reservation(User user, String date, String time, Course course, List<Table> tables) {
+    public Reservation() {
+    }
+
+    public Reservation(User user, LocalDate date, LocalTime time, Course course, List<Table> tables) {
         this.user = user;
         this.date = date;
         this.time = time;
-        //deze strings omzetten naar timestamp.
         this.course = course;
         this.tables = tables;
     }
@@ -42,15 +53,19 @@ public class Reservation {
         return tables;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
     public Course getCourse() {
         return course;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
