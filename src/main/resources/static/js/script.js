@@ -1,49 +1,49 @@
-// $(document).ready(function() {
-//     $("#moviesBtn").on( "click", function() {
-//         getMovies();
-//     });
-//
-//     $("#addBtn").on( "click", function() {
-//         var name = $("#addName").val();
-//         var watched = $("#addWatched").val();
-//         addMovie(name, watched);
-//     });
-// });
-//
-// function getMovies(){
-//     $.get("/api/movie/all", function(data, status){
-//         var output = "<table id='movieTable'><thead><tr><th>Name</th><th>Watched</th></tr></thead><tbody>";
-//         var count = 1;
-//         $.each(data, function(index, movie){
-//             watched = movie.watched == true ? "Yes" : "No";
-//             output += "<tr id='+ count + '><td>" + movie.name + "</td><td>" + watched + "</td></tr>";
-//             count++;
-//         })
-//         output += "</tbody></table>";
-//         $("#moviesList").html(output);
-//     })
-//         .done(function() {
-//             $('#movieTable').DataTable();
-//             // console.log("second success");
-//         })
-//         .fail(function() {
-//             alert("error");
-//         })
-//         .always(function() {
-//             // console.log("finished");
-//         });
-// }
-//
-// function addMovie(name, watched){
-//     $.ajax ({
-//         url: "/api/movie/add",
-//         type: "POST",
-//         data: JSON.stringify({ name: name, watched: watched }),
-//         dataType: "json",
-//         contentType: "application/json;",
-//         success: function(){
-//             console.log("Het is gelukt..");
-//             getMovies();
-//         }
-//     });
-// }
+$(document).ready(function() {
+    //Controleren of sessies worden ondersteund door de browser.
+    var sessionAllowed = typeof(Storage) !== "undefined" ? true : false;
+
+    if(sessionAllowed){
+        //Zodra pagina is geladen velden vullen met eerder ingevulde waardes.
+        $.each(sessionStorage, function(key, value){
+            console.log("value found, " + key + " - " + value);
+            $("#" + key).val(value);
+        });
+
+        //bij wijzigingen in een input veld deze lokaal bijwerken in de sessie.
+        $("input, select").on( "change", function() {
+            sessionStorage.setItem($(this).attr('id'), $(this).val());
+        });
+    }
+
+
+    $("#startReservationProcressBtn").on( "click", function() {
+        window.location.href = "/reservation/restaurant/index.html";
+    });
+
+    $("#submitReservationBtn").on( "click", function() {
+        var amountOfPeople = $("#amountOfPeople").val();
+        var date = $("#date").val();
+        var time = $("#time").val();
+        var name = $("#name").val();
+        var phone = $("#phone").val();
+        var email = $("#email").val();
+        var course = $("#course").val();
+
+        var json = JSON.stringify("???");
+
+        addReservation(json)
+    });
+});
+
+function addReservation(json){
+    $.ajax ({
+        url: "/api/restaurant/reservation/add",
+        type: "POST",
+        data: json,
+        dataType: "json",
+        contentType: "application/json;",
+        success: function(){
+            console.log("Het is gelukt.., toch?");
+        }
+    });
+}

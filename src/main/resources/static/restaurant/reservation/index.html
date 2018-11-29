@@ -1,33 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <title>Molveno Lake Resort restaurant reservation</title>
-
+    <title>Molveno Lake Resort</title>
     <link rel="icon" href="/img/logo_128.png" type="image/png">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/sticky-footer-navbar.css" rel="stylesheet">
 
 </head>
 <body>
-<div class="container">
+<header>
 
-    <!--STANDARD-->
-    <div class="row" role="heading">
 
-        <header id="header" class="col-xs-12">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+        <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a class="navbar-brand" href="#">Molveno Lake Resort</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png"/> Molveno Lake Resort
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
 
-        </header>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/hotel.html">
+                        Hotel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
 
-    </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/restaurant/index.html">
+                        Restaurant
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/restaurant/reservation/index.html">Menu</a>
+                        <a class="dropdown-item" href="">Reservation</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Contact</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/events.html">
+                        Events
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="languagepicker">
+                <a href="#en"><li><img src="/img/EN.png"/>English</li></a>
+                <a href="#cn"><li><img src="/img/CN.png"/>Chinese</li></a>
+            </ul>
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Register</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
+        </div>
+    </nav>
+</header>
+
+</div>
 
     <div class="row" role="menubar">
 
@@ -79,16 +141,16 @@
         </div>
     </div>
     <!--END STANDARD-->
+    <!--class="col-xs-12"-->
 
-    <div class="row">
-
-        <main id="content" class="col-xs-12">
-
-            <div class="formContainer">
+    <main id="content">
+        <div class="d-flex flex-row flex-wrap">
+            <div class="col">
                 <h2>Your reservation</h2>
                 <p>
                     <label for="amountOfPeople">People: </label>
-                    <input type="number" min="1" max="12" class="form-control" id="amountOfPeople" name="amountOfPeople">
+                    <input type="number" min="1" max="12" class="form-control" id="amountOfPeople"
+                           name="amountOfPeople">
                     <!--TODO: Show only available dates-->
                     <label for="date">Date: </label>
                     <input type="date" class="form-control" id="date" name="date">
@@ -97,18 +159,21 @@
                     <input type="time" class="form-control" id="time" name="time">
                 </p>
             </div>
-            <div class="formContainer">
+            <div class="col">
                 <h2>Your information</h2>
                 <p>
-                    <span class="subtitle">Fill in your contact details below (no account necessary). Or <b>log in</b> / <b>register</b></span>
+                    <span class="subtitle">Fill in your contact details below (no account necessary). Or <a
+                            href="#login"><b>log in</b></a> / <a href="#register"><b>register</b></a></span>
 
                     <label for="name">Name: </label>
                     <input type="text" class="form-control" id="name" name="name">
                     <label for="phone">Phone: </label>
-                    <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
+                    <input type="tel" class="form-control" id="phone" name="phone"
+                           pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
                     <label for="email">Email: </label>
                     <input type="email" class="form-control" id="email" name="email">
-                    <select class="form-control" name="course">
+                    <label for="course">Select your menu </label>
+                    <select class="form-control" id="course" name="course">
                         <option value="0">Unspecified</option>
                         <option value="3">3-course menu</option>
                         <option value="5">5-course menu</option>
@@ -116,11 +181,22 @@
                     </select>
                 </p>
             </div>
-            
-        </main>
-    </div>
 
-    <input id="submitReservationBtn" type="submit" name="reserve" value="Submit">
+
+            <div class="col justify-content-end">
+                <h2></h2>
+                <div class="d-flex align-items-end">
+                    <a id="submitReservationBtn" href="#confimation" type="button" name="reserve" value="Submit"
+                       class="btn btn-outline-primary">Make reservation</a>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <br>
+    <!--<input id="submitReservationBtn" type="submit" name="reserve" value="Submit">-->
     <!--<div id="reservationError">Fill this with error messages</div>-->
     <!--FOOTER-->
     <div class="row">
