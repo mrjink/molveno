@@ -1,5 +1,13 @@
 package com.molvenolakeresort.models.kitchen.restaurant;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 import com.molvenolakeresort.models.kitchen.enums.Course;
 import com.molvenolakeresort.models.kitchen.temp.User;
 import com.molvenolakeresort.models.restaurant.Table;
@@ -23,11 +31,10 @@ public class Reservation {
     private Course course;
 
     //TODO: Relation is incorrect? Adding to database does not work atm.
-    @OneToMany(mappedBy = "id", cascade = {CascadeType.ALL,CascadeType.ALL})
+    @OneToMany(mappedBy = "id", cascade = {CascadeType.ALL, CascadeType.ALL})
     private List<Table> tables;
 
     public Reservation() {
-
     }
 
     public Reservation(User user, LocalDate date, LocalTime time, Course course, List<Table> tables) {
