@@ -1,11 +1,16 @@
 package com.molvenolakeresort.models.kitchen.restaurant;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
 import com.molvenolakeresort.models.kitchen.enums.Course;
 import com.molvenolakeresort.models.kitchen.temp.User;
 import com.molvenolakeresort.models.restaurant.Table;
-
-import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class Reservation {
