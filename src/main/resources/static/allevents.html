@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+
+</head>
+<body>
+<h1>Event create pagina</h1>
+
+<!--<button onclick="getData()"> Get Data </button>-->
+
+<!-- Input Velden interface -->
+<h1>Event create pagina</h1>
+
+<p>Adres:</p>
+<p><input type="text" id="eventAdress"></p>
+
+<p>MaxUsers:</p>
+<p><input type="text" id="eventmaxUsers"></p>
+
+<p>price:</p>
+<p><input type="text" id="eventprice"></p>
+
+<p>catering:</p>
+<p><input type="checkbox" id="eventcatering"></p>
+
+<p>Eventname English:</p>
+<p><input type="checkbox" id="eventnameCollection"></p>
+<p>Eventname Chinese:</p>
+<p><input></p>
+<!-- Input Velden interface -->
+
+
+
+
+<!--<table id="eventTable" class="display">
+    <thead>
+    <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Row 1 Data 1</td>
+        <td>Row 1 Data 2</td>
+    </tr>
+    <tr>
+        <td>Row 2 Data 1</td>
+        <td>Row 2 Data 2</td>
+    </tr>
+    </tbody>
+</table> -->
+<table id="eventTable" class="display" width="100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>startDate</th>
+            <th>endDate</th>
+
+            <th>address</th>
+
+            <th>maxUsers</th>
+
+            <th>price</th>
+
+            <th>catering</th>
+
+            <th>eventName</th>
+            <th>activity</th>
+            <th>eventinformation</th>
+
+
+            
+        </tr>
+    </thead>
+</table>
+
+<button onclick="postData()"> Add event </button>
+
+<div id="events"></div>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+<script type="application/javascript" language="JavaScript">
+    //var outputTable = ""
+
+
+
+
+    $(document).ready( function () {
+        $('#eventTable').DataTable({
+            ajax: {
+                "url": "http://localhost:8080/api/event/all",
+                "dataSrc": ""
+            },
+            "columns" : [ 
+                {"data" : "id"}, 
+                {"data" : "startDate"},
+                {"data" : "endDate"},
+                {"data" : "address"},
+                {"data" : "maxUsers"},
+                {"data" : "price"},
+                {"data" : "catering"},
+                {"data" : "eventnameCollection"},
+                {"data" : "activityCollection"},
+                {"data" : "eventinformationCollection"}
+            ]
+        });
+    } );
+
+    var refreshTable = function(){
+        $('#eventTable').DataTable().ajax.reload();
+
+
+
+    };
+
+   
+
+
+   
+
+
+
+
+
+    var postData = function(){
+        var eventAdress = $('#eventAdress').val();
+        var eventmaxUsers = $('#eventmaxUsers').val();
+        var eventprice = $('#eventprice').val();
+        var checkbox = $('#eventcatering').checked;
+            console.log(checkbox);
+        var eventcatering = false;
+        //var eventnameCollecion = $('#eventnameCollection').val();
+        if(checkbox == "on")
+            eventcatering = false;
+        if(checkbox == "off")
+            eventcatering = true;
+
+
+
+
+
+        $.ajax({
+            url: "http://localhost:8080/api/event",
+            type: "post",
+            data: JSON.stringify({
+                address:eventAdress
+                ,maxUsers:eventmaxUsers
+                ,price:eventprice
+                ,catering:eventcatering}),
+            contentType: "application/json",
+            success: function (result){
+                $('#eventAdress').val("");
+                $('#eventmaxUsers').val("");
+                $('#eventprice').val("");
+
+
+
+                refreshTable();
+
+            },
+            error: function(result){
+                console.log(result);
+                $('#events').html(result.responseText);
+            }
+
+        })
+    };
+
+
+    //$(document).ready( function () {
+    //    $('#eventTable').DataTable();
+    //} );
+
+    //$(document).ready(function() {
+    //    $('#eventTable').DataTable( {
+    //        "ajax": '../ajax/data/arrays.txt'
+    //    } );
+    //} );
+
+
+
+</script>
+
+
+</body>
+</html>
