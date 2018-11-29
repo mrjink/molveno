@@ -166,6 +166,11 @@ li a:hover {
     text-decoration: none;
 }
 
+li.nav-item.active, li.nav-item.active:hover {
+    color: white !important;
+    background-color: #0084c4 !important;
+}
+
 #content {
     padding: 14px 16px;
 }
@@ -196,4 +201,17 @@ footer.page-footer.font-small.blue.pt-4{
 	padding: 10px 40px 60px;
 	margin: 10px 0px 60px;
 	border: 1px solid GREY;
+}
+
+div#carousel {
+    padding-top: 100px !important;
+}
+
+div.row {
+    padding-top: 10px !important;
+}
+
+div.row div.col-md-4 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
 }
