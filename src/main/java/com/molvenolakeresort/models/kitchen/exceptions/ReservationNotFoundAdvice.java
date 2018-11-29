@@ -1,4 +1,4 @@
-package com.molvenolakeresort.restaurant.exceptions;
+package com.molvenolakeresort.models.kitchen.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
