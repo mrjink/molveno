@@ -1,18 +1,23 @@
-package com.molvenolakeresort.event;
+package com.molvenolakeresort.event.models;
 
 import java.time.LocalDate;
 
-public class Guest implements User {
+
+public class Guest extends User {
     LocalDate birthDate;
-    String adress;
+    String address;
     String homeNumber;
     String postalCode;
     String country;
     String phoneNumber;
-    String emailAdress;
+    String emailAddress;
     String password;
     String buildingName;
-    boolean isSubribedToNewsletter;
+    boolean isSubscribedToNewsletter;
+
+    public Guest(long id, String firstName, String middleName, String lastName, String email) {
+        super(id, firstName, middleName, lastName, email);
+    }
 
     public LocalDate getBirthDate() {
         return birthDate;
@@ -22,12 +27,12 @@ public class Guest implements User {
         this.birthDate = birthDate;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getHomeNumber() {
@@ -62,12 +67,12 @@ public class Guest implements User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getEmailAdress() {
-        return emailAdress;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmailAdress(String emailAdress) {
-        this.emailAdress = emailAdress;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getPassword() {
@@ -86,11 +91,11 @@ public class Guest implements User {
         this.buildingName = buildingName;
     }
 
-    public boolean isSubribedToNewsletter() {
-        return isSubribedToNewsletter;
+    public boolean isSubscribedToNewsletter() {
+        return isSubscribedToNewsletter;
     }
 
-    public void setSubribedToNewsletter(boolean subribedToNewsletter) {
-        isSubribedToNewsletter = subribedToNewsletter;
+    public void setSubscribedToNewsletter(boolean subscribedToNewsletter) {
+        isSubscribedToNewsletter = subscribedToNewsletter;
     }
 }
