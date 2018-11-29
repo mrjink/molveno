@@ -1,5 +1,60 @@
 @import url('https://fonts.googleapis.com/css?family=Chivo:900|Roboto&subset=latin-ext');
 
+.languagepicker {
+	background-color: #f8f9fa;
+	display: inline-block;
+	padding: 0;
+	height: 40px;
+	overflow: hidden;
+	transition: all .3s ease;
+	margin: 0 50px 10px 0;
+	vertical-align: top;
+	float: left;
+}
+
+.languagepicker:hover {
+	/* don't forget the 1px border */
+	height: 81px;
+}
+
+.languagepicker a{
+	color: #000;
+	text-decoration: none;
+}
+
+.languagepicker li {
+	display: block;
+	padding: 0px 20px;
+	line-height: 40px;
+	border-top: 1px solid #f8f9fa;
+}
+
+.languagepicker li:hover{
+	background-color: #f8f9fa;
+}
+
+.languagepicker a:first-child li {
+	border: none;
+	background: #f8f9fa !important;
+}
+
+.languagepicker li img {
+	margin-right: 5px;
+}
+
+.roundborders {
+	border-radius: 5px;
+}
+
+.large:hover {
+	/*
+	don't forget the 1px border!
+	The first language is 40px heigh,
+	the others are 41px
+	*/
+	height: 245px;
+}
+
 * {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
@@ -27,11 +82,10 @@
 
 body {
     background-color: #ffffff;
-
 }
 
 .container, .container-fluid {
-    background-color: #eeeeee;
+    background-color: white;
 }
 
 #header {
@@ -55,11 +109,19 @@ body {
         font-size: 3em;
     }
 
+
     #header > #logo {
         height: 96px;
         width: 96px;
     }
 }
+
+
+@media (max-width: 300px) {
+        div.logotext {
+            font-size: 3em;
+        }
+        }
 
 @media (min-width: 992px) {
     #header {
@@ -75,14 +137,7 @@ body {
 #menu {
     width: 100%;
 }
-
-
-#content{
-display: flex;
-flex-direction: row;
-
-}
-
+/*
 ul {
     list-style-type: none;
     margin: 0;
@@ -102,7 +157,7 @@ li a {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
+}*/
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
@@ -110,24 +165,14 @@ li a:hover {
     background-color: #0084c4;
     text-decoration: none;
 }
-#group-menu {
-width:100%
 
+li.nav-item.active, li.nav-item.active:hover {
+    color: white !important;
+    background-color: #0084c4 !important;
 }
-#welcome{
-width:100%;
 
-}
-#welcome li {
- width: 50%;
-}
-h2 {
-    padding: 10px 10px;
-    margin:15px
-}
-p {
-    padding: 10px 10px;
-    margin:15px
+#content {
+    padding: 14px 16px;
 }
 
 #footer {
@@ -135,4 +180,38 @@ p {
     padding: 14px 16px;
     background-color: #006ead;
     color: #ffffff;
+}
+
+footer.page-footer.font-small.blue.pt-4{
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+}
+
+.dropdown:hover>.dropdown-menu {
+  display: block;
+}
+
+.red{
+    color:red;
+}
+
+.form-area
+{
+    background-color: #FAFAFA;
+	padding: 10px 40px 60px;
+	margin: 10px 0px 60px;
+	border: 1px solid GREY;
+}
+
+div#carousel {
+    padding-top: 100px !important;
+}
+
+div.row {
+    padding-top: 10px !important;
+}
+
+div.row div.col-md-4 {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
 }
