@@ -216,22 +216,24 @@
 
 <script>
     $(document).ready( function () {
-        $('#myTable').DataTable();
+        var table = $('#myTable').DataTable();
+
         $.ajax({url: "/api/rooms/all?filterEmpty=false&filterOccupied=false", type: "get", success: function(result){
             console.log(result);
             $("#tableBody").html("");
             $.each(result, function(index, room) {
-                $("#tableBody").append(
-                    "<tr><td>" + room.roomNumber +
-                    "</td><td>" + room.lastName +
-                    "</td><td>" + room.firstName +
-                    "</td><td>" + room.country +
-                    "</td><td>" + room.startDate +
-                    "</td><td>" + room.endDate +
-                    "</td><td>" + room.numberOfBeds +
-                    "</td><td>" + room.roomStatus +
-                    "</td><td>" + room.roomBlocked +
-                    "</td></tr>");
+            table.row.add([
+                room.roomNumber,
+                room.lastName,
+                    room.firstName,
+                    room.country,
+                    room.startDate,
+                    room.endDate,
+                    room.numberOfBeds,
+                    room.roomStatus,
+                    room.roomBlocked
+
+        ]).draw(false);
             });
         }});
     });
