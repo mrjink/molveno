@@ -15,6 +15,7 @@ public class Address {
     private String street;
     private int number;
     private String numberextension;
+    private String city;
 
     public Address() {
     }
@@ -61,5 +62,13 @@ public class Address {
 
     public void setNumberextension(String numberextension) {
         this.numberextension = numberextension;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }
