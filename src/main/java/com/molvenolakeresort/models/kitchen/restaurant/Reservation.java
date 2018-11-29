@@ -1,6 +1,6 @@
 package com.molvenolakeresort.models.kitchen.restaurant;
 
-import com.molvenolakeresort.restaurant.enums.Course;
+import com.molvenolakeresort.models.kitchen.enums.Course;
 import com.molvenolakeresort.models.kitchen.temp.User;
 import com.molvenolakeresort.models.restaurant.Table;
 
