@@ -20,7 +20,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container">
     <div class="row" role="heading">
         <header id="header" class="col-xs-12">
             <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png"/> Molveno Lake Resort
@@ -32,27 +32,29 @@
         <header class="col-xs-12">
         </header>
         <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0 btnroominfo" type="submit">Search</button>
-            </form>
+            <div class="container bg-light">
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 btnroominfo" type="submit">Search</button>
+                </form>
+            </div>
         </nav>
-        <div class="row" style="margin-top: 15px;">
-            <div style="margin-left: 10px;"></div>
-            <div class="input-group-text roominfocheckboxes">
-                <input type="checkbox" aria-label="Checkbox for following text input">
-                <div style="margin-left: 10px;">Filter empty rooms</div>
-            </div>
-            <div style="margin-left: 10px;"></div>
-            <div class="input-group-text roominfocheckboxes">
-                <input type="checkbox" aria-label="Checkbox for following text input">
-                <div style="margin-left: 10px;">Filter empty rooms</div>
-            </div>
-        </div>
     </div>
 </div>
-<div class="container-fluid"  style="margin-top: 15px;">
-    <div class="table-wrapper-scroll-y">
+<div class="container"  style="margin-top: 15px;">
+    <div class="row" style="margin-top: 15px;">
+        <div style="margin-left: 10px;"></div>
+        <div class="input-group-text roominfocheckboxes">
+            <input type="checkbox" aria-label="Checkbox for following text input">
+            <div style="margin-left: 10px;">Filter empty rooms</div>
+        </div>
+        <div style="margin-left: 10px;"></div>
+        <div class="input-group-text roominfocheckboxes">
+            <input type="checkbox" aria-label="Checkbox for following text input">
+            <div style="margin-left: 10px;">Filter empty rooms</div>
+        </div>
+    </div>
+    <div class="table-wrapper-scroll-y" style="margin-top: 15px;">
         <table class="table table-hover table-bordered" id="myTable">
                 <thead>
                 <tr id="g315">
@@ -213,8 +215,8 @@
 
 <script>
     $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
+        $('#myTable').DataTable();
+    });
 </script>
 
 
