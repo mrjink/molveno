@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Molveno Lake Restaurant</title>
+    <script src = "/js/script.js"></script>
     <link rel="icon" href="/img/logo_128.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -21,14 +22,14 @@
         <nav id="menu" class="col-xs-12" role="navigation">
             <ul>
                 <li role="menuitem"><a href="#hotel">Hotel</a></li>
-                <li role="menuitem"><a href="/restaurant.html">Restaurant</a></li>
+                <li role="menuitem"><a href="/restaurant">Restaurant</a></li>
                 <li role="menuitem"><a href="#events">Events</a></li>
                 <li role="menuitem"><a href="#contact">Contact</a></li>
             </ul>
         </nav>
         <nav id="group-menu"><ul>
             <li><a href="#menu">Menu</a></li>
-            <li><a href="/restaurantreservation.html">Reservations</a></li>
+            <li><a href="/restaurant/reservation/index.html">Reservations</a></li>
         </ul></nav>
     </div>
     <div class="row">
@@ -106,18 +107,17 @@
             <div id="reservation">
                 <div class="formContainer">
                     <h2>Your reservation</h2>
-                    <p>
-                        Amount of people <input type="number" class="form-control" name="people" min="1" max="12">
-                        <!--TODO: Show only available dates-->
-                        Date <input type="date" class="form-control" name="date">
-                        <!--TODO: Time slots (variates per day) -->
-                        Time <input type="time" class="form-control" name="time">
-                    </p>
-                    <a href="/restaurantreservation.html" type="button" class="btn btn-outline-primary">Reserve Table</a>
+                    <label for="amountOfPeople">People: </label>
+                    <input type="number" min="1" max="12" class="form-control" id="amountOfPeople" name="amountOfPeople">
+                    <!--TODO: Show only available dates-->
+                    <label for="date">Date: </label>
+                    <input type="date" class="form-control" id="date" name="date">
+                    <!--TODO: Time slots (variates per day) -->
+                    <label for="time">Time: </label>
+                    <input type="time" class="form-control" id="time" name="time">
+                    <a id="startReservationProcressBtn" href="/restaurant/reservation.html" type="button" class="btn btn-outline-primary">Make reservation</a>
                 </div>
-
             </div>
-
         </main>
     </div>
     <div class="row">
