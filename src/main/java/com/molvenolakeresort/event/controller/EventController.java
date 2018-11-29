@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/event")
 public class EventController {
-
     @Autowired
     private EventRepository eventRepository;
 
@@ -17,9 +16,16 @@ public class EventController {
         this.eventRepository = eventRepository;
     }
 
+    //Get all Events from database
     @RequestMapping(value = "all", method = RequestMethod.GET)
     public Iterable<Event> getAll() {
         return eventRepository.findAll();
+    }
+
+    //Create Event entry in database
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public void create(@RequestBody Event event){
+        this.eventRepository.save(event);
     }
 
    /* @RequestMapping(value = "", method = RequestMethod.POST)

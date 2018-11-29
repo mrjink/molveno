@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Event create pagina</h1>
+
+<button onclick="getData()"> Get Data </button>
+
+<!-- Input Velden interface -->
+<h1>Event create pagina</h1>
+
+<p>Adres:</p>
+<p><input type="text" id="eventAdress"></p>
+
+<p>MaxUsers:</p>
+<p><input type="text" id="eventmaxUsers"></p>
+
+<p>price:</p>
+<p><input type="text" id="eventprice"></p>
+
+<p>catering:</p>
+<p><input type="checkbox" id="eventcatering"></p>
+
+<p>Eventname English:</p>
+<p><input type="checkbox" id="eventnameCollection"></p>
+<p>Eventname Chinese:</p>
+<p><input></p>
+<!-- Input Velden interface -->
+
+
+
+<button onclick="postData()"> Add event </button>
+
+<div id="events"></div>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<script type="application/javascript" language="JavaScript">
+
+    var getData = function(){
+        $.ajax({
+            url: "http://localhost:8080/api/event/all",
+            type: "get",
+            success: function(result){
+                console.log(result);
+                $('#events').html("");
+                $.each(result,function(index,event){
+                    $('#events').append(
+                        "<div>" + event.address + "</div>"
+                    );
+                });
+
+
+            },
+            error: function(result){
+                console.log(result);
+                $('#events').html(result.responseText);
+            }
+
+        })
+    };
+
+    var postData = function(){
+        var eventAdress = $('#eventAdress').val();
+        var eventmaxUsers = $('#eventmaxUsers').val();
+        var eventprice = $('#eventprice').val();
+        var checkbox = $('#eventcatering').checked;
+            console.log(checkbox);
+        var eventcatering = false;
+        //var eventnameCollecion = $('#eventnameCollection').val();
+        if(checkbox == "on")
+            eventcatering = false;
+        if(checkbox == "off")
+            eventcatering = true;
+
+
+
+
+
+        $.ajax({
+            url: "http://localhost:8080/api/event",
+            type: "post",
+            data: JSON.stringify({
+                address:eventAdress
+                ,maxUsers:eventmaxUsers
+                ,price:eventprice
+                ,catering:eventcatering}),
+            contentType: "application/json",
+            success: function (result){
+                $('#eventAdress').val("");
+                $('#eventmaxUsers').val("");
+                $('#eventprice').val("");
+
+
+                getData();
+
+            },
+            error: function(result){
+                console.log(result);
+                $('#events').html(result.responseText);
+            }
+
+        })
+    };
+
+
+
+
+</script>
+
+
+</body>
+</html>
