@@ -1,6 +1,5 @@
-package com.molvenolakeresort.restaurant.temp;
+package com.molvenolakeresort.models.kitchen.temp;
 
-import lombok.Data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
