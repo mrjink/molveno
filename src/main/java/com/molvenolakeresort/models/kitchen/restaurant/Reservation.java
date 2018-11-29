@@ -1,15 +1,12 @@
 package com.molvenolakeresort.models.kitchen.restaurant;
 
 import com.molvenolakeresort.restaurant.enums.Course;
-import com.molvenolakeresort.restaurant.temp.User;
+import com.molvenolakeresort.models.kitchen.temp.User;
 import com.molvenolakeresort.models.restaurant.Table;
 
 import javax.persistence.*;
 import java.util.List;
 
-import lombok.Data;
-
-@Data
 @Entity
 public class Reservation {
     private @Id @GeneratedValue long id;

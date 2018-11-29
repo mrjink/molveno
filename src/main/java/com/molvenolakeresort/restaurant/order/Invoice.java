@@ -1,7 +1,7 @@
 package com.molvenolakeresort.restaurant.order;
 
 import com.molvenolakeresort.models.restaurant.order.Order;
-import com.molvenolakeresort.restaurant.temp.User;
+import com.molvenolakeresort.models.kitchen.temp.User;
 
 import java.sql.Date;
 import java.sql.Time;
