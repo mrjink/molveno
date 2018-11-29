@@ -1,0 +1,10 @@
+.flag{
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.flag-en{
+    background-image: url("../img/flags/en_flag.png");
+}
+.flag-cn{
+    background-image: url("../img/flags/cn_flag.png");
+}

@@ -1,0 +1,49 @@
+@startuml
+
+interface User{
+    long id
+    String firstName
+    String middleName
+    String lastName
+    String emailAdress
+}
+
+class Guest{
+    Date birthDate
+    String adress
+    String homeNumber
+    String buildingName
+    String postalCode
+    String country
+    String phoneNumber
+    String password
+    boolean isSubscribedToNews
+}
+
+class Participant{
+
+}
+
+User <|-- Guest
+User <|-- Visitor
+
+package Event {
+    class Event{
+        long id
+        Hashmap<String language, String eventName>
+        Hashmap<String language, String activity>
+        Hashmap<String language, String eventInformation>
+        DateTime startDate
+        DateTime endDate
+        String location
+        List<Participant> participants
+        int maxParticipants
+        long price
+        boolean catering
+    }
+
+}
+
+Event -- User
+
+@enduml
