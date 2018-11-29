@@ -2,10 +2,9 @@ package com.molvenolakeresort.models.kitchen.restaurant;
 
 import com.molvenolakeresort.restaurant.enums.Course;
 import com.molvenolakeresort.restaurant.temp.User;
+import com.molvenolakeresort.models.restaurant.Table;
 
 import javax.persistence.*;
-import java.sql.Time;
-import java.sql.Date;
 import java.util.List;
 
 import lombok.Data;
