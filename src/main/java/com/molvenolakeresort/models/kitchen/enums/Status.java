@@ -1,4 +1,4 @@
-package com.molvenolakeresort.models.kitchen.enums;
+package com.molvenolakeresort.restaurant.enums;
 
 public enum Status {
     CONCEPT,

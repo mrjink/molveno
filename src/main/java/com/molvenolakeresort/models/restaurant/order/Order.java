@@ -1,9 +1,9 @@
 package com.molvenolakeresort.models.restaurant.order;
 
-import java.util.List;
+import com.molvenolakeresort.restaurant.enums.DestinationType;
+import com.molvenolakeresort.restaurant.enums.Status;
 
-import com.molvenolakeresort.models.kitchen.enums.DestinationType;
-import com.molvenolakeresort.models.kitchen.enums.Status;
+import java.util.List;
 
 public class Order {
     private int id;

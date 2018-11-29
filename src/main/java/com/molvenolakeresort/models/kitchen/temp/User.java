@@ -1,25 +1,30 @@
 package com.molvenolakeresort.models.kitchen.temp;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class User {
 
-    @Id
-    private int id;
+    private @Id @GeneratedValue
+    Long id;
     private String name;
     private String phoneNumber;
     private String email;
 
-    public User(int id, String name, String phoneNumber, String email) {
+    public User()
+    {
+
+    }
+    public User(Long id, String name, String phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
