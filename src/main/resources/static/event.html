@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<!--<h1>Event create pagina</h1>
+
+<button onclick="getData()"> Get Data </button>
+-->
+<!-- Input Velden interface -->
+<!-- javascript heeft methode om datetime te maken en opsturen naar db-->
+<h1>Event create pagina</h1>
+<p>StartDate:</p>
+<p><input type="date" id="eventStartDate"></p>
+<p>StartTime:</p>
+<p><input type="time" id="eventStartTime"></p>
+
+<p>EndDate:</p>
+<p><input type="date" id="eventEndDate"></p>
+<p>EndTime:</p>
+<p><input type="time" id="eventEndTime"></p>
+
+<p>Adres:</p>
+<p><input type="text" id="eventAdress"></p>
+
+<p>MaxUsers:</p>
+<p><input type="text" id="eventmaxUsers"></p>
+
+<p>price:</p>
+<p><input type="text" id="eventprice"></p>
+
+<p>catering:</p>
+<p><input type="checkbox" id="eventcatering"></p>
+
+<p>Eventname English:</p>
+<p><input type="text" id="eventnameCollection"></p>
+<p>Eventname Chinese:</p>
+<p><input></p>
+<!-- Input Velden interface -->
+
+
+
+<button onclick="postData()"> Add event </button>
+
+<div id="events"></div>
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript" language="JavaScript">
+
+    var getData = function(){
+        $.ajax({
+            url: "http://localhost:8080/api/event/all",
+            type: "get",
+            success: function(result){
+                console.log(result);
+                $('#events').html("");
+                $.each(result,function(index,event){
+                    $('#events').append(
+                        "<div>" + event.address + "</div>"
+                    );
+                });
+
+
+            },
+            error: function(result){
+                console.log(result);
+                $('#events').html(result.responseText);
+            }
+
+        })
+    };
+
+    var postData = function(){
+        
+
+        var eventAdress = $('#eventAdress').val();
+        var eventmaxUsers = $('#eventmaxUsers').val();
+        var eventprice = $('#eventprice').val();
+        var checkbox = $('#eventcatering');
+            console.log(checkbox);
+            console.log(checkbox.checked);
+            console.log(checkbox.value);
+            //console.log(checkbox.);
+
+
+
+        //bepaal de waarde van eventcatering adhv checkbox
+        var eventcatering = false;
+        //var eventnameCollecion = $('#eventnameCollection').val();
+        console.log(checkbox.checked);
+        if(checkbox == "on")
+            eventcatering = false;
+        if(checkbox == "off")
+            eventcatering = true;
+        
+        //Start en enddate hiernder
+        //maak van date en time datetime object (STARTDATE)
+        var sdate = document.getElementById("eventStartDate").value;
+        var stime = document.getElementById("eventStartTime").value;
+        console.log(sdate);
+        console.log(stime);
+        console.log(new Date(sdate + " " + stime));
+        var sdatetime = new Date(sdate +" "+ stime);
+
+        //maak van date en time datetime object (ENDDATE)
+        var edate = document.getElementById("eventEndDate").value;
+        var etime = document.getElementById("eventEndTime").value;
+        var edatetime = new Date(edate +" "+ etime);
+
+
+
+
+
+        $.ajax({
+            url: "http://localhost:8080/api/event",
+            type: "post",
+            data: JSON.stringify({
+                address:eventAdress
+                ,maxUsers:eventmaxUsers
+                ,price:eventprice
+                ,catering:eventcatering
+                ,startDate:sdatetime
+                ,endDate:edatetime
+                }),
+            contentType: "application/json",
+            success: function (result){
+                $('#eventAdress').val("");
+                $('#eventmaxUsers').val("");
+                $('#eventprice').val("");
+                //reset Start: date and time inputbox
+                $('#eventStartDate').val("");
+                $('#eventStartTime').val("");
+                //reset End: date and time inputbox
+                $('#eventEndDate').val("");
+                $('#eventEndTime').val("");
+
+
+
+
+                getData();
+
+            },
+            error: function(result){
+                console.log(result);
+                $('#events').html(result.responseText);
+            }
+
+        })
+    };
+
+
+
+
+</script>
+
+
+</body>
+</html>

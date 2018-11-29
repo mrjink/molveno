@@ -11,6 +11,7 @@ import java.util.Optional;
 @RequestMapping("api/event")
 public class EventController {
 
+    //@Autowired
     private EventRepository eventRepository;
 
     public EventController(EventRepository eventRepository) {
