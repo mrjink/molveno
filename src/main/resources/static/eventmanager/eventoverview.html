@@ -93,11 +93,78 @@
 
 <div class="row">
     <div class="col-md-12">
-        <p>Nam eu tortor id nisi pharetra tristique vel sed tortor. Nam semper felis sit amet tincidunt porttitor.
-            Suspendisse blandit lorem vitae libero consequat dignissim. Maecenas mattis, orci sit amet tristique
-            tempus, dolor libero fringilla ligula, aliquet efficitur dui ex in sapien. In fringilla lacus elit, sed
-            iaculis velit tristique quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-            cubilia Curae; Quisque non arcu nunc.</p>
+        <table id="eventTable" class="display" width="100%">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>startDate</th>
+                <th>endDate</th>
+
+                <th>address</th>
+
+                <th>maxUsers</th>
+
+                <th>price</th>
+
+                <th>catering</th>
+
+                <th>eventName</th>
+                <th>activity</th>
+                <th>eventinformation</th>
+
+
+
+            </tr>
+            </thead>
+        </table>
+
+
+        <script
+                src="https://code.jquery.com/jquery-3.3.1.min.js"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+        <script type="application/javascript" language="JavaScript">
+    //var outputTable = ""
+
+
+
+
+    $(document).ready( function () {
+        $('#eventTable').DataTable({
+            ajax: {
+                "url": "http://localhost:8080/api/event/all",
+                "dataSrc": ""
+            },
+            "columns" : [
+                {"data" : "id"},
+                {"data" : "startDate"},
+                {"data" : "endDate"},
+                {"data" : "address"},
+                {"data" : "maxUsers"},
+                {"data" : "price"},
+                {"data" : "catering"},
+                {"data" : "eventnameCollection"},
+                {"data" : "activityCollection"},
+                {"data" : "eventinformationCollection"}
+            ]
+        });
+    } );
+
+    var refreshTable = function(){
+        $('#eventTable').DataTable().ajax.reload();
+
+
+
+    };
+
+
+
+</script>
     </div>
 </div>
 
