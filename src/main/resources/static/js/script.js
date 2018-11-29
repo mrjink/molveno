@@ -21,16 +21,30 @@ $(document).ready(function() {
     });
 
     $("#submitReservationBtn").on( "click", function() {
-        var amountOfPeople = $("#amountOfPeople").val();
-        var date = $("#date").val();
-        var time = $("#time").val();
-        var name = $("#name").val();
-        var phone = $("#phone").val();
-        var email = $("#email").val();
-        var course = $("#course").val();
+       /* var amountOfPeople = $("#amountOfPeople").val();*/
+        var resDate = $("#date").val();
+        var resTime = $("#time").val();
+        var resName = $("#name").val();
+        var resPhone = $("#phone").val();
+        var resEmail = $("#email").val();
+        var resCourse = $("#course").val();
+        console.log(resDate);
+        console.log(resTime);
+        console.log(resName);
+        console.log(resPhone);
+        console.log(resEmail);
+        console.log(resCourse);
 
-        var json = JSON.stringify("???");
-
+        	var json = JSON.stringify({
+                date: resDate,
+                time: resTime,
+                user : {
+		            name: resName,
+	                phoneNumber: resPhone,
+	                email: resEmail
+            	},
+                course: resCourse
+            })
         addReservation(json)
     });
 });
@@ -44,6 +58,10 @@ function addReservation(json){
         contentType: "application/json;",
         success: function(){
             console.log("Het is gelukt.., toch?");
+        },
+        error: function(xhr,ajaxOptions,thrownError){
+        	alert(xhr.status);
+        	alert(thrownError);
         }
     });
 }
