@@ -29,7 +29,7 @@ public class Reservation {
     private Course course;
 
     //TODO: Relation is incorrect? Adding to database does not work atm.
-    @OneToMany(mappedBy = "id", cascade = {CascadeType.ALL, CascadeType.ALL})
+    @OneToMany(mappedBy = "id", fetch = FetchType.EAGER)//(cascade = {CascadeType.ALL, CascadeType.ALL})
     private List<Table> tables;
 
     public Reservation() {
