@@ -85,13 +85,4 @@ public class Reservation {
     public void setReservationGuests(Set<ReservationGuest> reservationGuests) {
         this.reservationGuests = reservationGuests;
     }
-
-
-    public Set<Room> getRooms() {
-        return rooms;
-    }
-
-    public void setRooms(Set<Room> rooms) {
-        this.rooms = rooms;
-    }
 }
