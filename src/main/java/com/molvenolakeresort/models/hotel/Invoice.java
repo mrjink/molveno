@@ -1,6 +1,9 @@
 package com.molvenolakeresort.models.hotel;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Invoice {
@@ -18,6 +21,10 @@ public class Invoice {
     @ManyToOne
     @JoinColumn
     private Invoice parentInvoice;
+
+    @OneToMany(mappedBy = "parentInvoice")
+    private Set<Invoice> childInvoices = new HashSet<>();
+
     private boolean isPaid;
     private String deposit;
     private boolean isDepositPaid;
@@ -83,5 +90,13 @@ public class Invoice {
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
+    }
+
+    public Set<Invoice> getChildInvoices() {
+        return childInvoices;
+    }
+
+    public void setChildInvoices(Set<Invoice> childInvoices) {
+        this.childInvoices = childInvoices;
     }
 }
