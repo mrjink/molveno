@@ -27,6 +27,7 @@ public class Reservation {
             mappedBy = "reservations")
     private Set<Guest> guests = new HashSet<>();
 
+
     @ManyToMany(fetch = FetchType.LAZY,
             cascade = {
                     CascadeType.PERSIST,
@@ -79,5 +80,14 @@ public class Reservation {
 
     public void setGuests(Set<Guest> guests) {
         this.guests = guests;
+    }
+
+
+    public Set<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Set<Room> rooms) {
+        this.rooms = rooms;
     }
 }
