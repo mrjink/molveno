@@ -13,32 +13,23 @@ public class Ingredient {
     @Id
     @GeneratedValue
     private int id;
-    private MenuItemType type;
     private String name;
     private Unit unit;
-    private MenuCategory category;
+    private String notes;
+
     private Supplier supplier;
 
-    public Ingredient( MenuItemType type, String name, Unit unit, MenuCategory category, Supplier supplier) {
-        this.type = type;
+    public Ingredient( String name, Unit unit, Supplier supplier, String notes) {
         this.name = name;
         this.unit = unit;
-        this.category = category;
         this.supplier = supplier;
+        this.notes=notes;
     }
 
     public int getId() {
         return id;
     }
-    
 
-    public MenuItemType getType() {
-        return type;
-    }
-
-    public void setType(MenuItemType type) {
-        this.type = type;
-    }
 
     public String getName() {
         return name;
@@ -56,13 +47,6 @@ public class Ingredient {
         this.unit = unit;
     }
 
-    public MenuCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(MenuCategory category) {
-        this.category = category;
-    }
 
     public Supplier getSupplier() {
         return supplier;
@@ -70,5 +54,13 @@ public class Ingredient {
 
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
