@@ -20,25 +20,10 @@ public class Guest {
     private boolean newsletterSubscribed;
 
 
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            })
-    @JoinTable(name = "ReservationGuest",
-            joinColumns = { @JoinColumn },
-            inverseJoinColumns = { @JoinColumn })
-    private Set<Reservation> reservations = new HashSet<>();
+    @OneToMany(mappedBy = "guest")
+    private Set<ReservationGuest> reservationGuests = new HashSet<>();
+
     public Guest() {
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstName() {
@@ -89,11 +74,11 @@ public class Guest {
         this.newsletterSubscribed = newsletterSubscribed;
     }
 
-    public Set<Reservation> getReservations() {
-        return reservations;
+    public Set<ReservationGuest> getReservationGuests() {
+        return reservationGuests;
     }
 
-    public void setReservations(Set<Reservation> reservations) {
-        this.reservations = reservations;
+    public void setReservationGuests(Set<ReservationGuest> reservationGuests) {
+        this.reservationGuests = reservationGuests;
     }
 }
