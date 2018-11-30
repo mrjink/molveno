@@ -179,12 +179,22 @@
     </div>
 </div>
 
-<script>$(document).ready( function () {
-$('#myTable').DataTable();
-} );
-
-
-
+<script>
+    $(document).ready( function () {
+        var table = $('#myTable').DataTable();
+        $.ajax({url: "/api/invoices/all", type: "get", success: function(result){
+            console.log(result);
+            $("#myTableBody").html("");
+            $.each(result, function(index, room) {
+                table.row.add([
+                    invoice.date,
+                    invoice.amount,
+                    invoice.paid,
+                    invoice.origin
+                ]).draw(false);
+            });
+        }});
+    });
 </script>
 
 </body>

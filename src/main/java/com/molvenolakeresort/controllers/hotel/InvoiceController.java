@@ -24,11 +24,11 @@ public class InvoiceController {
         JSONArray result = new JSONArray();
         for (Invoice invoice : this.invoiceRepository.findAll()) {
             JSONObject row = new JSONObject();
-            row.put("ID", invoice.getId());
-            row.put("Date", invoice.getInvoiceDate());
-            row.put("Amount", invoice.getAmount());
-            row.put("Paid",invoice.isPaid());
-            row.put("Origin", invoice.getOrigin());
+            row.put("id", invoice.getId());
+            row.put("date", invoice.getInvoiceDate());
+            row.put("amount", invoice.getAmount());
+            row.put("paid",invoice.isPaid());
+            row.put("origin", invoice.getOrigin());
             result.add(row);
         }
         return  result;
