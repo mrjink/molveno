@@ -13,9 +13,8 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Custom styles for this template -->
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
@@ -93,6 +92,9 @@
 
 <div class="row">
     <div class="col-md-12">
+        <!--HIERZO-->
+
+
         <p>StartDate:</p>
         <p><input type="date" id="eventStartDate"></p>
         <p>StartTime:</p>
@@ -135,107 +137,11 @@
 
         <button onclick="postData()"> Add event </button>
 
-        <div id="events"></div>
-
-        <script
-                src="https://code.jquery.com/jquery-3.3.1.min.js"
-                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-                crossorigin="anonymous"></script>
+        <!--Runscript eventcreate.js -->
+         <!--Javascript boven-->
+        <!--HIERZO-->
 
 
-
-        <script type="application/javascript" language="JavaScript">
-
-    var postData = function(){
-
-
-        var eventAdress = $('#eventAdress').val();
-        var eventmaxUsers = $('#eventmaxUsers').val();
-        var eventprice = $('#eventprice').val();
-
-        //get de waarde van de checkbox (true of false)
-        var eventcatering = document.getElementById("eventcatering").checked;
-
-        //Start en enddate hiernder
-        //maak van date en time datetime object (STARTDATE)
-        var sdate = document.getElementById("eventStartDate").value;
-        var stime = document.getElementById("eventStartTime").value;
-
-        var sdatetime = new Date(sdate +" "+ stime);
-
-        //maak van date en time datetime object (ENDDATE)
-        var edate = document.getElementById("eventEndDate").value;
-        var etime = document.getElementById("eventEndTime").value;
-        var edatetime = new Date(edate +" "+ etime);
-
-
-        //EventName english
-        var eventnameEnglish = $('#eventnameEnglish').val();
-        var eventnameChinese = $('#eventnameChinese').val();
-
-        var eventactivityEnglish = $('#eventactivityEnglish').val();
-        var eventactivityChinese = $('#eventactivityChinese').val();
-
-        var eventinfoEnglish = $('#eventinfoEnglish').val();
-        var eventinfoChinese = $('#eventinfoChinese').val();
-
-        var names = {"english": eventnameEnglish,"chinese": eventnameChinese};
-        var activity = {"english": eventactivityEnglish,"chinese": eventactivityChinese};
-        var info = {"english": eventinfoEnglish,"chinese": eventinfoChinese};
-
-
-
-        $.ajax({
-            url: "http://localhost:8080/api/event",
-            type: "post",
-            data: JSON.stringify({
-                address:eventAdress
-                ,maxUsers:eventmaxUsers
-                ,price:eventprice
-                ,catering:eventcatering
-                ,startDate:sdatetime
-                ,endDate:edatetime
-                ,eventnameCollection:names
-                ,activityCollection:activity
-                ,eventinformationCollection:info
-
-                }),
-            contentType: "application/json",
-            success: function (result){
-                $('#eventAdress').val("");
-                $('#eventmaxUsers').val("");
-                $('#eventprice').val("");
-                //reset Start: date and time inputbox
-                $('#eventStartDate').val("");
-                $('#eventStartTime').val("");
-                //reset End: date and time inputbox
-                $('#eventEndDate').val("");
-                $('#eventEndTime').val("");
-                $('#eventcatering').prop('checked',false);
-                $('#eventnameEnglish').val("");
-                $('#eventnameChinese').val("");
-                $('#eventactivityEnglish').val("");
-                $('#eventactivityChinese').val("");
-                $('#eventinfoEnglish').val("");
-                $('#eventinfoChinese').val("");
-
-
-
-
-
-
-
-
-
-            },
-            error: function(result){
-                console.log(result);
-                $('#events').html(result.responseText);
-            }
-
-        })
-    };
-</script>
     </div>
 </div>
 
@@ -352,13 +258,23 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<!--
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="../../assets/js/vendor/popper.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
-
+-->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<!--
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="/js/eventcreate.js"></script><!--Javascript-->
+
+
+
 </body>
 </html>
