@@ -203,16 +203,19 @@ footer.page-footer.font-small.blue.pt-4{
 	border: 1px solid GREY;
 }
 
-div.row {
-     padding-top: 160px !important;
- }
+div.carousel, div.no-carousel.row {
+     padding-top: 143px !important;
+}
 
 div.row div.col-md-4 {
-    padding-left: 15px !important;
+    padding-left: 15px;
     padding-right: 15px !important;
 }
 
-
+div.index.col-md-4 {
+    padding-top: 16px !important;
+    padding-left: 30px !important;
+}
 
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
@@ -272,6 +275,24 @@ div.administrationpanel {
 
 div.administrationpanel div.sub {
     padding-left: 100px !important;
+}
+
+
+/* Header changes */
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .active>.nav-link {
+    color: white !important;
+}
+
+nav.navbar div.collapse button.btn.btn-outline-success {
+    color: rgba(0,0,0,.5) !important;
+    border-color: #0084c4 !important;
+    margin-right: 15px;
+}
+
+nav.navbar div.collapse button.btn.btn-outline-success:hover {
+    color: white !important;
+    background-color:#0084c4 !important;
+    margin-right: 15px;
 }
 
 /* CALENDAR */
