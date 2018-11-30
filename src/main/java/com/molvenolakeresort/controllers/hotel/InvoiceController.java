@@ -24,7 +24,10 @@ public class InvoiceController {
         JSONArray result = new JSONArray();
         for (Invoice invoice : this.invoiceRepository.findAll()) {
             JSONObject row = new JSONObject();
-            row.put("invoiceDate", invoice.getInvoiceDate());
+            row.put("ID", invoice.getId());
+            row.put("Date", invoice.getInvoiceDate());
+            row.put("Amount", invoice.getAmount());
+            row.put("Paid",invoice.isPaid());
             result.add(row);
         }
         return  result;

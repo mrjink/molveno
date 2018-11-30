@@ -3,7 +3,6 @@ package com.molvenolakeresort.models.hotel;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,6 +14,7 @@ public class Invoice {
     private String billNumber;
     private String payType;
     private LocalDateTime invoiceDate;
+    private String amount;
 
 
     @OneToOne(mappedBy = "invoice")
@@ -30,6 +30,7 @@ public class Invoice {
     private boolean isPaid;
     private String deposit;
     private boolean isDepositPaid;
+
 
     public Invoice() {
     }
@@ -108,5 +109,13 @@ public class Invoice {
 
     public void setInvoiceDate(LocalDateTime invoiceDate) {
         this.invoiceDate = invoiceDate;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
     }
 }
