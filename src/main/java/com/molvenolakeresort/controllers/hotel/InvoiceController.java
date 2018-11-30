@@ -2,6 +2,8 @@ package com.molvenolakeresort.controllers.hotel;
 
 import com.molvenolakeresort.models.hotel.Invoice;
 import com.molvenolakeresort.repositories.hotel.InvoiceRepository;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,9 +20,16 @@ public class InvoiceController {
     }
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
-    public Iterable<Invoice> getAll() {
-        return this.invoiceRepository.findAll();
+    public JSONArray getAll() {
+        JSONArray result = new JSONArray();
+        for (Invoice invoice : this.invoiceRepository.findAll()) {
+            JSONObject row = new JSONObject();
+            row.put("invoiceDate", invoice.getInvoiceDate());
+            result.add(row);
+        }
+        return  result;
     }
+
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public void create(@RequestBody Invoice invoice) {
@@ -56,4 +65,5 @@ public class InvoiceController {
         }
         return invoices;
     }
+
 }
