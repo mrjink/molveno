@@ -18,6 +18,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -62,152 +63,150 @@
                     <th scope="col"><b>Last Name</b></th>
                     <th scope="col"><b>First Name</b></th>
                     <th scope="col"><b>Country</b></th>
-                    <!--<th scope="col"><b>Booked by</b></th>-->
+                    <th scope="col"><b>Booked by</b></th>
                     <th scope="col"><b>Check-in date</b></th>
                     <th scope="col"><b>Planned check-out date</b></th>
                     <th scope="col"><b>Number of Beds</b></th>
                     <th scope="col"><b>Room Status</b></th>
-                    <!--<th scope="col"><b>Pets</b></th>-->
+                    <th scope="col"><b>Pets</b></th>
                     <th scope="col"><b>Room blocked</b></th>
                 </tr>
                 </thead>
-                <tbody id="tableBody">
+                <tbody>
+                <tr>
+                    <td><b>#101</b></td>
+                    <td>Neeson</td>
+                    <td>Liam</td>
+                    <td>Germany</td>
+                    <td>Receptionist Willy</td>
+                    <td>01-01-2013</td>
+                    <td>01-01-2033</td>
+                    <td>1Q-2SP-1BB</td>
+                    <td>Clean</td>
+                    <td>Dog</td>
+                    <td>No</td>
 
-                <!--<tr>-->
+                </tr>
+                <tr>
 
-                    <!--<td><b>#101</b></td>-->
-                    <!--<td>Neeson</td>-->
-                    <!--<td>Liam</td>-->
-                    <!--<td>Germany</td>-->
-                    <!--<td>Receptionist Willy</td>-->
-                    <!--<td>01-01-2013</td>-->
-                    <!--<td>01-01-2033</td>-->
-                    <!--<td>1Q-2SP-1BB</td>-->
-                    <!--<td>Clean</td>-->
-                    <!--<td>Dog</td>-->
-                    <!--<td>No</td>-->
+                    <td><b>#102</b></td>
+                    <td>Picard</td>
+                    <td>Jean-Luc</td>
+                    <td>Zimbabwe</td>
+                    <td>GM O'Reilly</td>
+                    <td>04-07-2018</td>
+                    <td>14-08-2018</td>
+                    <td>1K-1SP</td>
+                    <td>Clean</td>
+                    <td>Cat</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><b>#103</b></td>
+                    <td>Stallone</td>
+                    <td>Arnold</td>
+                    <td>Switzerland</td>
+                    <td>Receptionist Sandy</td>
+                    <td>03-06-2018</td>
+                    <td>21-06-2018</td>
+                    <td>1Q-2SP-1BB</td>
+                    <td>Clean</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
 
-                <!--</tr>-->
-                <!--<tr>-->
+                    <td><b>#104</b></td>
+                    <td>Grylls</td>
+                    <td>Manpig</td>
+                    <td>Germany</td>
+                    <td>Receptionist Willy</td>
+                    <td>10-06-2018</td>
+                    <td>20-06-2018</td>
+                    <td>1Q-2SP-1BB</td>
+                    <td>Clean</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><b>#105</b></td>
+                    <td>Van Os</td>
+                    <td>Gillis</td>
+                    <td>Germany</td>
+                    <td>Receptionist Willy</td>
+                    <td>01-06-2018</td>
+                    <td>12-07-2018</td>
+                    <td>1Q-2SP-1BB</td>
+                    <td>Clean</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><b>#106</b></td>
+                    <td>Travolta</td>
+                    <td>Olivia</td>
+                    <td>Germany</td>
+                    <td>Receptionist Sandy</td>
+                    <td>12-06-2018</td>
+                    <td>20-06-2018</td>
+                    <td>1Q-2SP-1BB</td>
+                    <td>To clean</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><b>#107</b></td>
+                    <td>Huggenkiss</td>
+                    <td>Amanda</td>
+                    <td>Germany</td>
+                    <td>Receptionist Willy</td>
+                    <td>13-05-2018</td>
+                    <td>12-08-2018</td>
+                    <td>1Q-2SP-1BB</td>
+                    <td>Clean</td>
+                    <td>Dog</td>
+                    <td>No</td>
+                </tr>
+                <tr>
 
-                    <!--<td><b>#102</b></td>-->
-                    <!--<td>Picard</td>-->
-                    <!--<td>Jean-Luc</td>-->
-                    <!--<td>Zimbabwe</td>-->
-                    <!--<td>GM O'Reilly</td>-->
-                    <!--<td>04-07-2018</td>-->
-                    <!--<td>14-08-2018</td>-->
-                    <!--<td>1K-1SP</td>-->
-                    <!--<td>Clean</td>-->
-                    <!--<td>Cat</td>-->
-                    <!--<td>No</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>#103</b></td>-->
-                    <!--<td>Stallone</td>-->
-                    <!--<td>Arnold</td>-->
-                    <!--<td>Switzerland</td>-->
-                    <!--<td>Receptionist Sandy</td>-->
-                    <!--<td>03-06-2018</td>-->
-                    <!--<td>21-06-2018</td>-->
-                    <!--<td>1Q-2SP-1BB</td>-->
-                    <!--<td>Clean</td>-->
-                    <!--<td>No</td>-->
-                    <!--<td>No</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-
-                    <!--<td><b>#104</b></td>-->
-                    <!--<td>Grylls</td>-->
-                    <!--<td>Manpig</td>-->
-                    <!--<td>Germany</td>-->
-                    <!--<td>Receptionist Willy</td>-->
-                    <!--<td>10-06-2018</td>-->
-                    <!--<td>20-06-2018</td>-->
-                    <!--<td>1Q-2SP-1BB</td>-->
-                    <!--<td>Clean</td>-->
-                    <!--<td>No</td>-->
-                    <!--<td>No</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>#105</b></td>-->
-                    <!--<td>Van Os</td>-->
-                    <!--<td>Gillis</td>-->
-                    <!--<td>Germany</td>-->
-                    <!--<td>Receptionist Willy</td>-->
-                    <!--<td>01-06-2018</td>-->
-                    <!--<td>12-07-2018</td>-->
-                    <!--<td>1Q-2SP-1BB</td>-->
-                    <!--<td>Clean</td>-->
-                    <!--<td>No</td>-->
-                    <!--<td>No</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>#106</b></td>-->
-                    <!--<td>Travolta</td>-->
-                    <!--<td>Olivia</td>-->
-                    <!--<td>Germany</td>-->
-                    <!--<td>Receptionist Sandy</td>-->
-                    <!--<td>12-06-2018</td>-->
-                    <!--<td>20-06-2018</td>-->
-                    <!--<td>1Q-2SP-1BB</td>-->
-                    <!--<td>To clean</td>-->
-                    <!--<td>No</td>-->
-                    <!--<td>No</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>#107</b></td>-->
-                    <!--<td>Huggenkiss</td>-->
-                    <!--<td>Amanda</td>-->
-                    <!--<td>Germany</td>-->
-                    <!--<td>Receptionist Willy</td>-->
-                    <!--<td>13-05-2018</td>-->
-                    <!--<td>12-08-2018</td>-->
-                    <!--<td>1Q-2SP-1BB</td>-->
-                    <!--<td>Clean</td>-->
-                    <!--<td>Dog</td>-->
-                    <!--<td>No</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-
-                    <!--<td><b>#108</b></td>-->
-                    <!--<td>Gallagher</td>-->
-                    <!--<td>Noel</td>-->
-                    <!--<td>UK</td>-->
-                    <!--<td>Receptionist Sandy</td>-->
-                    <!--<td>04-06-2018</td>-->
-                    <!--<td>12-06-2018</td>-->
-                    <!--<td>1Q-2SP-1BB</td>-->
-                    <!--<td>Clean</td>-->
-                    <!--<td>No</td>-->
-                    <!--<td>No</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>#109</b></td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>Clean</td>-->
-                    <!--<td></td>-->
-                    <!--<td>Yes</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                    <!--<td><b>#110</b></td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>-</td>-->
-                    <!--<td>To clean</td>-->
-                    <!--<td></td>-->
-                    <!--<td>No</td>-->
-                <!--</tr>-->
+                    <td><b>#108</b></td>
+                    <td>Gallagher</td>
+                    <td>Noel</td>
+                    <td>UK</td>
+                    <td>Receptionist Sandy</td>
+                    <td>04-06-2018</td>
+                    <td>12-06-2018</td>
+                    <td>1Q-2SP-1BB</td>
+                    <td>Clean</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td><b>#109</b></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>Clean</td>
+                    <td></td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td><b>#110</b></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>To clean</td>
+                    <td></td>
+                    <td>No</td>
+                </tr>
                 </tbody>
         </table>
     </div>
@@ -215,31 +214,22 @@
 </div>
 
 <script>
-    $(document).ready( function () {
-        var table = $('#myTable').DataTable();
-        $.ajax({url: "/api/rooms/all?filterEmpty=false&filterOccupied=false", type: "get", success: function(result){
-            console.log(result);
-            $("#tableBody").html("");
-            $.each(result, function(index, room) {
-                table.row.add([
-                    room.roomNumber,
-                    room.lastName,
-                    room.firstName,
-                    room.country,
-                    room.startDate,
-                    room.endDate,
-                    room.numberOfBeds,
-                    room.roomStatus,
-                    room.roomBlocked
-                ]).draw(false);
-            });
-        }});
-    });
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            responsive: {
+                details: {
+                    display: $.fn.dataTable.Responsive.display.modal( {
+                        header: function ( row ) {
+                            var data = row.data();
+                            return 'Details for '+data[0]+' '+data[1];
+                        }
+                    } ),
+                    renderer: $.fn.dataTable.Responsive.renderer.tableAll()
+                }
+            }
+        } );
+    } );
 </script>
-
-
-
-
 </body>
 <footer></footer>
 </html>
