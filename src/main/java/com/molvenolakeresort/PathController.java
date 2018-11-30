@@ -8,12 +8,12 @@ public class PathController {
 
     @RequestMapping(path = {"/restaurant", "/restaurant/"})
     public  String getRestaurant(){
-        return "/restaurant/index.html";
+        return "/restaurant/restaurant.html";
     }
 
 
     @RequestMapping(path = {"/restaurant/reservation", "/restaurant/reservation/"})
     public  String getReservation(){
-        return "/restaurant/reservation/index.html";
+        return "/restaurant/reservation/reservation.html";
     }
 }

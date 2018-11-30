@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 
     $("#startReservationProcressBtn").on( "click", function() {
-        window.location.href = "/reservation/restaurant/";
+        window.location.href = "/restaurant/reservation/";
     });
 
     $("#submitReservationBtn").on( "click", function() {
