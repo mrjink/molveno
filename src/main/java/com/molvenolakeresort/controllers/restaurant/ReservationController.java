@@ -3,7 +3,6 @@ package com.molvenolakeresort.controllers.restaurant;
 import com.molvenolakeresort.models.restaurant.Reservation;
 import com.molvenolakeresort.models.restaurant.exceptions.ReservationNotFoundException;
 import com.molvenolakeresort.repositories.restaurant.ReservationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,9 +11,7 @@ import java.util.List;
 @RequestMapping("api/restaurant/reservation")
 public class ReservationController {
 
-    @Autowired
     private final ReservationRepository repository;
-//
 
     public ReservationController(ReservationRepository repository) {
         this.repository = repository;
