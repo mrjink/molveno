@@ -1,8 +1,8 @@
 package com.molvenolakeresort.controllers.restaurant;
 
-import com.molvenolakeresort.models.kitchen.restaurant.Reservation;
-import com.molvenolakeresort.models.kitchen.restaurant.ReservationRepository;
-import com.molvenolakeresort.restaurant.exceptions.ReservationNotFoundException;
+import com.molvenolakeresort.models.restaurant.Reservation;
+import com.molvenolakeresort.models.restaurant.exceptions.ReservationNotFoundException;
+import com.molvenolakeresort.repositories.restaurant.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
