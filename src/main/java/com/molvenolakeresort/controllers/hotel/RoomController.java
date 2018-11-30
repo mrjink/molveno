@@ -25,7 +25,7 @@ public class RoomController {
     }
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
-    public JSONArray getAll(@RequestParam(value = "filterEmpty", required = true) boolean filterEmpty, @RequestParam(value = "filterOccupied", required = true) boolean filterOccupied) {
+    public JSONArray getAll() {
         JSONArray result = new JSONArray();
         for (Room room : this.roomRepository.findAll()) {
             JSONObject row = new JSONObject();
@@ -37,16 +37,15 @@ public class RoomController {
                     roomAmenities.getKingSizeBeds() +
                     roomAmenities.getQueenSizeBeds() +
                     roomAmenities.getSingleSizeBeds());
-            boolean occupied = false;
             for (Reservation reservation : room.getReservations()) {
                 LocalDate today = LocalDate.now();
 
+                boolean checkedIn = reservation.getCheckInDate() != null && reservation.getCheckOutDate() == null;
 
-                if (today.compareTo(reservation.getStartDate().toLocalDate()) >= 0 &&
-                        today.compareTo(reservation.getEndDate().toLocalDate()) <= 0) {
+                if ((today.compareTo(reservation.getStartDate().toLocalDate()) >= 0 &&
+                     today.compareTo(reservation.getEndDate().toLocalDate()) <= 0) || checkedIn) {
 
 
-                    occupied = true;
                     for (ReservationGuest reservationGuest : reservation.getReservationGuests()) {
                         if (reservationGuest.isMainBooker()) {
                             Guest guest = reservationGuest.getGuest();
@@ -59,12 +58,11 @@ public class RoomController {
                     }
                     row.put("startDate", reservation.getStartDate());
                     row.put("endDate", reservation.getEndDate());
+                    row.put("checkedIn", checkedIn);
                     break;
                 }
             }
-            if ((filterEmpty && !occupied) || (filterOccupied && occupied) || (!filterEmpty && !filterOccupied)) {
-                result.add(row);
-            }
+            result.add(row);
         }
         return result;
     }
