@@ -15,6 +15,7 @@ public class Invoice {
     private String payType;
     private LocalDateTime invoiceDate;
     private String amount;
+    private String origin;
 
 
     @OneToOne(mappedBy = "invoice")
@@ -117,5 +118,13 @@ public class Invoice {
 
     public void setAmount(String amount) {
         this.amount = amount;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
     }
 }

@@ -28,6 +28,7 @@ public class InvoiceController {
             row.put("Date", invoice.getInvoiceDate());
             row.put("Amount", invoice.getAmount());
             row.put("Paid",invoice.isPaid());
+            row.put("Origin", invoice.getOrigin());
             result.add(row);
         }
         return  result;
