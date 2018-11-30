@@ -185,12 +185,12 @@
         $.ajax({url: "/api/invoices/all", type: "get", success: function(result){
             console.log(result);
             $("#myTableBody").html("");
-            $.each(result, function(index, room) {
+            $.each(result, function(index, invoice) {
                 table.row.add([
                     invoice.date,
+                    invoice.origin,
                     invoice.amount,
-                    invoice.paid,
-                    invoice.origin
+                    invoice.paid
                 ]).draw(false);
             });
         }});
