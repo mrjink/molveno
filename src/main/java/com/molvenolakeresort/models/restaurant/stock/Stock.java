@@ -1,6 +1,7 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
-import com.molvenolakeresort.restaurant.enums.Unit;
+import com.molvenolakeresort.models.restaurant.enums.Unit;
+
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
