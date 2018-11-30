@@ -1,8 +1,8 @@
 package com.molvenolakeresort.models.restaurant.menu;
 
-import java.util.List;
+import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
 
-import com.molvenolakeresort.models.kitchen.enums.MenuCategory;
+import java.util.List;
 
 public class Menu {
     private int id;

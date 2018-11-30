@@ -1,8 +1,8 @@
 package com.molvenolakeresort.models.restaurant.menu;
 
-import com.molvenolakeresort.models.kitchen.enums.MenuCategory;
-import com.molvenolakeresort.models.kitchen.enums.MenuItemType;
-import com.molvenolakeresort.models.kitchen.stock.Ingredient;
+import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
+import com.molvenolakeresort.models.restaurant.enums.MenuItemType;
+import com.molvenolakeresort.models.restaurant.stock.Ingredient;
 
 import java.util.List;
 

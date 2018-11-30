@@ -14,18 +14,15 @@ public class Reservation {
     private LocalDateTime bookedDate;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private LocalDateTime checkInDate;
+    private LocalDateTime checkOutDate;
 
     @OneToOne
     @JoinColumn
     private Invoice invoice;
 
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            },
-            mappedBy = "reservations")
-    private Set<Guest> guests = new HashSet<>();
+    @OneToMany(mappedBy = "reservation")
+    private Set<ReservationGuest> reservationGuests = new HashSet<>();
 
 
     @ManyToMany(fetch = FetchType.LAZY,
@@ -35,6 +32,7 @@ public class Reservation {
             },
             mappedBy = "reservations")
     private Set<Room> rooms = new HashSet<>();
+
     public Reservation() {
     }
 
@@ -74,20 +72,35 @@ public class Reservation {
         this.invoice = invoice;
     }
 
-    public Set<Guest> getGuests() {
-        return guests;
-    }
-
-    public void setGuests(Set<Guest> guests) {
-        this.guests = guests;
-    }
-
-
     public Set<Room> getRooms() {
         return rooms;
     }
 
     public void setRooms(Set<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public Set<ReservationGuest> getReservationGuests() {
+        return reservationGuests;
+    }
+
+    public void setReservationGuests(Set<ReservationGuest> reservationGuests) {
+        this.reservationGuests = reservationGuests;
+    }
+
+    public LocalDateTime getCheckInDate() {
+        return checkInDate;
+    }
+
+    public void setCheckInDate(LocalDateTime checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+
+    public LocalDateTime getCheckOutDate() {
+        return checkOutDate;
+    }
+
+    public void setCheckOutDate(LocalDateTime checkOutDate) {
+        this.checkOutDate = checkOutDate;
     }
 }
