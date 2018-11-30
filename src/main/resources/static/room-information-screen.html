@@ -217,14 +217,13 @@
 <script>
     $(document).ready( function () {
         var table = $('#myTable').DataTable();
-
         $.ajax({url: "/api/rooms/all?filterEmpty=false&filterOccupied=false", type: "get", success: function(result){
             console.log(result);
             $("#tableBody").html("");
             $.each(result, function(index, room) {
-            table.row.add([
-                room.roomNumber,
-                room.lastName,
+                table.row.add([
+                    room.roomNumber,
+                    room.lastName,
                     room.firstName,
                     room.country,
                     room.startDate,
@@ -232,8 +231,7 @@
                     room.numberOfBeds,
                     room.roomStatus,
                     room.roomBlocked
-
-        ]).draw(false);
+                ]).draw(false);
             });
         }});
     });
