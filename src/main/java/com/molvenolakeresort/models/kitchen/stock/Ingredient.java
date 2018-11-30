@@ -16,20 +16,19 @@ public class Ingredient {
     private String name;
     private Unit unit;
     private String notes;
-
+    private double amount;
     private Supplier supplier;
 
-    public Ingredient( String name, Unit unit, Supplier supplier, String notes) {
+    public Ingredient(String name, Unit unit, Supplier supplier, String notes) {
         this.name = name;
         this.unit = unit;
         this.supplier = supplier;
-        this.notes=notes;
+        this.notes = notes;
     }
 
     public int getId() {
         return id;
     }
-
 
     public String getName() {
         return name;
@@ -62,5 +61,13 @@ public class Ingredient {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 }
