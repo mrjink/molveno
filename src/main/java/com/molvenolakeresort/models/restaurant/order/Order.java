@@ -1,15 +1,15 @@
 package com.molvenolakeresort.models.restaurant.order;
 
-import java.util.List;
+import com.molvenolakeresort.models.restaurant.enums.DestinationType;
+import com.molvenolakeresort.models.restaurant.enums.SupplierOrderStatus;
 
-import com.molvenolakeresort.models.kitchen.enums.DestinationType;
-import com.molvenolakeresort.models.kitchen.enums.Status;
+import java.util.List;
 
 public class Order {
     private int id;
     private DestinationType destination;
     private String destinationId;
     private List<OrderItem> orderItems;
-    private Status status;
+    private SupplierOrderStatus status;
     private int totalPrice;
 }
