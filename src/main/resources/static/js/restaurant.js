@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	console.log("Works");
     //Controleren of sessies worden ondersteund door de browser.
     var sessionAllowed = typeof(Storage) !== "undefined" ? true : false;
 
@@ -21,7 +22,7 @@ $(document).ready(function() {
     });
 
     $("#submitReservationBtn").on( "click", function() {
-       /* var amountOfPeople = $("#amountOfPeople").val();*/
+        var resAmountOfPeople = $("#amountOfPeople").val();
         var resDate = $("#date").val();
         var resTime = $("#time").val();
         var resName = $("#name").val();
@@ -36,6 +37,7 @@ $(document).ready(function() {
         console.log(resCourse);
 
         	var json = JSON.stringify({
+        		amountOfPeople : resAmountOfPeople,
                 date: resDate,
                 time: resTime,
                 user : {
@@ -45,7 +47,7 @@ $(document).ready(function() {
             	},
                 course: resCourse
             })
-        addReservation(json)
+        addReservation(json);
     });
 });
 
@@ -58,6 +60,7 @@ function addReservation(json){
         contentType: "application/json;",
         success: function(){
             console.log("Het is gelukt.., toch?");
+            window.location.href = "/restaurant/reservation/confirm";
         },
         error: function(xhr,ajaxOptions,thrownError){
         	alert(xhr.status);

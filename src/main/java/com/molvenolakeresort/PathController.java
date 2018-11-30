@@ -16,4 +16,10 @@ public class PathController {
     public  String getReservation(){
         return "/restaurant/reservation/reservation.html";
     }
+
+
+    @RequestMapping(path = {"/restaurant/reservation/confirm", "/restaurant/reservation/confirm/"})
+    public  String getConfirmation(){
+        return "/restaurant/reservation/confirm.html";
+    }
 }

@@ -24,6 +24,7 @@ public class Reservation {
     private @Id
     @GeneratedValue
     Long id;
+    private Integer amountOfPeople;
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
     private LocalDate date;
@@ -67,5 +68,9 @@ public class Reservation {
 
     public Long getId() {
         return id;
+    }
+
+    public Integer getAmountOfPeople() {
+        return amountOfPeople;
     }
 }
