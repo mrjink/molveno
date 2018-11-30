@@ -11,48 +11,8 @@
 <body>
 <h1>All events pagina</h1>
 
-<!--<button onclick="getData()"> Get Data </button>-->
 
-<!-- Input Velden interface -->
-<p>Adres:</p>
-<p><input type="text" id="eventAdress"></p>
-
-<p>MaxUsers:</p>
-<p><input type="text" id="eventmaxUsers"></p>
-
-<p>price:</p>
-<p><input type="text" id="eventprice"></p>
-
-<p>catering:</p>
-<p><input type="checkbox" id="eventcatering"></p>
-
-<p>Eventname English:</p>
-<p><input type="checkbox" id="eventnameCollection"></p>
-<p>Eventname Chinese:</p>
-<p><input></p>
-<!-- Input Velden interface -->
-
-
-
-
-<!--<table id="eventTable" class="display">
-    <thead>
-    <tr>
-        <th>Column 1</th>
-        <th>Column 2</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>Row 1 Data 1</td>
-        <td>Row 1 Data 2</td>
-    </tr>
-    <tr>
-        <td>Row 2 Data 1</td>
-        <td>Row 2 Data 2</td>
-    </tr>
-    </tbody>
-</table> -->
+<!-- DIT MOET JE KOPIEREN-->
 <table id="eventTable" class="display" width="100%">
     <thead>
         <tr>
@@ -78,9 +38,6 @@
     </thead>
 </table>
 
-<button onclick="postData()"> Add event </button>
-
-<div id="events"></div>
 
 <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -125,74 +82,10 @@
 
     };
 
-   
-
-
-   
-
-
-
-
-
-    var postData = function(){
-        var eventAdress = $('#eventAdress').val();
-        var eventmaxUsers = $('#eventmaxUsers').val();
-        var eventprice = $('#eventprice').val();
-        var checkbox = $('#eventcatering').checked;
-            console.log(checkbox);
-        var eventcatering = false;
-        //var eventnameCollecion = $('#eventnameCollection').val();
-        if(checkbox == "on")
-            eventcatering = false;
-        if(checkbox == "off")
-            eventcatering = true;
-
-
-
-
-
-        $.ajax({
-            url: "http://localhost:8080/api/event",
-            type: "post",
-            data: JSON.stringify({
-                address:eventAdress
-                ,maxUsers:eventmaxUsers
-                ,price:eventprice
-                ,catering:eventcatering}),
-            contentType: "application/json",
-            success: function (result){
-                $('#eventAdress').val("");
-                $('#eventmaxUsers').val("");
-                $('#eventprice').val("");
-
-
-
-                refreshTable();
-
-            },
-            error: function(result){
-                console.log(result);
-                $('#events').html(result.responseText);
-            }
-
-        })
-    };
-
-
-    //$(document).ready( function () {
-    //    $('#eventTable').DataTable();
-    //} );
-
-    //$(document).ready(function() {
-    //    $('#eventTable').DataTable( {
-    //        "ajax": '../ajax/data/arrays.txt'
-    //    } );
-    //} );
-
 
 
 </script>
-
+<!-- TOT EN MET HIER-->
 
 </body>
 </html>
