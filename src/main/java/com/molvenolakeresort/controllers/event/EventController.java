@@ -1,9 +1,8 @@
-package com.molvenolakeresort.event.controller;
+package com.molvenolakeresort.controllers.event;
 
 
-import com.molvenolakeresort.event.models.Event;
-import com.molvenolakeresort.event.repository.EventRepository;
-import com.molvenolakeresort.models.hotel.Address;
+import com.molvenolakeresort.models.event.Event;
+import com.molvenolakeresort.repositories.event.EventRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;

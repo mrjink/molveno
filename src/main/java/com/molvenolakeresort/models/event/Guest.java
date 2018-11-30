@@ -1,4 +1,4 @@
-package com.molvenolakeresort.event.models;
+package com.molvenolakeresort.models.event;
 
 import java.time.LocalDate;
 

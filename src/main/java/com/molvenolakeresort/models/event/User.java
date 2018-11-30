@@ -1,4 +1,4 @@
-package com.molvenolakeresort.event.models;
+package com.molvenolakeresort.models.event;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

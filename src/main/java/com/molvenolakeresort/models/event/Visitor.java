@@ -1,6 +1,4 @@
-package com.molvenolakeresort.event.models;
-
-import com.molvenolakeresort.event.models.User;
+package com.molvenolakeresort.models.event;
 
 import javax.persistence.Entity;
 

@@ -1,7 +1,7 @@
-package com.molvenolakeresort.event.controller;
+package com.molvenolakeresort.controllers.event;
 
-import com.molvenolakeresort.event.models.User;
-import com.molvenolakeresort.event.repository.UserRepository;
+import com.molvenolakeresort.models.event.User;
+import com.molvenolakeresort.repositories.event.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

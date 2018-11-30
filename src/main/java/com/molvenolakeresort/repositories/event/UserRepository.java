@@ -1,6 +1,6 @@
-package com.molvenolakeresort.event.repository;
+package com.molvenolakeresort.repositories.event;
 
-import com.molvenolakeresort.event.models.User;
+import com.molvenolakeresort.models.event.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
