@@ -15,9 +15,8 @@ public class Ingredient {
     private Unit unit;
     private String notes;
 
-    public Ingredient(){}
-
 //    private Supplier supplier;
+    public Ingredient(){}
 
 //    public Ingredient( String name, Unit unit, Supplier supplier, String notes) {
 //        this.name = name;
