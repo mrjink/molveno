@@ -14,16 +14,16 @@ public class Ingredient {
     private String name;
     private Unit unit;
     private String notes;
+    private Supplier supplier;
+    private double amount;
 
-//    private Supplier supplier;
-    public Ingredient(){}
 
-//    public Ingredient( String name, Unit unit, Supplier supplier, String notes) {
-//        this.name = name;
-//        this.unit = unit;
-////        this.supplier = supplier;
-//        this.notes=notes;
-//    }
+    public Ingredient( String name, Unit unit, Supplier supplier, String notes) {
+        this.name = name;
+        this.unit = unit;
+        this.supplier = supplier;
+        this.notes=notes;
+    }
 
     public int getId() {
         return id;
@@ -47,13 +47,13 @@ public class Ingredient {
     }
 
 
-//    public Supplier getSupplier() {
-//        return supplier;
-//    }
+    public Supplier getSupplier() {
+        return supplier;
+    }
 
-//    public void setSupplier(Supplier supplier) {
-//        this.supplier = supplier;
-//    }
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
 
     public String getNotes() {
         return notes;
@@ -61,5 +61,13 @@ public class Ingredient {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 }
