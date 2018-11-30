@@ -1,12 +1,10 @@
 package com.molvenolakeresort.models.restaurant;
 
-import com.molvenolakeresort.models.kitchen.restaurant.Reservation;
-import com.molvenolakeresort.restaurant.enums.TableShape;
+import com.molvenolakeresort.models.restaurant.enums.TableShape;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Table {
