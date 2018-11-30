@@ -212,8 +212,6 @@ div.row div.col-md-4 {
     padding-right: 15px !important;
 }
 
-
-
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
 .panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
@@ -272,6 +270,20 @@ div.administrationpanel {
 
 div.administrationpanel div.sub {
     padding-left: 100px !important;
+}
+
+/* Header buttons changes */
+
+nav.navbar div.collapse button.btn.btn-outline-success {
+    color: rgba(0,0,0,.5) !important;
+    border-color: #0084c4 !important;
+    margin-right: 15px;
+}
+
+nav.navbar div.collapse button.btn.btn-outline-success:hover {
+    color: white !important;
+    background-color:#0084c4 !important;
+    margin-right: 15px;
 }
 
 /* CALENDAR */
