@@ -1,9 +1,10 @@
 package com.molvenolakeresort.models.hotel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
-import java.util.HashSet;
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Invoice {
@@ -13,21 +14,24 @@ public class Invoice {
     private int id;
     private String billNumber;
     private String payType;
-
-
-    @OneToOne(mappedBy = "invoice")
-    private Reservation reservation;
-
-    @ManyToOne
-    @JoinColumn
-    private Invoice parentInvoice;
-
-    @OneToMany(mappedBy = "parentInvoice")
-    private Set<Invoice> childInvoices = new HashSet<>();
+    private LocalDateTime createdDate;
+    private LocalDateTime paidDate;
+    private String origin;
 
     private boolean isPaid;
     private String deposit;
+    private LocalDateTime depositPaidDate;
     private boolean isDepositPaid;
+
+    @OneToMany
+    @JoinColumn
+    private List<InvoiceLine> invoiceLines;
+
+    @ManyToOne
+    @JoinColumn
+    @JsonIgnore
+    private Reservation reservation;
+
 
     public Invoice() {
     }
@@ -76,14 +80,6 @@ public class Invoice {
         isDepositPaid = depositPaid;
     }
 
-    public Invoice getParentInvoice() {
-        return parentInvoice;
-    }
-
-    public void setParentInvoice(Invoice parentInvoice) {
-        this.parentInvoice = parentInvoice;
-    }
-
     public Reservation getReservation() {
         return reservation;
     }
@@ -92,11 +88,43 @@ public class Invoice {
         this.reservation = reservation;
     }
 
-    public Set<Invoice> getChildInvoices() {
-        return childInvoices;
+    public LocalDateTime getCreatedDate() {
+        return createdDate;
     }
 
-    public void setChildInvoices(Set<Invoice> childInvoices) {
-        this.childInvoices = childInvoices;
+    public void setCreatedDate(LocalDateTime createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public LocalDateTime getPaidDate() {
+        return paidDate;
+    }
+
+    public void setPaidDate(LocalDateTime paidDate) {
+        this.paidDate = paidDate;
+    }
+
+    public LocalDateTime getDepositPaidDate() {
+        return depositPaidDate;
+    }
+
+    public void setDepositPaidDate(LocalDateTime depositPaidDate) {
+        this.depositPaidDate = depositPaidDate;
+    }
+
+    public List<InvoiceLine> getInvoiceLines() {
+        return invoiceLines;
+    }
+
+    public void setInvoiceLines(List<InvoiceLine> invoiceLines) {
+        this.invoiceLines = invoiceLines;
     }
 }

@@ -29,27 +29,20 @@ public class Reservation {
     private Course course;
 
     //TODO: Relation is incorrect? Adding to database does not work atm.
-    @OneToMany(mappedBy = "id", fetch = FetchType.EAGER)//(cascade = {CascadeType.ALL, CascadeType.ALL})
+    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)//(cascade = {CascadeType.ALL, CascadeType.ALL})
     private List<Table> tables;
 
     public Reservation() {
     }
 
-    public Reservation(User user, LocalDate date, LocalTime time, Course course, List<Table> tables) {
-        this.user = user;
-        this.date = date;
-        this.time = time;
-        this.course = course;
-        this.tables = tables;
-    }
 
     public User getUser() {
         return user;
     }
-
+/*
     public List<Table> getTables() {
         return tables;
-    }
+    }*/
 
     public LocalDate getDate() {
         return date;
