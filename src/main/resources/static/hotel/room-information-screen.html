@@ -18,6 +18,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
             crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -71,10 +72,8 @@
                     <th scope="col"><b>Room blocked</b></th>
                 </tr>
                 </thead>
-                <tbody id="tableBody">
-
+                <tbody>
                 <!--<tr>-->
-
                     <!--<td><b>#101</b></td>-->
                     <!--<td>Neeson</td>-->
                     <!--<td>Liam</td>-->
@@ -235,11 +234,23 @@
             });
         }});
     });
+
+    /*$(document).ready(function() {
+        $('#example').DataTable( {
+            responsive: {
+                details: {
+                    display: $.fn.dataTable.Responsive.display.modal( {
+                        header: function ( row ) {
+                            var data = row.data();
+                            return 'Details for '+data[0]+' '+data[1];
+                        }
+                    } ),
+                    renderer: $.fn.dataTable.Responsive.renderer.tableAll()
+                }
+            }
+        } );
+    } );*/
 </script>
-
-
-
-
 </body>
 <footer></footer>
 </html>

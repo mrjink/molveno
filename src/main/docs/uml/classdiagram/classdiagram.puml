@@ -5,12 +5,12 @@ interface User{
     String firstName
     String middleName
     String lastName
-    String emailAdress
+    String emailAddress
 }
 
 class Guest{
     Date birthDate
-    String adress
+    String address
     String homeNumber
     String buildingName
     String postalCode

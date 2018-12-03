@@ -1,19 +1,25 @@
-package com.molvenolakeresort.event;
+package com.molvenolakeresort.models.event;
 
-import java.time.LocalDate;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.List;
 
+
+@Entity
 public class Event {
+    @Id
+    @GeneratedValue
     long id;
     LocalDateTime startDate;
-    LocalDateTime endData;
-    String adress;
-    List<Participant> participants;
-    int maxParticipants;
+    LocalDateTime endDate;
+    String address;
+    @OneToMany
+    List<User> users;
+    int maxUsers;
     long price;
     boolean catering;
+    String location;
 
     //Hashmap for the language and the eventname
     HashMap<String, String> eventnameCollection = new HashMap<String, String>();
@@ -56,20 +62,20 @@ public class Event {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndData() {
-        return endData;
+    public LocalDateTime getEndDate() {
+        return endDate;
     }
 
-    public void setEndData(LocalDateTime endData) {
-        this.endData = endData;
+    public void setEndDate(LocalDateTime endDate) {
+        this.endDate = endDate;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public HashMap<String, String> getEventinformationCollection() {
@@ -80,20 +86,20 @@ public class Event {
         this.eventinformationCollection = eventinformationCollection;
     }
 
-    public List<Participant> getParticipants() {
-        return participants;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setParticipants(List<Participant> participants) {
-        this.participants = participants;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
-    public int getMaxParticipants() {
-        return maxParticipants;
+    public int getMaxUsers() {
+        return maxUsers;
     }
 
-    public void setMaxParticipants(int maxParticipants) {
-        this.maxParticipants = maxParticipants;
+    public void setMaxUsers(int maxUsers) {
+        this.maxUsers = maxUsers;
     }
 
     public long getPrice() {

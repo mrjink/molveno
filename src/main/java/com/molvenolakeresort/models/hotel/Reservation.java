@@ -17,10 +17,8 @@ public class Reservation {
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;
 
-    @OneToOne
-    @JoinColumn
-    private Invoice invoice;
-
+    @OneToMany(mappedBy = "reservation")
+    private Set<Invoice> invoices = new HashSet<>();
     @OneToMany(mappedBy = "reservation")
     private Set<ReservationGuest> reservationGuests = new HashSet<>();
 
@@ -64,14 +62,6 @@ public class Reservation {
         this.endDate = endDate;
     }
 
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
-    }
-
     public Set<Room> getRooms() {
         return rooms;
     }
@@ -102,5 +92,13 @@ public class Reservation {
 
     public void setCheckOutDate(LocalDateTime checkOutDate) {
         this.checkOutDate = checkOutDate;
+    }
+
+    public Set<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(Set<Invoice> invoices) {
+        this.invoices = invoices;
     }
 }

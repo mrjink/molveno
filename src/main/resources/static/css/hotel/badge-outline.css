@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Chivo:900|Roboto&subset=latin-ext');
+@import '../style.css';
+
+.badge {
+  border: 1px solid transparent;
+}
+
+.badge.badge-primary {
+  background-color: #2196F3
+}
+
+.badge.badge-outlined.badge-primary {
+  border-color: #2196F3;
+  color: #2196F3
+}
