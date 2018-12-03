@@ -11,6 +11,8 @@ public class Room {
     @GeneratedValue
     private int id;
     private String roomNumber;
+    private String roomStatus;
+    private String roomBlocked;
     @ManyToOne
     @JoinColumn
     private RoomAmenities roomAmenities;
@@ -38,5 +40,37 @@ public class Room {
 
     public void setRoomNumber(String roomNumber) {
         this.roomNumber = roomNumber;
+    }
+
+    public RoomAmenities getRoomAmenities() {
+        return roomAmenities;
+    }
+
+    public void setRoomAmenities(RoomAmenities roomAmenities) {
+        this.roomAmenities = roomAmenities;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public String getRoomStatus() {
+        return roomStatus;
+    }
+
+    public void setRoomStatus(String roomStatus) {
+        this.roomStatus = roomStatus;
+    }
+
+    public String getRoomBlocked() {
+        return roomBlocked;
+    }
+
+    public void setRoomBlocked(String roomBlocked) {
+        this.roomBlocked = roomBlocked;
     }
 }
