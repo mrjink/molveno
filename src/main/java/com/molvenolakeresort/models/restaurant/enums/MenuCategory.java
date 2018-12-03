@@ -6,4 +6,4 @@ public enum MenuCategory {
     DINNER,
     DESERT,
     DRINKS;
-}
+    }
