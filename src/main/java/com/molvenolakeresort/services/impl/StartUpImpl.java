@@ -51,6 +51,7 @@ public class StartUpImpl {
 
     @PostConstruct
     public void init(){
+        ServerLogger.log("Start of start-up.");
         /*try {
             Country[] countries = initCountries();
             genericService.createCountries(countries);
@@ -83,7 +84,7 @@ public class StartUpImpl {
         UserName userName1 = new UserName("employee");
         userName1.setProfile(user1);
         user1.addRole(employeeRole);
-        user1 = userService.createEmployee(user1);
-        System.out.println("Start-up process completed...");*/
+        user1 = userService.createEmployee(user1);*/
+        ServerLogger.log("End of start-up.");
     }
 }

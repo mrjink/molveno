@@ -44,7 +44,6 @@ public class Role {
         {
             this.profiles = new ArrayList<>();
         }
-        //this.profiles.add(profile);
     }
 
     public void removeProfile(Profile profile)

@@ -42,7 +42,6 @@ public class PhoneNumber {
     }
 
     public void setProfile(Profile profile) {
-        //profile.setPhoneNumber(this);
         this.profile = profile;
     }
 }

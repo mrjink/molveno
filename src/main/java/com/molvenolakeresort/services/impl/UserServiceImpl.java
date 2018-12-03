@@ -153,7 +153,7 @@ public class UserServiceImpl implements UserService {
         }
 
         roleIterable = roleRepository.saveAll(roleIterable);
-        System.out.println(String.format("Mutated %s records.", ((List<Role>) roleIterable).size()));
+        ServerLogger.log(String.format("Mutated %s records.", ((List<Role>) roleIterable).size()));
         return roleIterable;
     }
 

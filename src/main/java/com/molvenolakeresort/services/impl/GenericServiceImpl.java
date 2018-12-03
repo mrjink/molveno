@@ -7,9 +7,11 @@ import com.molvenolakeresort.services.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
 public class GenericServiceImpl implements GenericService {
@@ -27,7 +29,7 @@ public class GenericServiceImpl implements GenericService {
         Country countryResult = countryRepository.save(country);
         if(countryResult != null)
         {
-            System.out.println(String.format("New country (id): %s", countryResult.getId()));
+            ServerLogger.log(String.format("New country (id): %s", countryResult.getId()));
         }
         return countryRepository.save(country);
     }
@@ -49,7 +51,7 @@ public class GenericServiceImpl implements GenericService {
         }
 
         countryIterable = countryRepository.saveAll(countryIterable);
-        System.out.println(String.format("Mutated %s records.", ((List<Country>) countryIterable).size()));
+        ServerLogger.log(String.format("Mutated %s records.", ((List<Country>) countryIterable).size()));
         return countryIterable;
     }
 }
