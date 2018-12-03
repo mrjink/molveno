@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Chivo:900|Roboto&subset=latin-ext');
+@import '../style.css';
 
 .demo-preview {
   padding-top: 60px;

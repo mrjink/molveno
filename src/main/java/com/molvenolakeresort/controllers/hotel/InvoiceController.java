@@ -20,18 +20,8 @@ public class InvoiceController {
     }
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
-    public JSONArray getAll() {
-        JSONArray result = new JSONArray();
-        for (Invoice invoice : this.invoiceRepository.findAll()) {
-            JSONObject row = new JSONObject();
-            row.put("id", invoice.getId());
-            row.put("date", invoice.getInvoiceDate());
-            row.put("amount", invoice.getAmount());
-            row.put("paid",invoice.isPaid());
-            row.put("origin", invoice.getOrigin());
-            result.add(row);
-        }
-        return  result;
+    public List<Invoice> getAll() {
+        return this.invoiceRepository.findAll();
     }
 
 
