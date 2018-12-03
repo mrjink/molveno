@@ -4,9 +4,7 @@ import com.molvenolakeresort.models.hotel.*;
 import com.molvenolakeresort.repositories.hotel.RoomRepository;
 import com.molvenolakeresort.views.hotel.RoomInformationView;
 import org.json.simple.JSONObject;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -30,6 +28,7 @@ public class RoomController {
             RoomAmenities roomAmenities = room.getRoomAmenities();
 
             RoomInformationView view = new RoomInformationView();
+            List<Guest> otherGuestsList = new ArrayList<>();
 
             view.setRoomNumber(room.getRoomNumber());
             view.setRoomStatus(room.getRoomStatus());
@@ -49,12 +48,9 @@ public class RoomController {
 
                     for (ReservationGuest reservationGuest : reservation.getReservationGuests()) {
                         if (reservationGuest.isMainBooker()) {
-                            Guest guest = reservationGuest.getGuest();
-                            Address address = guest.getAddress();
-                            view.setLastName(guest.getLastName());
-                            view.setFirstName(guest.getFirstName());
-                            view.setCountry(address.getCountry());
-                            break;
+                            view.setMainBooker(reservationGuest.getGuest());
+                        } else {
+                            otherGuestsList.add(reservationGuest.getGuest());
                         }
                     }
                     view.setStartDate(reservation.getStartDate());
@@ -63,6 +59,7 @@ public class RoomController {
                     break;
                 }
             }
+            view.setOtherGuests(otherGuestsList);
             result.add(view);
         }
         return result;

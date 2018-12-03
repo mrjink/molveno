@@ -1,5 +1,8 @@
 package com.molvenolakeresort.models.hotel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.molvenolakeresort.models.hotel.enums.Pet;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -16,10 +19,13 @@ public class Reservation {
     private LocalDateTime endDate;
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;
+    private String bookedBy;
+    private Pet pet;
 
     @OneToMany(mappedBy = "reservation")
     private Set<Invoice> invoices = new HashSet<>();
     @OneToMany(mappedBy = "reservation")
+    @JsonIgnore
     private Set<ReservationGuest> reservationGuests = new HashSet<>();
 
 

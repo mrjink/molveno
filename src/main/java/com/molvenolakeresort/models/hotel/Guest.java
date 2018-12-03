@@ -1,6 +1,9 @@
 package com.molvenolakeresort.models.hotel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,9 +21,11 @@ public class Guest {
     private String phoneNumber;
     private String email;
     private boolean newsletterSubscribed;
+    private LocalDate dateOfBirth;
 
 
     @OneToMany(mappedBy = "guest")
+    @JsonIgnore
     private Set<ReservationGuest> reservationGuests = new HashSet<>();
 
     public Guest() {
@@ -80,5 +85,13 @@ public class Guest {
 
     public void setReservationGuests(Set<ReservationGuest> reservationGuests) {
         this.reservationGuests = reservationGuests;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 }
