@@ -1,12 +1,11 @@
 package com.molvenolakeresort.services.impl;
 
-import com.molvenolakeresort.models.generic.Country;
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
 import com.molvenolakeresort.models.generic.security.UserName;
-import com.molvenolakeresort.repositories.ProfileRepository;
-import com.molvenolakeresort.repositories.RoleRepository;
-import com.molvenolakeresort.repositories.UserNameRepository;
+import com.molvenolakeresort.repositories.generic.ProfileRepository;
+import com.molvenolakeresort.repositories.generic.RoleRepository;
+import com.molvenolakeresort.repositories.generic.UserNameRepository;
 import com.molvenolakeresort.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

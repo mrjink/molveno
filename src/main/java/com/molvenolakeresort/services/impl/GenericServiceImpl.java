@@ -2,7 +2,7 @@ package com.molvenolakeresort.services.impl;
 
 
 import com.molvenolakeresort.models.generic.Country;
-import com.molvenolakeresort.repositories.CountryRepository;
+import com.molvenolakeresort.repositories.generic.CountryRepository;
 import com.molvenolakeresort.services.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

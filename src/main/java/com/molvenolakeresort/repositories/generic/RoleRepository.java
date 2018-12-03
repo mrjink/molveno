@@ -1,4 +1,4 @@
-package com.molvenolakeresort.repositories;
+package com.molvenolakeresort.repositories.generic;
 
 import com.molvenolakeresort.models.generic.security.Role;
 import org.springframework.data.jpa.repository.JpaRepository;

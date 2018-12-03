@@ -51,7 +51,7 @@ public class StartUpImpl {
 
     @PostConstruct
     public void init(){
-        try {
+        /*try {
             Country[] countries = initCountries();
             genericService.createCountries(countries);
         } catch (IOException e) {
@@ -79,12 +79,11 @@ public class StartUpImpl {
         user.addRole(guestRole);
         user = userService.createVisitor(user);
 
-
         Profile user1 = new Profile();
         UserName userName1 = new UserName("employee");
         userName1.setProfile(user1);
         user1.addRole(employeeRole);
         user1 = userService.createEmployee(user1);
-        System.out.println("Start-up process completed...");
+        System.out.println("Start-up process completed...");*/
     }
 }

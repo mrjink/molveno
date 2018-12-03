@@ -2,8 +2,6 @@ package com.molvenolakeresort.controllers.hotel;
 
 import com.molvenolakeresort.models.hotel.Invoice;
 import com.molvenolakeresort.repositories.hotel.InvoiceRepository;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
