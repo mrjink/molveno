@@ -29,24 +29,18 @@ $(document).ready(function() {
         var resPhone = $("#phone").val();
         var resEmail = $("#email").val();
         var resCourse = $("#course").val();
-        console.log(resDate);
-        console.log(resTime);
-        console.log(resName);
-        console.log(resPhone);
-        console.log(resEmail);
-        console.log(resCourse);
 
-        	var json = JSON.stringify({
-        		amountOfPeople : resAmountOfPeople,
-                date: resDate,
-                time: resTime,
-                user : {
-		            name: resName,
-	                phoneNumber: resPhone,
-	                email: resEmail
-            	},
-                course: resCourse
-            })
+        var json = JSON.stringify({
+            amountOfPeople : resAmountOfPeople,
+            date: resDate,
+            time: resTime,
+            user : {
+                name: resName,
+                phoneNumber: resPhone,
+                email: resEmail
+            },
+            course: resCourse
+        })
         addReservation(json);
     });
 });
