@@ -13,14 +13,12 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
     <!-- Bootstrap core CSS -->
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
 
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
@@ -94,31 +92,58 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="administrationpanel">
-        <h1>Administration Panel</h1>
-        <br/>
+        <!--HIERZO-->
 
-        <h5>Welcome to the administration panel, here you can manage all available systems.</h5>
-        <br/>
 
-        <div class="sub">
-        <h2>Manage Events</h2>
-        <div>
-            <a href="/eventmanager/eventoverview.html"><i style="font-size:100px" class="fa">&#xf073;</i>
-            </a>
-        </div>
-        </div>
+        <p>StartDate:</p>
+        <p><input type="date" id="eventStartDate"></p>
+        <p>StartTime:</p>
+        <p><input type="time" id="eventStartTime"></p>
 
-        <br/>
+        <p>EndDate:</p>
+        <p><input type="date" id="eventEndDate"></p>
+        <p>EndTime:</p>
+        <p><input type="time" id="eventEndTime"></p>
 
-        <h4>Website systems</h4>
-        <br/>
+        <p>Adres:</p>
+        <p><input type="text" id="eventAdress"></p>
 
-        <h5>Use the standard systems available to guests to finalise registrations on their behalf. Or, to inspect pages.</h5>
-        <br/>
+        <p>MaxUsers:</p>
+        <p><input type="text" id="eventmaxUsers"></p>
 
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventmanager/eventcalendar.html">Open events page</a></button>
-        </div>
+        <p>price:</p>
+        <p><input type="text" id="eventprice"></p>
+
+        <p>catering:</p>
+        <p><input type="checkbox" id="eventcatering"></p>
+
+        <p>Eventname English:</p>
+        <p><input type="text" id="eventnameEnglish"></p>
+        <p>Eventname Chinese:</p>
+        <p><input type="text" id="eventnameChinese"> </p>
+
+        <p>Eventactivity English:</p>
+        <p><input type="text" id="eventactivityEnglish"></p>
+        <p>Eventactivity Chinese:</p>
+        <p><input type="text" id="eventactivityChinese"> </p>
+
+        <p>Eventinfo English:</p>
+        <p><input type="text" id="eventinfoEnglish"></p>
+        <p>Eventinfo Chinese:</p>
+        <p><input type="text" id="eventinfoChinese"> </p>
+        <!-- Input Velden interface -->
+
+
+
+        <!-- <button onclick="postData()"> Add event </button> -->
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventadministration/eventoverview.html"
+                                                                              onclick="postData()">Create Event</a></button>
+
+        <!--Runscript eventcreate.js -->
+        <!--Javascript boven-->
+        <!--HIERZO-->
+
+
     </div>
 </div>
 
@@ -235,13 +260,23 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
+<!--
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="../../assets/js/vendor/popper.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
-
+-->
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<!--
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="/js/event/eventcreate.js"></script><!--Javascript-->
+
+
+
 </body>
 </html>
