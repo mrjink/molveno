@@ -23,6 +23,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
             crossorigin="anonymous"></script>
+
 </head>
 
 <header>
@@ -90,15 +91,15 @@
                 </a>
             </ul>
 
-            <button class="btn btn-outline-success my-2 my-sm-0 btnroominfo" type="button">Register</button>
-            <button class="btn btn-outline-success my-2 my-sm-0 btnroominfo" type="button">Login</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 btnroominfo" type="button">Register</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 btnroominfo" type="button">Login</button>
         </div>
     </nav>
 </header>
 
 <body style="margin-right: 25px;">
 
-<div class="row" style="margin-top: 200px;">
+<div class="row" style="margin-top: 175px;">
     <div class="col-1"></div>
     <div class="col-3" align="center">
         <div class="container" style="background-color: #eeeeee; color: #005693">
@@ -106,7 +107,7 @@
         </div>
     </div>
 
-    <div class="col-5">
+    <div class="col-4">
 
         <div class="container" align="center" style="background-color: #eeeeee; color: #005693">
             <h3>Room options</h3>
@@ -151,77 +152,62 @@ Pet:            Yes</PRE>
     </div>
 
 
-    <div class="col-5">
+    <div class="col-4">
+
         <div class="container" style="background-color: #eeeeee; color: #005693;">
             <div class="list-group">
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
-                    Room with 3 King size
-                    beds + TV + Balcony view + Air conditioning
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/luxury2.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
+                    Room with 3 King size beds<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 5!</span></div>
+                    <br>
+                    TV + Balcony view + Air conditioning
                 </button>
                 <br>
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
-                    Room with 2 King size
-                    beds + 1 Single Person Bed + TV + Air conditioning
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/kingsize.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
+                    Room with 2 King size beds + 1 Single Person Bed<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 3!</span></div>
+                    <br>
+                    TV + Air conditioning
                 </button>
                 <br>
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
-                    Room with 1 King size
-                    beds + 1 Queen Size Bed + TV
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/queensize.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
+                    Room with 1 King size bed + 1 Queen Size Beds<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 1!</span></div>
+                    <br>
+                    TV
                 </button>
                 <br>
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
-                    Room with 1 Queen size
-                    bed + 2 Single Person Beds + TV
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/dualspbed.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
+                    Room with 1 Queen size bed + 2 Single Person Beds<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 7!</span></div>
+                    <br>
+                    TV + Balcony View
                 </button>
                 <br>
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
-                    Room with 1 Queen size
-                    bed + 2 Single Person Bed + Air conditioning
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/dualspbed.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
+                    Room with 1 Queen size bed + 2 Single Person Beds<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 10!</span></div>
+                    <br>
+                    Air conditioning
                 </button>
             </div>
         </div>
     </div>
-
-
-    <div class="col-1">
-        <div class="container" style="background-color: #eeeeee; color: #005693;">
-            <div class="list-group">
-                <div class="list-group-item alert alert-primary"
-                     style="background-color: #eeeeee; border-color: #005693;"
-                     role="alert">
-                    1 left!
-                </div>
-                <br>
-                <div class="list-group-item alert alert-primary"
-                     style="background-color: #eeeeee; border-color: #005693; "
-                     role="alert">
-                    5 left!
-                </div>
-                <br>
-                <div class="list-group-item alert alert-primary"
-                     style="background-color: #eeeeee; border-color: #005693; "
-                     role="alert">
-                    0 left!
-                </div>
-                <br>
-                <div class="list-group-item alert alert-primary"
-                     style="background-color: #eeeeee; border-color: #005693; "
-                     role="alert">
-                    9 left!
-                </div>
-                <br>
-                <div class="list-group-item alert alert-primary"
-                     style="background-color: #eeeeee; border-color: #005693; "
-                     role="alert">
-                    3 left!
-                </div>
-            </div>
-        </div>
+    <div class="col-4">
+        <img id="yoran" src="/img/logo_4000.png" width="576px;" height="576px;">
     </div>
-    <div class="col-2">
 
-        <img src=""
 
-    </div>
 </div>
+
+<script src="/js/hotel/guest-reservation-room-options-screen.js"></script>
+
+
 </body>
+
+</html>
