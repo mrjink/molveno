@@ -22,7 +22,7 @@
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-      <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a
+      <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png"  onclick="myAudioFunction()"/><a
         class="navbar-brand"
         href="#"
         >Molveno Lake Resort</a
@@ -159,5 +159,11 @@
         </div>
       </div>
     </div>
+    <script>
+     var aAudio = new Audio('/hotel/Molveno.m4a');
+     function myAudioFunction(){
+             aAudio.play();
+     }
+ </script>
   </body>
 </html>
