@@ -26,6 +26,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         //CSFR is disabled,if you dont know what csrf is,Spring has a beautiful documentaion about it ,Check it out.
         http.csrf().disable();
+        //Without the following line(s) the h2 database will return a blank page.
+        http.headers().frameOptions().disable();
 
         //Login,logout page and resources are permitted for all users
         http.authorizeRequests().antMatchers("/", "/login", "/logout", "/resources/**").permitAll();

@@ -2,6 +2,7 @@ package com.molvenolakeresort.models.generic;
 
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity(name = "Country")
 @Table(name = "country", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
@@ -11,6 +12,10 @@ public class Country {
     private long id;
     private String name;
     private String code;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @OrderColumn
+    private Collection<Address> address;
 
     public Country(){}
 
@@ -41,5 +46,13 @@ public class Country {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Collection<Address> getAddress() {
+        return address;
+    }
+
+    public void setAddress(Collection<Address> address) {
+        this.address = address;
     }
 }

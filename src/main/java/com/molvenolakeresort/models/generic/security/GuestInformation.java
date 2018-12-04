@@ -1,6 +1,7 @@
 package com.molvenolakeresort.models.generic.security;
 
 import com.molvenolakeresort.models.generic.Address;
+import com.molvenolakeresort.models.generic.LanguageCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;

@@ -9,6 +9,16 @@ import java.util.Collection;
 
 @Entity(name = "Profile")
 @Table(name = "profile", uniqueConstraints = @UniqueConstraint(columnNames = { "username", "phonenumber" }))
+@NamedQuery(name = "Profile.findByUsername",
+        query = "SELECT p FROM Profile p WHERE p.username =:username ")
+@NamedQuery(name = "Profile.findAllGuests",
+        query = "SELECT p FROM PROFILE_ROLE pr JOIN PROFILE p ON p.ID = pr.PROFILE_ID JOIN ROLE r ON r.ID = pr.ROLE_ID AND r.NAME = 'GUEST'")
+@NamedQuery(name = "Profile.findAllVisitors",
+        query = "SELECT p FROM PROFILE_ROLE pr JOIN PROFILE p ON p.ID = pr.PROFILE_ID JOIN ROLE r ON r.ID = pr.ROLE_ID AND r.NAME = 'VISITOR'")
+@NamedQuery(name = "Profile.findAllParticipants",
+        query = "SELECT p FROM PROFILE_ROLE pr JOIN PROFILE p ON p.ID = pr.PROFILE_ID JOIN ROLE r ON r.ID = pr.ROLE_ID AND r.NAME = 'PARTICIPANT'")
+@NamedQuery(name = "Profile.findAllEmployees",
+        query = "SELECT p FROM PROFILE_ROLE pr JOIN PROFILE p ON p.ID = pr.PROFILE_ID JOIN ROLE r ON r.ID = pr.ROLE_ID AND r.NAME = 'EMPLOYEE'")
 public class Profile {
 
     @Id

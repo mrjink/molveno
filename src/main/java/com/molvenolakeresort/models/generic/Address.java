@@ -19,18 +19,22 @@ public class Address {
     private String city;
     private String postalCode;
 
+    @ManyToOne
+    private Country country;
+
     @OneToMany(cascade = CascadeType.ALL)
     @OrderColumn
     private Collection<Profile> guests;
 
     public Address() {}
 
-    public Address(String streetName, String buildingName, String homeNumber, String city, String postalCode) {
+    public Address(String streetName, String buildingName, String homeNumber, String city, String postalCode, Country country) {
         this.streetName = streetName;
         this.buildingName = buildingName;
         this.homeNumber = homeNumber;
         this.city = city;
         this.postalCode = postalCode;
+        this.country = country;
     }
 
     public long getId() {
@@ -89,4 +93,11 @@ public class Address {
         this.guests = guests;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 }
