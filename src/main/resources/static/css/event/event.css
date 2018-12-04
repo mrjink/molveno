@@ -137,27 +137,6 @@ body {
 #menu {
     width: 100%;
 }
-/*
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #006ead;
-}
-
-li {
-    float: left;
-    width: 25%;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}*/
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
@@ -221,7 +200,7 @@ div.index.col-md-4 {
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
 .panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
 .login-form .form-control {
-  background: #f7f7f7 none repeat scroll 0 0;
+  background: white none repeat scroll 0 0;
   border: 1px solid #d4d4d4;
   border-radius: 4px;
   font-size: 14px;
@@ -236,38 +215,78 @@ div.index.col-md-4 {
   padding: 50px 70px 70px 71px;
 }
 
+/* Login form */
+
+form#Login div.input-group {
+    padding-bottom: 15px;
+}
+
+form#Login div.form-group div.form-control {
+    background: white !important;
+}
+
+div.container div.login-form div.main-div {
+    border: 1px solid #d4d4d4;
+}
+
+.login-form .btn.btn-primary {
+    color: rgba(0,0,0,.5) !important;
+    border-color: #0084c4 !important;
+    margin-right: 15px;
+}
+
 .login-form .form-group {
   margin-bottom:10px;
 }
+
 .login-form{ text-align:center;}
 .forgot a {
   color: #777777;
   font-size: 14px;
   text-decoration: underline;
 }
-.login-form  .btn.btn-primary {
-  background: #f0ad4e none repeat scroll 0 0;
-  border-color: #f0ad4e;
-  color: #ffffff;
+
+.login-form .btn.btn-primary {
+  background: white none repeat scroll 0 0;
+  color: rgba(0,0,0,.5) !important;
+  border-color: #0084c4 !important;
+  margin-right: 15px;
+
   font-size: 14px;
   width: 100%;
   height: 50px;
   line-height: 50px;
   padding: 0;
 }
+
+.login-form .btn.btn-primary a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.login-form .btn.btn-primary {
+    color: white !important;
+    background-color: #0084c4 !important;
+}
+
 .forgot {
   text-align: left; margin-bottom:30px;
 }
+
 .botto-text {
   color: #ffffff;
   font-size: 14px;
   margin: auto;
 }
+
 .login-form .btn.btn-primary.reset {
   background: #ff9900 none repeat scroll 0 0;
 }
+
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+/* administrationpanel */
 
 div.administrationpanel {
     padding-left: 50px !important;
@@ -275,10 +294,40 @@ div.administrationpanel {
 
 div.administrationpanel div.sub {
     padding-left: 100px !important;
+    display: inline-block;
+    padding-bottom: 35px;
 }
 
+div.administrationpanel button.btn {
+    margin-bottom: 15px !important;
+    display: block;
+    width: 250px;
+    color: rgba(0,0,0,.5) !important;
+    border-color: #0084c4 !important;
+}
+
+div.administrationpanel div.sub div.icoon i.fa {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+}
+
+div.administrationpanel button.btn:hover, div.administrationpanel button.btn:hover a, div.administrationpanel button.btn a:hover {
+    color: white !important;
+    background-color:#0084c4 !important;
+    text-decoration: none !important;
+}
+
+@media (min-width: 1000px) {
+    div.sub.col-md-2 h4 {
+        text-align: center;
+        font-size: 17px;
+        padding-left: 10px;
+    }
+}
 
 /* Header changes */
+
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .active>.nav-link {
     color: white !important;
 }
