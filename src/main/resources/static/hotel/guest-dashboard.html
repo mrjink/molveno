@@ -129,11 +129,14 @@
             </div>
           </div>
           <div class="col-4 extraMargin">
-            <a href="/hotel/guest-dashboard.html">
-              <div class="dashboardButton">
+              <div class="dashboardButtonNoHover">
                 <p>Subscribe to Newsletter</p>
-              </div></a
-            >
+                <form id="subscribeNewsletter" > <!--action="/action_page.php"-->
+                        <input id="inputEmail" type="email" name="email" placeholder="Enter your e-mailaddress here"/>
+                        <br><br>
+                        <input class="btn btn-outline-success my-2 my-sm-0 btnsubmitemail" id="submitButton" type="submit" value="Submit">
+                    </form>
+              </div>
           </div>
           <div class="col-4 extraMargin">
             <a href="/hotel/invoice-screen.html">
