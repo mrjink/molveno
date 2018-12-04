@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<!--<h1>Event create pagina</h1>
+
+<button onclick="getData()"> Get Data </button>
+-->
+<!-- Input Velden interface -->
+<!-- javascript heeft methode om datetime te maken en opsturen naar db-->
+<h1>Edit Event pagina</h1>
+
+
+<p>Adres:</p>
+<p><input type="text" id="eventAdress"></p>
+
+<!-- Input Velden interface -->
+
+<button onclick="postData(1)"> edit event </button>
+<button onclick="deleteData(1)"> Delete event</button> <!-- doe ik nu -->
+
+<div id="events"></div> <!-- hierachter methode om 1 event aan te passen -->
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<script type="application/javascript" language="JavaScript">
+
+    window.onload = function getData(){
+        $.ajax({
+            url: "http://localhost:8080/api/event/get/1",
+            type: "get",
+            success: function(result){
+             $('#eventAdress').val(result.address);
+            },
+            error: function(result){
+                console.log(result);
+                $('#events').html(result.responseText);
+            }
+        })
+    };
+
+    var postData = function(id){
+
+        $.ajax({
+            url: "http://localhost:8080/api/event/update/" + id,
+            type: "patch",
+            data: JSON.stringify({
+                address: $('#eventAdress').val()
+                }),
+            contentType: "application/json",
+            success: function (result){
+               console.log("patch is gelukt");
+               
+               // getData();
+            },
+            error: function(result){
+                console.log(result);
+                $('#events').html(result.responseText);
+            }
+        })
+    };
+
+
+ var deleteData = function(id){
+
+$.ajax({
+    url: "http://localhost:8080/api/event/delete/" + id,
+    type: "delete",
+    data: JSON.stringify({
+        // address: $('#eventAdress').val()
+        }),
+    contentType: "application/json",
+    success: function (result){
+       console.log("delete is gelukt");
+    },
+    error: function(result){
+        console.log(result);
+        $('#events').html(result.responseText);
+    }
+})
+};
+</script>
+</body>
+</html>
