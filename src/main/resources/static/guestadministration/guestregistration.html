@@ -97,7 +97,7 @@
         <div class="row justify-content-center">
             <div class="carousel col-md-8">
                 <div class="card">
-                    <div class="card-header">Admin Action Page</div>
+                    <div class="card-header">Register (Guest)</div>
                     <div class="card-body">
                         <form name="my-form" onsubmit="return validform()" action="success.php" method="">
                             <div class = "row">
@@ -111,15 +111,11 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group row">
-                                        <label for="checked_in" class="col-md-4 col-form-label text-md-right">Checked In</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="checked_in" class="form-control" name="checked-in">
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-
                             <div class = "row">
                                 <div class="col">
                                     <div class="form-group row">
@@ -131,12 +127,9 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group row">
-                                        <label for="stay" class="col-md-4 col-form-label text-md-right">Stay</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="stay" class="form-control" name="stay">
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class = "row">
@@ -150,13 +143,12 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group row">
-                                        <label for="room" class="col-md-4 col-form-label text-md-right">Room</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="room" class="form-control" name="stay">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
 
 
                             <div class = "row">
@@ -255,16 +247,16 @@
                                 <div class="col-6">
                                     <div class="form-group row">
                                         <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
-                                        <form id="login2">
-                                        <div class="col-sm-6">
-                                            <div class="input-group">
-                                                <select class="custom-select" id="inputGroupSelect03">
-                                                    <option selected></option>
-                                                    <option value="1">China</option>
-                                                    <option value="2">Country list to be loaded...</option>
-                                                </select>
+                                        <form id="Login">
+                                            <div class="col-sm-6">
+                                                <div class="input-group">
+                                                    <select class="custom-select" id="inputGroupSelect04">
+                                                        <option selected></option>
+                                                        <option value="1">China</option>
+                                                        <option value="2">List to be loaded...</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                        </div>
                                         </form>
                                     </div>
                                 </div>
@@ -279,21 +271,21 @@
 
 
                             <div class = "row">
-                            <div class="col">
-                                <div class="form-group row">
-                                    <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
-                                    <div class="col-sm-6">
-                                        <input type="text" id="phone_number" class="form-control" name="phone-number">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="phone_number" class="form-control" name="phone-number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="form-group row">
-                                    <div class="col-sm-6">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                             <div class = "row">
                                 <div class="col">
                                     <div class="form-group row">
@@ -306,12 +298,45 @@
                                 <div class="col-6">
                                     <div class="form-group row">
                                         <div class="col-sm-6">
-                                            <button type="button" class="btn btn-secondary">Reset Password</button>
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="password" class="col-md-4 col-form-label text-md-right">Password*</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="password" class="form-control" name="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="re_enter_password" class="col-md-4 col-form-label text-md-right">Re-enter Password</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="re_enter_password" class="form-control" name="re_enter_password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
