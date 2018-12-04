@@ -1,24 +1,16 @@
 package com.molvenolakeresort.models.generic.security;
 
-import com.molvenolakeresort.models.generic.Address;
+import com.molvenolakeresort.models.generic.Gender;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 
 @Entity(name = "Profile")
-@Table(name = "profile", uniqueConstraints = @UniqueConstraint(columnNames = { "username", "phonenumber" }))
-@NamedQuery(name = "Profile.findByUsername",
-        query = "SELECT p FROM Profile p WHERE p.username =:username ")
-@NamedQuery(name = "Profile.findAllGuests",
-        query = "SELECT p FROM PROFILE_ROLE pr JOIN PROFILE p ON p.ID = pr.PROFILE_ID JOIN ROLE r ON r.ID = pr.ROLE_ID AND r.NAME = 'GUEST'")
-@NamedQuery(name = "Profile.findAllVisitors",
-        query = "SELECT p FROM PROFILE_ROLE pr JOIN PROFILE p ON p.ID = pr.PROFILE_ID JOIN ROLE r ON r.ID = pr.ROLE_ID AND r.NAME = 'VISITOR'")
-@NamedQuery(name = "Profile.findAllParticipants",
-        query = "SELECT p FROM PROFILE_ROLE pr JOIN PROFILE p ON p.ID = pr.PROFILE_ID JOIN ROLE r ON r.ID = pr.ROLE_ID AND r.NAME = 'PARTICIPANT'")
-@NamedQuery(name = "Profile.findAllEmployees",
-        query = "SELECT p FROM PROFILE_ROLE pr JOIN PROFILE p ON p.ID = pr.PROFILE_ID JOIN ROLE r ON r.ID = pr.ROLE_ID AND r.NAME = 'EMPLOYEE'")
+@Table(name = "profile", uniqueConstraints = @UniqueConstraint(columnNames = { "email", "phonenumber" }))
+@NamedQuery(name = "Profile.findByEmail",
+        query = "SELECT p FROM Profile p WHERE p.email =:email ")
+@NamedQuery(name = "Profile.findByPhoneNumber",
+        query = "SELECT p FROM Profile p WHERE p.phoneNumber =:phonenumber ")
 public class Profile {
 
     @Id
@@ -31,35 +23,32 @@ public class Profile {
     @Nullable
     private String lastName;
 
-    //@ManyToMany(fetch=FetchType.EAGER, mappedBy = "profiles")
-    @ManyToMany
-    @JoinTable(name = "profile_role",
-            joinColumns = @JoinColumn(name = "profile_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Collection<Role> roles;
-
     @Nullable
-    @Column(name = "username")
-    private String username;
+    @Column(name = "email")
+    private String email;
 
     @Nullable
     @Column(name = "phonenumber")
     private String phoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "address_id")
     @Nullable
-    private Address address;
+    @Column(name = "isvisitor")
+    private boolean isVisitor;
 
-    private String password;
+    @Enumerated(value = EnumType.STRING)
+    private Gender gender = Gender.UNKNOWN;
 
-    private String passwordResetURI;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @JoinColumn(name = "guestinformation_id")
+    @OneToOne(cascade = CascadeType.ALL, optional = true)
     @JoinColumn(name = "guestinformation_id")
     @Nullable
     private GuestInformation guestInformation;
+
+    @OneToOne(cascade = CascadeType.ALL, optional = true)
+    @JoinColumn(name = "user_id")
+    @Nullable
+    private User user;
 
     public Profile() {}
 
@@ -98,38 +87,13 @@ public class Profile {
         this.lastName = lastName;
     }
 
-    public Collection<Role> getRoles() {
-        return roles;
-    }
-
-    public void addRole(Role role)
-    {
-        if(this.roles == null)
-        {
-            this.roles = new ArrayList<>();
-        }
-        this.roles.add(role);
-    }
-
-    public void removeRole(Role role)
-    {
-        if(this.roles != null)
-        {
-            this.roles.remove(role);
-        }
-    }
-
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
-    }
-
     @Nullable
-    public String getUsername() {
-        return username;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsername(@Nullable String username) {
-        this.username = username;
+    public void setEmail(@Nullable String email) {
+        this.email = email;
     }
 
     @Nullable
@@ -142,36 +106,36 @@ public class Profile {
     }
 
     @Nullable
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(@Nullable Address address) {
-        this.address = address;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPasswordResetURI() {
-        return passwordResetURI;
-    }
-
-    public void setPasswordResetURI(String passwordResetURI) {
-        this.passwordResetURI = passwordResetURI;
-    }
-
-    @Nullable
     public GuestInformation getGuestInformation() {
         return guestInformation;
     }
 
     public void setGuestInformation(@Nullable GuestInformation guestInformation) {
         this.guestInformation = guestInformation;
+    }
+
+    public boolean isVisitor() {
+        return isVisitor;
+    }
+
+    public void setVisitor(boolean visitor) {
+        isVisitor = visitor;
+    }
+
+    @Nullable
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(@Nullable User user) {
+        this.user = user;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }

@@ -1,6 +1,7 @@
 package com.molvenolakeresort.models.generic;
 
 
+import com.molvenolakeresort.models.generic.security.GuestInformation;
 import com.molvenolakeresort.models.generic.security.Profile;
 
 import javax.persistence.*;
@@ -24,7 +25,7 @@ public class Address {
 
     @OneToMany(cascade = CascadeType.ALL)
     @OrderColumn
-    private Collection<Profile> guests;
+    private Collection<GuestInformation> guestInformations;
 
     public Address() {}
 
@@ -85,12 +86,12 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    public Collection<Profile> getGuests() {
-        return guests;
+    public Collection<GuestInformation> getGuestInformations() {
+        return this.guestInformations;
     }
 
-    public void setGuests(Collection<Profile> guests) {
-        this.guests = guests;
+    public void setGuests(Collection<GuestInformation> guestInformations) {
+        this.guestInformations = guestInformations;
     }
 
     public Country getCountry() {

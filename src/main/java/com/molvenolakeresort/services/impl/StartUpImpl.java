@@ -2,9 +2,9 @@ package com.molvenolakeresort.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.molvenolakeresort.models.generic.Country;
-import com.molvenolakeresort.models.generic.security.Profile;
-import com.molvenolakeresort.models.generic.security.Role;
+import com.molvenolakeresort.models.generic.security.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +12,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 
 @Component
 public class StartUpImpl {
@@ -60,27 +61,42 @@ public class StartUpImpl {
         }
 
         Role guestRole = new Role ("GUEST");
-        Role visitorRole = new Role("VISITOR");
-        Role employeeRole = new Role("EMPLOYEE");
-
-        Role userDeletePrivilege = new Role("USER_DELETE");
-        Role userEditPrivilege = new Role("USER_EDIT");
-        Role userViewPrivilege = new Role("USER_VIEW");
-        userService.createRoles(new Role[]{ guestRole, visitorRole, employeeRole, userDeletePrivilege, userEditPrivilege, userViewPrivilege });
+        Role employeeRole = new Role("ADMINISTRATOR", true);
+        Role employeeRole2 = new Role("MANAGER", true);
+        userService.createRoles(new Role[]{ guestRole, employeeRole, employeeRole2 });
 
         guestRole = userService.findRoleByName(guestRole.getName());
 
-        Profile user = new Profile();
-        user.setFirstName("test");
-        user.setLastName("ing");
-        user.setUsername("testing");
-        user.addRole(guestRole);
-        user = userService.createVisitor(user);
+        Profile profileExample = new Profile();
+        profileExample.setFirstName("test");
+        profileExample.setLastName("ing");
+        profileExample.setVisitor(false);
+        profileExample.setPhoneNumber("+31643136264");
 
-        Profile user1 = new Profile();
-        user1.addRole(employeeRole);
-        user1.setUsername(employeeRole.getName());
-        user1 = userService.createEmployee(user1);
-        ServerLogger.log("End of start-up.");
+        User userExample = new User();
+        userExample.setRole(guestRole);
+        userExample.setUsername("temp-user");
+        userExample.setPassword(PasswordEncryption.getHashedPassword("pwd"));
+        userExample.setPasswordResetURI(PasswordEncryption.getPasswordRecoveryUri(userExample));
+
+        GuestInformation guestInformation = new GuestInformation();
+        guestInformation.setDateOfBirth(LocalDate.of(1990, 01,01));
+        guestInformation.setSubscribedToNewsletter(true);
+
+        profileExample.setUser(userExample);
+        profileExample.setGuestInformation(guestInformation);
+
+        //generate a restaurant visitor (phone only)
+        userService.createVisitor(profileExample);
+
+        profileExample.setMiddleName("ing the th");
+        profileExample.setPhoneNumber(null);
+        profileExample.setEmail("test@test.com");
+
+        //generate a event visitor (email only)
+        userService.createVisitor(profileExample);
+
+        //generate a guest from the event visitor
+        userService.createGuest(profileExample);
     }
 }

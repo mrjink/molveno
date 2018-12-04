@@ -2,8 +2,10 @@ package com.molvenolakeresort.services.impl;
 
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
+import com.molvenolakeresort.models.generic.security.User;
 import com.molvenolakeresort.repositories.generic.ProfileRepository;
 import com.molvenolakeresort.repositories.generic.RoleRepository;
+import com.molvenolakeresort.repositories.generic.UserRepository;
 import com.molvenolakeresort.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,40 +23,51 @@ public class UserServiceImpl implements UserService {
     @Autowired
     RoleRepository roleRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
+    private Profile createProfileTemplate(Profile profile, boolean isVisitor)
+    {
+        Profile newProfile = new Profile();
+        newProfile.setFirstName(profile.getFirstName());
+        newProfile.setMiddleName(profile.getMiddleName());
+        newProfile.setLastName(profile.getLastName());
+        newProfile.setVisitor(isVisitor);
+        if(profile.getEmail() != null) {
+            //used for the participant of an event
+            newProfile.setEmail(profile.getEmail());
+        }
+        if(profile.getPhoneNumber() != null) {
+            //used for the visitor of the restaurant
+            newProfile.setPhoneNumber(profile.getPhoneNumber());
+        }
+        return newProfile;
+    }
+
     @Override
-    public Optional<Profile> findEmployee(long id) {
+    public Optional<User> findEmployee(long id) {
         return Optional.empty();
     }
 
     @Override
-    public Profile createEmployee(Profile employee) {
+    public User createEmployee(User employee) {
         //only fill entries used by employee
-        Profile newProfile = new Profile();
-        newProfile.setPassword(employee.getPassword());
-        if(employee.getUsername() != null) {
-            //used for the participant of an event
-            newProfile.setUsername(employee.getUsername());
-        }
-        if(employee.getRoles() != null)
-        {
-            for(Role role : employee.getRoles())
-            {
-                role = findRoleByName(role.getName());
-                role.addProfile(newProfile);
-                roleRepository.save(role);
-            }
+        User newUser = new User();
+        newUser.setPassword(employee.getPassword());
+        if(employee.getRole() != null) {
+            newUser.setRole(employee.getRole());
         }
         else
         {
             Role role = findRoleByName("EMPLOYEE");
-            role.addProfile(newProfile);
+            newUser.setRole(role);
         }
 
-        return profileRepository.save(newProfile);
+        return userRepository.save(newUser);
     }
 
     @Override
-    public Iterable<Profile> findAllEmployees() {
+    public Iterable<User> findAllEmployees() {
         return null;
     }
 
@@ -63,25 +76,11 @@ public class UserServiceImpl implements UserService {
         return Optional.empty();
     }
 
+
     @Override
     public Profile createVisitor(Profile visitor) {
         //only fill entries used by visitor
-        Profile newProfile = new Profile();
-        newProfile.setFirstName(visitor.getFirstName());
-        newProfile.setMiddleName(visitor.getMiddleName());
-        newProfile.setLastName(visitor.getLastName());
-        if(visitor.getUsername() != null) {
-            //used for the participant of an event
-            newProfile.setUsername(visitor.getUsername());
-        }
-        if(visitor.getPhoneNumber() != null) {
-            //used for the visitor of the restaurant
-            newProfile.setPhoneNumber(visitor.getPhoneNumber());
-        }
-        Role role = findRoleByName("VISITOR");
-        role.addProfile(newProfile);
-
-        return profileRepository.save(newProfile);
+        return profileRepository.save(createProfileTemplate(visitor, true));
     }
 
     @Override
@@ -95,8 +94,43 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Profile createGuest(Profile visitor) {
-        return null;
+    public Profile createGuest(Profile guest) {
+
+        Profile template = null;
+
+        Profile eventVisitor = profileRepository.findByEmail(guest.getEmail());
+        Profile restaurantVisitor = profileRepository.findByPhoneNumber(guest.getPhoneNumber());
+
+        if(eventVisitor != null && restaurantVisitor != null)
+        {
+            //upgrade event visitor and (transfer and) destroy the restaurant visitors content.
+            template = eventVisitor;
+        }
+        else if(eventVisitor != null)
+        {
+            template = eventVisitor;
+        }
+        else if(restaurantVisitor != null)
+        {
+            template = restaurantVisitor;
+        }
+
+        //if the guest does not yet exist as a visitor create one.
+        if(template == null)
+        {
+            template = createProfileTemplate(guest, false);
+        } else
+        {
+            template.setVisitor(false);
+            template.setEmail(guest.getEmail());
+            template.setFirstName(guest.getFirstName());
+            template.setMiddleName(guest.getMiddleName());
+            template.setLastName(guest.getLastName());
+            template.setUser(guest.getUser());
+            template.setGuestInformation(guest.getGuestInformation());
+        }
+
+        return profileRepository.save(template);
     }
 
     @Override

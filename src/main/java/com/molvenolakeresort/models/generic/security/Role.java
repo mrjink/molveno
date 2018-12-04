@@ -14,15 +14,21 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    private boolean isEmployeeRole;
 
-    @ManyToMany(mappedBy = "roles")//(cascade = { CascadeType.MERGE, CascadeType.PERSIST })//
-    private Collection<Profile> profiles;
+    @OneToMany(mappedBy = "role")//(cascade = { CascadeType.MERGE, CascadeType.PERSIST })//
+    private Collection<User> users;
 
     public Role() {
     }
 
     public Role(String name) {
         this.name = name;
+    }
+
+    public Role(String name, boolean isEmployeeRole) {
+        this.name = name;
+        this.isEmployeeRole = isEmployeeRole;
     }
 
     public long getId() {
@@ -37,20 +43,20 @@ public class Role {
         return name;
     }
 
-    public void addProfile(Profile profile)
+    public void addUser(User user)
     {
-        profile.addRole(this);
-        if(this.profiles == null)
+        user.setRole(this);
+        if(this.users == null)
         {
-            this.profiles = new ArrayList<>();
+            this.users = new ArrayList<>();
         }
     }
 
-    public void removeProfile(Profile profile)
+    public void removeUser(User user)
     {
-        if(this.profiles != null)
+        if(this.users != null)
         {
-            this.profiles.remove(profile);
+            this.users.remove(user);
         }
     }
 
@@ -58,11 +64,19 @@ public class Role {
         this.name = name;
     }
 
-    public Collection<Profile> getProfiles() {
-        return profiles;
+    public Collection<User> getUsers() {
+        return this.users;
     }
 
-    public void setProfiles(Collection<Profile> profiles) {
-        this.profiles = profiles;
+    public void setUsers(Collection<User> users) {
+        this.users = users;
+    }
+
+    public boolean isEmployeeRole() {
+        return isEmployeeRole;
+    }
+
+    public void setEmployeeRole(boolean employeeRole) {
+        isEmployeeRole = employeeRole;
     }
 }
