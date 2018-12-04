@@ -1,18 +1,31 @@
 .dashboardButton {
-    background-color: #005693 /* Blue */
+    background-color: #005693; /* Blue */
     border: none;
     color: white;
-    padding: 15px 32px;
-    text-align: center;
     text-decoration: none;
-    display: inline-block;
     font-size: 20px;
     margin-top: 25px;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    margin-bottom: 25px;
+    -webkit-transition-duration: 0.3s; /* Safari */
+    transition-duration: 0.3s;
+    border-radius: 3px;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 20px; 
+    width:330px; 
+    height: 250px;
+    min-width: 200px;
+
+}
+.dashboardButton:hover {
+    background-color: #3277a8;
+}
+.dashboardButton>p {
+    display: inline-block; 
+    overflow: hidden; 
 }
 
-.button1:hover {
-    background-color: white;
-    color: #005693;
+.extraMargin{
+    margin-bottom: 20px;
 }
