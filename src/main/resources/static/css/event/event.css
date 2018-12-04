@@ -196,17 +196,23 @@ div.index.col-md-4 {
     padding-left: 30px !important;
 }
 
-.form-heading { color:#fff; font-size:23px;}
-.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
-.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
-.login-form .form-control {
-  background: white none repeat scroll 0 0;
-  border: 1px solid #d4d4d4;
-  border-radius: 4px;
-  font-size: 14px;
-  height: 50px;
-  line-height: 50px;
+.form-heading {
+    color:#fff; font-size:23px;
 }
+
+.panel h2 {
+    color:#444444;
+    font-size:18px;
+    margin:0 0 8px 0;
+}
+
+.panel p {
+    color:#777777;
+    font-size:14px;
+    margin-bottom:30px;
+    line-height:24px;
+}
+
 .main-div {
   background: #ffffff none repeat scroll 0 0;
   border-radius: 2px;
@@ -216,6 +222,22 @@ div.index.col-md-4 {
 }
 
 /* Login form */
+.login-form .form-control {
+  background: white none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+
+div.login-form div.main-div.guest .form-control {
+    margin-top: 15px;
+}
+
+div.login-form div.main-div.guest div.button {
+    display: flex;
+}
 
 form#Login div.input-group {
     padding-bottom: 15px;
