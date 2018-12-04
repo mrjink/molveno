@@ -132,10 +132,10 @@
           <div class="col-4 extraMargin">
               <div class="dashboardButtonNoHover">
                 <p>Subscribe to Newsletter</p>
-                <form id="subscribeNewsletter" > <!--action="/action_page.php"-->
+                <form id="subscribeNewsletter">
                         <input id="inputEmail" type="email" name="email" placeholder="Enter your e-mailaddress here"/>
                         <br><br>
-                        <input class="btn btn-outline-success my-2 my-sm-0 btnsubmitemail" id="submitButton" type="submit" value="Submit">
+                        <input class="btn btn-outline-success my-2 my-sm-0 btnsubmitemail" id="submitButton" type="button" value="Submit" onclick="subscribeNewsletter()">
                     </form>
               </div>
           </div>
@@ -165,6 +165,10 @@
      function myAudioFunction(){
              aAudio.play();
      }
+
+    function subscribeNewsletter(){
+      alert("Hoi " + document.getElementById("inputEmail").value);
+    }
  </script>
   </body>
 </html>
