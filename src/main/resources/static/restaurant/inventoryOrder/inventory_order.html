@@ -2,7 +2,7 @@
 <html lang="en" xmlns:text-align="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Ingredient Order</title>
+    <title>Inventory Order</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,108 +28,117 @@
     <script>
         function includeHTML() {
           var z, i, elmnt, file, xhttp;
-          /*loop through a collection of all HTML elements:*/
+          //Iterate through the collection of all HTML elements:
           z = document.getElementsByTagName("*");
           for (i = 0; i < z.length; i++) {
             elmnt = z[i];
-            /*search for elements with a certain atrribute:*/
+
+            //Search for elements with a certain atrribute:
             file = elmnt.getAttribute("w3-include-html");
             if (file) {
-              /*make an HTTP request using the attribute value as the file name:*/
+
+              //Make an HTTP request using the attribute value as the file name:
               xhttp = new XMLHttpRequest();
               xhttp.onreadystatechange = function() {
                 if (this.readyState == 4) {
                   if (this.status == 200) {
                       elmnt.innerHTML = this.responseText;
+
+                      //TODO: Make API call to get the authorized user that is logged in
                       document.getElementById("user").innerHTML = "<b>Kitchen Chef</b>";
-                      document.getElementById("header_title").innerHTML = "Order list";
+                      document.getElementById("header_title").innerHTML = "Inventory Order";
                       }
                   if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-                  /*remove the attribute, and call this function once more:*/
+                  //Remove the attribute, and call this function once more:
                   elmnt.removeAttribute("w3-include-html");
                   includeHTML();
                 }
               }      
               xhttp.open("GET", file, true);
               xhttp.send();
-              /*exit the function:*/
               return;
             }
           }
         };
         </script>
-
-
 </head>
 <body>
-
+<!--Include customer header-->
     <div w3-include-html="/header_admin/header.html"></div> 
 
     <script>
         includeHTML();
     </script>
+<!--Include customer header-->
+
 <main id="content" class="row">
     <div class="table-responsive" style="margin-left: 40px; margin-right: 40px; padding-top: 35px">
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Ingredient</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Supplier</th>
                     <th scope="col"></th>
-                    <th scope="col">Subtotal</th>
+                    <th scope="col">Order date</th>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Total</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th scope="row">10kg</th>
-                    <td>Tomato</td>
-                    <td>€2,00/kg</td>
-                    <td>Supplier name</td>
-                    <td align='center'><form><input type=submit value="Delete" class="btn btn-danger"></form></td>
-                    <th scope="col">€2,00</th>
+                    <th scope="row"><input type="checkbox" name="order12_checkbox" value="order_12"><br></th>
+                    <th>01-12-2018</th>
+                    <td>12</td>
+                    <td>Open</td>
+                    <td>€2650,85</td>
                 </tr>
                 <tr>
-                    <th scope="row">5kg</th>
-                    <td>Garlic</td>
-                    <td>€1,50/kg</td>
-                    <td>Garlic Supplier B.V.</td>
-                    <td align='center'><form><input type=submit value="Delete" class="btn btn-danger"></form></td>
-                    <th scope="col">€2,00</th>
+                    <th scope="row"><input type="checkbox" name="order13_checkbox" value="order_13"><br></th>
+                    <th>29-11-2018</th>
+                    <td>13</td>
+                    <td style="color:blue;">Submitted</td>
+                    <td>€3500,85</td>
                 </tr>
                 <tr>
-                    <th scope="row">10 pcs</th>
-                    <td>Lettuce</td>
-                    <td>€2,50/pcs</td>
-                    <td>Lettuce Supplier B.V.</td>
-                    <td align='center'><form><input type=submit value="Delete" class="btn btn-danger"></form></td>
-                    <th scope="col">€2,00</th>
+                    <th scope="row"><input type="checkbox" name="order14_checkbox" value="order_14"><br></th>
+                    <th>29-11-2018</th>
+                    <td>14</td>
+                    <td style="color:goldenrod;">Processed</td>
+                    <td>€6200,-</td>
+                </tr>
+                <tr>
+                    <th scope="row"><input type="checkbox" name="order15_checkbox" value="order_15"><br></th>
+                    <th>26-11-2018</th>
+                    <td>15</td>
+                    <td style="color:green;">Delivered</td>
+                    <td>€5200,-</td>
+                </tr>
+                <tr>
+                    <th scope="row"><input type="checkbox" name="order16_checkbox" value="order_16"><br></th>
+                    <th>28-11-2018</th>
+                    <td>16</td>
+                    <td style="color:red;">Delayed</td>
+                    <td>€3200,-</td>
                 </tr>
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th scope="row"><p><b>Total</b></p></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <th scope="col"><u><b>€6,00</b></u></th>
-                </tr>
-                </tfoot>
             </table>
     </div>
 
     <div id="place_order_button_container" style="margin-left:auto; margin-right:40px">
-        <button type="button" class="btn btn-secondary" id="place_order_button" onclick="placeOrder();">Place Order</button>
+        <button type="button" class="btn btn-secondary" id="place_order_button" onclick="done();">Ok</button>
+        <button type="button" class="btn btn-success" id="place_order_button" onclick="submitOrder();">Submit Order</button>
     </div>
+
+    <script>
+        function submitOrder() {
+            alert("Submit order!");
+        }
+        function done() {
+          window.location.pathname = "/restaurant/restaurant.html/";
+        }
+      </script>
+
 </main>
 
-<script>
-  function placeOrder() {
-    window.location.pathname = "/restaurant/inventoryOrder/inventory_order.html/";
-  }
-</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -139,6 +148,5 @@
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous"></script>
 <script src =../../../../js/restaurant.js></script>
-
 </body>
 </html>
