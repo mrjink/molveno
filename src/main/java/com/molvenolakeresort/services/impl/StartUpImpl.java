@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.molvenolakeresort.models.generic.Country;
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
-import com.molvenolakeresort.models.generic.security.UserName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +12,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Collection;
 
 @Component
 public class StartUpImpl {
@@ -52,7 +50,7 @@ public class StartUpImpl {
     @PostConstruct
     public void init(){
         ServerLogger.log("Start of start-up.");
-        /*try {
+        try {
             Country[] countries = initCountries();
             genericService.createCountries(countries);
         } catch (IOException e) {
@@ -75,16 +73,14 @@ public class StartUpImpl {
         Profile user = new Profile();
         user.setFirstName("test");
         user.setLastName("ing");
-        UserName userName = new UserName("testing");
-        userName.setProfile(user);
+        user.setUsername("testing");
         user.addRole(guestRole);
         user = userService.createVisitor(user);
 
         Profile user1 = new Profile();
-        UserName userName1 = new UserName("employee");
-        userName1.setProfile(user1);
         user1.addRole(employeeRole);
-        user1 = userService.createEmployee(user1);*/
+        user1.setUsername(employeeRole.getName());
+        user1 = userService.createEmployee(user1);
         ServerLogger.log("End of start-up.");
     }
 }

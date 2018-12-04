@@ -1,6 +1,6 @@
 package com.molvenolakeresort.models.generic.security;
 
-import com.molvenolakeresort.models.generic.PhoneNumber;
+import com.molvenolakeresort.models.generic.Address;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity(name = "Profile")
-@Table(name = "profile", uniqueConstraints = @UniqueConstraint(columnNames = { "username_id", "phonenumber_id" }))
+@Table(name = "profile", uniqueConstraints = @UniqueConstraint(columnNames = { "username", "phonenumber" }))
 public class Profile {
 
     @Id
@@ -29,20 +29,18 @@ public class Profile {
     )
     private Collection<Role> roles;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "username_id")
     @Nullable
-    private UserName username;
+    @Column(name = "username")
+    private String username;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "phonenumber_id")
     @Nullable
-    private PhoneNumber phoneNumber;
+    @Column(name = "phonenumber")
+    private String phoneNumber;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "address_id")
     @Nullable
-    private PhoneNumber address;
+    private Address address;
 
     private String password;
 
@@ -116,29 +114,29 @@ public class Profile {
     }
 
     @Nullable
-    public UserName getUsername() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUsername(@Nullable UserName username) {
+    public void setUsername(@Nullable String username) {
         this.username = username;
     }
 
     @Nullable
-    public PhoneNumber getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(@Nullable PhoneNumber phoneNumber) {
+    public void setPhoneNumber(@Nullable String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
     @Nullable
-    public PhoneNumber getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(@Nullable PhoneNumber address) {
+    public void setAddress(@Nullable Address address) {
         this.address = address;
     }
 

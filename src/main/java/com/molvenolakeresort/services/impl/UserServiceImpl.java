@@ -2,10 +2,8 @@ package com.molvenolakeresort.services.impl;
 
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
-import com.molvenolakeresort.models.generic.security.UserName;
 import com.molvenolakeresort.repositories.generic.ProfileRepository;
 import com.molvenolakeresort.repositories.generic.RoleRepository;
-import com.molvenolakeresort.repositories.generic.UserNameRepository;
 import com.molvenolakeresort.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,9 +17,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     ProfileRepository profileRepository;
-
-    @Autowired
-    UserNameRepository userNameRepository;
 
     @Autowired
     RoleRepository roleRepository;
@@ -38,7 +33,6 @@ public class UserServiceImpl implements UserService {
         newProfile.setPassword(employee.getPassword());
         if(employee.getUsername() != null) {
             //used for the participant of an event
-            employee.getUsername().setProfile(newProfile);
             newProfile.setUsername(employee.getUsername());
         }
         if(employee.getRoles() != null)
@@ -78,12 +72,10 @@ public class UserServiceImpl implements UserService {
         newProfile.setLastName(visitor.getLastName());
         if(visitor.getUsername() != null) {
             //used for the participant of an event
-            visitor.getUsername().setProfile(newProfile);
             newProfile.setUsername(visitor.getUsername());
         }
         if(visitor.getPhoneNumber() != null) {
             //used for the visitor of the restaurant
-            visitor.getPhoneNumber().setProfile(newProfile);
             newProfile.setPhoneNumber(visitor.getPhoneNumber());
         }
         Role role = findRoleByName("VISITOR");
@@ -110,21 +102,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public Iterable<Profile> findAllGuests() {
         return null;
-    }
-
-    @Override
-    public Iterable<UserName> findAllUserNames() {
-        return userNameRepository.findAll();
-    }
-
-    @Override
-    public Optional<UserName> findUserName(long id) {
-        return userNameRepository.findById(id);
-    }
-
-    @Override
-    public UserName createUserName(UserName username) {
-        return userNameRepository.save(username);
     }
 
     @Override
