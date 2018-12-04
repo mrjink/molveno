@@ -9,6 +9,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
             integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -63,12 +64,12 @@
                     <th scope="col"><b>Last Name</b></th>
                     <th scope="col"><b>First Name</b></th>
                     <th scope="col"><b>Country</b></th>
-                    <!--<th scope="col"><b>Booked by</b></th>-->
+                    <th scope="col"><b>Booked by</b></th>
                     <th scope="col"><b>Check-in date</b></th>
                     <th scope="col"><b>Planned check-out date</b></th>
                     <th scope="col"><b>Number of Beds</b></th>
                     <th scope="col"><b>Room Status</b></th>
-                    <!--<th scope="col"><b>Pets</b></th>-->
+                    <th scope="col"><b>Pets</b></th>
                     <th scope="col"><b>Room blocked</b></th>
                 </tr>
                 </thead>
@@ -215,7 +216,19 @@
 
 <script>
     $(document).ready( function () {
-        var table = $('#myTable').DataTable();
+        var table = $('#myTable').DataTable({
+        responsive: {
+            details: {
+                display: $.fn.dataTable.Responsive.display.modal( {
+                    header: function ( row ) {
+                        var data = row.data();
+                        return 'Details for room ' + data [0];
+                    }
+                } ),
+                renderer: $.fn.dataTable.Responsive.renderer.tableAll()
+            }
+        }
+    } );
         $.ajax({url: "/api/rooms/all?filterEmpty=false&filterOccupied=false", type: "get", success: function(result){
             console.log(result);
             $("#tableBody").html("");
@@ -225,31 +238,17 @@
                     room.lastName,
                     room.firstName,
                     room.country,
+                    "",
                     room.startDate,
                     room.endDate,
                     room.numberOfBeds,
                     room.roomStatus,
+                    "",
                     room.roomBlocked
                 ]).draw(false);
             });
         }});
     });
-
-    /*$(document).ready(function() {
-        $('#example').DataTable( {
-            responsive: {
-                details: {
-                    display: $.fn.dataTable.Responsive.display.modal( {
-                        header: function ( row ) {
-                            var data = row.data();
-                            return 'Details for '+data[0]+' '+data[1];
-                        }
-                    } ),
-                    renderer: $.fn.dataTable.Responsive.renderer.tableAll()
-                }
-            }
-        } );
-    } );*/
 </script>
 </body>
 <footer></footer>
