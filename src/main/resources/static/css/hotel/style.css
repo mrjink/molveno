@@ -38,6 +38,7 @@
 .extraMargin {
   margin-bottom: 20px;
 }
+
 #inputEmail {
   width: 100%;
 }
@@ -56,5 +57,8 @@
     background-color: #0074c7;
     border-color: #eeeeee;
     color: #eeeeee;
+  }
+  .eventsText{
+  font-size: 12pt;
   }
   
