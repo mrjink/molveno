@@ -57,4 +57,7 @@
     border-color: #eeeeee;
     color: #eeeeee;
   }
+  .popover{
+      max-width: 100%; /* Max Width of the popover (depending on the container!) */
+  }
   

@@ -151,11 +151,11 @@ Pet:            Yes</PRE>
     </div>
 
 
-    <div class="col-4">
+    <div class="col-8">
         <div class="container" style="background-color: #eeeeee; color: #005693;">
             <div class="list-group">
                 <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
-                        rel="popover" data-img="/img/kingsize.jpg">
+                        rel="popover" data-placement="bottom" data-img="/img/kingsize.jpg" height="512" width="512">
                     Room with 3 King size beds<br>
                     <div class="float-right"><span class="alert alert-primary">Rooms left: 5!</span></div>
                     <br>
@@ -192,17 +192,12 @@ Pet:            Yes</PRE>
             </div>
         </div>
     </div>
-
-
-    <div class="col-2">
-
-
-    </div>
 </div>
 
 <script>$(function () {
 $('[data-toggle="tooltip"]').tooltip()
 })
+
 
 </script>
 
@@ -215,6 +210,7 @@ content: function () {
 return '<img src="'+$(this).data('img') + '" />';
 }
 });
+
 
 </script>
 
