@@ -18,12 +18,15 @@
     min-width: 200px;
 
 }
+
 .dashboardButton:hover {
     background-color: #3277a8;
 }
+
 .dashboardButton>p {
     display: inline-block; 
     overflow: hidden; 
+    text-decoration: none;
 }
 
 .extraMargin{
