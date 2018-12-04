@@ -2,18 +2,18 @@ package com.molvenolakeresort.controllers.restaurant;
 
 import com.molvenolakeresort.models.restaurant.Reservation;
 import com.molvenolakeresort.models.restaurant.exceptions.ReservationNotFoundException;
-import com.molvenolakeresort.repositories.restaurant.ReservationRepository;
+import com.molvenolakeresort.repositories.restaurant.RestaurantReservationRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("api/restaurant/reservation")
-public class ReservationController {
+public class RestaurantReservationController {
 
-    private final ReservationRepository repository;
+    private final RestaurantReservationRepository repository;
 
-    public ReservationController(ReservationRepository repository) {
+    public RestaurantReservationController(RestaurantReservationRepository repository) {
         this.repository = repository;
     }
 

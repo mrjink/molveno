@@ -1,7 +1,7 @@
 package com.molvenolakeresort.models.restaurant.temp;
 
 
-import com.molvenolakeresort.repositories.restaurant.ReservationRepository;
+import com.molvenolakeresort.repositories.hotel.ReservationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

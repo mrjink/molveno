@@ -3,7 +3,6 @@ package com.molvenolakeresort.models.hotel;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -15,11 +14,11 @@ public class Reservation {
     private LocalDateTime bookedDate;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private LocalDateTime checkInDate;
+    private LocalDateTime checkOutDate;
 
-    @OneToOne
-    @JoinColumn
-    private Invoice invoice;
-
+    @OneToMany(mappedBy = "reservation")
+    private Set<Invoice> invoices = new HashSet<>();
     @OneToMany(mappedBy = "reservation")
     private Set<ReservationGuest> reservationGuests = new HashSet<>();
 
@@ -31,6 +30,7 @@ public class Reservation {
             },
             mappedBy = "reservations")
     private Set<Room> rooms = new HashSet<>();
+
     public Reservation() {
     }
 
@@ -62,14 +62,6 @@ public class Reservation {
         this.endDate = endDate;
     }
 
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
-    }
-
     public Set<Room> getRooms() {
         return rooms;
     }
@@ -84,5 +76,29 @@ public class Reservation {
 
     public void setReservationGuests(Set<ReservationGuest> reservationGuests) {
         this.reservationGuests = reservationGuests;
+    }
+
+    public LocalDateTime getCheckInDate() {
+        return checkInDate;
+    }
+
+    public void setCheckInDate(LocalDateTime checkInDate) {
+        this.checkInDate = checkInDate;
+    }
+
+    public LocalDateTime getCheckOutDate() {
+        return checkOutDate;
+    }
+
+    public void setCheckOutDate(LocalDateTime checkOutDate) {
+        this.checkOutDate = checkOutDate;
+    }
+
+    public Set<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(Set<Invoice> invoices) {
+        this.invoices = invoices;
     }
 }
