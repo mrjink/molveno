@@ -3,7 +3,6 @@ package com.molvenolakeresort.controllers.hotel;
 import com.molvenolakeresort.models.hotel.*;
 import com.molvenolakeresort.repositories.hotel.RoomRepository;
 import com.molvenolakeresort.views.hotel.RoomInformationView;
-import org.json.simple.JSONObject;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
