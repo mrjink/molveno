@@ -222,6 +222,19 @@ div.index.col-md-4 {
 }
 
 /* Login form */
+div.full-form.col-md-12 {
+    display: inline-flex;
+}
+
+div.full-form.col-md-12 .login-form.register.col-md-6 {
+    margin-left: -31px;
+}
+
+div.full-form.col-md-12 .login-form.register.col-md-6 div.main-div {
+    height: 388px;
+}
+
+
 .login-form .form-control {
   background: white none repeat scroll 0 0;
   border: 1px solid #d4d4d4;
