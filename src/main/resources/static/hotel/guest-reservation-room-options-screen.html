@@ -90,27 +90,25 @@
                 </a>
             </ul>
 
-            <button class="btn btn-outline-success my-2 my-sm-0 btnroominfo" type="button">Register</button>
-            <button class="btn btn-outline-success my-2 my-sm-0 btnroominfo" type="button">Login</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 btnroominfo" type="button">Register</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 btnroominfo" type="button">Login</button>
         </div>
     </nav>
 </header>
 
 <body style="margin-right: 25px;">
 
-<div class="row" style="margin-top: 200px;">
-    <div class="col-2"></div>
-    <div class="col-3">
+<div class="row" style="margin-top: 175px;">
+    <div class="col-1"></div>
+    <div class="col-3" align="center">
         <div class="container" style="background-color: #eeeeee; color: #005693">
             <h3>Guest information</h3>
         </div>
     </div>
 
-    <div class="col-2"></div>
+    <div class="col-4">
 
-    <div class="col-5">
-
-        <div class="container" style="background-color: #eeeeee; color: #005693">
+        <div class="container" align="center" style="background-color: #eeeeee; color: #005693">
             <h3>Room options</h3>
         </div>
 
@@ -119,29 +117,105 @@
 
 <div class="row" style="margin-top: 20px;">
 
-    <div class="col-2"></div>
+    <div class="col-1"></div>
     <div class="col-3">
 
         <div class="card">
             <div class="card-body">
-                Hier komt Guest Information.
+                <div align="center" ;>
+                    <b>Main Booker</b>
+                </div>
+                <div>
+                    <br>
+                    <PRE>
+Name:       Simon Boonstra
+Birth Date: 02-05-1969
+Country:    Netherlands
+Address:    Reykjavikplein 1, 3543KA Utrecht</PRE>
+                </div>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
-                Hier komt Guest Information.
+                <div align="center"><b>Booking Information</b></div>
+                <br>
+                <div>
+                    <PRE>
+Booking Date:   01-12-2018 until 10-12-2018
+Adults:         2
+Children:       0
+Pet:            Yes</PRE>
+                </div>
             </div>
         </div>
-
-    </div>
-
-    <div class="col-7">
-
-
     </div>
 
 
+    <div class="col-4">
+        <div class="container" style="background-color: #eeeeee; color: #005693;">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        rel="popover" data-img="/img/kingsize.jpg">
+                    Room with 3 King size beds<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 5!</span></div>
+                    <br>
+                    TV + Balcony view + Air conditioning
+                </button>
+                <br>
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
+                    Room with 2 King size beds + 1 Single Person Bed<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 3!</span></div>
+                    <br>
+                    TV + Air conditioning
+                </button>
+                <br>
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
+                    Room with 1 King size bed + 1 Queen Size Beds<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 1!</span></div>
+                    <br>
+                    TV
+                </button>
+                <br>
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
+                    Room with 1 Queen size bed + 2 Single Person Beds<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 7!</span></div>
+                    <br>
+                    TV + Balcony View
+                </button>
+                <br>
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
+                    Room with 1 Queen size bed + 2 Single Person Beds<br>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 10!</span></div>
+                    <br>
+                    Air conditioning
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-2">
+
+
+    </div>
 </div>
 
+<script>$(function () {
+$('[data-toggle="tooltip"]').tooltip()
+})
+
+</script>
+
+
+<script>
+$('button[rel=popover]').popover({
+html: true,
+trigger: 'hover',
+content: function () {
+return '<img src="'+$(this).data('img') + '" />';
+}
+});
+
+</script>
 
 </body>

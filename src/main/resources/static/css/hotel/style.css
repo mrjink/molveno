@@ -1,0 +1,60 @@
+.dashboardButton,
+.dashboardButtonNoHover {
+  background-color: #005693; /* Blue */
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s;
+  border-radius: 3px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 20px;
+  width: 330px;
+  height: 250px;
+  min-width: 200px;
+}
+
+.dashboardButton:hover {
+  background-color: #0074c7;
+}
+
+.dashboardButtonHotel:hover {
+    background: url('/hotel/skyline.jpg');
+    background-size:cover;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.dashboardButton > p, .dashboardButtonNoHover > p {
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.extraMargin {
+  margin-bottom: 20px;
+}
+#inputEmail {
+  width: 100%;
+}
+
+.btnsubmitemail {
+  background-color: #eeeeee;
+  border-color: #005693;
+  color: #005693;
+}
+.btnsubmitemail:hover {
+  background-color: #0074c7;
+  border-color: #eeeeee;
+  color: #eeeeee;
+}
+.btnsubmitemail:active {
+    background-color: #0074c7;
+    border-color: #eeeeee;
+    color: #eeeeee;
+  }
+  
