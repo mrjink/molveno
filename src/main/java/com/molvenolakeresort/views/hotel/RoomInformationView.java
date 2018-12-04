@@ -2,6 +2,7 @@ package com.molvenolakeresort.views.hotel;
 
 import com.molvenolakeresort.models.hotel.Guest;
 import com.molvenolakeresort.models.hotel.RoomAmenities;
+import com.molvenolakeresort.models.hotel.enums.Pet;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -18,6 +19,8 @@ public class RoomInformationView implements Serializable {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private boolean checkedIn;
+    private Pet pet;
+    private String bookedBy;
 
 
     public void setRoomNumber(String roomNumber) {
@@ -98,5 +101,21 @@ public class RoomInformationView implements Serializable {
 
     public boolean isCheckedIn() {
         return checkedIn;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
+    public String getBookedBy() {
+        return bookedBy;
+    }
+
+    public void setBookedBy(String bookedBy) {
+        this.bookedBy = bookedBy;
     }
 }

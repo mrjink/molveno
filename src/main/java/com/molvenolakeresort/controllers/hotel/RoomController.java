@@ -33,6 +33,7 @@ public class RoomController {
             view.setRoomNumber(room.getRoomNumber());
             view.setRoomStatus(room.getRoomStatus());
             view.setRoomBlocked(room.getRoomBlocked());
+            view.setRoomAmenities(roomAmenities);
             view.setNumberOfBeds(roomAmenities.getKingSizeBeds() +
                     roomAmenities.getQueenSizeBeds() +
                     roomAmenities.getSingleSizeBeds());
@@ -53,6 +54,8 @@ public class RoomController {
                             otherGuestsList.add(reservationGuest.getGuest());
                         }
                     }
+                    view.setPet(reservation.getPet());
+                    view.setBookedBy(reservation.getBookedBy());
                     view.setStartDate(reservation.getStartDate());
                     view.setEndDate(reservation.getEndDate());
                     view.setCheckedIn(checkedIn);
