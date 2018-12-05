@@ -2,10 +2,10 @@ package com.molvenolakeresort.services.impl;
 
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
-import com.molvenolakeresort.models.generic.security.UserName;
+import com.molvenolakeresort.models.generic.security.User;
 import com.molvenolakeresort.repositories.generic.ProfileRepository;
 import com.molvenolakeresort.repositories.generic.RoleRepository;
-import com.molvenolakeresort.repositories.generic.UserNameRepository;
+import com.molvenolakeresort.repositories.generic.UserRepository;
 import com.molvenolakeresort.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,46 +21,63 @@ public class UserServiceImpl implements UserService {
     ProfileRepository profileRepository;
 
     @Autowired
-    UserNameRepository userNameRepository;
-
-    @Autowired
     RoleRepository roleRepository;
 
+    @Autowired
+    UserRepository userRepository;
+
+    private Profile createProfileTemplate(Profile profile, boolean isVisitor)
+    {
+        Profile newProfile = new Profile();
+        newProfile.setFirstName(profile.getFirstName());
+        newProfile.setMiddleName(profile.getMiddleName());
+        newProfile.setLastName(profile.getLastName());
+        newProfile.setVisitor(isVisitor);
+        if(profile.getEmail() != null) {
+            //used for the participant of an event
+            newProfile.setEmail(profile.getEmail());
+        }
+        if(profile.getPhoneNumber() != null) {
+            //used for the visitor of the restaurant
+            newProfile.setPhoneNumber(profile.getPhoneNumber());
+        }
+        if(newProfile != null)
+        {
+            ServerLogger.log(String.format("New profile (id, isVisitor): %s, %s", newProfile.getId(), newProfile.isVisitor()));
+        }
+        return newProfile;
+    }
+
     @Override
-    public Optional<Profile> findEmployee(long id) {
+    public Optional<User> findEmployee(long id) {
         return Optional.empty();
     }
 
     @Override
-    public Profile createEmployee(Profile employee) {
+    public User createEmployee(User employee) {
+        if(userRepository.exists(employee.getUsername())) return null;
+
         //only fill entries used by employee
-        Profile newProfile = new Profile();
-        newProfile.setPassword(employee.getPassword());
-        if(employee.getUsername() != null) {
-            //used for the participant of an event
-            employee.getUsername().setProfile(newProfile);
-            newProfile.setUsername(employee.getUsername());
-        }
-        if(employee.getRoles() != null)
-        {
-            for(Role role : employee.getRoles())
-            {
-                role = findRoleByName(role.getName());
-                role.addProfile(newProfile);
-                roleRepository.save(role);
-            }
+        User newUser = new User();
+        newUser.setPassword(employee.getPassword());
+        if(employee.getRole() != null) {
+            newUser.setRole(employee.getRole());
         }
         else
         {
             Role role = findRoleByName("EMPLOYEE");
-            role.addProfile(newProfile);
+            newUser.setRole(role);
+        }
+        if(employee != null)
+        {
+            ServerLogger.log(String.format("New employee (id): %s", employee.getId()));
         }
 
-        return profileRepository.save(newProfile);
+        return userRepository.save(newUser);
     }
 
     @Override
-    public Iterable<Profile> findAllEmployees() {
+    public Iterable<User> findAllEmployees() {
         return null;
     }
 
@@ -69,27 +86,12 @@ public class UserServiceImpl implements UserService {
         return Optional.empty();
     }
 
+
     @Override
     public Profile createVisitor(Profile visitor) {
+        if(profileRepository.exists(visitor.getEmail(), visitor.getPhoneNumber())) return null;
         //only fill entries used by visitor
-        Profile newProfile = new Profile();
-        newProfile.setFirstName(visitor.getFirstName());
-        newProfile.setMiddleName(visitor.getMiddleName());
-        newProfile.setLastName(visitor.getLastName());
-        if(visitor.getUsername() != null) {
-            //used for the participant of an event
-            visitor.getUsername().setProfile(newProfile);
-            newProfile.setUsername(visitor.getUsername());
-        }
-        if(visitor.getPhoneNumber() != null) {
-            //used for the visitor of the restaurant
-            visitor.getPhoneNumber().setProfile(newProfile);
-            newProfile.setPhoneNumber(visitor.getPhoneNumber());
-        }
-        Role role = findRoleByName("VISITOR");
-        role.addProfile(newProfile);
-
-        return profileRepository.save(newProfile);
+        return profileRepository.save(createProfileTemplate(visitor, true));
     }
 
     @Override
@@ -103,28 +105,55 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Profile createGuest(Profile visitor) {
-        return null;
+    public Profile createGuest(Profile guest) {
+        Profile template = null;
+
+        Profile eventVisitor = profileRepository.findByEmail(guest.getEmail());
+        Profile restaurantVisitor = profileRepository.findByPhoneNumber(guest.getPhoneNumber());
+
+        if(eventVisitor != null && restaurantVisitor != null)
+        {
+            //upgrade event visitor and (transfer and) destroy the restaurant visitors content.
+            template = eventVisitor;
+        }
+        else if(eventVisitor != null)
+        {
+            template = eventVisitor;
+        }
+        else if(restaurantVisitor != null)
+        {
+            template = restaurantVisitor;
+        }
+
+        //if the guest does not yet exist as a visitor create one.
+        if(template == null)
+        {
+            template = createProfileTemplate(guest, false);
+            if(template != null)
+            {
+                ServerLogger.log(String.format("New guest (id): %s", template.getId()));
+            }
+        } else
+        {
+            template.setVisitor(false);
+            template.setEmail(guest.getEmail());
+            template.setFirstName(guest.getFirstName());
+            template.setMiddleName(guest.getMiddleName());
+            template.setLastName(guest.getLastName());
+            template.setUser(guest.getUser());
+            template.setGuestInformation(guest.getGuestInformation());
+            if(template != null)
+            {
+                ServerLogger.log(String.format("Guest mutated (id): %s", template.getId()));
+            }
+        }
+
+        return profileRepository.save(template);
     }
 
     @Override
     public Iterable<Profile> findAllGuests() {
         return null;
-    }
-
-    @Override
-    public Iterable<UserName> findAllUserNames() {
-        return userNameRepository.findAll();
-    }
-
-    @Override
-    public Optional<UserName> findUserName(long id) {
-        return userNameRepository.findById(id);
-    }
-
-    @Override
-    public UserName createUserName(UserName username) {
-        return userNameRepository.save(username);
     }
 
     @Override
@@ -148,12 +177,14 @@ public class UserServiceImpl implements UserService {
         if(roles != null) {
             for (int i = 0; i < roles.length; i++)
             {
-                ((ArrayList<Role>) roleIterable).add(roles[i]);
+                if(!roleRepository.exists(roles[i].getName())) {
+                    ((ArrayList<Role>) roleIterable).add(roles[i]);
+                }
             }
         }
 
         roleIterable = roleRepository.saveAll(roleIterable);
-        ServerLogger.log(String.format("Mutated %s records.", ((List<Role>) roleIterable).size()));
+        ServerLogger.log(String.format("Mutated %s records in roles.", ((List<Role>) roleIterable).size()));
         return roleIterable;
     }
 

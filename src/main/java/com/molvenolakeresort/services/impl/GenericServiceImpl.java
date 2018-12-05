@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class GenericServiceImpl implements GenericService {
 
     @Autowired
-    CountryRepository countryRepository;
+    private CountryRepository countryRepository;
 
     @Override
     public Optional<Country> findCountry(long id) {
@@ -25,13 +25,24 @@ public class GenericServiceImpl implements GenericService {
     }
 
     @Override
+    public Country findCountryByName(String name) {
+        return countryRepository.findByName(name);
+    }
+
+    @Override
+    public Country findCountryByCode(String code) {
+        return countryRepository.findByCode(code);
+    }
+
+    @Override
     public Country createCountry(Country country) {
+        if(countryRepository.exists(country.getName(), country.getCode())) return null;
         Country countryResult = countryRepository.save(country);
         if(countryResult != null)
         {
             ServerLogger.log(String.format("New country (id): %s", countryResult.getId()));
         }
-        return countryRepository.save(country);
+        return countryResult;
     }
 
     @Override
@@ -46,12 +57,14 @@ public class GenericServiceImpl implements GenericService {
         if(countries != null) {
             for (int i = 0; i < countries.length; i++)
             {
-                ((ArrayList<Country>) countryIterable).add(countries[i]);
+                if(!countryRepository.exists(countries[i].getName(), countries[i].getCode())) {
+                    ((ArrayList<Country>) countryIterable).add(countries[i]);
+                }
             }
         }
 
         countryIterable = countryRepository.saveAll(countryIterable);
-        ServerLogger.log(String.format("Mutated %s records.", ((List<Country>) countryIterable).size()));
+        ServerLogger.log(String.format("Mutated %s records in Country.", ((List<Country>) countryIterable).size()));
         return countryIterable;
     }
 }

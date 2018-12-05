@@ -2,26 +2,22 @@ package com.molvenolakeresort.services;
 
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
-import com.molvenolakeresort.models.generic.security.UserName;
+import com.molvenolakeresort.models.generic.security.User;
 
 import java.util.Optional;
 
 public interface UserService {
-    Optional<Profile> findEmployee(long id);
-    Profile createEmployee(Profile employee);
-    Iterable<Profile> findAllEmployees();
+    Optional<User> findEmployee(long id);
+    User createEmployee(User employee);
+    Iterable<User> findAllEmployees();
 
     Optional<Profile> findVisitor(long id);
     Profile createVisitor(Profile visitor);
     Iterable<Profile> findAllVisitors();
 
     Optional<Profile> findGuest(long id);
-    Profile createGuest(Profile visitor);
+    Profile createGuest(Profile guest);
     Iterable<Profile> findAllGuests();
-
-    Iterable<UserName> findAllUserNames();
-    Optional<UserName> findUserName(long id);
-    UserName createUserName(UserName username);
 
     Iterable<Role> findAllRoles();
     Optional<Role> findRole(long id);

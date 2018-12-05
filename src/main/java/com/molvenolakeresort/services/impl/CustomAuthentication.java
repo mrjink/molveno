@@ -2,6 +2,7 @@ package com.molvenolakeresort.services.impl;
 
 
 import com.molvenolakeresort.models.generic.security.Profile;
+import com.molvenolakeresort.models.generic.security.User;
 import com.molvenolakeresort.repositories.generic.ProfileRepository;
 import com.molvenolakeresort.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class CustomAuthentication implements AuthenticationProvider {
         String username = auth.getName();
         String password = auth.getCredentials().toString();
 
-        Profile user = null;
+        User user = null;
         //user = userService.findGuest(username);
         //user = userService.findEmployee(username);
         if(user==null){
@@ -41,7 +42,7 @@ public class CustomAuthentication implements AuthenticationProvider {
 
 
         return new UsernamePasswordAuthenticationToken(username,password,
-                Arrays.asList(new SimpleGrantedAuthority(user.getRoles().iterator().next().getName())));
+                Arrays.asList(new SimpleGrantedAuthority(user.getRole().getName())));
     }
 
     @Override

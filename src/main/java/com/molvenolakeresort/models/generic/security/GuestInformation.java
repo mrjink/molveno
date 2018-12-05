@@ -1,7 +1,9 @@
 package com.molvenolakeresort.models.generic.security;
 
 import com.molvenolakeresort.models.generic.Address;
+import com.molvenolakeresort.models.generic.LanguageCode;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -17,11 +19,14 @@ public class GuestInformation {
     @DateTimeFormat
     private LocalDate dateOfBirth;
 
-    @ManyToOne(optional = false)
+    private boolean isSubscribedToNewsletter;
+
+    //TODO: force address integration
+    @ManyToOne(optional = false, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne(mappedBy = "guestInformation", cascade = CascadeType.ALL)
-    @JoinColumn(name = "profile_id")
+    @OneToOne(mappedBy = "guestInformation", optional = false)
     private Profile profile;
 
     public GuestInformation() {}
@@ -61,5 +66,13 @@ public class GuestInformation {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
+    }
+
+    public boolean isSubscribedToNewsletter() {
+        return isSubscribedToNewsletter;
+    }
+
+    public void setSubscribedToNewsletter(boolean subscribedToNewsletter) {
+        isSubscribedToNewsletter = subscribedToNewsletter;
     }
 }

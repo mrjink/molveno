@@ -6,4 +6,5 @@ import org.springframework.data.repository.query.Param;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
     Role findByName(@Param("name") String name);
+    boolean exists(@Param("name") String name);
 }

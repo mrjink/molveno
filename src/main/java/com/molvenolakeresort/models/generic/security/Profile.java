@@ -1,14 +1,18 @@
 package com.molvenolakeresort.models.generic.security;
 
-import com.molvenolakeresort.models.generic.PhoneNumber;
+import com.molvenolakeresort.models.generic.Gender;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
 
 @Entity(name = "Profile")
-@Table(name = "profile", uniqueConstraints = @UniqueConstraint(columnNames = { "username_id", "phonenumber_id" }))
+@Table(name = "profile")
+@NamedQuery(name = "Profile.findByEmail",
+        query = "SELECT p FROM Profile p WHERE p.email =:email ")
+@NamedQuery(name = "Profile.findByPhoneNumber",
+        query = "SELECT p FROM Profile p WHERE p.phoneNumber =:phonenumber ")
+@NamedQuery(name = "Profile.exists",
+        query = "SELECT CASE WHEN COUNT(p) > 0 THEN TRUE ELSE FALSE END FROM Profile p WHERE p.email =:email OR p.phoneNumber =:phonenumber ")
 public class Profile {
 
     @Id
@@ -21,37 +25,32 @@ public class Profile {
     @Nullable
     private String lastName;
 
-    //@ManyToMany(fetch=FetchType.EAGER, mappedBy = "profiles")
-    @ManyToMany
-    @JoinTable(name = "profile_role",
-            joinColumns = @JoinColumn(name = "profile_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
-    )
-    private Collection<Role> roles;
-
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "username_id")
     @Nullable
-    private UserName username;
+    @Column(name = "email", unique = true)
+    private String email;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "phonenumber_id")
     @Nullable
-    private PhoneNumber phoneNumber;
+    @Column(name = "phonenumber", unique = true)
+    private String phoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-    @JoinColumn(name = "address_id")
     @Nullable
-    private PhoneNumber address;
+    @Column(name = "isvisitor")
+    private boolean isVisitor;
 
-    private String password;
+    @Enumerated(value = EnumType.STRING)
+    private Gender gender = Gender.UNKNOWN;
 
-    private String passwordResetURI;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @JoinColumn(name = "guestinformation_id")
+    @OneToOne(cascade = CascadeType.ALL, optional = true)
     @JoinColumn(name = "guestinformation_id")
     @Nullable
     private GuestInformation guestInformation;
+
+    @OneToOne(cascade = CascadeType.ALL, optional = true)
+    @JoinColumn(name = "user_id")
+    @Nullable
+    private User user;
 
     public Profile() {}
 
@@ -90,72 +89,22 @@ public class Profile {
         this.lastName = lastName;
     }
 
-    public Collection<Role> getRoles() {
-        return roles;
+    @Nullable
+    public String getEmail() {
+        return email;
     }
 
-    public void addRole(Role role)
-    {
-        if(this.roles == null)
-        {
-            this.roles = new ArrayList<>();
-        }
-        this.roles.add(role);
-    }
-
-    public void removeRole(Role role)
-    {
-        if(this.roles != null)
-        {
-            this.roles.remove(role);
-        }
-    }
-
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
+    public void setEmail(@Nullable String email) {
+        this.email = email;
     }
 
     @Nullable
-    public UserName getUsername() {
-        return username;
-    }
-
-    public void setUsername(@Nullable UserName username) {
-        this.username = username;
-    }
-
-    @Nullable
-    public PhoneNumber getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(@Nullable PhoneNumber phoneNumber) {
+    public void setPhoneNumber(@Nullable String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    @Nullable
-    public PhoneNumber getAddress() {
-        return address;
-    }
-
-    public void setAddress(@Nullable PhoneNumber address) {
-        this.address = address;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPasswordResetURI() {
-        return passwordResetURI;
-    }
-
-    public void setPasswordResetURI(String passwordResetURI) {
-        this.passwordResetURI = passwordResetURI;
     }
 
     @Nullable
@@ -165,5 +114,30 @@ public class Profile {
 
     public void setGuestInformation(@Nullable GuestInformation guestInformation) {
         this.guestInformation = guestInformation;
+    }
+
+    public boolean isVisitor() {
+        return isVisitor;
+    }
+
+    public void setVisitor(boolean visitor) {
+        isVisitor = visitor;
+    }
+
+    @Nullable
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(@Nullable User user) {
+        this.user = user;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 }
