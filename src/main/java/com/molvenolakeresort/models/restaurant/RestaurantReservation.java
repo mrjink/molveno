@@ -16,11 +16,11 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-public class Reservation {
+public class RestaurantReservation {
 
     private @Id
     @GeneratedValue
-    Long id;
+    Long idRestaurantReservation;
     private Integer amountOfPeople;
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
@@ -28,11 +28,10 @@ public class Reservation {
     private LocalTime time;
     private Course course;
 
-    //TODO: Relation is incorrect? Adding to database does not work atm.
-    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)//(cascade = {CascadeType.ALL, CascadeType.ALL})
+    @OneToMany
     private List<RestaurantTable> restaurantTables;
 
-    public Reservation() {
+    public RestaurantReservation() {
     }
 
 
@@ -57,7 +56,7 @@ public class Reservation {
     }
 
     public Long getId() {
-        return id;
+        return idRestaurantReservation;
     }
 
     public Integer getAmountOfPeople() {

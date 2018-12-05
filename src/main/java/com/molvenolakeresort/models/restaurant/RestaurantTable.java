@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class RestaurantTable {
 
     private @Id @GeneratedValue
-    Long id;
+    Long idRestaurantTable;
 
     private TableShape shape;
     private int maxSeats;
@@ -26,6 +26,6 @@ public class RestaurantTable {
     }
 
     public Long getId() {
-        return id;
+        return idRestaurantTable;
     }
 }
