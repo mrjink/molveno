@@ -385,7 +385,11 @@ nav.navbar div.collapse button.btn.btn-outline-success:hover {
     background-color: white !important;
 }
 
-/* GUEST NAME IN HET MIDDEN */
+/* ADMIN ACTION PAGE EN GUEST NAME IN HET MIDDEN */
+.card-header.adminactionpage {
+text-align: center;
+}
+
 .card-header.guestname {
 text-align: center;
 }

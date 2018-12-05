@@ -92,13 +92,13 @@
 
 <!-- Begin page content -->
 
-<!-- BUTTON SCRIPT DELETE GUEST -->
+<!-- BUTTON SCRIPT RESET PASSWORD -->
 <script>
-    function confirmDelete() {
-    var agreed = confirm("Are you sure you want to delete this guest?");
+    function confirmResetpassword() {
+    var agreed = confirm("Are you sure you want to reset password?");
     if(agreed){
         //DELETE GUEST
-        alert("Guest has been deleted");
+        alert("A new password has been sent to your mail!");
     }
     else{
         alert("Please proceed");
@@ -106,19 +106,65 @@
 }
 </script>
 
-<!-- BUTTON SCRIPT RESET PASSWORD -->
+
+
+<!-- BUTTON SCRIPT DELETE GUEST -->
 <script>
-    function confirmReset() {
-    var agreed = confirm("Are you sure you want to reset password?");
+    function confirmDelete() {
+    var agreed = confirm("Are you sure you want to delete this guest?");
     if(agreed){
-        //CONFIRM REGISTRATION
-        alert("Password sent");
+        //DELETE GUEST
+        alert("Guest has been deleted!");
     }
     else{
         alert("Please proceed");
     }
 }
 </script>
+
+<!-- BUTTON SCRIPT FLAG GUEST -->
+<script>
+    function confirmFlag() {
+    var agreed = confirm("Are you sure you want to flag this guest?");
+    if(agreed){
+        //DELETE GUEST
+        alert("Guest has been flagged!");
+    }
+    else{
+        alert("Please proceed");
+    }
+}
+</script>
+
+<!-- BUTTON SCRIPT CANCEL GUEST -->
+<script>
+    function confirmCancel() {
+    var agreed = confirm("Are you sure you want cancel guest edits?");
+    if(agreed){
+        //DELETE GUEST
+        alert("Guest editing has been cancelled!");
+    }
+    else{
+        alert("Please proceed");
+    }
+}
+</script>
+
+<!-- BUTTON SCRIPT SAVE GUEST -->
+<script>
+    function confirmSave() {
+    var agreed = confirm("Are you sure you want to save guest changes?");
+    if(agreed){
+        //DELETE GUEST
+        alert("Guest changes has been saved!");
+    }
+    else{
+        alert("Please proceed");
+    }
+}
+</script>
+
+
 
 <main class="my-form">
     <div class="cotainer">
@@ -126,8 +172,9 @@
             <div class="carousel col-md-8">
                 <div class="card">
                     <div class = "headertransparant">
-                    <div class="card-header">Admin Action Page</div>
-                        <div class = "card-header guestname"><h4>Guest: Henk</h4></div>
+                    <div class="card-header"></div>
+                        <div class = "card-header adminactionpage"><h5>Admin Action Page</h5></div>
+                        <div class = "card-header guestname"><h5>Guest: Henk</h5></div>
                     </div>
                     <div class="card-body">
 
@@ -333,7 +380,7 @@
                             <div class="col-6">
                                 <div class="form-group row">
                                     <div class="col-sm-6">
-                                        <button type="button" class="btn btn-secondary" onclick="confirmPassword()">Reset Password</button>
+                                        <button type="button" class="btn btn-secondary" onclick="confirmResetpassword()">Reset Password</button>
                                     </div>
                                 </div>
                             </div>
@@ -369,9 +416,9 @@
                                     <!--<div class="form-group row">-->
                                         <div class="float-sm-right">
                                             <button type="button" class="btn btn-secondary" onclick="confirmDelete()">Delete</button>
-                                            <button type="button" class="btn btn-secondary" >Flag</button>
-                                            <button type="button" class="btn btn-secondary">Cancel</button>
-                                            <button type="button" class="btn btn-secondary">Save</button>
+                                            <button type="button" class="btn btn-secondary" onclick="confirmFlag()">Flag</button>
+                                            <button type="button" class="btn btn-secondary" onclick="confirmCancel()">Cancel</button>
+                                            <button type="button" class="btn btn-secondary" onclick="confirmSave()">Save</button>
 
                                         </div>
                                     <!--</div>-->
