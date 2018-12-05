@@ -18,3 +18,7 @@ nav.navbar a.navbar-brand.order {
 margin-left : 20px;
 margin-top: 20px;
 }
+
+.navbar-order {
+    background-color: #005693;
+}
