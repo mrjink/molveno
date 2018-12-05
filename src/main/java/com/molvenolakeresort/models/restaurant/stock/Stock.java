@@ -12,7 +12,7 @@ import java.util.List;
 @Entity
 public class Stock {
     @Id @GeneratedValue
-    private int idStock;
+    private Long idStock;
     @ManyToOne
     private Ingredient ingredient;
     private Unit unit;
@@ -27,7 +27,7 @@ public class Stock {
         return ingredient;
     }
 
-    public int getIdStock() {
+    public Long getIdStock() {
         return idStock;
     }
 
