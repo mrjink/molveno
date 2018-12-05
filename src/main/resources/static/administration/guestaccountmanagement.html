@@ -109,30 +109,9 @@
 
 <!-- BEGIN PAGE CONTENT-->
 
-<!-- MAAK TWEE POPUPS VOOR DELETE EN BLOCK (in script)-->
-<script>
-function confirmDelete() {
-    var agreed = confirm("Are you sure you want to delete this role?");
-    if(agreed){
-        //DELETE DE ROLE
-        alert("ROLE IS VERWIJDERT");
-    }
-    else{
-        alert("NIET GELUKT");
-    }
-}
 
-function confirmBlock() {
-    var agreed = confirm("Are you sure you want to block this role?");
-    if(agreed){
-        //DELETE DE ROLE
-        alert("ROLE IS GEBLOCKED");
-    }
-    else{
-        alert("NIET GELUKT");
-    }
-}
-</script>
+<!-- MAAK TWEE POPUPS VOOR DELETE EN BLOCK (in script)-->
+
 <div class="carousel row">
     <div class="col-md-12">
         <div class="administrationpanel">
@@ -144,9 +123,19 @@ function confirmBlock() {
                     <table id="eventTable" class="display" width="100%">
                         <thead>
                         <tr>
-                            <th>UID</th>
-                            <th>Role</th>
-                            <th>Status</th>
+                            <th>ID</th>
+                            <th>Firstname</th>
+                            <th>Middlename</th>
+                            <th>Lastname</th>
+                            <th>Birthdate</th>
+                            <th>Streetname</th>
+                            <th>Homenumber</th>
+                            <th>Postalcode</th>
+                            <th>City
+                            <th>Country</th>
+                            <th>Phonenumber</th>
+                            <th>Email</th>
+                            <th>Subscribed to news</th>
 
                         </tr>
                         </thead>
@@ -154,9 +143,8 @@ function confirmBlock() {
                     <!-- VUL DE TABLE IN JAVASCRIPT-->
 
                     <!-- CREATE BUTTONS VOOR: Edit password, More options Create new role -->
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/createnewrole.html">Create new role</a></button>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/editrolepassword.html">Edit role password</a></button>
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/editemployeeaccount.html">Edit role options</a></button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/createnewguest.html">Create new guest</a></button>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/administrator_editguest.html">Edit guest</a></button>
                     <!-- href="/administration/changepassword.html" -->
 
 
