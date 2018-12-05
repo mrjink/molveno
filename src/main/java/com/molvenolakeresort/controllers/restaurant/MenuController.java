@@ -1,7 +1,7 @@
 package com.molvenolakeresort.controllers.restaurant;
 
 import com.molvenolakeresort.models.restaurant.menu.Menu;
-import com.molvenolakeresort.repositories.restaurant.MenuRepository;
+import com.molvenolakeresort.repositories.restaurant.menu.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -4,16 +4,16 @@ import com.molvenolakeresort.models.restaurant.enums.TableShape;
 
 import javax.persistence.*;
 
-@Entity
-public class Table {
+@Entity(name = "RestaurantTable")
+public class RestaurantTable {
 
     private @Id @GeneratedValue
-    Long id;
+    Long idRestaurantTable;
 
     private TableShape shape;
     private int maxSeats;
 
-    public Table() {
+    public RestaurantTable() {
 
     }
 
@@ -26,6 +26,6 @@ public class Table {
     }
 
     public Long getId() {
-        return id;
+        return idRestaurantTable;
     }
 }

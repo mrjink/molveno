@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-@Entity
+@Entity(name = "Menu")
 public class Menu {
     @Id
     @GeneratedValue
-    private long idMenu;
+    private Long idMenu;
     private MenuCategory category;
     private String name;
 //    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
@@ -29,12 +29,8 @@ public class Menu {
         this.menuItems = menuItems;
     }
 
-    public long getId() {
+    public Long getId() {
         return idMenu;
-    }
-
-    public void setId(long id) {
-        this.idMenu = id;
     }
 
     public MenuCategory getCategory() {

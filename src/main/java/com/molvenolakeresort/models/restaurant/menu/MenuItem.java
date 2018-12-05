@@ -2,16 +2,19 @@ package com.molvenolakeresort.models.restaurant.menu;
 
 import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
 import com.molvenolakeresort.models.restaurant.enums.MenuItemType;
+import com.molvenolakeresort.models.restaurant.stock.Ingredient_MenuItem;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
-@Entity
+@Entity(name = "MenuItems")
 public class MenuItem {
     @Id
     @GeneratedValue
-    private long idMenuItem;
+    private Long idMenuItem;
     private MenuItemType type;
     private MenuCategory category;
     private String imagePath;
@@ -22,27 +25,15 @@ public class MenuItem {
 //    private List<Menu> menus = new ArrayList<>();
 //    private Set<Menu> menus;
 //    private List<Ingredient> ingredients;
+    @OneToMany
+    private List<Ingredient_MenuItem> ingredientMenuItems;
     private boolean availableSeparately;
 
     public MenuItem() {
     }
 
-    public MenuItem(MenuItemType type, MenuCategory category, String imagePath, String description, double price, String name, boolean availableSeparately) {
-        this.type = type;
-        this.category = category;
-        this.imagePath = imagePath;
-        this.description = description;
-        this.price = price;
-        this.name = name;
-        this.availableSeparately = availableSeparately;
-    }
-
-    public long getId() {
+    public Long getId() {
         return idMenuItem;
-    }
-
-    public void setId(long id) {
-        this.idMenuItem = id;
     }
 
     public MenuItemType getType() {
