@@ -2,10 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-
-    <!-- IMPORTS VOOR HEADER AND FOOTER-->
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Molveno Lake Resort</title>
     <link rel="icon" href="/img/logo_128.png" type="image/png">
@@ -19,18 +15,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
-    <!--DEZE GEEFT OOK EEN ERROR
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-    -->
+
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
-    <!-- IMPORTS VOOR HEADER AND FOOTER-->
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-<!-- BEGIN HEADER -->
 <header>
 
 
@@ -98,86 +90,79 @@
     </nav>
 </header>
 
-<!-- END HEADER -->
-
-
-<!-- BEGIN PAGE CONTENT-->
-
-<button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/empaccountmanagement.html">Back</a></button>
-
-<!-- MAAK TWEE POPUPS VOOR DELETE EN BLOCK (in script)-->
-<script>
-function confirmCreate() {
-    var agreed = confirm("Are you sure you create this new role?");
-    if(agreed){
-        //DELETE DE ROLE
-        alert("ROLE IS created");
-    }
-    else{
-        alert("NIET GELUKT");
-    }
-}
-
-</script>
+<!-- Begin page content -->
 
 <div class="carousel row">
-
     <div class="col-md-12">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/empaccountmanagement.html">Back</a></button>
+        <div class="administrationpanel">
+            <h1>Administration Panel</h1>
+            <br/>
 
-        <div class="container theme-showcase">
-            <h1>Create Role Form</h1>
-            <div id="holder" class="row" ></div>
-        </div>
+            <h6>Welcome to the administration panel, here you can manage all available systems.</h6>
+            <br/>
 
-        <div class="container">
-            <div class="col-md-5">
-                <div class="form-area">
-                    <form role="form">
-            <form>
-                <fieldset>
-                    <legend>Role Name:</legend>
-                    <p><input type = "text"></p>
-
-
-                </fieldset>
-            </form>
-            <form>
-                <fieldset>
-                    <legend>Role Rights:</legend>
-                    Lijst van acties die deze role kan doen
-                    <p><input type = "radio">Add an event</p>
-                    <p><input type = "radio">Edit an event</p>
-                    <p><input type = "radio">Delete an event</p>
-
-                </fieldset>
-            </form>
-            <!-- Status box (blocked of niet) -->
-            <form>
-                <fieldset>
-                    <legend>Status:</legend>
-                    <p><input type = "radio">Active</p>
-                    <p><input type = "radio">Inactive</p>
-                </fieldset>
-            </form>
-
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmCreate()"><a>Create Role</a></button>
-
-                    </form>
+            <div class="sub col-md-2">
+                <h4>Manage Guests</h4>
+                <div class="icoon">
+                    <a href="/eventadmin/overview.html">
+                        <i style="font-size:100px; border: 1px solid black; padding: 20px; color: black;" class="fa">&#xf007;</i>
+                    </a>
                 </div>
             </div>
+
+            <div class="sub col-md-2">
+                <h4>Manage Employees</h4>
+                <div class="icoon">
+                    <a href="/eventadmin/overview.html">
+                        <i style="font-size:100px; border: 1px solid black; padding: 20px; color: black;" class="fa">&#xf0c0;</i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub col-md-2">
+                <h4>Manage Events</h4>
+                <div class="icoon">
+                    <a href="/eventadmin/overview.html">
+                        <i style="font-size:100px; border: 1px solid black; padding: 20px; color: black;" class="fa">&#xf073;</i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub col-md-2">
+                <h4>Manage Hotel</h4>
+                <div class="icoon">
+                    <a href="/eventadmin/overview.html">
+                        <i style="font-size:100px; border: 1px solid black; padding: 20px; color: black;" class="fa">&#xf236;</i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sub col-md-2">
+                <h4>Manage Restaurant</h4>
+                <div class="icoon">
+                    <a href="/eventadmin/overview.html">
+                        <i style="font-size:100px; border: 1px solid black; padding: 20px; color: black;" class="fa">&#xf0f5;</i>
+                    </a>
+                </div>
+            </div>
+
+            <br/>
+
+            <h4>Website systems</h4>
+            <br/>
+
+            <h6>Use the standard systems available to guests to finalise registrations on their behalf. Or, to inspect pages.</h6>
+            <br/>
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventadmin/calendar.html">Open guest registration page</a></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventadmin/calendar.html">Open events page</a></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventadmin/calendar.html">Open hotel page</a></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventadmin/calendar.html">Open restaurant page</a></button>
         </div>
     </div>
 </div>
 
-
-<!-- Role VIEW-->
-<!-- Role rights box (lijst van acties die hij kan doen)-->
-
-<!-- END PAGE CONTENT-->
-
-
-<!-- BEGIN FOOTER-->
+<!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
 
     <!-- Footer Links -->
@@ -285,22 +270,18 @@ function confirmCreate() {
     <!-- Copyright -->
 
 </footer>
-<!-- END FOOTER-->
+<!-- Footer -->
 
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="../../assets/js/vendor/popper.min.js"></script>
+<script src="../../dist/js/bootstrap.min.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
-<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-
-
 </body>
 </html>

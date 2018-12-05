@@ -390,6 +390,15 @@ nav.navbar div.collapse button.btn.btn-outline-success:hover {
 text-align: center;
 }
 
+/* CHECKBOX TEXT LEFT */
+.form-check.test{
+padding: 0px;
+}
+.form-check.test1{
+padding: 0px;
+}
+
+
 /* CALENDAR */
 
 .calendar-day {
