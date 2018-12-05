@@ -2,10 +2,13 @@ package com.molvenolakeresort.models.restaurant.menu;
 
 import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
 import com.molvenolakeresort.models.restaurant.enums.MenuItemType;
+import com.molvenolakeresort.models.restaurant.stock.Ingredient_MenuItem;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity(name = "MenuItems")
 public class MenuItem {
@@ -22,6 +25,8 @@ public class MenuItem {
 //    private List<Menu> menus = new ArrayList<>();
 //    private Set<Menu> menus;
 //    private List<Ingredient> ingredients;
+    @OneToMany
+    private List<Ingredient_MenuItem> ingredientMenuItems;
     private boolean availableSeparately;
 
     public MenuItem() {
