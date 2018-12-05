@@ -38,6 +38,7 @@
 .extraMargin {
   margin-bottom: 20px;
 }
+
 #inputEmail {
   width: 100%;
 }
@@ -47,14 +48,80 @@
   border-color: #005693;
   color: #005693;
 }
+
 .btnsubmitemail:hover {
   background-color: #0074c7;
   border-color: #eeeeee;
   color: #eeeeee;
 }
+
 .btnsubmitemail:active {
     background-color: #0074c7;
     border-color: #eeeeee;
     color: #eeeeee;
   }
-  
+
+
+#roomserviceMenu {
+    margin-top: 160px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+    box-shadow: 0 0 0 1px #005693;
+ }
+
+ #roomserviceMenu td, #roomserviceMenu th {
+     border: 1px solid #ddd;
+     padding: 8px;
+ }
+
+ #roomserviceMenu tr:nth-child(even){background-color: #f2f2f2;}
+
+ #roomserviceMenu tr:hover {background-color: #ddd;}
+
+ #roomserviceMenu th {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     text-align: left;
+     background-color: #005693;
+     color: white;
+ }
+
+ #mealOptions {
+    margin-top: 160px;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 20%;
+    box-shadow: 0 0 0 1px #005693;
+    float: left;
+ }
+
+ #mealOptions td, #mealOptions th {
+      border: 1px solid #ddd;
+      padding: 8px;
+ }
+
+ #mealOptions tr:nth-child(even){background-color: #f2f2f2;}
+
+ #mealOptions tr:hover {background-color: #ddd;}
+
+ #mealOptions th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #005693;
+      color: white;
+ }
+
+ .floatLeft { width: 50%; float: left; }
+ .floatRight {width: 50%; float: right; }
+ .container { overflow: hidden; }
+
+  .popover{
+      max-width: 100%; /* Max Width of the popover (depending on the container!) */
+  }
+  .dashboardInteractiveText{
+  font-size: 12pt;
+  }
+
+

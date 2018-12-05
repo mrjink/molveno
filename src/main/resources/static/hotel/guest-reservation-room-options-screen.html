@@ -23,6 +23,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
             crossorigin="anonymous"></script>
+
 </head>
 
 <header>
@@ -152,38 +153,43 @@ Pet:            Yes</PRE>
 
 
     <div class="col-4">
+
         <div class="container" style="background-color: #eeeeee; color: #005693;">
             <div class="list-group">
                 <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
-                        rel="popover" data-img="/img/kingsize.jpg">
+                        onmouseover="yoran.src='/img/luxury2.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
                     Room with 3 King size beds<br>
                     <div class="float-right"><span class="alert alert-primary">Rooms left: 5!</span></div>
                     <br>
                     TV + Balcony view + Air conditioning
                 </button>
                 <br>
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/kingsize.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
                     Room with 2 King size beds + 1 Single Person Bed<br>
                     <div class="float-right"><span class="alert alert-primary">Rooms left: 3!</span></div>
                     <br>
                     TV + Air conditioning
                 </button>
                 <br>
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/queensize.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
                     Room with 1 King size bed + 1 Queen Size Beds<br>
                     <div class="float-right"><span class="alert alert-primary">Rooms left: 1!</span></div>
                     <br>
                     TV
                 </button>
                 <br>
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/dualspbed.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
                     Room with 1 Queen size bed + 2 Single Person Beds<br>
                     <div class="float-right"><span class="alert alert-primary">Rooms left: 7!</span></div>
                     <br>
                     TV + Balcony View
                 </button>
                 <br>
-                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo">
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/dualspbed.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
                     Room with 1 Queen size bed + 2 Single Person Beds<br>
                     <div class="float-right"><span class="alert alert-primary">Rooms left: 10!</span></div>
                     <br>
@@ -192,30 +198,16 @@ Pet:            Yes</PRE>
             </div>
         </div>
     </div>
-
-
-    <div class="col-2">
-
-
+    <div class="col-4">
+        <img id="yoran" src="/img/logo_4000.png" width="576px;" height="576px;">
     </div>
+
+
 </div>
 
-<script>$(function () {
-$('[data-toggle="tooltip"]').tooltip()
-})
+<script src="/js/hotel/guest-reservation-room-options-screen.js"></script>
 
-</script>
-
-
-<script>
-$('button[rel=popover]').popover({
-html: true,
-trigger: 'hover',
-content: function () {
-return '<img src="'+$(this).data('img') + '" />';
-}
-});
-
-</script>
 
 </body>
+
+</html>
