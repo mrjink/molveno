@@ -2,7 +2,7 @@ package com.molvenolakeresort.models.restaurant.stock;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "SupplyOrders--Ingredients")
 public class SupplyOrder_Ingredient {
     @EmbeddedId
     private SupplyOrder_Ingredient_Id idSupplyOrder_ingredient;

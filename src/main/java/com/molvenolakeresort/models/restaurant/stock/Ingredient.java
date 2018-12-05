@@ -6,7 +6,7 @@ import com.molvenolakeresort.models.restaurant.menu.MenuItem;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Entity(name = "Ingredients")
 public class Ingredient {
     @Id @GeneratedValue
     private Long idIngredient;

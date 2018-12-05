@@ -15,7 +15,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-@Entity
+@Entity(name = "RestaurantReservation")
 public class RestaurantReservation {
 
     private @Id

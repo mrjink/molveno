@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-@Entity
+@Entity(name = "Menu")
 public class Menu {
     @Id
     @GeneratedValue

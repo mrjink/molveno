@@ -1,6 +1,5 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
-import javax.persistence.Column;
 import java.io.Serializable;
 
 public class SupplyOrder_Ingredient_Id implements Serializable {
