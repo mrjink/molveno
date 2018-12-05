@@ -29,7 +29,20 @@ $(document).ready(function() {
         var resPhone = $("#phone").val();
         var resEmail = $("#email").val();
         var resCourse = $("#course").val();
-
+/*
+if (resAmountOfPeople==null||resAmountOfPeople==''){
+    console.log("ResAmountOfPeople is empty.");
+    return;
+}*/
+var form = document.getElementById('restaurantReservationForm');
+    for(var i=0; i < form.elements.length; i++){
+        if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
+            //console.log('Some fields are still empty');
+            document.getElementById('errorMessage').innerHTML = "Some fields are still empty!";
+            //alert('Some fields are still empty');
+            return false;
+        }
+    }
         var json = JSON.stringify({
             amountOfPeople : resAmountOfPeople,
             date: resDate,
@@ -38,6 +51,19 @@ $(document).ready(function() {
                 name: resName,
                 phoneNumber: resPhone,
                 email: resEmail
+                //TODO: Check if there is a table available for that many people and assign it.
+                /*
+                if amount of people
+                is less than max steats
+                and table is not occupied at that date.
+                compare reservations for that day.
+                Get all tables that are insid eof a reservation
+                See if there are any remaining tables
+                count the amount of seats for each table.
+                if seats is less than all max seats for each table combined
+                THER is space.
+
+                */
             },
             course: resCourse
         })

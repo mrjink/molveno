@@ -1,6 +1,6 @@
 package com.molvenolakeresort.controllers.restaurant;
 
-import com.molvenolakeresort.models.restaurant.Reservation;
+import com.molvenolakeresort.models.restaurant.RestaurantReservation;
 import com.molvenolakeresort.models.restaurant.exceptions.ReservationNotFoundException;
 import com.molvenolakeresort.repositories.restaurant.RestaurantReservationRepository;
 import org.springframework.web.bind.annotation.*;
@@ -18,24 +18,24 @@ public class RestaurantReservationController {
     }
 
     @GetMapping("/all")
-    List<Reservation> all() {
+    List<RestaurantReservation> all() {
         return repository.findAll();
     }
 
     @PostMapping("/add")
-    public Reservation addReservation(@RequestBody Reservation Reservation) {
-        return repository.save(Reservation);
+    public RestaurantReservation addReservation(@RequestBody RestaurantReservation RestaurantReservation) {
+        return repository.save(RestaurantReservation);
     }
 //
     @GetMapping("/get/{id}")
-    public Reservation getReservation(@PathVariable Long id) throws ReservationNotFoundException {
+    public RestaurantReservation getReservation(@PathVariable Long id) throws ReservationNotFoundException {
 
         return repository.findById(id).orElseThrow(() -> new ReservationNotFoundException(id));
     }
 //
     @PutMapping("/update/{id}")
-    public Reservation updateReservation(@RequestBody Reservation updatedReservation, @PathVariable Long id) {
-        return repository.save(updatedReservation);
+    public RestaurantReservation updateReservation(@RequestBody RestaurantReservation updatedRestaurantReservation, @PathVariable Long id) {
+        return repository.save(updatedRestaurantReservation);
     }
 //
     @DeleteMapping("/delete/{id}")
