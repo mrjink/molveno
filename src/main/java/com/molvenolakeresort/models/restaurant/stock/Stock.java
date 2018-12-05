@@ -10,7 +10,6 @@ import java.util.List;
 public class Stock {
 
     public Stock(String name, Unit unit, Supplier supplier, String notes) {
-        //super(name, unit, supplier, notes);
     }
 
     private int id;

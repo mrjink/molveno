@@ -1,10 +1,13 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
 import com.molvenolakeresort.models.restaurant.enums.Unit;
+import com.molvenolakeresort.models.restaurant.menu.IngredientMenuItem;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Ingredient {
@@ -16,6 +19,8 @@ public class Ingredient {
     private String notes;
 //    private Supplier supplier;
     private double amount;
+    @OneToMany
+    private List<IngredientMenuItem> ingredientMenuItems;
 
 
     public Ingredient() {}

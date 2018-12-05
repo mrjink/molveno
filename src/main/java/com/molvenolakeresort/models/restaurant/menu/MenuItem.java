@@ -25,6 +25,8 @@ public class MenuItem {
 //    private List<Menu> menus = new ArrayList<>();
 //    private Set<Menu> menus;
 //    private List<Ingredient> ingredients;
+    @OneToMany
+    private List<IngredientMenuItem> ingredientMenuItems;
     private boolean availableSeparately;
 
     public MenuItem() {
