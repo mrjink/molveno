@@ -1,6 +1,14 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Supplier {
+    @Id
+    @GeneratedValue
     private int id;
     private String name;
     private String email;
