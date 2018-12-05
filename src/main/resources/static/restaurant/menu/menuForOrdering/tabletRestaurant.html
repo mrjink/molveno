@@ -31,6 +31,25 @@
     	$('.collapse').collapse('hide');
     }
 });
+
+    </script>
+    <script>
+function PlaceOrder() {
+    confirm("Do you want to place this order?");
+}
+
+    </script>
+    <script>
+function AddToBill() {
+    confirm("Do you want to add this receipt to your Hotel Bill?");
+}
+
+    </script>
+    <script>
+function Pay() {
+    confirm("Do you want to pay the bill now?");
+}
+
     </script>
 </head>
 <body>
@@ -302,7 +321,9 @@
                     </tbody>
 
                 </table>
-                <button class="btn btn-outline-primary" href="#PlaceOrder" type="button">Order Items</button>
+                <button onclick="PlaceOrder()" class="btn btn-outline-primary" href="#PlaceOrder" type="button">Order
+                    Items
+                </button>
 
 
             </div>
@@ -320,8 +341,10 @@
                     </tbody>
                 </table>
                 <p>Total amount is: $xx.xx</p>
-                <button class="btn btn-outline-primary" href="#AddToBill" type="button">Add to hotel bill</button>
-                <button class="btn btn-outline-primary" href="#Pay" type="button">Pay</button>
+                <button onclick="AddToBill()" class="btn btn-outline-primary" href="#AddToBill" type="button">Add to
+                    hotel bill
+                </button>
+                <button onclick="Pay()" class="btn btn-outline-primary" href="#Pay" type="button">Pay</button>
             </div>
         </div>
 
