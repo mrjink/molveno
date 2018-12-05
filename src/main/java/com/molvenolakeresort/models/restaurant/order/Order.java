@@ -4,11 +4,12 @@ import com.molvenolakeresort.models.hotel.Room;
 import com.molvenolakeresort.models.restaurant.RestaurantTable;
 import com.molvenolakeresort.models.restaurant.enums.SupplierOrderStatus;
 import com.molvenolakeresort.models.restaurant.menu.MenuItem_Order;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity (name = "RestaurantOrder")
+@Entity (name = "RestaurantOrders")
 public class Order {
 
     @Id @GeneratedValue

@@ -7,11 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
+@Entity(name = "MenuItems")
 public class MenuItem {
     @Id
     @GeneratedValue
-    private long idMenuItem;
+    private Long idMenuItem;
     private MenuItemType type;
     private MenuCategory category;
     private String imagePath;
@@ -27,22 +27,8 @@ public class MenuItem {
     public MenuItem() {
     }
 
-    public MenuItem(MenuItemType type, MenuCategory category, String imagePath, String description, double price, String name, boolean availableSeparately) {
-        this.type = type;
-        this.category = category;
-        this.imagePath = imagePath;
-        this.description = description;
-        this.price = price;
-        this.name = name;
-        this.availableSeparately = availableSeparately;
-    }
-
-    public long getId() {
+    public Long getId() {
         return idMenuItem;
-    }
-
-    public void setId(long id) {
-        this.idMenuItem = id;
     }
 
     public MenuItemType getType() {

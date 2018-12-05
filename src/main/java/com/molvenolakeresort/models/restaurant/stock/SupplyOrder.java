@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity
+@Entity(name = "SupplyOrders")
 public class SupplyOrder {
     @Id @GeneratedValue
     private Long idSupplyOrder;

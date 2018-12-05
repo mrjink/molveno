@@ -4,7 +4,7 @@ import com.molvenolakeresort.models.restaurant.enums.TableShape;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "RestaurantTable")
 public class RestaurantTable {
 
     private @Id @GeneratedValue

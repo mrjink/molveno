@@ -4,7 +4,7 @@ import com.molvenolakeresort.models.restaurant.order.Order;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "MenuItem--RestaurantOrders")
 public class MenuItem_Order {
 
     @EmbeddedId
