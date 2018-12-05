@@ -92,6 +92,19 @@
 
 <!-- Begin page content -->
 
+<!-- BUTTON SCRIPT DELETE GUEST -->
+<script>
+    function confirmDelete() {
+    var agreed = confirm("Are you sure you want to delete this guest?");
+    if(agreed){
+        //CANCEL GUEST REGISTRATION
+        alert("The guest has been deleted");
+    }
+    else{
+        alert("Your guest registration has been completed");
+    }
+}
+
 <main class="my-form">
     <div class="cotainer">
         <div class="row justify-content-center">
@@ -340,7 +353,7 @@
                                 <div class="col">
                                     <!--<div class="form-group row">-->
                                         <div class="float-sm-right">
-                                            <button type="button" class="btn btn-secondary">Delete</button>
+                                            <button type="button" class="btn btn-secondary" onclick="confirmDelete()">Delete</button>
                                             <button type="button" class="btn btn-secondary">Flag</button>
                                             <button type="button" class="btn btn-secondary">Cancel</button>
                                             <button type="button" class="btn btn-secondary">Save</button>

@@ -97,24 +97,24 @@
 <!-- BUTTON SCRIPT CANCEL REGISTRATION -->
 <script>
     function confirmDelete() {
-    var agreed = confirm("Are you sure you want to cancel your guest registration?");
+    var agreed = confirm("Are you sure you want to cancel your registration?");
     if(agreed){
         //CANCEL GUEST REGISTRATION
         alert("Your guest registration has been canceled");
     }
     else{
-        alert("Your guest registration has been completed");
+        alert("Please proceed your registration");
     }
 }
 </script>
 
 <!-- BUTTON SCRIPT CONFIRM REGISTRATION -->
 <script>
-    function confirmDelete() {
-    var agreed = confirm("Are you sure you want to cancel your registration?");
+    function confirmRegistration() {
+    var agreed = confirm("Are you sure you want to register?");
     if(agreed){
-        //CANCEL GUEST REGISTRATION
-        alert("Your registration has been canceled");
+        //CONFIRM REGISTRATION
+        alert("Thank you for your registration");
     }
     else{
         alert("Please proceed your registration");
@@ -387,15 +387,17 @@
                                         </div>
 
                                         <div class="form-check test">
+                                            <div class = "form-check testtextbox1">
                                             <input type="checkbox" class="checkbox style-2 pull-right" id="checkbox1">
+                                            </div>
                                             <label class="form-check-label" for="checkbox1">Subscribe for newsletter:</label>
                                         </div>
-                                        <div class="form-check test2">
+                                        <div class="form-check test1">
                                             <input type="checkbox" class="checkbox style-2 pull-right" id="checkbox2">
                                             <label class="form-check-label" for="checkbox2">Accept terms and conditions:</label>
                                         </div>
                                         <button type="button" class="btn btn-secondary" onclick="confirmDelete()">Cancel</button>
-                                        <button type="button" class="btn btn-secondary">Register</button>
+                                        <button type="button" class="btn btn-secondary" onclick="confirmRegistration()">Register</button>
                                     </div>
                                     <!--</div>-->
                                 </div>
