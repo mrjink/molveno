@@ -1,24 +1,26 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Supplier {
-    private int id;
+    @Id
+    private Long id;
     private String name;
     private String email;
     private String telephone;
     private String notes;
 
-    public Supplier(String name, String email, String telephone, String notes) {
-        this.name = name;
-        this.email = email;
-        this.telephone = telephone;
-        this.notes = notes;
+    public Supplier() {
+
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

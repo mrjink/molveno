@@ -3,6 +3,8 @@ package com.molvenolakeresort.models.restaurant.menu;
 import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
 import com.molvenolakeresort.models.restaurant.enums.MenuItemType;
 import com.molvenolakeresort.models.restaurant.stock.Ingredient;
+import com.molvenolakeresort.models.restaurant.stock.Ingredient_MenuItem;
+import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,29 +17,21 @@ public class MenuItem {
     @Id
     @GeneratedValue
     private long idMenuItem;
+    private String name;
+    private double price;
     private MenuItemType type;
     private MenuCategory category;
     private String imagePath;
-    private String description;
-    private double price;
-    private String name;
-//    @ManyToMany(mappedBy = "menuItems")
-//    private List<Menu> menus = new ArrayList<>();
-//    private Set<Menu> menus;
-//    private List<Ingredient> ingredients;
     private boolean availableSeparately;
+    private String description;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Ingredient_MenuItem ingredient_menuItem;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private MenuItem_Order menuItem_order;
 
     public MenuItem() {
-    }
-
-    public MenuItem(MenuItemType type, MenuCategory category, String imagePath, String description, double price, String name, boolean availableSeparately) {
-        this.type = type;
-        this.category = category;
-        this.imagePath = imagePath;
-        this.description = description;
-        this.price = price;
-        this.name = name;
-        this.availableSeparately = availableSeparately;
     }
 
     public long getId() {

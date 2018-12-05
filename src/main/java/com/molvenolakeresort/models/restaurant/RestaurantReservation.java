@@ -16,7 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-public class Reservation {
+public class RestaurantReservation {
 
     private @Id
     @GeneratedValue
@@ -32,7 +32,7 @@ public class Reservation {
     @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)//(cascade = {CascadeType.ALL, CascadeType.ALL})
     private List<RestaurantTable> restaurantTables;
 
-    public Reservation() {
+    public RestaurantReservation() {
     }
 
 

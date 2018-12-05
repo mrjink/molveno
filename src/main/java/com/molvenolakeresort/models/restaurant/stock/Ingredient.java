@@ -1,10 +1,9 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
 import com.molvenolakeresort.models.restaurant.enums.Unit;
+import com.molvenolakeresort.models.restaurant.menu.MenuItem;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Ingredient {
@@ -14,11 +13,19 @@ public class Ingredient {
     private String name;
     private Unit unit;
     private String notes;
+
+    @OneToMany
+    private SupplyOrder_Ingredient supplyOrder_ingredient;
+
+    @OneToMany
+    private Supplier_Ingredient supplier_ingredient;
+
+    @OneToMany
+    private Ingredient_MenuItem ingredient_menuItem;
 //    private Supplier supplier;
-    private double amount;
 
-
-    public Ingredient() {}
+    public Ingredient() {
+    }
 
 //    public Ingredient( String name, Unit unit, Supplier supplier, String notes) {
 //        this.name = name;
@@ -63,13 +70,5 @@ public class Ingredient {
 
     public void setNotes(String notes) {
         this.notes = notes;
-    }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
     }
 }
