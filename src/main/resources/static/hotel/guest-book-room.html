@@ -296,7 +296,7 @@
         <div class="container" style="margin-top: 15px; background-color: #eeeeee; color: #005693;">
             <div class="btn-group">
                 <button type="button" class="btn btnroominfo" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
+                        aria-haspopup="true" aria-expanded="false" onclick="goToRoomInfo()">
                     <h4>Confirm</h4>
                 </button>
             </div>
@@ -310,5 +310,9 @@
 <script>$(document).ready( function () {
 $('#myTable').DataTable();
 } );
+function goToRoomInfo(){
+    window.location.replace("/hotel/guest-reservation-room-options-screen.html");
+
+}
 </script>
 </body>
