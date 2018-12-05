@@ -4,6 +4,7 @@ import com.molvenolakeresort.models.restaurant.enums.Unit;
 import com.molvenolakeresort.models.restaurant.menu.MenuItem;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Ingredient {
@@ -15,14 +16,10 @@ public class Ingredient {
     private String notes;
 
     @OneToMany
-    private SupplyOrder_Ingredient supplyOrder_ingredient;
+    private List<SupplyOrder_Ingredient> supplyOrder_ingredients;
 
     @OneToMany
-    private Supplier_Ingredient supplier_ingredient;
-
-    @OneToMany
-    private Ingredient_MenuItem ingredient_menuItem;
-//    private Supplier supplier;
+    private List<Supplier_Ingredient> supplier_ingredients;
 
     public Ingredient() {
     }

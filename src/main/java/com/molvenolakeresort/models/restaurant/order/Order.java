@@ -28,7 +28,7 @@ public class Order {
     //EVENT????
 
     @OneToMany
-    private MenuItem_Order menuItem_order;
+    private List<MenuItem_Order> menuItem_orders;
 
     public Long getIdOrder() {
         return idOrder;

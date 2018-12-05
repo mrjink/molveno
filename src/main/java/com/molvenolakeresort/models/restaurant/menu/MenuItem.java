@@ -27,11 +27,7 @@ public class MenuItem {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="Ingredient_MenuItemID")
-    private Ingredient_MenuItem ingredient_menuItem;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="MenuItemID")
-    private MenuItem_Order menuItem_order;
+    private List<Ingredient_MenuItem> ingredient_menuItems;
 
     public MenuItem() {
     }
@@ -91,14 +87,6 @@ public class MenuItem {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public List<Menu> getMenus() {
-//        return menus;
-//    }
-//
-//    public void setMenus(List<Menu> menus) {
-//        this.menus = menus;
-//    }
 
     public boolean isAvailableSeparately() {
         return availableSeparately;

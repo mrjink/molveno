@@ -15,7 +15,7 @@ public class SupplyOrder {
     private SupplierOrderStatus supplierOrderStatus;
 
     @OneToMany
-    private SupplyOrder_Ingredient supplyOrder_ingredient;
+    private List<SupplyOrder_Ingredient> supplyOrder_ingredients;
 
     public SupplyOrder() {
 
@@ -37,7 +37,7 @@ public class SupplyOrder {
         return supplierOrderStatus;
     }
 
-    public SupplyOrder_Ingredient getSupplyOrder_ingredient() {
-        return supplyOrder_ingredient;
+    public List<SupplyOrder_Ingredient> getSupplyOrder_ingredients() {
+        return supplyOrder_ingredients;
     }
 }
