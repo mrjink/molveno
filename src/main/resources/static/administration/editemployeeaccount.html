@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- IMPORTS VOOR HEADER AND FOOTER-->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Molveno Lake Resort</title>
     <link rel="icon" href="/img/logo_128.png" type="image/png">
@@ -15,14 +19,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
+    <!--DEZE GEEFT OOK EEN ERROR
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
+    -->
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
+    <!-- IMPORTS VOOR HEADER AND FOOTER-->
+
 
 </head>
 <body>
 
+<!-- BEGIN HEADER -->
 <header>
 
 
@@ -90,36 +98,102 @@
     </nav>
 </header>
 
-<!-- Begin page content -->
+<!-- END HEADER -->
 
-    <body id="LoginForm">
-    <div class="carousel container">
-        <h1 class="form-heading">login Form</h1>
-        <div class="login-form">
-            <div class="main-div guest">
-                <div class="panel">
-                    <b><h2>Login Guest</h2></b>
+
+<!-- BEGIN PAGE CONTENT-->
+
+<button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/empaccountmanagement.html">Back</a></button>
+
+<!-- MAAK TWEE POPUPS VOOR DELETE EN BLOCK (in script)-->
+<script>
+function confirmDelete() {
+    var agreed = confirm("Are you sure you want to delete this role?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("ROLE IS VERWIJDERT");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+
+function confirmBlock() {
+    var agreed = confirm("Are you sure you want to block this role?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("ROLE IS GEBLOCKED");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+function confirmSave() {
+    var agreed = confirm("Are you sure you want save the changes to this role?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("ROLE IS gesaved");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+
+</script>
+<div class="carousel row">
+
+    <div class="col-md-12">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/empaccountmanagement.html">Back</a></button>
+
+        <div class="container theme-showcase">
+            <h1>Edit Role Form</h1>
+            <div id="holder" class="row" ></div>
+        </div>
+
+        <div class="container">
+            <div class="col-md-5">
+                <div class="form-area">
+                    <form role="form">
+
+            <form>
+                <fieldset>
+                    <legend>Role Rights:</legend>
+                    Lijst van acties die deze role kan doen
+                    <p><input type = "radio">Add an event</p>
+                    <p><input type = "radio">Edit an event</p>
+                    <p><input type = "radio">Delete an event</p>
+
+                </fieldset>
+            </form>
+            <!-- Status box (blocked of niet) -->
+            <form>
+                <fieldset>
+                    <legend>Status:</legend>
+                    <p><input type = "radio">Active</p>
+                    <p><input type = "radio">Inactive</p>
+                </fieldset>
+            </form>
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmSave()"><a>Save changes</a></button>
+                   </form>
+
                 </div>
-                <form id="Login">
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="inputUsername" placeholder="Username">
-
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-                    </div>
-                    <div class="forgot">
-                        <a href="reset.html">Forgot password?</a>
-                    </div>
-
-                    <div class="button">
-                        <button type="submit" class="btn btn-primary"><a href="/administration/eventmanager_dashboard.html">Register</a></button>
-                        <button type="submit" class="btn btn-primary"><a href="/administration/eventmanager_dashboard.html">Login</a></button>
-                    </div>
-                </form>
             </div>
         </div>
-    </div>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmDelete()"><a>Delete this role</a></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmBlock()"><a>Block this role</a></button>
 
-<!-- Footer -->
+    </div>
+</div>
+
+
+<!-- Role VIEW-->
+<!-- Role rights box (lijst van acties die hij kan doen)-->
+
+<!-- END PAGE CONTENT-->
+
+
+<!-- BEGIN FOOTER-->
 <footer class="page-footer font-small blue pt-4">
 
     <!-- Footer Links -->
@@ -227,20 +301,22 @@
     <!-- Copyright -->
 
 </footer>
-<!-- Footer -->
+<!-- END FOOTER-->
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="../../assets/js/vendor/popper.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-</body>
 
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+
+</body>
 </html>
