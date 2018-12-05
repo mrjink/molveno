@@ -26,6 +26,10 @@
 
     <link href="sticky-footer.css" rel="stylesheet">
 
+    <!-- Custom selection dialog propertiess -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <script>
         function includeHTML() {
           var z, i, elmnt, file, xhttp;
@@ -108,6 +112,20 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .column {
+            float: left;
+            width: 25%;
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
     </style>
 
 
@@ -128,11 +146,11 @@
                         
                     <thead>
                     <tr>
-                            <th scope="row">Name</th>
-                            <th scope="row"></th>
-                            <th scope="row">In stock</th>
-                            <th scope="row"></th>
-                            <th scope="row"></th>
+                        <th scope="row">Name</th>
+                        <th scope="row"></th>
+                        <th scope="row">In stock</th>
+                        <th scope="row"></th>
+                        <th scope="row"></th>
                     </tr>
                     <tr>
                         <th scope="col"><p><b>Meat1</b></p></th>
@@ -244,18 +262,65 @@
 
 
     <nav class="navbar fixed-bottom navbar-light" style="background-color: #005693;">
-            <a class="navbar-brand" href="#"><p style="color:white">2 item(s) in list</p></a>
+            <a class="navbar-brand" href="#"><p id="list_items_paragraph" style="color:white">0 item in list</p></a>
             <a class="navbar-brand" ><button class="btn btn-success" type="button" onclick="viewOrder();">View Order</button></a>
     </nav>
 
 
     <!-- selection dialog -->
-    <div id="myModal" class="modal">
+    
+    <!-- <div class="w3-container">
 
+        <h2>Model title</h2>
+        <p>Content section</p>
+        <button onclick="document.getElementById('selection_dialog')"> Launch dialog</button>
+
+    </div> -->
+    
+    
+    <div id="selection_dialog" class="w3-modal">
         <!-- selection dialog content -->
-        <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>Some text in the Modal..</p>
+        <div class="w3-modal-content">
+            <header style="background-color:#005693; height: 38px;">
+                <span onclick="document.getElementById('selection_dialog').style.display='none'" class="w3-button w3-display-topright" style="color: white;">
+                        &times;
+                </span>
+                <div style="height: 38px;">
+                    <p style="font-size: 18px; font-weight: bold; text-align: center; padding-top: 5px; color: white;">Order</p>
+                </div>
+
+            </header>
+            <div class="w3-container">
+                    <div class="row">
+                        <div class="column" style="margin-top:5px">
+                            <p id="dialog_ingredient_name" style="width:100%">Ingredient name</p>
+                        </div>
+                        <div style="float: left; width: 25%;">
+                            <div style="width:100%" class="row">
+                            <input style="height: 30px; width: 30px;" class="column" type="text" name="quantity" value="">
+                            <p class="column">kg</p>
+                            </div>
+                        </div>
+                        <div style="float: left; width: 25%;">
+                                <div style="width:100%" class="row">
+                                    <select>
+                                        <option value="Supplier 1">Supplier 1</option>
+                                        <option value="Supplier 2">Supplier 2</option>
+                                        <option value="Supplier 3">Supplier 3</option>
+                                        <option value="Supplier 4">Supplier 4</option>
+                                    </select>
+                                </div>
+                        </div>
+                        <div style="float: left; width: 25%;">
+                                <div style="width:100%" class="row">
+                                <p style="height: 30px; width: 30px; font-weight: bold">€2,00/kg</p>
+                                </div>
+                        </div>
+                    </div>
+                    <div id="add_to_list_button_container" style="float: right; margin-bottom: 10px;">
+                        <button type="button" class="btn btn-primary" id="add_to_list_button" onclick="add_ingredient_to_list(1);">Add to list</button>
+                    </div>
+            </div>
         </div>
         <!-- selection dialog content -->
     </div>
@@ -268,25 +333,29 @@
         window.location.pathname = "/restaurant/ingredient_order_list/ingredient_order_list.html";
       }
 
+       function add_ingredient_to_list(selected_ingredient)
+       {
+           document.getElementById("list_items_paragraph").innerHTML = "<b>1 item in list</b>";
+           document.getElementById('selection_dialog').style.display='none';
+       }
 
-
-      var selection_modal = document.getElementById('')
-
-       function orderIngredient(selected_ingredient) {
+      function orderIngredient(selected_ingredient) {
 
         //   alert(selected_ingredient.rowIndex+" add to order list");
 
-           var ingredient = document.getElementById("ingredient_list_table").rows[selected_ingredient.rowIndex].cells[0].innerHTML;
+        
+        var ingredient = document.getElementById("ingredient_list_table").rows[selected_ingredient.rowIndex].cells[0].innerHTML;
+        document.getElementById("dialog_ingredient_name").innerHTML = ingredient;
+        //alert("Row index is: "+order_number);
+        document.getElementById('selection_dialog').style.display='block'
 
-          //alert("Row index is: "+order_number);
+        //window.location.href = '/restaurant/SupplierOrder/order_details.html' + '#' + order_number;
+            
 
-            //window.location.href = '/restaurant/SupplierOrder/order_details.html' + '#' + order_number;
-         
+        // alert(ingredient+" add to order list at index: "+selected_ingredient.rowIndex);
 
-            alert(ingredient+" add to order list at index: "+selected_ingredient.rowIndex);
-
-            // window.location.pathname = "/restaurant/ingredient_order_list/ingredient_order_list.html";
-        }
+        // window.location.pathname = "/restaurant/ingredient_order_list/ingredient_order_list.html";
+      }
 
    </script>
 </body>
