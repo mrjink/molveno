@@ -13,3 +13,8 @@ nav.navbar a.navbar-brand.order {
     margin-right: auto !important;
     margin-left: 10px !important;
 }
+
+.card{
+margin-left : 20px;
+margin-top: 20px;
+}
