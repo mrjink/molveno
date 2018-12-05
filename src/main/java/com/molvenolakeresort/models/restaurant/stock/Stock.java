@@ -3,15 +3,17 @@ package com.molvenolakeresort.models.restaurant.stock;
 import com.molvenolakeresort.models.restaurant.enums.Unit;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 @Entity
-public class Stock {
-    @Id
+public class Stock implements Serializable {
+    @Id @GeneratedValue
+    private int idStock;
+    @ManyToOne
     private Ingredient ingredient;
     private Unit unit;
     private String notes;
@@ -23,6 +25,10 @@ public class Stock {
 
     public Ingredient getIngredient() {
         return ingredient;
+    }
+
+    public int getIdStock() {
+        return idStock;
     }
 
     public Unit getUnit() {
