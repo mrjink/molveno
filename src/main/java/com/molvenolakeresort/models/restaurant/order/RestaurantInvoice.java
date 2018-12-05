@@ -5,6 +5,7 @@ import com.molvenolakeresort.models.restaurant.temp.User;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import java.sql.Date;
 import java.sql.Time;
 
@@ -13,7 +14,7 @@ public class RestaurantInvoice {
     @Id @GeneratedValue
     private Long idRestaurantInvoice;
 
-    //@???
+    @OneToOne
     private Order order;
 
     private double price;

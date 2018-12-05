@@ -2,15 +2,19 @@ package com.molvenolakeresort.models.restaurant.stock;
 
 import com.molvenolakeresort.models.restaurant.menu.MenuItem;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Ingredient_MenuItem {
+    @EmbeddedId
+    private Ingredient_MenuItem_Id idIngredientMenuItem;
 
-    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idSupplyOrder")
     private Ingredient ingredient;
-    @Id
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idIngredient")
     private MenuItem menuItem;
 
     private double quantity;

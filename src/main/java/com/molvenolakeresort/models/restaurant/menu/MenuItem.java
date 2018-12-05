@@ -25,8 +25,7 @@ public class MenuItem {
     private boolean availableSeparately;
     private String description;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="Ingredient_MenuItemID")
+    @OneToMany
     private List<Ingredient_MenuItem> ingredient_menuItems;
 
     public MenuItem() {

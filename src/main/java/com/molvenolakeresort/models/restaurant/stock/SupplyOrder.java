@@ -9,7 +9,6 @@ import java.util.List;
 @Entity
 public class SupplyOrder {
     @Id @GeneratedValue
-//    @Column(name = "SUPPLYORDER_ID")
     private Long idSupplyOrder;
     private Date deliveryDate;
     private Date orderDate;

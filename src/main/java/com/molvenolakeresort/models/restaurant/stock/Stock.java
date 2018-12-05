@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 public class Stock {
-
     @Id
     private Ingredient ingredient;
     private Unit unit;
