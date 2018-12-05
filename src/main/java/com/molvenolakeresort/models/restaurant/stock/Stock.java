@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 @Entity
-public class Stock implements Serializable {
+public class Stock {
     @Id @GeneratedValue
     private int idStock;
     @ManyToOne
