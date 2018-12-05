@@ -385,6 +385,11 @@ nav.navbar div.collapse button.btn.btn-outline-success:hover {
     background-color: white !important;
 }
 
+/* GUEST NAME IN HET MIDDEN */
+.card-header.guestname {
+text-align: center;
+}
+
 /* CALENDAR */
 
 .calendar-day {
