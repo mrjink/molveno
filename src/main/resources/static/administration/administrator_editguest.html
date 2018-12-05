@@ -97,7 +97,9 @@
         <div class="row justify-content-center">
             <div class="carousel col-md-8">
                 <div class="card">
+                    <div class = "headertransparant">
                     <div class="card-header">Admin Action Page</div>
+                    </div>
                     <div class="card-body">
                         <form name="my-form" onsubmit="return validform()" action="success.php" method="">
                             <div class = "row">
@@ -255,13 +257,15 @@
                                 <div class="col-6">
                                     <div class="form-group row">
                                         <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
-                                        <form id="login2">
+                                        <form id="login">
                                         <div class="col-sm-6">
                                             <div class="input-group">
                                                 <select class="custom-select" id="inputGroupSelect03">
                                                     <option selected></option>
                                                     <option value="1">China</option>
-                                                    <option value="2">Country list to be loaded...</option>
+                                                    <option value="2">Colombia</option>
+                                                    <option value="3">Cuba</option>
+                                                    <option value="4">Loading country list...</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -295,22 +299,62 @@
                             </div>
                         </div>
                             <div class = "row">
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" id="email" class="form-control" name="email">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group row">
-                                        <div class="col-sm-6">
-                                            <button type="button" class="btn btn-secondary">Reset Password</button>
-                                        </div>
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="email" class="form-control" name="email">
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <button type="button" class="btn btn-secondary">Reset Password</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class = "row">
+                            <div class="col">
+                                <div class="form-group row">
+                                    <label for="email" class="col-md-4 col-form-label text-md-right"></label>
+                                    <div class="col-sm-6">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <!--<div class="form-group row">-->
+                                        <div class="float-sm-right">
+                                            <button type="button" class="btn btn-secondary">Delete</button>
+                                            <button type="button" class="btn btn-secondary">Flag</button>
+                                            <button type="button" class="btn btn-secondary">Cancel</button>
+                                            <button type="button" class="btn btn-secondary">Save</button>
+
+                                        </div>
+                                    <!--</div>-->
+                                </div>
+                            </div>
+
 
                         </form>
                     </div>

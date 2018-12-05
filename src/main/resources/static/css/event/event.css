@@ -379,6 +379,12 @@ nav.navbar div.collapse button.btn.btn-outline-success:hover {
     margin-right: 15px;
 }
 
+/* headertransparant gemaakt door er een div class omheen te zetten:
+.headtransparant en dan alleen op de card-header*/
+.headertransparant .card-header {
+    background-color: white !important;
+}
+
 /* CALENDAR */
 
 .calendar-day {

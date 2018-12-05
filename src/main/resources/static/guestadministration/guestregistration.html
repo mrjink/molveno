@@ -26,6 +26,8 @@
 <header>
 
 
+
+
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
         <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a class="navbar-brand" href="#">Molveno Lake Resort</a>
@@ -92,12 +94,43 @@
 
 <!-- Begin page content -->
 
+<!-- BUTTON SCRIPT CANCEL REGISTRATION -->
+<script>
+    function confirmDelete() {
+    var agreed = confirm("Are you sure you want to cancel your guest registration?");
+    if(agreed){
+        //CANCEL GUEST REGISTRATION
+        alert("Your guest registration has been canceled");
+    }
+    else{
+        alert("Your guest registration has been completed");
+    }
+}
+</script>
+
+<!-- BUTTON SCRIPT CONFIRM REGISTRATION -->
+<script>
+    function confirmDelete() {
+    var agreed = confirm("Are you sure you want to cancel your registration?");
+    if(agreed){
+        //CANCEL GUEST REGISTRATION
+        alert("Your registration has been canceled");
+    }
+    else{
+        alert("Please proceed your registration");
+    }
+}
+</script>
+
+
 <main class="my-form">
     <div class="cotainer">
         <div class="row justify-content-center">
             <div class="carousel col-md-8">
                 <div class="card">
+                    <div class = "headertransparant">
                     <div class="card-header">Register (Guest)</div>
+                    </div>
                     <div class="card-body">
                         <form name="my-form" onsubmit="return validform()" action="success.php" method="">
                             <div class = "row">
@@ -337,6 +370,37 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <!--<div class="form-group row">-->
+                                    <div class="float-sm-right">
+
+                                        <div class = "registration-validation">
+                                        Registration Validation
+                                        </div>
+
+                                        <div class="form-check test">
+                                            <input type="checkbox" class="checkbox style-2 pull-right" id="checkbox1">
+                                            <label class="form-check-label" for="checkbox1">Subscribe for newsletter:</label>
+                                        </div>
+                                        <div class="form-check test2">
+                                            <input type="checkbox" class="checkbox style-2 pull-right" id="checkbox2">
+                                            <label class="form-check-label" for="checkbox2">Accept terms and conditions:</label>
+                                        </div>
+                                        <button type="button" class="btn btn-secondary" onclick="confirmDelete()">Cancel</button>
+                                        <button type="button" class="btn btn-secondary">Register</button>
+                                    </div>
+                                    <!--</div>-->
+                                </div>
+                            </div>
+
+
                         </form>
                     </div>
                 </div>
