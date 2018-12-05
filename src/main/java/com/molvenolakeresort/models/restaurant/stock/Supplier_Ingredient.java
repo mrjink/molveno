@@ -18,7 +18,13 @@ public class Supplier_Ingredient {
 
     }
 
+    public Supplier getSupplier() {
+        return supplier;
+    }
 
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
 
     public double getPrice() {
         return price;

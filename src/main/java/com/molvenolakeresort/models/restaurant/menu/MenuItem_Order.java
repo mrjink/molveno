@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class MenuItem_Order {
 
     @Id
-    private MenuItem menuItem;
+    private MenuItem idMenuItem_Order;
     @Id
     private Order order;
 
@@ -18,4 +18,11 @@ public class MenuItem_Order {
     public MenuItem_Order() {
     }
 
+    public MenuItem getIdMenuItem_Order() {
+        return idMenuItem_Order;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
 }

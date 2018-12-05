@@ -20,7 +20,7 @@ public class RestaurantReservation {
 
     private @Id
     @GeneratedValue
-    Long id;
+    Long idRestaurantReservation;
     private Integer amountOfPeople;
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
@@ -57,7 +57,7 @@ public class RestaurantReservation {
     }
 
     public Long getId() {
-        return id;
+        return idRestaurantReservation;
     }
 
     public Integer getAmountOfPeople() {

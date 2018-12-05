@@ -7,6 +7,7 @@ import com.molvenolakeresort.models.restaurant.enums.SupplierOrderStatus;
 import com.molvenolakeresort.models.restaurant.menu.MenuItem_Order;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.List;
@@ -14,9 +15,8 @@ import java.util.List;
 @Entity
 public class Order {
 
-    @Id
-    private Long orderID;
-    private String destinationId;
+    @Id @GeneratedValue
+    private Long idOrder;
     private SupplierOrderStatus status;
     private int totalPrice;
 
@@ -30,4 +30,11 @@ public class Order {
     @OneToMany
     private MenuItem_Order menuItem_order;
 
+    public Long getIdOrder() {
+        return idOrder;
+    }
+
+    public SupplierOrderStatus getStatus() {
+        return status;
+    }
 }

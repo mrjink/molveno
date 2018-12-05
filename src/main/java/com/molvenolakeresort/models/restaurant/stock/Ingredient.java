@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Ingredient {
     @Id
     @GeneratedValue
-    private int id;
+    private Long idIngredient;
     private String name;
     private Unit unit;
     private String notes;
@@ -27,15 +27,8 @@ public class Ingredient {
     public Ingredient() {
     }
 
-//    public Ingredient( String name, Unit unit, Supplier supplier, String notes) {
-//        this.name = name;
-//        this.unit = unit;
-//        //this.supplier = supplier;
-//        this.notes=notes;
-//    }
-
-    public int getId() {
-        return id;
+    public Long getId() {
+        return idIngredient;
     }
 
 
@@ -54,15 +47,6 @@ public class Ingredient {
     public void setUnit(Unit unit) {
         this.unit = unit;
     }
-
-
-//    public Supplier getSupplier() {
-//        return supplier;
-//    }
-//
-//    public void setSupplier(Supplier supplier) {
-//        this.supplier = supplier;
-//    }
 
     public String getNotes() {
         return notes;

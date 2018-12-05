@@ -15,4 +15,15 @@ public class SupplyOrder_Ingredient {
     public SupplyOrder_Ingredient() {
     }
 
+    public SupplyOrder getSupplyOrder() {
+        return supplyOrder;
+    }
+
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
 }

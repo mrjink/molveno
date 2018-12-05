@@ -16,7 +16,7 @@ import java.util.Set;
 public class MenuItem {
     @Id
     @GeneratedValue
-    private long idMenuItem;
+    private Long idMenuItem;
     private String name;
     private double price;
     private MenuItemType type;
@@ -26,15 +26,17 @@ public class MenuItem {
     private String description;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="Ingredient_MenuItemID")
     private Ingredient_MenuItem ingredient_menuItem;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="MenuItemID")
     private MenuItem_Order menuItem_order;
 
     public MenuItem() {
     }
 
-    public long getId() {
+    public Long getId() {
         return idMenuItem;
     }
 

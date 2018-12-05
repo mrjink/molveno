@@ -3,14 +3,15 @@ package com.molvenolakeresort.models.restaurant.order;
 import com.molvenolakeresort.models.restaurant.temp.User;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.sql.Date;
 import java.sql.Time;
 
 @Entity
 public class RestaurantInvoice {
-    @Id
-    private Long id;
+    @Id @GeneratedValue
+    private Long idRestaurantInvoice;
 
     //@???
     private Order order;
@@ -21,4 +22,15 @@ public class RestaurantInvoice {
 
     }
 
+    public Long getIdRestaurantInvoice() {
+        return idRestaurantInvoice;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public double getPrice() {
+        return price;
+    }
 }

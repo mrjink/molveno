@@ -18,4 +18,16 @@ public class Ingredient_MenuItem {
     public Ingredient_MenuItem() {
 
     }
+
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public MenuItem getMenuItem() {
+        return menuItem;
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
 }
