@@ -1,7 +1,5 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
-import com.molvenolakeresort.models.restaurant.order.OrderItem;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

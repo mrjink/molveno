@@ -17,7 +17,6 @@ public class Order {
     @Id
     private Long orderID;
     private String destinationId;
-    private List<OrderItem> orderItems;
     private SupplierOrderStatus status;
     private int totalPrice;
 
