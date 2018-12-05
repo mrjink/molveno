@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.molvenolakeresort.models.hotel.enums.Pet;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -38,6 +39,16 @@ public class Reservation {
     private Set<Room> rooms = new HashSet<>();
 
     public Reservation() {
+    }
+
+    public boolean isCheckedIn() {
+        return checkInDate != null && checkOutDate == null;
+    }
+
+    public boolean isReservationValid() {
+        LocalDate today = LocalDate.now();
+        return ((today.compareTo(startDate.toLocalDate()) >= 0 &&
+                 today.compareTo(endDate.toLocalDate()) <= 0) || isCheckedIn());
     }
 
     public int getId() {

@@ -24,6 +24,7 @@ public class RoomController {
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
     public List<RoomInformationView> getAll() {
+
         List<RoomInformationView> result = new ArrayList<>();
         for (Room room : this.roomRepository.findAll()) {
             RoomAmenities roomAmenities = room.getRoomAmenities();
@@ -40,14 +41,7 @@ public class RoomController {
                     roomAmenities.getSingleSizeBeds());
 
             for (Reservation reservation : room.getReservations()) {
-                LocalDate today = LocalDate.now();
-
-                boolean checkedIn = reservation.getCheckInDate() != null && reservation.getCheckOutDate() == null;
-
-                if ((today.compareTo(reservation.getStartDate().toLocalDate()) >= 0 &&
-                        today.compareTo(reservation.getEndDate().toLocalDate()) <= 0) || checkedIn) {
-
-
+                if (reservation.isReservationValid()) {
                     for (ReservationGuest reservationGuest : reservation.getReservationGuests()) {
                         if (reservationGuest.isMainBooker()) {
                             view.setMainBooker(reservationGuest.getGuest());
@@ -59,7 +53,7 @@ public class RoomController {
                     view.setBookedBy(reservation.getBookedBy());
                     view.setStartDate(reservation.getStartDate());
                     view.setEndDate(reservation.getEndDate());
-                    view.setCheckedIn(checkedIn);
+                    view.setCheckedIn(reservation.isCheckedIn());
                     break;
                 }
             }
