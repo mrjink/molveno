@@ -2,13 +2,10 @@ package com.molvenolakeresort.models.restaurant.menu;
 
 import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
 import com.molvenolakeresort.models.restaurant.enums.MenuItemType;
-import com.molvenolakeresort.models.restaurant.stock.Ingredient;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class MenuItem {
