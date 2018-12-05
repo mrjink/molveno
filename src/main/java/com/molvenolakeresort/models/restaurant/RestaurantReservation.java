@@ -28,8 +28,7 @@ public class RestaurantReservation {
     private LocalTime time;
     private Course course;
 
-    //TODO: Relation is incorrect? Adding to database does not work atm.
-    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)//(cascade = {CascadeType.ALL, CascadeType.ALL})
+    @OneToMany
     private List<RestaurantTable> restaurantTables;
 
     public RestaurantReservation() {

@@ -8,8 +8,8 @@ import java.util.List;
 
 @Entity
 public class Ingredient {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
+//    @Column(name = "INGREDIENT_ID")
     private Long idIngredient;
     private String name;
     private Unit unit;
