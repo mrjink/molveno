@@ -91,6 +91,32 @@
 </header>
 
 <!-- Begin page content -->
+<script>
+function confirmCancel() {
+    var agreed = confirm("Are you sure you want to cancel this event?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("EVENT CANCELLED");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+function confirmDelete() {
+    var agreed = confirm("Are you sure you want to delete this event?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("EVENT DELETED");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+
+</script>
+
+
+
 
 <!--MAAK DE TABLE-->
 <div class="carousel row">
@@ -122,6 +148,11 @@
         <!-- VUL DE TABLE IN JAVASCRIPT-->
         <!-- CREATE EVENT BUTTON MET LINK NAAR: detail.html-->
         <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventadmin/create.html">Create Event</a></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventadmin/create2.html">Edit Event</a></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmCancel()"><a >Cancel Event</a></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmDelete()"><a >Delete Event</a></button>
+
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a>Export to pdf</a></button>
 
 
 
