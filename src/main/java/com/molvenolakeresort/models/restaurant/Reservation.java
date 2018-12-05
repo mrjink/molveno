@@ -30,7 +30,7 @@ public class Reservation {
 
     //TODO: Relation is incorrect? Adding to database does not work atm.
     @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)//(cascade = {CascadeType.ALL, CascadeType.ALL})
-    private List<Table> tables;
+    private List<RestaurantTable> restaurantTables;
 
     public Reservation() {
     }
@@ -40,8 +40,8 @@ public class Reservation {
         return user;
     }
 /*
-    public List<Table> getTables() {
-        return tables;
+    public List<RestaurantTable> getTables() {
+        return restaurantTables;
     }*/
 
     public LocalDate getDate() {

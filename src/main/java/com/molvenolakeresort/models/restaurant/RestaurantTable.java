@@ -5,7 +5,7 @@ import com.molvenolakeresort.models.restaurant.enums.TableShape;
 import javax.persistence.*;
 
 @Entity
-public class Table {
+public class RestaurantTable {
 
     private @Id @GeneratedValue
     Long id;
@@ -13,7 +13,7 @@ public class Table {
     private TableShape shape;
     private int maxSeats;
 
-    public Table() {
+    public RestaurantTable() {
 
     }
 
