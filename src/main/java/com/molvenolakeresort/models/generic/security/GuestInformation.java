@@ -22,7 +22,8 @@ public class GuestInformation {
     private boolean isSubscribedToNewsletter;
 
     //TODO: force address integration
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = false, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+    @JoinColumn(name = "address_id")
     private Address address;
 
     @OneToOne(mappedBy = "guestInformation", optional = false)

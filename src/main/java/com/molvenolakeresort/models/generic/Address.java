@@ -5,6 +5,7 @@ import com.molvenolakeresort.models.generic.security.GuestInformation;
 import com.molvenolakeresort.models.generic.security.Profile;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity(name = "Address")
@@ -23,9 +24,8 @@ public class Address {
     @ManyToOne
     private Country country;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @OrderColumn
-    private Collection<GuestInformation> guestInformations;
+    @OneToMany(mappedBy = "address")
+    private Collection<GuestInformation> guestInformations = new ArrayList<>();
 
     public Address() {}
 

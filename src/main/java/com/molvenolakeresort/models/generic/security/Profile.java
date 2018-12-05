@@ -6,11 +6,13 @@ import org.springframework.lang.Nullable;
 import javax.persistence.*;
 
 @Entity(name = "Profile")
-@Table(name = "profile", uniqueConstraints = @UniqueConstraint(columnNames = { "email", "phonenumber" }))
+@Table(name = "profile")
 @NamedQuery(name = "Profile.findByEmail",
         query = "SELECT p FROM Profile p WHERE p.email =:email ")
 @NamedQuery(name = "Profile.findByPhoneNumber",
         query = "SELECT p FROM Profile p WHERE p.phoneNumber =:phonenumber ")
+@NamedQuery(name = "Profile.exists",
+        query = "SELECT CASE WHEN COUNT(p) > 0 THEN TRUE ELSE FALSE END FROM Profile p WHERE p.email =:email OR p.phoneNumber =:phonenumber ")
 public class Profile {
 
     @Id
@@ -24,11 +26,11 @@ public class Profile {
     private String lastName;
 
     @Nullable
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @Nullable
-    @Column(name = "phonenumber")
+    @Column(name = "phonenumber", unique = true)
     private String phoneNumber;
 
     @Nullable

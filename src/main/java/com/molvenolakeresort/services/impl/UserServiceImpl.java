@@ -41,6 +41,10 @@ public class UserServiceImpl implements UserService {
             //used for the visitor of the restaurant
             newProfile.setPhoneNumber(profile.getPhoneNumber());
         }
+        if(newProfile != null)
+        {
+            ServerLogger.log(String.format("New profile (id, isVisitor): %s, %s", newProfile.getId(), newProfile.isVisitor()));
+        }
         return newProfile;
     }
 
@@ -51,6 +55,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createEmployee(User employee) {
+        if(userRepository.exists(employee.getUsername())) return null;
+
         //only fill entries used by employee
         User newUser = new User();
         newUser.setPassword(employee.getPassword());
@@ -61,6 +67,10 @@ public class UserServiceImpl implements UserService {
         {
             Role role = findRoleByName("EMPLOYEE");
             newUser.setRole(role);
+        }
+        if(employee != null)
+        {
+            ServerLogger.log(String.format("New employee (id): %s", employee.getId()));
         }
 
         return userRepository.save(newUser);
@@ -79,6 +89,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Profile createVisitor(Profile visitor) {
+        if(profileRepository.exists(visitor.getEmail(), visitor.getPhoneNumber())) return null;
         //only fill entries used by visitor
         return profileRepository.save(createProfileTemplate(visitor, true));
     }
@@ -95,7 +106,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Profile createGuest(Profile guest) {
-
         Profile template = null;
 
         Profile eventVisitor = profileRepository.findByEmail(guest.getEmail());
@@ -119,6 +129,10 @@ public class UserServiceImpl implements UserService {
         if(template == null)
         {
             template = createProfileTemplate(guest, false);
+            if(template != null)
+            {
+                ServerLogger.log(String.format("New guest (id): %s", template.getId()));
+            }
         } else
         {
             template.setVisitor(false);
@@ -128,6 +142,10 @@ public class UserServiceImpl implements UserService {
             template.setLastName(guest.getLastName());
             template.setUser(guest.getUser());
             template.setGuestInformation(guest.getGuestInformation());
+            if(template != null)
+            {
+                ServerLogger.log(String.format("Guest mutated (id): %s", template.getId()));
+            }
         }
 
         return profileRepository.save(template);
@@ -159,12 +177,14 @@ public class UserServiceImpl implements UserService {
         if(roles != null) {
             for (int i = 0; i < roles.length; i++)
             {
-                ((ArrayList<Role>) roleIterable).add(roles[i]);
+                if(!roleRepository.exists(roles[i].getName())) {
+                    ((ArrayList<Role>) roleIterable).add(roles[i]);
+                }
             }
         }
 
         roleIterable = roleRepository.saveAll(roleIterable);
-        ServerLogger.log(String.format("Mutated %s records.", ((List<Role>) roleIterable).size()));
+        ServerLogger.log(String.format("Mutated %s records in roles.", ((List<Role>) roleIterable).size()));
         return roleIterable;
     }
 

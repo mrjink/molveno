@@ -8,4 +8,5 @@ import org.springframework.data.repository.query.Param;
 public interface ProfileRepository extends JpaRepository<Profile, Long> {
     Profile findByEmail(@Param("email") String email);
     Profile findByPhoneNumber(@Param("phonenumber") String phonenumber);
+    boolean exists(@Param("email") String email, @Param("phonenumber") String phonenumber);
 }

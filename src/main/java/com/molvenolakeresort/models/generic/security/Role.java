@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity(name = "Role")
-@Table(name = "role")
+@Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
 @NamedQuery(name = "Role.findByName",
         query = "SELECT r FROM Role r WHERE r.name =:name ")
+@NamedQuery(name = "Role.exists",
+        query = "SELECT CASE WHEN COUNT(r) > 0 THEN TRUE ELSE FALSE END FROM Role r WHERE r.name =:name")
 public class Role {
 
     @Id

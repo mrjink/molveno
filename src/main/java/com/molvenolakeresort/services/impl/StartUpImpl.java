@@ -1,6 +1,7 @@
 package com.molvenolakeresort.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.molvenolakeresort.models.generic.Address;
 import com.molvenolakeresort.models.generic.Country;
 import com.molvenolakeresort.models.generic.security.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.time.LocalDate;
 
 @Component
@@ -25,34 +27,31 @@ public class StartUpImpl {
 
     public StartUpImpl() {}
 
-    private Country[] initCountries() throws IOException, NullPointerException
-    {
-        Country[] retCountries = new Country[0];
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("json/country.json").getFile());
-        if (file.canRead()) {
-            StringBuilder json = new StringBuilder();
+    public class JSONReader<T>{
 
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String sSection;
-            while ((sSection = br.readLine()) != null)
-                json.append(sSection + "\n");
+        public T[] initObject(Class<T> type, String resourceNameOrPath) throws IOException, NullPointerException
+        {
+            Class<T> classOfT;
+            T[] returnArray = (T[]) Array.newInstance(type, 0);
 
-            ObjectMapper mapper = new ObjectMapper();
-            retCountries = mapper.readValue(file, Country[].class);
-            if (retCountries == null) {
-                retCountries = new Country[0];
+            ClassLoader classLoader = getClass().getClassLoader();
+            File file = new File(classLoader.getResource(resourceNameOrPath).getFile());
+            if (file.canRead()) {
+                ObjectMapper mapper = new ObjectMapper();
+                returnArray = (T[]) mapper.readValue(file, returnArray.getClass());
+                if (returnArray == null) {
+                    returnArray = (T[]) Array.newInstance(type, 0);
+                }
             }
+            return returnArray;
         }
-
-        return retCountries;
     }
 
     @PostConstruct
     public void init(){
-        ServerLogger.log("Start of start-up.");
+        ServerLogger.log("==> Dataset - Initializing records...");
         try {
-            Country[] countries = initCountries();
+            Country[] countries = new JSONReader<Country>().initObject(Country.class, "json/country.json");
             genericService.createCountries(countries);
         } catch (IOException e) {
             e.printStackTrace();
@@ -79,9 +78,14 @@ public class StartUpImpl {
         userExample.setPassword(PasswordEncryption.getHashedPassword("pwd"));
         userExample.setPasswordResetURI(PasswordEncryption.getPasswordRecoveryUri(userExample));
 
+        Country country = genericService.findCountryByCode("NL");
+
+        Address address = new Address("ardennen", null,"22", "helmond", "5706 RE", country);
+
         GuestInformation guestInformation = new GuestInformation();
         guestInformation.setDateOfBirth(LocalDate.of(1990, 01,01));
         guestInformation.setSubscribedToNewsletter(true);
+        guestInformation.setAddress(address);
 
         profileExample.setUser(userExample);
         profileExample.setGuestInformation(guestInformation);
@@ -98,5 +102,6 @@ public class StartUpImpl {
 
         //generate a guest from the event visitor
         userService.createGuest(profileExample);
+        ServerLogger.log("==> Dataset - Initialized.");
     }
 }

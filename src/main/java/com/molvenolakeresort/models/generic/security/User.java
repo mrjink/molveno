@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 @Entity(name = "User")
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = { "username", "passwordreseturi" }))
+@NamedQuery(name = "User.exists",
+        query = "SELECT CASE WHEN COUNT(u) > 0 THEN TRUE ELSE FALSE END FROM User u WHERE u.username =:username")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
