@@ -19,15 +19,7 @@ public class SupplyOrder_Ingredient_Id implements Serializable {
         return idSupplyOrder;
     }
 
-    public void setIdSupplyOrder(Long idSupplyOrder) {
-        this.idSupplyOrder = idSupplyOrder;
-    }
-
     public Long getIdIngredient() {
         return idIngredient;
-    }
-
-    public void setIdIngredient(Long idIngredient) {
-        this.idIngredient = idIngredient;
     }
 }

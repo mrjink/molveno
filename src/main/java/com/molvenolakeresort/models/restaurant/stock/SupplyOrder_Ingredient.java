@@ -5,12 +5,11 @@ import javax.persistence.*;
 @Entity
 public class SupplyOrder_Ingredient {
     @EmbeddedId
-    private SupplyOrder_Ingredient_Id id;
+    private SupplyOrder_Ingredient_Id idSupplyOrder_ingredient;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("idSupplyOrder")
     private SupplyOrder supplyOrder;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("idIngredient")
     private Ingredient ingredient;
@@ -33,10 +32,6 @@ public class SupplyOrder_Ingredient {
     }
 
     public SupplyOrder_Ingredient_Id getId() {
-        return id;
-    }
-
-    public void setId(SupplyOrder_Ingredient_Id id) {
-        this.id = id;
+        return idSupplyOrder_ingredient;
     }
 }

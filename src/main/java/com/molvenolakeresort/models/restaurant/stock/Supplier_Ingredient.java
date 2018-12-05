@@ -1,15 +1,18 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Supplier_Ingredient {
 
-    //Double primary key for many to many relation
-    @Id
+    @EmbeddedId
+    private SupplyOrder_Ingredient_Id idSupplyOrder_ingredient;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idSupplier")
     private Supplier supplier;
-    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idIngredient")
     private Ingredient ingredient;
 
     private double price;
@@ -28,5 +31,9 @@ public class Supplier_Ingredient {
 
     public double getPrice() {
         return price;
+    }
+
+    public SupplyOrder_Ingredient_Id getIdSupplyOrder_ingredient() {
+        return idSupplyOrder_ingredient;
     }
 }
