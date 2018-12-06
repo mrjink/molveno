@@ -10,16 +10,16 @@ import java.util.List;
 public class Event {
     @Id
     @GeneratedValue
-    long id;
-    LocalDateTime startDate;
-    LocalDateTime endDate;
-    String address;
+    private long id;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
+    private String address;
     @OneToMany
-    List<User> users;
-    int maxUsers;
-    long price;
-    boolean catering;
-    String location;
+    private List<User> users;
+    private int maxUsers;
+    private long price;
+    private boolean catering;
+    private String location;
 
     //Hashmap for the language and the eventname
     HashMap<String, String> eventnameCollection = new HashMap<String, String>();
@@ -29,6 +29,10 @@ public class Event {
 
     //Hashmap for the language and the eventInformation
     HashMap<String, String> eventinformationCollection = new HashMap<String, String>();
+
+    public Event() {
+
+    }
 
     public long getId() {
         return id;
