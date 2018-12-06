@@ -1,16 +1,19 @@
 package com.molvenolakeresort.models.restaurant.menu;
 
+import javax.persistence.Column;
 import java.io.Serializable;
 
-public class MenuItem_Order_Id implements Serializable {
-
+public class MenuItemOrderId implements Serializable {
+    @Column(name = "menu_item_id")
     private Long idMenuItem;
+
+    @Column(name = "order_id")
     private Long idOrder;
 
-    private MenuItem_Order_Id() {
+    private MenuItemOrderId() {
     }
 
-    public MenuItem_Order_Id(Long idMenuItem, Long idOrder) {
+    public MenuItemOrderId(Long idMenuItem, Long idOrder) {
         this.idMenuItem = idMenuItem;
         this.idOrder = idOrder;
     }

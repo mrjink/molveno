@@ -23,8 +23,8 @@ public class RestaurantReservationController {
     }
 
     @PostMapping("/add")
-    public RestaurantReservation addReservation(@RequestBody RestaurantReservation RestaurantReservation) {
-        return repository.save(RestaurantReservation);
+    public RestaurantReservation addReservation(@RequestBody RestaurantReservation restaurantReservation) {
+        return repository.save(restaurantReservation);
     }
 //
     @GetMapping("/get/{id}")
