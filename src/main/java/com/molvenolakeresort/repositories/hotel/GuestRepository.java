@@ -8,6 +8,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 @RepositoryRestResource(path = "guest")
-public interface GuestRepository extends JpaRepository<Guest, Integer> {
+public interface GuestRepository extends JpaRepository<Guest, Long> {
 
 }
