@@ -1,7 +1,7 @@
 package com.molvenolakeresort.models.restaurant.temp;
 
 
-import com.molvenolakeresort.repositories.restaurant.ReservationRepository;
+import com.molvenolakeresort.repositories.restaurant.RestaurantReservationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 class SampleDatabase {
 
     @Bean
-    CommandLineRunner initDatabase(ReservationRepository repository)
+    CommandLineRunner initDatabase(RestaurantReservationRepository repository)
     {
         return args -> {
             //dummy data.
@@ -19,8 +19,8 @@ class SampleDatabase {
 
 //            Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 //            Time time = new Time(20000000);
-//            repository.save(new Reservation(user1, date, time, Course.NONE));
-//            repository.save(new Reservation(user2, date, time, Course.FIVE));
+//            repository.save(new RestaurantReservation(user1, date, time, Course.NONE));
+//            repository.save(new RestaurantReservation(user2, date, time, Course.FIVE));
         };
     }
 
