@@ -10,6 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 @Entity(name = "Stock")
+@Table(name = "stock")
 public class Stock {
     @Id @GeneratedValue
     private Long idStock;

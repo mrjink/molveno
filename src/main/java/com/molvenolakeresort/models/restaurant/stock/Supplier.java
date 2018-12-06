@@ -6,7 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name = "Suppliers")
+@Entity(name = "Supplier")
+@Table(name = "supplier")
 public class Supplier {
     @Id
     @GeneratedValue

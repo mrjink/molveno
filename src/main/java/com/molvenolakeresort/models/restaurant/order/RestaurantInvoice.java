@@ -3,6 +3,7 @@ package com.molvenolakeresort.models.restaurant.order;
 import javax.persistence.*;
 
 @Entity(name = "RestaurantInvoice")
+@Table(name = "restaurant_invoice")
 public class RestaurantInvoice {
     @Id @GeneratedValue
     private Long idRestaurantInvoice;

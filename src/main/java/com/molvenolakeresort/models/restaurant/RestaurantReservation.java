@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity(name = "RestaurantReservation")
+@Table(name = "restaurant_reservation")
 public class RestaurantReservation {
 
     private @Id

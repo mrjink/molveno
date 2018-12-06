@@ -1,7 +1,7 @@
 package com.molvenolakeresort.repositories.restaurant.stock;
 
-import com.molvenolakeresort.models.restaurant.stock.Ingredient_MenuItem;
+import com.molvenolakeresort.models.restaurant.stock.IngredientMenuItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface Ingredient_MenuItemRepository extends JpaRepository<Ingredient_MenuItem, Long> {
+public interface Ingredient_MenuItemRepository extends JpaRepository<IngredientMenuItem, Long> {
 }

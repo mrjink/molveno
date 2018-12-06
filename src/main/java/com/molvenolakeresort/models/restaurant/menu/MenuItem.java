@@ -2,15 +2,13 @@ package com.molvenolakeresort.models.restaurant.menu;
 
 import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
 import com.molvenolakeresort.models.restaurant.enums.MenuItemType;
-import com.molvenolakeresort.models.restaurant.stock.Ingredient_MenuItem;
+import com.molvenolakeresort.models.restaurant.stock.IngredientMenuItem;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "MenuItems")
+@Table(name = "menu_item")
 public class MenuItem {
     @Id
     @GeneratedValue
@@ -21,12 +19,12 @@ public class MenuItem {
     private String description;
     private double price;
     private String name;
-//    @ManyToMany(mappedBy = "menuItems")
-//    private List<Menu> menus = new ArrayList<>();
-//    private Set<Menu> menus;
-//    private List<Ingredient> ingredients;
-    @OneToMany
-    private List<Ingredient_MenuItem> ingredientMenuItems;
+    @OneToMany(
+        mappedBy = "menuItem",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<IngredientMenuItem> ingredientMenuItems;
     private boolean availableSeparately;
 
     public MenuItem() {
@@ -83,14 +81,6 @@ public class MenuItem {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public List<Menu> getMenus() {
-//        return menus;
-//    }
-//
-//    public void setMenus(List<Menu> menus) {
-//        this.menus = menus;
-//    }
 
     public boolean isAvailableSeparately() {
         return availableSeparately;

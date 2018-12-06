@@ -1,15 +1,19 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
+import javax.persistence.Column;
 import java.io.Serializable;
 
-public class SupplyOrder_Ingredient_Id implements Serializable {
+public class SupplyOrderIngredientId implements Serializable {
+    @Column(name = "supply_order_id")
     private Long idSupplyOrder;
+
+    @Column(name = "ingredient_id")
     private Long idIngredient;
 
-    private SupplyOrder_Ingredient_Id() {
+    private SupplyOrderIngredientId() {
     }
 
-    public SupplyOrder_Ingredient_Id(Long idSupplyOrder, Long idIngredient) {
+    public SupplyOrderIngredientId(Long idSupplyOrder, Long idIngredient) {
         this.idSupplyOrder = idSupplyOrder;
         this.idIngredient = idIngredient;
     }
