@@ -131,6 +131,7 @@
   font-size: 12pt;
   }
 
+
 .roomserviceButton,
 .roomserviceButtonNoHover {
   background-color: white; /* Blue */
@@ -143,6 +144,13 @@
   margin-bottom: 0px;
   margin-left: 15px;
 }
+
+  #dashboardTilesRow{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
 
 .roomserviceButton > p {
     margin-bottom: 0;
