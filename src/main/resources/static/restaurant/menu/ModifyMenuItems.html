@@ -71,25 +71,38 @@
         </script>
         <!--Include customer header-->
 
-        <img class="rounded float-left" src="/img/slideshow/restaurant/kipMetRijst.jpg" alt="Noodles" style="width:14rem;">
-            <div class="row col-12 col-md-3">
+        <img id="bottom" class="left rounded float-left" src="/img/slideshow/restaurant/kipMetRijst.jpg" alt="Noodles" style="width:14rem;">
+
+        <div class="left row col-12 col-md-3 rounded float-left">
                 <div class="col">
                     <input type="text" class="form-control" placeholder="Name input description" style="font-size:12px; font-style:italic;">
                 </div>
             </div>
 
         <div class="form-group col-12 col-md-9 rounded float-left">
-            <label for="exampleFormControlTextarea1" style="font-size:12px;">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="exampleFormControlTextarea1"></label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Description..." rows="3" style="font-size:12px; font-style:italic;"></textarea>
         </div>
 
-        <div class="form-group col-12 col-md-2 rounded float-left">
-            <label for="inputState" style="font-size:12px;">Type Dish</label>
+        <div class="form-group col-12 col-md-2">
+            <label for="inputState">Type Dish</label>
             <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
+                <option selected>Choose Dish</option>
                 <option>...</option>
             </select>
         </div>
 
+        <div class="form-group col-12 col-md-5">
+            <label for="exampleFormControlTextarea1">Ingredients</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" style="font-size:12px; font-style:italic;"></textarea>
+            <button id="add" class="btn btn-primary" type="submit">ADD</button>
+        </div>
+
+
+        <div class="form-group col-12 col-md-5">
+            <label for="exampleFormControlTextarea1">Notes</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Type your notes here..." rows="3" style="font-size:12px; font-style:italic;"></textarea>
+        </div>
+        <button id="add" class="btn btn-primary" type="submit">ADD</button>
     </body>
 </html>
