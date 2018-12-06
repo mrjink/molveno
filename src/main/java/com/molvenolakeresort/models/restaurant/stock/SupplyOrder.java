@@ -6,7 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-@Entity(name = "SupplyOrders")
+@Entity(name = "SupplyOrder")
+@Table(name = "supply_order")
 public class SupplyOrder {
     @Id @GeneratedValue
     private Long idSupplyOrder;
@@ -14,8 +15,12 @@ public class SupplyOrder {
     private Date orderDate;
     private SupplierOrderStatus supplierOrderStatus;
 
-    @OneToMany
-    private List<SupplyOrder_Ingredient> supplyOrder_ingredients;
+    @OneToMany(
+        mappedBy = "supplyOrder",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<SupplyOrderIngredient> supplyOrderIngredients;
 
     public SupplyOrder() {
 
@@ -37,7 +42,7 @@ public class SupplyOrder {
         return supplierOrderStatus;
     }
 
-    public List<SupplyOrder_Ingredient> getSupplyOrder_ingredients() {
-        return supplyOrder_ingredients;
+    public List<SupplyOrderIngredient> getSupplyOrderIngredients() {
+        return supplyOrderIngredients;
     }
 }

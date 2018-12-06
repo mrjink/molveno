@@ -26,8 +26,8 @@ public class SupplierController {
     }
 
     @PostMapping("/add")
-    public Supplier addSupplier(@RequestBody Supplier Supplier) {
-        return repository.save(Supplier);
+    public Supplier addSupplier(@RequestBody Supplier supplier) {
+        return repository.save(supplier);
     }
     //
     @GetMapping("/get/{id}")
