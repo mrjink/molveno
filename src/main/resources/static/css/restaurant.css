@@ -1,0 +1,31 @@
+/*
+body {
+    margin-top: 100px;
+}
+
+*/
+
+element.style {
+    padding-top: 165px;
+}
+
+nav.navbar a.navbar-brand.order {
+    margin-right: auto !important;
+    margin-left: 10px !important;
+}
+
+.card{
+margin-left : 20px;
+margin-top: 20px;
+}
+
+.navbar-order {
+    background-color: #005693;
+}
+
+.content {
+  min-height: calc(100vh - 70px);
+}
+.footer {
+  height: 50px;
+}

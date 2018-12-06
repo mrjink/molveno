@@ -12,7 +12,7 @@ public class Guest {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String firstName;
     private String lastName;
     @ManyToOne
@@ -29,6 +29,10 @@ public class Guest {
     private Set<ReservationGuest> reservationGuests = new HashSet<>();
 
     public Guest() {
+    }
+
+    public long getId() {
+        return id;
     }
 
     public String getFirstName() {

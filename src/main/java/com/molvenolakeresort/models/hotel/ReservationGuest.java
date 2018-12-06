@@ -7,7 +7,7 @@ public class ReservationGuest {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     @ManyToOne
     @JoinColumn
@@ -45,7 +45,7 @@ public class ReservationGuest {
         isMainBooker = mainBooker;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 }

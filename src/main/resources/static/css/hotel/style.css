@@ -124,6 +124,11 @@
   font-size: 12pt;
   }
 
+  #dashboardTilesRow{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
 .btnconfirm1 {
     background-color: #005693;
     color: #FFF;
