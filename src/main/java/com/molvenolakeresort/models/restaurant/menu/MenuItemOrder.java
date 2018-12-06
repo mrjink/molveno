@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class MenuItemOrder {
 
     @EmbeddedId
-    private MenuItemOrderId idMenuItem_Order;
+    private MenuItemOrderId idMenuItemOrder;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("idMenuItem")
@@ -32,7 +32,7 @@ public class MenuItemOrder {
         return order;
     }
 
-    public MenuItemOrderId getIdMenuItem_Order() {
-        return idMenuItem_Order;
+    public MenuItemOrderId getIdMenuItemOrder() {
+        return idMenuItemOrder;
     }
 }

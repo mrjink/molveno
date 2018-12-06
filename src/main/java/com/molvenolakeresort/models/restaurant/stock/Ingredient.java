@@ -19,21 +19,21 @@ public class Ingredient {
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<SupplyOrderIngredient> supplyOrder_ingredients;
+    private List<SupplyOrderIngredient> supplyOrderIngredients;
 
     @OneToMany(
         mappedBy = "ingredient",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<SupplierIngredient> supplier_ingredients;
+    private List<SupplierIngredient> supplierIngredients;
 
     @OneToMany(
         mappedBy = "ingredient",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<IngredientMenuItem> ingredient_menuItems;
+    private List<IngredientMenuItem> ingredientMenuItems;
 
     public Ingredient() {
     }
@@ -71,27 +71,27 @@ public class Ingredient {
         return idIngredient;
     }
 
-    public List<SupplyOrderIngredient> getSupplyOrder_ingredients() {
-        return supplyOrder_ingredients;
+    public List<SupplyOrderIngredient> getSupplyOrderIngredients() {
+        return supplyOrderIngredients;
     }
 
-    public void setSupplyOrder_ingredients(List<SupplyOrderIngredient> supplyOrder_ingredients) {
-        this.supplyOrder_ingredients = supplyOrder_ingredients;
+    public void setSupplyOrderIngredients(List<SupplyOrderIngredient> supplyOrderIngredients) {
+        this.supplyOrderIngredients = supplyOrderIngredients;
     }
 
-    public List<SupplierIngredient> getSupplier_ingredients() {
-        return supplier_ingredients;
+    public List<SupplierIngredient> getSupplierIngredients() {
+        return supplierIngredients;
     }
 
-    public void setSupplier_ingredients(List<SupplierIngredient> supplier_ingredients) {
-        this.supplier_ingredients = supplier_ingredients;
+    public void setSupplierIngredients(List<SupplierIngredient> supplierIngredients) {
+        this.supplierIngredients = supplierIngredients;
     }
 
-    public List<IngredientMenuItem> getIngredient_menuItems() {
-        return ingredient_menuItems;
+    public List<IngredientMenuItem> getIngredientMenuItems() {
+        return ingredientMenuItems;
     }
 
-    public void setIngredient_menuItems(List<IngredientMenuItem> ingredient_menuItems) {
-        this.ingredient_menuItems = ingredient_menuItems;
+    public void setIngredientMenuItems(List<IngredientMenuItem> ingredientMenuItems) {
+        this.ingredientMenuItems = ingredientMenuItems;
     }
 }

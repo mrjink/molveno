@@ -26,8 +26,8 @@ public class MenuController {
     }
 
     @PostMapping("/add")
-    public Menu addMenu(@RequestBody Menu Menu) {
-        return repository.save(Menu);
+    public Menu addMenu(@RequestBody Menu menu) {
+        return repository.save(menu);
     }
     //
     @GetMapping("/get/{id}")
