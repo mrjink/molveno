@@ -2,9 +2,383 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Order Menu</title>
+    <link rel="icon" href="/img/logo_128.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/event/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/restaurant.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/event/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="../css/restaurant.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <!--&lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <script>function includeHTML() {
+    var z, i, elmnt, file, xhttp;
+    //Iterate through the collection of all HTML elements:
+    z = document.getElementsByTagName("*");
+    for (i = 0; i < z.length; i++) {
+      elmnt = z[i];
+
+      //Search for elements with a certain atrribute:
+      file = elmnt.getAttribute("w3-include-html");
+      if (file) {
+
+        //Make an HTTP request using the attribute value as the file name:
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4) {
+            if (this.status == 200) {
+                elmnt.innerHTML = this.responseText;
+
+                //TODO: Make API call to get the authorized user that is logged in
+                document.getElementById("user").innerHTML = "<b>Guest</b>";
+                document.getElementById("header_title").innerHTML = "Order from menu";
+
+                 if(myFunctionTag == 1)
+                 {
+                  document.getElementById("header_title").innerHTML = "Inventory Orders1";
+                 }
+
+                }
+            if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+            //Remove the attribute, and call this function once more:
+            elmnt.removeAttribute("w3-include-html");
+            includeHTML();
+          }
+        }
+        xhttp.open("GET", file, true);
+        xhttp.send();
+        return;
+      }
+    }
+    };
+
+
+
+
+
+    </script>
+
 </head>
 <body>
-$END$
+<div class="content">
+    <header>
+        <div w3-include-html="/../header_admin/header.html"></div>
+
+        <script>
+        includeHTML();
+
+        </script>
+
+    </header>
+
+    <!--Custom start-->
+    <main>
+
+        <div class="container">
+            <h3>Table number .....</h3>
+            <h3>Guest name: ....</h3>
+            <br>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#home">Food</a></li>
+                <li><a data-toggle="tab" href="#menu1">Drinks</a></li>
+                <li><a data-toggle="tab" href="#menu2">Order</a></li>
+                <li><a data-toggle="tab" href="#menu3">Order History</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div id="home" class="tab-pane fade in active">
+
+                    <!--food items-->
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                            aria-expanded="true" aria-controls="collapseOne">
+                                        Multi course menu's
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                 data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <table id="course-menu's" class="table table-sm justify-content-center">
+                                        <thead>
+                                        <tr>
+                                            <td>3 course Diner</td>
+                                            <td>
+                                                <input type="number" min="0" max="12" class="form-control"
+                                                       name="amount">
+                                            </td>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                            data-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                        Breakfast
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                                 data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <table id="Breakfast-menu" class="table table-sm justify-content-center">
+                                        <thead>
+                                        <tr>
+                                            <th>Breakfast</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Menu</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                            data-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree">
+                                        Lunch
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                 data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <table id="Lunch-menu" class="table table-sm justify-content-center">
+                                        <thead>
+                                        <tr>
+                                            <th>Lunch</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Menu</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFour">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                            data-target="#collapseFour" aria-expanded="false"
+                                            aria-controls="collapseFour">
+                                        A la Carte
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                                 data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <table id="Diner-menu" class="table table-sm justify-content-center">
+                                        <thead>
+                                        <tr>
+                                            <th>A la Carte</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Menu</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingFive">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                            data-target="#collapseFive" aria-expanded="false"
+                                            aria-controls="collapseFive">
+                                        Dessert
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
+                                 data-parent="#accordion">
+                                <div class="card-body">
+
+                                    <table id="Dessert-menu" class="table table-sm justify-content-center">
+                                        <thead>
+                                        <tr>
+                                            <th>Dessert</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Menu</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <br>
+                    <div>
+                        <button type="submit" class="btn btn-outline-primary">Add Items to order</button>
+                    </div>
+                </div>
+                <div id="menu1" class="tab-pane fade">
+                    <table id="Drinks-menu" class="table table-sm justify-content-center">
+                        <thead>
+                        <tr>
+                            <th>Drinks</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Beer</td>
+                            <td>$2.50</td>
+                            <td>
+                                <input type="number" min="0" max="12" class="form-control"
+                                       name="amount">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>Wine</td>
+                            <td>$3.50</td>
+                            <td>
+                                <input type="number" min="0" max="12" class="form-control"
+                                       name="amount">
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-outline-primary">Add Items to order</button>
+                </div>
+
+                <div id="menu2" class="tab-pane fade">
+
+                    <table id="Order" class="table table-sm justify-content-center">
+                        <thead>
+                        <tr>
+                            <th>Order</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>3x</td>
+                            <td>Item 1</td>
+                            <td>$5.80</td>
+                        </tr>
+                        <tr>
+                            <td>6x</td>
+                            <td>Item 2</td>
+                            <td>$2.80</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                    <button onclick="PlaceOrder()" class="btn btn-outline-primary" href="#PlaceOrder" type="button">
+                        Order
+                        Items
+                    </button>
+
+
+                </div>
+                <div id="menu3" class="tab-pane fade">
+                    <table id="OrderHistoryT" class="table table-sm justify-content-center">
+                        <thead>
+                        <tr>
+                            <th>Order History</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Menu</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p>Total amount is: $xx.xx</p>
+                    <button onclick="AddToBill()" class="btn btn-outline-primary" href="#AddToBill" type="button">
+                        Add to
+                        hotel bill
+                    </button>
+                    <button onclick="Pay()" class="btn btn-outline-primary" href="#Pay" type="button">Pay</button>
+                </div>
+            </div>
+
+            <!--end container page-->
+        </div>
+
+
+    </main>
+    <!--Custom end-->
+</div>
+<br>
+<!--FOOTER-->
+<div class="row">
+    <footer id="footer" class="footer">
+        &copy; 2018 Molveno Lake Resort, all rights reserved
+    </footer>
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src=../../../../js/menu.js></script>
+<script src="../../../../js/restaurant/TabletMenu.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
+
 </html>
+

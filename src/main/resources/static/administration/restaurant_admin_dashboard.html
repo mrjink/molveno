@@ -2,7 +2,7 @@
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Molveno Lake Resort</title>
+<title>Restaurant Admin</title>
 <link rel="icon" href="/img/logo_128.png" type="image/png">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -19,36 +19,61 @@
 
 <!-- Custom styles for this template -->
 <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
+<script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          //Iterate through the collection of all HTML elements:
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
 
+            //Search for elements with a certain atrribute:
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+
+              //Make an HTTP request using the attribute value as the file name:
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {
+                      elmnt.innerHTML = this.responseText;
+
+                      //TODO: Make API call to get the authorized user that is logged in
+                      document.getElementById("user").innerHTML = "<b>Kitchen Chef</b>";
+                      document.getElementById("header_title").innerHTML = "Restaurant Admin Dashboard";
+
+                       if(myFunctionTag == 1)
+                       {
+                        document.getElementById("header_title").innerHTML = "Inventory Orders1";
+                       }
+
+                      }
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  //Remove the attribute, and call this function once more:
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              }
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              return;
+            }
+          }
+          };
+        </script>
 </head>
 <body>
-    <header>
-        <!-- Fixed navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a class="navbar-brand" href="#">Molveno Lake Resort</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
+    <!--Include customer header-->
+    <div w3-include-html="/header_admin/header.html"></div>
 
-                <ul class="languagepicker">
-                    <a href="#en"><li><img src="/img/EN.png"/>English</li></a>
-                    <a href="#cn"><li><img src="/img/CN.png"/>Chinese</li></a>
-                </ul>
-
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button">Register</button>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
-            </div>
-        </nav>
-    </header>
+    <script>
+            includeHTML();
+        </script>
+    <!--Include customer header-->
 
     <div id="left" class="card d-flex align-items-center rounded float-left" style="width: 14rem; padding-top:50px;">
-        <a href=""><img class="card-img-top" src="/img/restaurantDashboard/orderIngredient.png" alt="Order Ingredient" style="width: 100px;"></a>
+        <a href="/restaurant/order_ingredient/order_ingredient.html"><img class="card-img-top" src="/img/restaurantDashboard/orderIngredient.png" alt="Order Ingredient" style="width: 100px;"></a>
         <div class="card-body">
             <h5 class="card-text">Order Ingredient</h5>
         </div>
@@ -56,7 +81,7 @@
 
 
     <div class="card d-flex align-items-center rounded float-left" style="width: 14rem; padding-top:50px;">
-        <img class="card-img-top" src="/img/restaurantDashboard/restaurantMenu.png" alt="View Menu Items" style="width: 100px;" >
+        <a href=""><img class="card-img-top" src="/img/restaurantDashboard/restaurantMenu.png" alt="View Menu Items" style="width: 100px;" ></a>
         <div class="card-body">
             <h5 class="card-text">View Menu Items</h5>
         </div>
@@ -64,32 +89,32 @@
 
 
     <div class="card d-flex align-items-center rounded float-left" style="width: 14rem; padding-top:50px;">
-        <img class="card-img-top" src="/img/restaurantDashboard/orderList.png" alt="Order List" style="width: 100px;">
+        <a href="/restaurant/ingredient_order_list/orderListMain.html"><img class="card-img-top" src="/img/restaurantDashboard/orderList.png" alt="Order List" style="width: 100px;"></a>
         <div class="card-body">
             <h5 class="card-text">Order List</h5>
         </div>
     </div>
 
     <div class="card d-flex align-items-center rounded float-left" style="width: 14rem; padding-top:50px;">
-        <img class="card-img-top" src="/img/restaurantDashboard/orderHistory.png" alt="Order History" style="width: 100px;">
+        <a href="/restaurant/ingredient_order_list/orderHistoryMain.html"><img class="card-img-top" src="/img/restaurantDashboard/orderHistory.png" alt="Order History" style="width: 100px;"></a>
         <div class="card-body">
-            <h4 class="card-text">Order History</h4>
+            <h5 class="card-text">Order History</h5>
         </div>
     </div>
 
 
     <div class="card d-flex align-items-center rounded float-left" style="width: 14rem; padding-top:50px;">
-        <img class="card-img-top" src="/img/restaurantDashboard/tableBills.png" alt="Table Bills" style="width: 100px;">
+        <a href=""><img class="card-img-top" src="/img/restaurantDashboard/tableBills.png" alt="Table Bills" style="width: 100px;"></a>
         <div class="card-body">
-            <h4 class="card-text">Table Bills</h4>
+            <h5 class="card-text">Table Bills</h5>
         </div>
     </div>
 
 
     <div class="card d-flex align-items-center rounded float-left" style="width: 14rem; padding-top:50px;">
-        <img class="card-img-top" src="/img/restaurantDashboard/suppliers.png" alt="Suppliers" style="width: 100px;">
+        <a href=""><img class="card-img-top" src="/img/restaurantDashboard/suppliers.png" alt="Suppliers" style="width: 100px;"></a>
         <div class="card-body">
-            <h4 class="card-text">Suppliers</h4>
+            <h5 class="card-text">Suppliers</h5>
         </div>
     </div>
 

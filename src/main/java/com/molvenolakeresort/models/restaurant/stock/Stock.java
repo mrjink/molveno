@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-@Entity
+@Entity(name = "Stock")
+@Table(name = "stock")
 public class Stock {
     @Id @GeneratedValue
     private Long idStock;
@@ -21,6 +22,10 @@ public class Stock {
 
     public Stock(){
 
+    }
+
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
     }
 
     public Ingredient getIngredient() {

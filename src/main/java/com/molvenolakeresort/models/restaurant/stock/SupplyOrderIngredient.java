@@ -2,21 +2,23 @@ package com.molvenolakeresort.models.restaurant.stock;
 
 import javax.persistence.*;
 
-@Entity
-public class SupplyOrder_Ingredient {
+@Entity(name = "SupplyOrderIngredient")
+@Table(name = "supply_order_ingredient")
+public class SupplyOrderIngredient {
     @EmbeddedId
-    private SupplyOrder_Ingredient_Id idSupplyOrder_ingredient;
+    private SupplyOrderIngredientId idSupplyOrder_ingredient;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("idSupplyOrder")
     private SupplyOrder supplyOrder;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("idIngredient")
     private Ingredient ingredient;
 
     private double quantity;
 
-    public SupplyOrder_Ingredient() {
+    public SupplyOrderIngredient() {
     }
 
     public SupplyOrder getSupplyOrder() {
@@ -31,7 +33,7 @@ public class SupplyOrder_Ingredient {
         return quantity;
     }
 
-    public SupplyOrder_Ingredient_Id getId() {
+    public SupplyOrderIngredientId getId() {
         return idSupplyOrder_ingredient;
     }
 }
