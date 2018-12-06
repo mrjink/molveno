@@ -12,7 +12,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -25,68 +26,74 @@
 <header>
 
 
-<!-- Fixed navbar -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-    <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a class="navbar-brand" href="/">Molveno Lake Resort</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+        <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png"/><a class="navbar-brand" href="/">Molveno Lake
+        Resort</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="/hotel.html">
-                    Hotel
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/hotel.html">
+                        Hotel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/restaurant/">
+                        Restaurant
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/events.html">
+                        Events
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="languagepicker">
+                <a href="#en">
+                    <li><img src="/img/EN.png"/>English</li>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Optie1</a>
-                    <a class="dropdown-item" href="#">Optie2</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Optie3</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="/restaurant/">
-                    Restaurant
+                <a href="#cn">
+                    <li><img src="/img/CN.png"/>Chinese</li>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Optie1</a>
-                    <a class="dropdown-item" href="#">Optie2</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Optie3</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="/events.html">
-                    Events
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Optie1</a>
-                    <a class="dropdown-item" href="#">Optie2</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Optie3</a>
-                </div>
-            </li>
+            </ul>
 
-            <li class="nav-item">
-                <a class="nav-link" href="/contact.html">Contact</a>
-            </li>
-        </ul>
-
-        <ul class="languagepicker">
-            <a href="#en"><li><img src="/img/EN.png"/>English</li></a>
-            <a href="#cn"><li><img src="/img/CN.png"/>Chinese</li></a>
-        </ul>
-
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button">Register</button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
-    </div>
-</nav>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Register</button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
+        </div>
+    </nav>
 </header>
 
 
@@ -131,53 +138,57 @@
 
 <main id="content">
     <div class="d-flex flex-row flex-wrap">
-        <div class="col">
-            <h2>Your reservation</h2>
-            <p>
-                <label for="amountOfPeople">People: </label>
-                <input type="number" min="1" max="12" class="form-control" id="amountOfPeople"
-                       name="amountOfPeople">
-                <!--TODO: Show only available dates-->
-                <label for="date">Date: </label>
-                <input type="date" class="form-control" id="date" name="date">
-                <!--TODO: Time slots (variates per day) -->
-                <label for="time">Time: </label>
-                <input type="time" class="form-control" id="time" name="time">
-            </p>
-        </div>
-        <div class="col">
-            <h2>Your information</h2>
-            <p>
+        <form id ="restaurantReservationForm">
+            <div class="col">
+                <h2>Your reservation</h2>
+                <p>
+                    <label for="amountOfPeople">People: </label>
+                    <input type="number" min="1" max="12" class="form-control" id="amountOfPeople"
+                           name="amountOfPeople" required>
+                    <!--TODO: Show only available dates-->
+                    <label for="date">Date: </label>
+                    <input type="date" class="form-control" id="date" name="date" required>
+                    <!--TODO: Time slots (variates per day) -->
+                    <label for="time">Time: </label>
+                    <input type="time" class="form-control" id="time" name="time" required>
+                </p>
+            </div>
+            <div class="col">
+                <h2>Your information</h2>
+                <p>
                     <span class="subtitle">Fill in your contact details below (no account necessary). Or <a
                             href="#login"><b>log in</b></a> / <a href="#register"><b>register</b></a></span>
 
-                <label for="name">Name: </label>
-                <input type="text" class="form-control" id="name" name="name">
-                <label for="phone">Phone: </label>
-                <input type="tel" class="form-control" id="phone" name="phone"
-                       pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
-                <label for="email">Email: </label>
-                <input type="email" class="form-control" id="email" name="email">
-                <label for="course">Select your menu </label>
-                <select class="form-control" id="course" name="course">
-                    <option value="0">A la carte</option>
-                    <option value="1">3-course menu</option>
-                    <option value="2">5-course menu</option>
-                    <option value="3">7-course menu</option>
-                </select>
-            </p>
-        </div>
-
-
-        <div class="col align-self-end">
-            <h2></h2>
-            <div class="d-flex align-items-end">
-                <a id="submitReservationBtn" type="button" name="reserve" value="Submit"
-                   class="btn btn-outline-primary">Make reservation</a>
-
+                    <label for="name">Name: </label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <label for="phone">Phone: </label>
+                    <input type="tel" class="form-control" id="phone" name="phone"
+                           pattern="[0-9]{3}[0-9]{3}[0-9]{4}" required>
+                    <label for="email">Email: </label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                    <label for="course">Select your menu </label>
+                    <select class="form-control" id="course" name="course" required>
+                        <option value="0">A la carte</option>
+                        <option value="1">3-course menu</option>
+                        <option value="2">5-course menu</option>
+                        <option value="3">7-course menu</option>
+                    </select>
+                </p>
             </div>
 
-        </div>
+            <!--<span class="validity"></span>-->
+            <div class="col align-self-end">
+                <h2></h2>
+                <div class="d-flex align-items-end">
+                    <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation"
+                           class="btn btn-outline-primary"><!--Make reservation</input>-->
+
+                </div>
+
+                <div id = "errorMessage"></div>
+            </div>
+        </form>
+
     </div>
 </main>
 
@@ -203,7 +214,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-<script src =../../../../js/restaurant.js></script>
+<script src=../../../../js/restaurant.js></script>
 
 </body>
 </html>
