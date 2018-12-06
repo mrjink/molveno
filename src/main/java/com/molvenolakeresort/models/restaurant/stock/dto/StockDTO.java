@@ -1,38 +1,30 @@
-package com.molvenolakeresort.models.restaurant.stock;
+package com.molvenolakeresort.models.restaurant.stock.dto;
 
 import com.molvenolakeresort.models.restaurant.enums.Unit;
+import com.molvenolakeresort.models.restaurant.stock.Ingredient;
 
-
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-
-@Entity(name = "Stock")
-public class Stock {
-    @Id @GeneratedValue
-    private Long idStock;
-    @ManyToOne
+public class StockDTO
+{
     private Ingredient ingredient;
     private Unit unit;
     private String notes;
     private int quantity;
 
-    public Stock(){
+    public StockDTO(){}
 
-    }
-
-    public void setIngredient(Ingredient ingredient) {
+    public StockDTO(Ingredient ingredient, Unit unit, String notes, int quantity) {
         this.ingredient = ingredient;
+        this.unit = unit;
+        this.notes = notes;
+        this.quantity = quantity;
     }
 
     public Ingredient getIngredient() {
         return ingredient;
     }
 
-    public Long getIdStock() {
-        return idStock;
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
     }
 
     public Unit getUnit() {
