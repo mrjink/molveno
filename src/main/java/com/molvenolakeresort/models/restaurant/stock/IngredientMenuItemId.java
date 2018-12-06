@@ -1,15 +1,19 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
+import javax.persistence.Column;
 import java.io.Serializable;
 
-public class Ingredient_MenuItem_Id implements Serializable {
+public class IngredientMenuItemId implements Serializable {
+    @Column(name = "ingredient_id")
     private Long idIngredient;
+
+    @Column(name = "menu_item_id")
     private Long idMenuItem;
 
-    private Ingredient_MenuItem_Id() {
+    private IngredientMenuItemId() {
     }
 
-    public Ingredient_MenuItem_Id(Long idIngredient, Long idMenuItem) {
+    public IngredientMenuItemId(Long idIngredient, Long idMenuItem) {
         this.idIngredient = idIngredient;
         this.idMenuItem = idMenuItem;
     }

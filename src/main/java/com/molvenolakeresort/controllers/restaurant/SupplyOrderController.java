@@ -26,8 +26,8 @@ public class SupplyOrderController {
     }
 
     @PostMapping("/add")
-    public SupplyOrder addSupplyOrder(@RequestBody SupplyOrder SupplyOrder) {
-        return repository.save(SupplyOrder);
+    public SupplyOrder addSupplyOrder(@RequestBody SupplyOrder supplyOrder) {
+        return repository.save(supplyOrder);
     }
     //
     @GetMapping("/get/{id}")
