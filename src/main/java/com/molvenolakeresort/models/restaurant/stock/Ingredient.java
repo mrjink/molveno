@@ -19,7 +19,7 @@ public class Ingredient {
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<SupplyOrderIngredient> supplyOrderIngredients;
+    private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
 
     @OneToMany(
         mappedBy = "ingredient",
@@ -71,12 +71,12 @@ public class Ingredient {
         return idIngredient;
     }
 
-    public List<SupplyOrderIngredient> getSupplyOrderIngredients() {
-        return supplyOrderIngredients;
+    public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
+        return supplyOrderSupplierIngredients;
     }
 
-    public void setSupplyOrderIngredients(List<SupplyOrderIngredient> supplyOrderIngredients) {
-        this.supplyOrderIngredients = supplyOrderIngredients;
+    public void setSupplyOrderIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
+        this.supplyOrderSupplierIngredients = supplyOrderSupplierIngredients;
     }
 
     public List<SupplierIngredient> getSupplierIngredients() {
