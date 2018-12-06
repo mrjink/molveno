@@ -20,7 +20,7 @@ public class SupplyOrder {
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<SupplyOrderIngredient> supplyOrderIngredients;
+    private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
 
     public SupplyOrder() {
 
@@ -42,7 +42,7 @@ public class SupplyOrder {
         return supplierOrderStatus;
     }
 
-    public List<SupplyOrderIngredient> getSupplyOrderIngredients() {
-        return supplyOrderIngredients;
+    public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
+        return supplyOrderSupplierIngredients;
     }
 }
