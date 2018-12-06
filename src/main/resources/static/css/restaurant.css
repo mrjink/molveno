@@ -8,7 +8,9 @@ body {
 element.style {
     padding-top: 165px;
 }
-
+.table-borderless th  {
+   font-weight:bold;
+}
 nav.navbar a.navbar-brand.order {
     margin-right: auto !important;
     margin-left: 10px !important;
