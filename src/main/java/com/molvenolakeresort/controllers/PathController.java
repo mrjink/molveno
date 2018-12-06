@@ -22,4 +22,8 @@ public class PathController {
     public  String getConfirmation(){
         return "/restaurant/reservation/confirm.html";
     }
+
+    @RequestMapping(path = {"/restaurant/menu", "/restaurant/menu/"})
+    public  String getMenu() { return "/restaurant/menu/menu.html";
+    }
 }
