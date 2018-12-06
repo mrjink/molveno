@@ -2,47 +2,36 @@ package com.molvenolakeresort.models.restaurant.menu;
 
 import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
 import com.molvenolakeresort.models.restaurant.enums.MenuItemType;
+import com.molvenolakeresort.models.restaurant.stock.IngredientMenuItem;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
-@Entity
+@Entity(name = "MenuItems")
+@Table(name = "menu_item")
 public class MenuItem {
     @Id
     @GeneratedValue
-    private long idMenuItem;
+    private Long idMenuItem;
     private MenuItemType type;
     private MenuCategory category;
     private String imagePath;
     private String description;
     private double price;
     private String name;
-//    @ManyToMany(mappedBy = "menuItems")
-//    private List<Menu> menus = new ArrayList<>();
-//    private Set<Menu> menus;
-//    private List<Ingredient> ingredients;
+    @OneToMany(
+        mappedBy = "menuItem",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<IngredientMenuItem> ingredientMenuItems;
     private boolean availableSeparately;
 
     public MenuItem() {
     }
 
-    public MenuItem(MenuItemType type, MenuCategory category, String imagePath, String description, double price, String name, boolean availableSeparately) {
-        this.type = type;
-        this.category = category;
-        this.imagePath = imagePath;
-        this.description = description;
-        this.price = price;
-        this.name = name;
-        this.availableSeparately = availableSeparately;
-    }
-
-    public long getId() {
+    public Long getId() {
         return idMenuItem;
-    }
-
-    public void setId(long id) {
-        this.idMenuItem = id;
     }
 
     public MenuItemType getType() {
@@ -92,14 +81,6 @@ public class MenuItem {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public List<Menu> getMenus() {
-//        return menus;
-//    }
-//
-//    public void setMenus(List<Menu> menus) {
-//        this.menus = menus;
-//    }
 
     public boolean isAvailableSeparately() {
         return availableSeparately;

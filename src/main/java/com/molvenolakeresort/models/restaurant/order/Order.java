@@ -3,12 +3,13 @@ package com.molvenolakeresort.models.restaurant.order;
 import com.molvenolakeresort.models.hotel.Room;
 import com.molvenolakeresort.models.restaurant.RestaurantTable;
 import com.molvenolakeresort.models.restaurant.enums.SupplierOrderStatus;
-import com.molvenolakeresort.models.restaurant.menu.MenuItem_Order;
+import com.molvenolakeresort.models.restaurant.menu.MenuItemOrder;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity (name = "RestaurantOrder")
+@Table(name = "restaurant_order")
 public class Order {
 
     @Id @GeneratedValue
@@ -23,8 +24,12 @@ public class Order {
 
     //EVENT????
 
-    @OneToMany
-    private List<MenuItem_Order> menuItem_orders;
+    @OneToMany(
+        mappedBy = "order",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<MenuItemOrder> menuItem_orders;
 
     public Long getIdOrder() {
         return idOrder;

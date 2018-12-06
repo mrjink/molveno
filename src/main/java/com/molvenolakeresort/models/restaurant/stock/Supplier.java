@@ -4,12 +4,14 @@ package com.molvenolakeresort.models.restaurant.stock;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name = "Supplier")
+@Table(name = "supplier")
 public class Supplier {
     @Id
     @GeneratedValue
-    private int id;
+    private Long id;
     private String name;
     private String email;
     private String telephone;
@@ -22,12 +24,8 @@ public class Supplier {
         this.notes = notes;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {

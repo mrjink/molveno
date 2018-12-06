@@ -7,7 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-@Entity
+@Entity(name = "Menu")
+@Table(name = "menu")
 public class Menu {
     @Id
     @GeneratedValue
@@ -18,7 +19,6 @@ public class Menu {
     @ManyToMany
     @JoinTable(name = "menu_menu_items", joinColumns = @JoinColumn(name = "idMenu"), inverseJoinColumns = @JoinColumn(name = "idMenuItem"))
     private List<MenuItem> menuItems = new ArrayList<>();
-//    private Set<MenuItem> menuItems;
 
     public Menu() {
     }
