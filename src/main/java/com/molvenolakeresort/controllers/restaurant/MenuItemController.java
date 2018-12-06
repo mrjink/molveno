@@ -26,8 +26,8 @@ public class MenuItemController {
     }
 
     @PostMapping("/add")
-    public MenuItem addMenuItem(@RequestBody MenuItem MenuItem) {
-        return repository.save(MenuItem);
+    public MenuItem addMenuItem(@RequestBody MenuItem menuItem) {
+        return repository.save(menuItem);
     }
     //
     @GetMapping("/get/{id}")

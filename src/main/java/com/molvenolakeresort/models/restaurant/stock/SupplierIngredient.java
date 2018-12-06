@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class SupplierIngredient {
 
     @EmbeddedId
-    private SupplyOrderIngredientId idSupplyOrder_ingredient;
+    private SupplyOrderSupplierIngredientId idSupplyOrderIngredient;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("idSupplier")
@@ -35,7 +35,7 @@ public class SupplierIngredient {
         return price;
     }
 
-    public SupplyOrderIngredientId getIdSupplyOrder_ingredient() {
-        return idSupplyOrder_ingredient;
+    public SupplyOrderSupplierIngredientId getIdSupplyOrderIngredient() {
+        return idSupplyOrderIngredient;
     }
 }

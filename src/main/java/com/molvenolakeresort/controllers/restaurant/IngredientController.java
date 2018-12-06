@@ -26,8 +26,8 @@ public class IngredientController {
     }
 
     @PostMapping("/add")
-    public Ingredient addIngredient(@RequestBody Ingredient Ingredient) {
-        return repository.save(Ingredient);
+    public Ingredient addIngredient(@RequestBody Ingredient ingredient) {
+        return repository.save(ingredient);
     }
     //
     @GetMapping("/get/{id}")
