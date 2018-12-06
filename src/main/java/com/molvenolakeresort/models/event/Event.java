@@ -121,4 +121,12 @@ public class Event {
     public void setCatering(boolean catering) {
         this.catering = catering;
     }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }
