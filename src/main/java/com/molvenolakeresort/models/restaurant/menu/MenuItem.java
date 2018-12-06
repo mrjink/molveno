@@ -13,12 +13,12 @@ public class MenuItem {
     @Id
     @GeneratedValue
     private Long idMenuItem;
-    private MenuItemType type;
-    private MenuCategory category;
-    private String imagePath;
-    private String description;
-    private double price;
     private String name;
+    private String description;
+    private String imagePath;
+    private double price;
+    private MenuCategory category;
+    private MenuItemType type;
     @OneToMany(
         mappedBy = "menuItem",
         cascade = CascadeType.ALL,
@@ -34,20 +34,9 @@ public class MenuItem {
         return idMenuItem;
     }
 
-    public MenuItemType getType() {
-        return type;
-    }
-
-    public void setType(MenuItemType type) {
-        this.type = type;
-    }
-
-    public MenuCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(MenuCategory category) {
-        this.category = category;
+    //This ID can be set to put an existing menu item into a menu.
+    public void setIdMenuItem(Long idMenuItem) {
+        this.idMenuItem = idMenuItem;
     }
 
     public String getImagePath() {
@@ -88,5 +77,29 @@ public class MenuItem {
 
     public void setAvailableSeparately(boolean availableSeparately) {
         this.availableSeparately = availableSeparately;
+    }
+
+    public List<IngredientMenuItem> getIngredientMenuItems() {
+        return ingredientMenuItems;
+    }
+
+    public void setIngredientMenuItems(List<IngredientMenuItem> ingredientMenuItems) {
+        this.ingredientMenuItems = ingredientMenuItems;
+    }
+
+    public MenuCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(MenuCategory category) {
+        this.category = category;
+    }
+
+    public MenuItemType getType() {
+        return type;
+    }
+
+    public void setType(MenuItemType type) {
+        this.type = type;
     }
 }

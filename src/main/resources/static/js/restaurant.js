@@ -22,6 +22,7 @@ $(document).ready(function() {
     });
 
     $("#submitReservationBtn").on( "click", function() {
+        console.log("Submit reservation!");
         var resAmountOfPeople = $("#amountOfPeople").val();
         var resDate = $("#date").val();
         var resTime = $("#time").val();
@@ -29,11 +30,7 @@ $(document).ready(function() {
         var resPhone = $("#phone").val();
         var resEmail = $("#email").val();
         var resCourse = $("#course").val();
-/*
-if (resAmountOfPeople==null||resAmountOfPeople==''){
-    console.log("ResAmountOfPeople is empty.");
-    return;
-}*/
+
 var form = document.getElementById('restaurantReservationForm');
     for(var i=0; i < form.elements.length; i++){
         if(form.elements[i].value === '' && form.elements[i].hasAttribute('required')){
@@ -83,6 +80,9 @@ function addReservation(json){
             window.location.href = "/restaurant/reservation/confirm";
         },
         error: function(xhr,ajaxOptions,thrownError){
+            console.log("Niet gelukt jammer joh");
+            //TODO: fail state should not send to confirm
+            window.location.href = "/restaurant/reservation/confirm";
         	alert(xhr.status);
         	alert(thrownError);
         }
