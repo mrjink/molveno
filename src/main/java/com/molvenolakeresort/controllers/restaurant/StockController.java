@@ -42,7 +42,7 @@ public class StockController {
 
         return repository.save(createStockObject(updatedStock));
     }
-    //
+
     @DeleteMapping("/delete/{id}")
     public void deleteStock(@PathVariable Long id) {
         repository.deleteById(id);
