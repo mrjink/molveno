@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- IMPORTS VOOR HEADER AND FOOTER-->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Molveno Lake Resort</title>
     <link rel="icon" href="/img/logo_128.png" type="image/png">
@@ -15,13 +19,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
+    <!--DEZE GEEFT OOK EEN ERROR
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
+    -->
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
+    <!-- IMPORTS VOOR HEADER AND FOOTER-->
+
 
 </head>
 <body>
+
+<!-- BEGIN HEADER -->
 <header>
 
 
@@ -34,7 +43,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
                 </li>
 
@@ -61,8 +70,7 @@
                         <a class="dropdown-item" href="#">Optie3</a>
                     </div>
                 </li>
-
-                <li class="nav-item dropdown active">
+                <li class="nav-item dropdown">
                     <a class="nav-link" href="/events.html">
                         Events
                     </a>
@@ -90,67 +98,102 @@
     </nav>
 </header>
 
-<!-- Begin page content -->
-<div class="row">
-    <div id="carousel" class="col-xs-12 carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel" data-slide-to="1"></li>
-            <li data-target="#carousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="/img/slideshow/room.jpg" alt="Hotel room">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="/img/slideshow/restaurant.jpg" alt="Restaurant">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="/img/slideshow/kite-surfing.jpg" alt="Kite Surfing">
+<!-- END HEADER -->
+
+
+<!-- BEGIN PAGE CONTENT-->
+
+<button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/admin/empaccountmanagement.html">Back</a></button>
+
+<!-- MAAK TWEE POPUPS VOOR DELETE EN BLOCK (in script)-->
+<script>
+function confirmDelete() {
+    var agreed = confirm("Are you sure you want to delete this role?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("ROLE IS VERWIJDERT");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+
+function confirmBlock() {
+    var agreed = confirm("Are you sure you want to block this role?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("ROLE IS GEBLOCKED");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+function confirmSave() {
+    var agreed = confirm("Are you sure you want save the changes to this role?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("ROLE IS gesaved");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+
+</script>
+<div class="carousel row">
+
+    <div class="col-md-12">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/admin/empaccountmanagement.html">Back</a></button>
+
+        <div class="container theme-showcase">
+            <h1>Edit Role Form</h1>
+            <div id="holder" class="row" ></div>
+        </div>
+
+        <div class="container">
+            <div class="col-md-5">
+                <div class="form-area">
+                    <form role="form">
+
+            <form>
+                <fieldset>
+                    <legend>Role Rights:</legend>
+                    Lijst van acties die deze role kan doen
+                    <p><input type = "radio">Add an event</p>
+                    <p><input type = "radio">Edit an event</p>
+                    <p><input type = "radio">Delete an event</p>
+
+                </fieldset>
+            </form>
+            <!-- Status box (blocked of niet) -->
+            <form>
+                <fieldset>
+                    <legend>Status:</legend>
+                    <p><input type = "radio">Active</p>
+                    <p><input type = "radio">Inactive</p>
+                </fieldset>
+            </form>
+
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmSave()"><a>Save changes</a></button>
+                   </form>
+
+                </div>
             </div>
         </div>
-        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmDelete()"><a>Delete this role</a></button>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmBlock()"><a>Block this role</a></button>
+
     </div>
 </div>
-<div class="row">
-    <main id="content" class="container">
-        <p>DIT IS DE EVENTS PAGINA!!!!!</p>
 
-        <p>Integer massa ante, sodales eu dolor ac, convallis vestibulum velit. Aliquam dapibus massa libero, sed
-            semper mi posuere vel. Fusce elementum id sem in efficitur. Aenean at massa in lacus efficitur laoreet.
-            Praesent in elit et mauris facilisis fringilla. Pellentesque nisl velit, efficitur porttitor faucibus
-            ac, finibus non metus. Donec eget auctor quam. Etiam sollicitudin risus non massa dictum, ut fermentum
-            velit lacinia. Morbi elementum nibh dui, a molestie dui ultrices ut. Etiam a tincidunt magna. Praesent
-            ornare sed sapien non eleifend.</p>
 
-        <p>Nam eu tortor id nisi pharetra tristique vel sed tortor. Nam semper felis sit amet tincidunt porttitor.
-            Suspendisse blandit lorem vitae libero consequat dignissim. Maecenas mattis, orci sit amet tristique
-            tempus, dolor libero fringilla ligula, aliquet efficitur dui ex in sapien. In fringilla lacus elit, sed
-            iaculis velit tristique quis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-            cubilia Curae; Quisque non arcu nunc.</p>
+<!-- Role VIEW-->
+<!-- Role rights box (lijst van acties die hij kan doen)-->
 
-        <p>Nam ante tellus, consectetur sit amet nulla eu, vulputate ullamcorper sem. Phasellus vel sem quis diam
-            pharetra auctor. Nullam at ligula at erat viverra fringilla. Integer facilisis, lacus eu luctus aliquet,
-            urna orci interdum lorem, non semper sem purus a nisl. Aliquam tincidunt luctus dui vel fringilla.
-            Pellentesque maximus felis quis semper interdum. In orci felis, posuere quis mattis ac, elementum a
-            purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris risus ante, laoreet sed orci eget,
-            egestas feugiat ipsum. In magna enim, euismod ac arcu et, lobortis accumsan metus. Interdum et malesuada
-            fames ac ante ipsum primis in faucibus. Mauris eget nisi vel tellus bibendum vehicula. Quisque posuere
-            eu risus vel semper. Donec ultrices nisl eros, at finibus orci vestibulum quis. Nam ut ante lobortis,
-            ultrices felis ac, molestie ante.</p>
+<!-- END PAGE CONTENT-->
 
-    </main>
-</div>
 
-<!-- Footer -->
+<!-- BEGIN FOOTER-->
 <footer class="page-footer font-small blue pt-4">
 
     <!-- Footer Links -->
@@ -258,18 +301,22 @@
     <!-- Copyright -->
 
 </footer>
-<!-- Footer -->
+<!-- END FOOTER-->
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="../../assets/js/vendor/popper.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+
 </body>
 </html>

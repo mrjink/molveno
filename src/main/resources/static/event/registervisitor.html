@@ -7,7 +7,7 @@
     <link rel="icon" href="/img/logo_128.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/event/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/event/event.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
-    <!--DEZE GEEFT OOK EEN ERROR
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-    -->
+
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <header>
@@ -84,49 +84,162 @@
                 <a href="#cn"><li><img src="/img/CN.png"/>Chinese</li></a>
             </ul>
 
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Register</button>
             <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
         </div>
     </nav>
 </header>
 
+<script>
+function confirmRegistration() {
+    var agreed = confirm("Are you sure you want to apply for this event?");
+    if(agreed){
+        //DELETE DE ROLE
+        alert("Congrats, you joined the event");
+    }
+    else{
+        alert("NIET GELUKT");
+    }
+}
+</script>
+
+
 <!-- Begin page content -->
 
-<!--MAAK DE TABLE-->
-<div class="row">
-    <div class="col-md-12">
-        <table id="eventTable" class="display" width="100%">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>startDate</th>
-                <th>endDate</th>
+<main class="my-form">
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="carousel col-md-8">
+                <div class="card">
+                    <div class = "headertransparant">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/administration/guestaccountmanagement.html">Back</a></button>
 
-                <th>address</th>
+                        <div class = "card-header guestname"><h4>Register for Event</h4></div>
+                    </div>
+                    <div class="card-body">
 
-                <th>maxUsers</th>
+                        <form name="my-form" onsubmit="return validform()" action="success.php" method="">
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="first_name" class="col-md-4 col-form-label text-md-right">First Name</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="first_name" class="form-control" name="first-name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                <th>price</th>
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="middle_name" class="col-md-4 col-form-label text-md-right">Middle Name</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="middle_name" class="form-control" name="middle-name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                <th>catering</th>
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="last_name" class="col-md-4 col-form-label text-md-right">Last Name</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="last_name" class="form-control" name="last-name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                <th>eventName</th>
-                <th>activity</th>
-                <th>eventinformation</th>
 
 
 
-            </tr>
-            </thead>
-        </table>
-        <!-- VUL DE TABLE IN JAVASCRIPT-->
-        <!-- CREATE EVENT BUTTON MET LINK NAAR: eventcreate.html-->
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/eventadministration/eventcreate.html">Create Event</a></button>
+                            <!-- uitklapscherm toevoegen----->
 
 
 
+
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="email" class="form-control" name="email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="email" class="col-md-4 col-form-label text-md-right"></label>
+                                        <div class="col-sm-6">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class = "row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <!--<div class="form-group row">-->
+                                    <div class="float-sm-right">
+
+                                        <button type="button" class="btn btn-secondary" onclick="confirmRegistration()">Register</button>
+
+                                    </div>
+                                    <!--</div>-->
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
+</main>
 
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
@@ -241,35 +354,13 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<!--
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
--->
-
-<!--Deze gaven ERRORS!
 <script src="../../assets/js/vendor/popper.min.js"></script>
 <script src="../../dist/js/bootstrap.min.js"></script>
--->
-<!--
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
--->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-
-<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-
-
-<!-- Javascript om de table te maken -->
-<script src="/js/event/showallevents.js"></script><!--Javascript-->
-
-
 </body>
 </html>
