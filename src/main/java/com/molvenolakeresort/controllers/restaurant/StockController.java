@@ -26,8 +26,8 @@ public class StockController {
     }
 
     @PostMapping("/add")
-    public Stock addStock(@RequestBody Stock Stock) {
-        return repository.save(Stock);
+    public Stock addStock(@RequestBody Stock stock) {
+        return repository.save(stock);
     }
     //
     @GetMapping("/get/{id}")
