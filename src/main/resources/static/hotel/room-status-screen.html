@@ -22,11 +22,12 @@
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-      <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png"  onclick="myAudioFunction()"/><a
-        class="navbar-brand"
-        href="#"
-        >Molveno Lake Resort</a
-      >
+      <img
+        id="logo"
+        alt="Molveno Lake Resort"
+        src="/img/logo_128.png"
+        onclick="myAudioFunction()"
+      /><a class="navbar-brand" href="#">Molveno Lake Resort</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -82,9 +83,11 @@
         </ul>
 
         <ul class="languagepicker">
-          <a href="#en"><li><img src="/img/EN.png" />English</li></a
+          <a href="#en"
+            ><li><img src="/img/EN.png" />English</li></a
           >
-          <a href="#cn"><li><img src="/img/CN.png" />Chinese</li></a
+          <a href="#cn"
+            ><li><img src="/img/CN.png" />Chinese</li></a
           >
         </ul>
 
@@ -110,66 +113,17 @@
         class="container"
         style="margin-top: 140px; ; background-color: #eeeeee; "
       >
-        <div id="dashboardTilesRow" class="row justify-content-around">
-          <div class="col-md-4 extraMargin">
-            <div class="dashboardButton">
-              <p>
-                Status of your booking:<div class="dashboardInteractiveText">  Deposit paid.<br> Confirmation from hotel
-                pending.</div>
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4 extraMargin">
-            <div class="dashboardButton">
-              <p>
-                Events during your stay:
-                <div class="dashboardInteractiveText"> July 28 (14:00 - 16:00) -
-                Diving <br>July 30 (20:00 - 23:30) - Movie night <br>August 2 (12:00 -
-                18:00) - Road trip</div>
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4 extraMargin">
-              <div class="dashboardButtonNoHover">
-                <p>Subscribe to Newsletter</p>
-                <form id="subscribeNewsletter">
-                        <input id="inputEmail" type="email" name="email" placeholder="Enter your e-mailaddress here"/>
-                        <br><br>
-                        <input class="btn btn-outline-success my-2 my-sm-0 btnsubmitemail" id="submitButton" type="button" value="Submit" onclick="subscribeNewsletter()">
-                    </form>
-              </div>
-          </div>
-          <div class="col-md-4 extraMargin">
-            <a href="/hotel/invoice-screen.html">
-              <div class="dashboardButton"><p>Check Invoice</p></div>
-            </a>
-          </div>
-          <div class="col-md-4 extraMargin">
-            <div class="dashboardButton"><p>Roomservice</p></div>
-          </div>
-          <div class="col-md-4 extraMargin">
-              <a href="/hotel.html">
-            <div class="dashboardButtonNoHover dashboardButtonHotel"><p>Hotel</p></div>
-              </a>
-          </div>
-            <div class="col-md-4 extraMargin">
-                <a href="/hotel/guest-book-room.html">
-                <div class="dashboardButton"><p>New Reservation</p></div>
-                </a>
-            </div>
-        </div>
-      </div>
+<!-- HIER KOMT DE WEBSITE -->
+    
+    <div id="row">
+        
     </div>
-    <script>
-     var aAudio = new Audio('/hotel/Molveno.m4a');
-     function myAudioFunction(){
-             aAudio.play();
-     }
-
-    function subscribeNewsletter(){
-      alert("Emailaddress " + document.getElementById("inputEmail").value + " is (NOT YET) added to the newletter list!");4
-      document.getElementById("inputEmail").value = "";
-    }
- </script>
+    
+    
+    
+    
+    
+    </div>
+    </div>
   </body>
 </html>
