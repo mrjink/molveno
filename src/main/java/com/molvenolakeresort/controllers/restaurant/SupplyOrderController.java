@@ -53,13 +53,9 @@ public class SupplyOrderController {
         List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients = new ArrayList<>();
 
         for (SupplyOrderSupplierIngredient supplyOrderSupplierIngredient : supplyOrder.getSupplyOrderSupplierIngredients()) {
-            Long idIngredient = supplyOrder.getSupplyOrderSupplierIngredients().get(0).getIngredient().getId();
-            Long idSupplier = supplyOrder.getSupplyOrderSupplierIngredients().get(0).getSupplier().getId();
-            double quantity = supplyOrder.getSupplyOrderSupplierIngredients().get(0).getQuantity();
-
-            //debug
-            System.out.println(idIngredient); //Geeft CORRECT het idIngredient terug.
-            System.out.println(idSupplier); //DIT is null. WAAROM? HIER VERDER GAAN
+            Long idIngredient = supplyOrderSupplierIngredient.getIngredient().getIdIngredient();
+            Long idSupplier = supplyOrderSupplierIngredient.getSupplier().getIdSupplier();
+            double quantity = supplyOrderSupplierIngredient.getQuantity();
 
             Ingredient ingredient = ingredientRepository.findById(idIngredient).get();
             Supplier supplier = supplierRepository.findById(idSupplier).get();

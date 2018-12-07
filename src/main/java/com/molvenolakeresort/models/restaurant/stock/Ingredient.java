@@ -38,10 +38,13 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Long getId() {
+    public Long getIdIngredient() {
         return idIngredient;
     }
 
+    public void setIdIngredient(Long idIngredient) {
+        this.idIngredient = idIngredient;
+    }
 
     public String getName() {
         return name;
@@ -67,15 +70,11 @@ public class Ingredient {
         this.notes = notes;
     }
 
-    public Long getIdIngredient() {
-        return idIngredient;
-    }
-
     public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
         return supplyOrderSupplierIngredients;
     }
 
-    public void setSupplyOrderIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
+    public void setSupplyOrderSupplierIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
         this.supplyOrderSupplierIngredients = supplyOrderSupplierIngredients;
     }
 
