@@ -194,7 +194,7 @@
           }
           table.row
             .add([
-              invoice.createdDate,
+              invoice.createdDate.substring(0, 10),
               invoice.origin,
               totalAmountBills,
               invoice.paid
