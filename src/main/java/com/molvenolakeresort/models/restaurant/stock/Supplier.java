@@ -1,10 +1,8 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "Supplier")
 @Table(name = "supplier")
@@ -17,11 +15,14 @@ public class Supplier {
     private String telephone;
     private String notes;
 
-    public Supplier() {
-    }
+    @OneToMany(
+        mappedBy = "supplier",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true
+    )
+    private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
 
-    public Long getId() {
-        return idSupplier;
+    public Supplier() {
     }
 
     public String getName() {
@@ -54,5 +55,9 @@ public class Supplier {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public Long getId() {
+        return idSupplier;
     }
 }
