@@ -1,12 +1,15 @@
 package com.molvenolakeresort.models.generic;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.molvenolakeresort.models.generic.security.GuestInformation;
 import com.molvenolakeresort.models.generic.security.Profile;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
-@Entity(name = "Address")
+@Entity
 @Table(name = "address")
 public class Address {
     @Id
@@ -19,18 +22,22 @@ public class Address {
     private String city;
     private String postalCode;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @OrderColumn
-    private Collection<Profile> guests;
+    @ManyToOne
+    private Country country;
+
+    @OneToMany(mappedBy = "address")
+    @JsonIgnore
+    private Collection<GuestInformation> guestInformations = new ArrayList<>();
 
     public Address() {}
 
-    public Address(String streetName, String buildingName, String homeNumber, String city, String postalCode) {
+    public Address(String streetName, String buildingName, String homeNumber, String city, String postalCode, Country country) {
         this.streetName = streetName;
         this.buildingName = buildingName;
         this.homeNumber = homeNumber;
         this.city = city;
         this.postalCode = postalCode;
+        this.country = country;
     }
 
     public long getId() {
@@ -81,12 +88,19 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    public Collection<Profile> getGuests() {
-        return guests;
+    public Collection<GuestInformation> getGuestInformations() {
+        return this.guestInformations;
     }
 
-    public void setGuests(Collection<Profile> guests) {
-        this.guests = guests;
+    public void setGuests(Collection<GuestInformation> guestInformations) {
+        this.guestInformations = guestInformations;
     }
 
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 }

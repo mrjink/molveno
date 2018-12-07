@@ -1,90 +1,157 @@
 package com.molvenolakeresort.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.molvenolakeresort.models.generic.Address;
 import com.molvenolakeresort.models.generic.Country;
-import com.molvenolakeresort.models.generic.security.Profile;
-import com.molvenolakeresort.models.generic.security.Role;
-import com.molvenolakeresort.models.generic.security.UserName;
+import com.molvenolakeresort.models.generic.security.*;
+import com.molvenolakeresort.security.PasswordEncryption;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.Collection;
+import java.lang.reflect.Array;
+import java.time.LocalDate;
 
 @Component
 public class StartUpImpl {
 
     @Autowired
-    GenericServiceImpl genericService;
+    private GenericServiceImpl genericService;
 
     @Autowired
-    UserServiceImpl userService;
+    private UserServiceImpl userService;
 
     public StartUpImpl() {}
 
-    private Country[] initCountries() throws IOException, NullPointerException
-    {
-        Country[] retCountries = new Country[0];
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("json/country.json").getFile());
-        if (file.canRead()) {
-            StringBuilder json = new StringBuilder();
+    public class JSONReader<T>{
 
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String sSection;
-            while ((sSection = br.readLine()) != null)
-                json.append(sSection + "\n");
+        public T[] initObject(Class<T> type, String resourceNameOrPath) throws IOException, NullPointerException
+        {
+            Class<T> classOfT;
+            T[] returnArray = (T[]) Array.newInstance(type, 0);
 
-            ObjectMapper mapper = new ObjectMapper();
-            retCountries = mapper.readValue(file, Country[].class);
-            if (retCountries == null) {
-                retCountries = new Country[0];
+            ClassLoader classLoader = getClass().getClassLoader();
+            File file = new File(classLoader.getResource(resourceNameOrPath).getFile());
+            if (file.canRead()) {
+                ObjectMapper mapper = new ObjectMapper();
+                returnArray = (T[]) mapper.readValue(file, returnArray.getClass());
+                if (returnArray == null) {
+                    returnArray = (T[]) Array.newInstance(type, 0);
+                }
             }
+            return returnArray;
         }
-
-        return retCountries;
     }
 
     @PostConstruct
     public void init(){
-        ServerLogger.log("Start of start-up.");
-        /*try {
-            Country[] countries = initCountries();
-            genericService.createCountries(countries);
+        ServerLogger.log("==> Dataset - Initializing records...");
+        initialiseCountries();
+        initialiseDefaultPermissions();
+        initialiseDefaultRoles();
+        initialiseDefaultUsers();
+
+        Role guestRole = userService.findRoleByName("GUEST");
+
+        Profile profileExample = new Profile();
+        profileExample.setFirstName("test");
+        profileExample.setLastName("ing");
+        profileExample.setVisitor(false);
+        profileExample.setPhoneNumber("+31643136264");
+
+        User userExample = new User();
+        userExample.setRole(guestRole);
+        userExample.setUsername("temp-user");
+        userExample.setPassword(PasswordEncryption.getHashedPassword("pwd"));
+        userExample.setPasswordResetURI(PasswordEncryption.getPasswordRecoveryUri(userExample));
+
+        Country country = genericService.findCountryByCode("NL");
+
+        Address address = new Address("ardennen", null,"22", "helmond", "5706 RE", country);
+
+        GuestInformation guestInformation = new GuestInformation();
+        guestInformation.setDateOfBirth(LocalDate.of(1990, 01,01));
+        guestInformation.setSubscribedToNewsletter(true);
+        guestInformation.setAddress(address);
+
+        profileExample.setUser(userExample);
+        profileExample.setGuestInformation(guestInformation);
+
+        //generate a restaurant visitor (phone only)
+        userService.createVisitor(profileExample);
+
+        profileExample.setMiddleName("ing the th");
+        profileExample.setPhoneNumber(null);
+        profileExample.setEmail("test@test.com");
+
+        //generate a event visitor (email only)
+        userService.createVisitor(profileExample);
+
+        //generate a guest from the event visitor
+        userService.createGuest(profileExample);
+
+        ServerLogger.log("==> Dataset - Initialized.");
+    }
+
+    private void initialiseDefaultPermissions() {
+        try {
+            Privilege[] privileges = new JSONReader<Privilege>().initObject(Privilege.class, "json/default-permissions.json");
+            userService.createPrivileges(privileges);
         } catch (IOException e) {
-            e.printStackTrace();
+            //non volatile error (file does not exist or locked), does not affect system
+            ServerLogger.log(e.getMessage());
         } catch (NullPointerException e) {
+            //volatile error, likely due to incorrect translation
             e.printStackTrace();
         }
+    }
 
-        Role guestRole = new Role ("GUEST");
-        Role visitorRole = new Role("VISITOR");
-        Role employeeRole = new Role("EMPLOYEE");
+    private void initialiseDefaultUsers() {
+        try {
+            User[] users = new JSONReader<User>().initObject(User.class, "json/default-users.json");
+            if(users != null) {
+                for (int userIndex = 0; userIndex < users.length; userIndex++)
+                {
+                    users[userIndex].setRole(userService.findRoleByName(users[userIndex].getRole().getName()));
+                    users[userIndex].setPassword(users[userIndex].getPassword(), false);
+                    users[userIndex].setPasswordResetURI(PasswordEncryption.getPasswordRecoveryUri(users[userIndex]));
+                }
+            }
+            userService.createEmployees(users);
+        } catch (IOException e) {
+            //non volatile error (file does not exist or locked), does not affect system
+            ServerLogger.log(e.getMessage());
+        } catch (NullPointerException e) {
+            //volatile error, likely due to incorrect translation
+            e.printStackTrace();
+        }
+    }
 
-        Role userDeletePrivilege = new Role("USER_DELETE");
-        Role userEditPrivilege = new Role("USER_EDIT");
-        Role userViewPrivilege = new Role("USER_VIEW");
-        userService.createRoles(new Role[]{ guestRole, visitorRole, employeeRole, userDeletePrivilege, userEditPrivilege, userViewPrivilege });
+    private void initialiseDefaultRoles() {
+        try {
+            Role[] roles = new JSONReader<Role>().initObject(Role.class, "json/default-roles.json");
+            userService.createRoles(roles);
+        } catch (IOException e) {
+            //non volatile error (file does not exist or locked), does not affect system
+            ServerLogger.log(e.getMessage());
+        } catch (NullPointerException e) {
+            //volatile error, likely due to incorrect translation
+            e.printStackTrace();
+        }
+    }
 
-        guestRole = userService.findRoleByName(guestRole.getName());
-
-        Profile user = new Profile();
-        user.setFirstName("test");
-        user.setLastName("ing");
-        UserName userName = new UserName("testing");
-        userName.setProfile(user);
-        user.addRole(guestRole);
-        user = userService.createVisitor(user);
-
-        Profile user1 = new Profile();
-        UserName userName1 = new UserName("employee");
-        userName1.setProfile(user1);
-        user1.addRole(employeeRole);
-        user1 = userService.createEmployee(user1);*/
-        ServerLogger.log("End of start-up.");
+    private void initialiseCountries() {
+        try {
+            Country[] countries = new JSONReader<Country>().initObject(Country.class, "json/country.json");
+            genericService.createCountries(countries);
+        } catch (IOException e) {
+            //non volatile error (file does not exist or locked), does not affect system
+            ServerLogger.log(e.getMessage());
+        } catch (NullPointerException e) {
+            //volatile error, likely due to incorrect translation
+            e.printStackTrace();
+        }
     }
 }

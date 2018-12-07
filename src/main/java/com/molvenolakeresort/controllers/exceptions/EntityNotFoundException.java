@@ -1,0 +1,28 @@
+package com.molvenolakeresort.controllers.exceptions;
+
+public class EntityNotFoundException extends Exception{
+
+    public EntityNotFoundException(String message) {
+        super(message);
+    }
+
+    public EntityNotFoundException(Class t, Object searchMethod)
+    {
+        super(String.format("Entity does not exist in %s db using [object of %s] with param(s) [%s]", t.getName(), searchMethod.getClass(), searchMethod.toString()));
+    }
+
+    private EntityNotFoundException() {
+    }
+
+    private EntityNotFoundException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    private EntityNotFoundException(Throwable cause) {
+        super(cause);
+    }
+
+    private EntityNotFoundException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+}

@@ -1,28 +1,47 @@
 package com.molvenolakeresort.models.generic.security;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@Entity(name = "Role")
+@Entity
 @Table(name = "role")
-@NamedQuery(name = "Role.findByName",
-        query = "SELECT r FROM Role r WHERE r.name =:name ")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String name;
+    private boolean isEmployeeRole;
 
-    @ManyToMany(mappedBy = "roles")//(cascade = { CascadeType.MERGE, CascadeType.PERSIST })//
-    private Collection<Profile> profiles;
+    @OneToMany(mappedBy = "role")
+    @JsonIgnore
+    private Collection<User> users;
+
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(
+            name = "roles_privileges",
+            joinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "privilege_id", referencedColumnName = "id"))
+    private Collection<Privilege> privileges;
 
     public Role() {
     }
 
     public Role(String name) {
         this.name = name;
+    }
+
+    public Role(String name, boolean isEmployeeRole) {
+        this.name = name;
+        this.isEmployeeRole = isEmployeeRole;
     }
 
     public long getId() {
@@ -37,20 +56,20 @@ public class Role {
         return name;
     }
 
-    public void addProfile(Profile profile)
+    public void addUser(User user)
     {
-        profile.addRole(this);
-        if(this.profiles == null)
+        user.setRole(this);
+        if(this.users == null)
         {
-            this.profiles = new ArrayList<>();
+            this.users = new ArrayList<>();
         }
     }
 
-    public void removeProfile(Profile profile)
+    public void removeUser(User user)
     {
-        if(this.profiles != null)
+        if(this.users != null)
         {
-            this.profiles.remove(profile);
+            this.users.remove(user);
         }
     }
 
@@ -58,11 +77,27 @@ public class Role {
         this.name = name;
     }
 
-    public Collection<Profile> getProfiles() {
-        return profiles;
+    public Collection<User> getUsers() {
+        return this.users;
     }
 
-    public void setProfiles(Collection<Profile> profiles) {
-        this.profiles = profiles;
+    public void setUsers(Collection<User> users) {
+        this.users = users;
+    }
+
+    public boolean isEmployeeRole() {
+        return isEmployeeRole;
+    }
+
+    public void setEmployeeRole(boolean employeeRole) {
+        isEmployeeRole = employeeRole;
+    }
+
+    public Collection<Privilege> getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(Collection<Privilege> privileges) {
+        this.privileges = privileges;
     }
 }

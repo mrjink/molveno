@@ -4,12 +4,14 @@ import javax.persistence.*;
 import java.util.Locale;
 
 @Entity(name="Languagecode")
-@Table(name="languagecode", uniqueConstraints = @UniqueConstraint(columnNames = { "locale", "language" }))
+@Table(name="languagecode")
 public class LanguageCode {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String locale;
+    @Column(unique = true)
     private String language;
 
     public LanguageCode() {}

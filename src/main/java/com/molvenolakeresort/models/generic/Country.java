@@ -1,14 +1,19 @@
 package com.molvenolakeresort.models.generic;
 
 
-import javax.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Entity(name = "Country")
-@Table(name = "country", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
+import java.util.Collection;
+
+@Entity
+@Table(name = "country")
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String name;
     private String code;
 
