@@ -45,4 +45,20 @@ public class SupplyOrder {
     public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
         return supplyOrderSupplierIngredients;
     }
+
+    public void setDeliveryDate(Date deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public void setSupplierOrderStatus(SupplierOrderStatus supplierOrderStatus) {
+        this.supplierOrderStatus = supplierOrderStatus;
+    }
+
+    public void setSupplyOrderSupplierIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
+        this.supplyOrderSupplierIngredients = supplyOrderSupplierIngredients;
+    }
 }

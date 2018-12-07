@@ -11,21 +11,17 @@ import javax.persistence.Table;
 public class Supplier {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long idSupplier;
     private String name;
     private String email;
     private String telephone;
     private String notes;
 
-    public Supplier(String name, String email, String telephone, String notes) {
-        this.name = name;
-        this.email = email;
-        this.telephone = telephone;
-        this.notes = notes;
+    public Supplier() {
     }
 
     public Long getId() {
-        return id;
+        return idSupplier;
     }
 
     public String getName() {
