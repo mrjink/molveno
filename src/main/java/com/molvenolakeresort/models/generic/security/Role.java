@@ -1,25 +1,36 @@
 package com.molvenolakeresort.models.generic.security;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@Entity(name = "Role")
-@Table(name = "role", uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
-@NamedQuery(name = "Role.findByName",
-        query = "SELECT r FROM Role r WHERE r.name =:name ")
-@NamedQuery(name = "Role.exists",
-        query = "SELECT CASE WHEN COUNT(r) > 0 THEN TRUE ELSE FALSE END FROM Role r WHERE r.name =:name")
+@Entity
+@Table(name = "role")
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String name;
     private boolean isEmployeeRole;
 
-    @OneToMany(mappedBy = "role")//(cascade = { CascadeType.MERGE, CascadeType.PERSIST })//
+    @OneToMany(mappedBy = "role")
+    @JsonIgnore
     private Collection<User> users;
+
+    @ManyToMany(fetch=FetchType.EAGER)
+    @JoinTable(
+            name = "roles_privileges",
+            joinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "privilege_id", referencedColumnName = "id"))
+    private Collection<Privilege> privileges;
 
     public Role() {
     }
@@ -80,5 +91,13 @@ public class Role {
 
     public void setEmployeeRole(boolean employeeRole) {
         isEmployeeRole = employeeRole;
+    }
+
+    public Collection<Privilege> getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(Collection<Privilege> privileges) {
+        this.privileges = privileges;
     }
 }

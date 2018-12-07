@@ -5,14 +5,8 @@ import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 
-@Entity(name = "Profile")
+@Entity
 @Table(name = "profile")
-@NamedQuery(name = "Profile.findByEmail",
-        query = "SELECT p FROM Profile p WHERE p.email =:email ")
-@NamedQuery(name = "Profile.findByPhoneNumber",
-        query = "SELECT p FROM Profile p WHERE p.phoneNumber =:phonenumber ")
-@NamedQuery(name = "Profile.exists",
-        query = "SELECT CASE WHEN COUNT(p) > 0 THEN TRUE ELSE FALSE END FROM Profile p WHERE p.email =:email OR p.phoneNumber =:phonenumber ")
 public class Profile {
 
     @Id
@@ -40,8 +34,6 @@ public class Profile {
     @Enumerated(value = EnumType.STRING)
     private Gender gender = Gender.UNKNOWN;
 
-//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
-//    @JoinColumn(name = "guestinformation_id")
     @OneToOne(cascade = CascadeType.ALL, optional = true)
     @JoinColumn(name = "guestinformation_id")
     @Nullable

@@ -1,8 +1,10 @@
 package com.molvenolakeresort.services.impl;
 
+import com.molvenolakeresort.models.generic.security.Privilege;
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
 import com.molvenolakeresort.models.generic.security.User;
+import com.molvenolakeresort.repositories.generic.PrivilegeRepository;
 import com.molvenolakeresort.repositories.generic.ProfileRepository;
 import com.molvenolakeresort.repositories.generic.RoleRepository;
 import com.molvenolakeresort.repositories.generic.UserRepository;
@@ -18,13 +20,16 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    ProfileRepository profileRepository;
+    private ProfileRepository profileRepository;
 
     @Autowired
-    RoleRepository roleRepository;
+    private RoleRepository roleRepository;
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
+
+    @Autowired
+    private PrivilegeRepository privilegeRepository;
 
     private Profile createProfileTemplate(Profile profile, boolean isVisitor)
     {
@@ -50,7 +55,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> findEmployee(long id) {
-        return Optional.empty();
+        return userRepository.findEmployee(id);
     }
 
     @Override
@@ -78,12 +83,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Iterable<User> findAllEmployees() {
-        return null;
+        return userRepository.findAllEmployees();
     }
 
     @Override
     public Optional<Profile> findVisitor(long id) {
-        return Optional.empty();
+        return profileRepository.findRestaurantVisitor(id);
     }
 
 
@@ -96,16 +101,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Iterable<Profile> findAllVisitors() {
-        return null;
+        return profileRepository.findAllRestaurantVisitors();
     }
 
     @Override
     public Optional<Profile> findGuest(long id) {
-        return Optional.empty();
+        return profileRepository.findGuest(id);
     }
 
     @Override
     public Profile createGuest(Profile guest) {
+        if(userRepository.exists(guest.getUser().getUsername())) return null;
+
         Profile template = null;
 
         Profile eventVisitor = profileRepository.findByEmail(guest.getEmail());
@@ -153,7 +160,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Iterable<Profile> findAllGuests() {
-        return null;
+        return profileRepository.findAllGuests();
     }
 
     @Override
@@ -191,5 +198,50 @@ public class UserServiceImpl implements UserService {
     @Override
     public Role findRoleByName(String name) {
         return roleRepository.findByName(name);
+    }
+
+    @Override
+    public Privilege createPrivilege(Privilege privilege) {
+        if(privilegeRepository.exists(privilege.getName())) return null;
+        return privilegeRepository.save(privilege);
+    }
+
+    @Override
+    public Iterable<Privilege> createPrivileges(Privilege[] privileges) {
+        Iterable<Privilege> privilegeIterable = new ArrayList<>();
+        if(privileges != null) {
+            for (int i = 0; i < privileges.length; i++)
+            {
+                if(!privilegeRepository.exists(privileges[i].getName())) {
+                    ((ArrayList<Privilege>) privilegeIterable).add(privileges[i]);
+                }
+            }
+        }
+
+        privilegeIterable = privilegeRepository.saveAll(privilegeIterable);
+        ServerLogger.log(String.format("Mutated %s records in privileges.", ((List<Privilege>) privilegeIterable).size()));
+        return privilegeIterable;
+    }
+
+    public Iterable<User> createEmployees(User[] users) {
+
+        Iterable<User> userIterable = new ArrayList<>();
+        if(users != null) {
+            for (int i = 0; i < users.length; i++)
+            {
+                if(!userRepository.exists(users[i].getUsername())) {
+                    ((ArrayList<User>) userIterable).add(users[i]);
+                }
+            }
+        }
+
+        userIterable = userRepository.saveAll(userIterable);
+        ServerLogger.log(String.format("Mutated %s records in users(employee).", ((List<User>) userIterable).size()));
+        return userIterable;
+    }
+
+    @Override
+    public User findUserByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }

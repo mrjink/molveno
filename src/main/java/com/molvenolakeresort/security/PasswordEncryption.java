@@ -1,6 +1,8 @@
-package com.molvenolakeresort.models.generic.security;
+package com.molvenolakeresort.security;
 
+import com.molvenolakeresort.models.generic.security.User;
 import org.exolab.castor.types.DateTime;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -17,7 +19,8 @@ public class PasswordEncryption {
         return false;
     }
 
-    private static PasswordEncoder getEncoder()
+    @Bean
+    public static PasswordEncoder getEncoder()
     {
         return new BCryptPasswordEncoder();
     }
@@ -26,6 +29,8 @@ public class PasswordEncryption {
     {
         return getEncoder().encode(unhashed);
     }
+
+    public static boolean isMatchingPassword(String unhashed, String hashed) { return getEncoder().matches(unhashed, hashed); }
 
     public static String getPasswordRecoveryUri(User user)
     {

@@ -1,6 +1,7 @@
 package com.molvenolakeresort.models.generic;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.molvenolakeresort.models.generic.security.GuestInformation;
 import com.molvenolakeresort.models.generic.security.Profile;
 
@@ -8,7 +9,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 
-@Entity(name = "Address")
+@Entity
 @Table(name = "address")
 public class Address {
     @Id
@@ -25,6 +26,7 @@ public class Address {
     private Country country;
 
     @OneToMany(mappedBy = "address")
+    @JsonIgnore
     private Collection<GuestInformation> guestInformations = new ArrayList<>();
 
     public Address() {}
