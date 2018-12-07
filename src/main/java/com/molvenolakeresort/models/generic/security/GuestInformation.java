@@ -1,11 +1,13 @@
 package com.molvenolakeresort.models.generic.security;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.molvenolakeresort.models.generic.Address;
 import com.molvenolakeresort.models.generic.LanguageCode;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlTransient;
 import java.time.LocalDate;
 
 @Entity(name = "Guestinformation")
@@ -27,6 +29,7 @@ public class GuestInformation {
     private Address address;
 
     @OneToOne(mappedBy = "guestInformation", optional = false)
+    @JsonIgnore
     private Profile profile;
 
     public GuestInformation() {}

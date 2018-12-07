@@ -1,32 +1,39 @@
 package com.molvenolakeresort.models.generic.security;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.molvenolakeresort.security.PasswordEncryption;
 import org.springframework.lang.Nullable;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
-@Entity(name = "User")
-@Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = { "username", "passwordreseturi" }))
-@NamedQuery(name = "User.exists",
-        query = "SELECT CASE WHEN COUNT(u) > 0 THEN TRUE ELSE FALSE END FROM User u WHERE u.username =:username")
-public class User {
+@Entity
+@Table(name = "user")
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="username")
+    @Column(name="username", unique = true)
     private String username;
 
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @ManyToOne(fetch = FetchType.EAGER, optional = true)
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @Column(name = "passwordreseturi")
+    @Column(name = "passwordreseturi", unique = true)
     private String passwordResetURI;
 
     @OneToOne(mappedBy = "user")
     @Nullable
+    @JsonIgnore
     private Profile profile;
 
     public long getId() {
@@ -41,8 +48,42 @@ public class User {
         return username;
     }
 
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
+
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
+
+        list.add(new SimpleGrantedAuthority(role.getName()));
+        if(role.getPrivileges() != null)
+        for(Privilege p : role.getPrivileges())
+        {
+            list.add(new SimpleGrantedAuthority(p.getName()));
+        }
+
+        return list;
     }
 
     public String getPassword() {
