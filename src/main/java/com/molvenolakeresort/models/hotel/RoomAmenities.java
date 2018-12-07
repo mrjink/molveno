@@ -9,7 +9,7 @@ public class RoomAmenities {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String roomType;
     private String balcony;
     private String television;
@@ -21,7 +21,7 @@ public class RoomAmenities {
     public RoomAmenities() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

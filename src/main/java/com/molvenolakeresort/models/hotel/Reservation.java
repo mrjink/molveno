@@ -14,7 +14,7 @@ public class Reservation {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private LocalDateTime bookedDate;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
@@ -51,7 +51,7 @@ public class Reservation {
                  today.compareTo(endDate.toLocalDate()) <= 0) || isCheckedIn());
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
