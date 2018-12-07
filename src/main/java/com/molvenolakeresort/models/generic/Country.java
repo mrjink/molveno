@@ -1,11 +1,7 @@
 package com.molvenolakeresort.models.generic;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlTransient;
-import java.util.Collection;
 
 @Entity
 @Table(name = "country")
@@ -17,7 +13,8 @@ public class Country {
     private String name;
     private String code;
 
-    public Country(){}
+    public Country() {
+    }
 
     public Country(String name, String code) {
         this.name = name;

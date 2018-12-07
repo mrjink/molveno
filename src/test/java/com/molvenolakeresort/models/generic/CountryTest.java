@@ -1,18 +1,16 @@
 package com.molvenolakeresort.models.generic;
 
-import com.molvenolakeresort.models.generic.Address;
-import com.molvenolakeresort.models.generic.Country;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 public class CountryTest {
 
     private final String name;
     private final String code;
 
-    public CountryTest()
-    {
+    public CountryTest() {
         this.code = "NL";
         this.name = "The Netherlands";
     }

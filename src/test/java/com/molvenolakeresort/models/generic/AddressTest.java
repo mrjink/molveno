@@ -1,9 +1,7 @@
 package com.molvenolakeresort.models.generic;
 
-import com.molvenolakeresort.models.generic.Address;
-import com.molvenolakeresort.models.generic.Country;
-import org.junit.Before;
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 public class AddressTest {
@@ -15,8 +13,7 @@ public class AddressTest {
     private final String buildingname;
     private final Country country;
 
-    public AddressTest()
-    {
+    public AddressTest() {
         this.city = "Utrecht";
         this.homenumber = "1";
         this.streetname = "Reykjavikplein";
@@ -37,7 +34,7 @@ public class AddressTest {
         address.setCity(this.city);
         address.setBuildingName(this.buildingname);
 
-        assertNotNull("Country was not set (this only gets checked if it's set or not)",address.getCountry());
+        assertNotNull("Country was not set (this only gets checked if it's set or not)", address.getCountry());
         assertSame(this.postalcode, address.getPostalCode());
         assertSame(this.homenumber, address.getHomeNumber());
         assertSame(this.city, address.getCity());

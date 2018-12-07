@@ -7,11 +7,9 @@ import com.molvenolakeresort.services.GenericService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.logging.Logger;
 
 @Service
 public class GenericServiceImpl implements GenericService {
@@ -36,10 +34,9 @@ public class GenericServiceImpl implements GenericService {
 
     @Override
     public Country createCountry(Country country) {
-        if(countryRepository.exists(country.getName(), country.getCode())) return null;
+        if (countryRepository.exists(country.getName(), country.getCode())) return null;
         Country countryResult = countryRepository.save(country);
-        if(countryResult != null)
-        {
+        if (countryResult != null) {
             ServerLogger.log(String.format("New country (id): %s", countryResult.getId()));
         }
         return countryResult;
@@ -51,13 +48,11 @@ public class GenericServiceImpl implements GenericService {
     }
 
     @Override
-    public Iterable<Country> createCountries(Country[] countries)
-    {
+    public Iterable<Country> createCountries(Country[] countries) {
         Iterable<Country> countryIterable = new ArrayList<Country>();
-        if(countries != null) {
-            for (int i = 0; i < countries.length; i++)
-            {
-                if(!countryRepository.exists(countries[i].getName(), countries[i].getCode())) {
+        if (countries != null) {
+            for (int i = 0; i < countries.length; i++) {
+                if (!countryRepository.exists(countries[i].getName(), countries[i].getCode())) {
                     ((ArrayList<Country>) countryIterable).add(countries[i]);
                 }
             }

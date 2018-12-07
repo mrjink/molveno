@@ -15,7 +15,7 @@ import javax.annotation.ManagedBean;
 
 @ManagedBean
 @Component
-    public class CustomAuthenticationProvider implements AuthenticationProvider {
+public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     private UserService userService;
@@ -34,15 +34,15 @@ import javax.annotation.ManagedBean;
         User user = userService.findUserByUsername(username);
         //user = userService.findGuest(username);
         //user = userService.findEmployee(username);
-        if(user==null){
+        if (user == null) {
             throw new BadCredentialsException("Username Not Found");
         }
 
-        if(!PasswordEncryption.isMatchingPassword(password, user.getPassword())){
+        if (!PasswordEncryption.isMatchingPassword(password, user.getPassword())) {
             throw new BadCredentialsException("Username Or Password Is invalid");
         }
 
-        return new UsernamePasswordAuthenticationToken(username,password,
+        return new UsernamePasswordAuthenticationToken(username, password,
                 user.getAuthorities());
     }
 

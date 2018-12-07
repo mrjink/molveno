@@ -3,7 +3,6 @@ package com.molvenolakeresort.models.generic;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.molvenolakeresort.models.generic.security.GuestInformation;
-import com.molvenolakeresort.models.generic.security.Profile;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -29,7 +28,8 @@ public class Address {
     @JsonIgnore
     private Collection<GuestInformation> guestInformations = new ArrayList<>();
 
-    public Address() {}
+    public Address() {
+    }
 
     public Address(String streetName, String buildingName, String homeNumber, String city, String postalCode, Country country) {
         this.streetName = streetName;

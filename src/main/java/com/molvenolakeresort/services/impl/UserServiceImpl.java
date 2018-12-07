@@ -31,23 +31,21 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private PrivilegeRepository privilegeRepository;
 
-    private Profile createProfileTemplate(Profile profile, boolean isVisitor)
-    {
+    private Profile createProfileTemplate(Profile profile, boolean isVisitor) {
         Profile newProfile = new Profile();
         newProfile.setFirstName(profile.getFirstName());
         newProfile.setMiddleName(profile.getMiddleName());
         newProfile.setLastName(profile.getLastName());
         newProfile.setVisitor(isVisitor);
-        if(profile.getEmail() != null) {
+        if (profile.getEmail() != null) {
             //used for the participant of an event
             newProfile.setEmail(profile.getEmail());
         }
-        if(profile.getPhoneNumber() != null) {
+        if (profile.getPhoneNumber() != null) {
             //used for the visitor of the restaurant
             newProfile.setPhoneNumber(profile.getPhoneNumber());
         }
-        if(newProfile != null)
-        {
+        if (newProfile != null) {
             ServerLogger.log(String.format("New profile (id, isVisitor): %s, %s", newProfile.getId(), newProfile.isVisitor()));
         }
         return newProfile;
@@ -60,21 +58,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createEmployee(User employee) {
-        if(userRepository.exists(employee.getUsername())) return null;
+        if (userRepository.exists(employee.getUsername())) return null;
 
         //only fill entries used by employee
         User newUser = new User();
         newUser.setPassword(employee.getPassword());
-        if(employee.getRole() != null) {
+        if (employee.getRole() != null) {
             newUser.setRole(employee.getRole());
-        }
-        else
-        {
+        } else {
             Role role = findRoleByName("EMPLOYEE");
             newUser.setRole(role);
         }
-        if(employee != null)
-        {
+        if (employee != null) {
             ServerLogger.log(String.format("New employee (id): %s", employee.getId()));
         }
 
@@ -94,7 +89,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Profile createVisitor(Profile visitor) {
-        if(profileRepository.exists(visitor.getEmail(), visitor.getPhoneNumber())) return null;
+        if (profileRepository.exists(visitor.getEmail(), visitor.getPhoneNumber())) return null;
         //only fill entries used by visitor
         return profileRepository.save(createProfileTemplate(visitor, true));
     }
@@ -111,37 +106,29 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Profile createGuest(Profile guest) {
-        if(userRepository.exists(guest.getUser().getUsername())) return null;
+        if (userRepository.exists(guest.getUser().getUsername())) return null;
 
         Profile template = null;
 
         Profile eventVisitor = profileRepository.findByEmail(guest.getEmail());
         Profile restaurantVisitor = profileRepository.findByPhoneNumber(guest.getPhoneNumber());
 
-        if(eventVisitor != null && restaurantVisitor != null)
-        {
+        if (eventVisitor != null && restaurantVisitor != null) {
             //upgrade event visitor and (transfer and) destroy the restaurant visitors content.
             template = eventVisitor;
-        }
-        else if(eventVisitor != null)
-        {
+        } else if (eventVisitor != null) {
             template = eventVisitor;
-        }
-        else if(restaurantVisitor != null)
-        {
+        } else if (restaurantVisitor != null) {
             template = restaurantVisitor;
         }
 
         //if the guest does not yet exist as a visitor create one.
-        if(template == null)
-        {
+        if (template == null) {
             template = createProfileTemplate(guest, false);
-            if(template != null)
-            {
+            if (template != null) {
                 ServerLogger.log(String.format("New guest (id): %s", template.getId()));
             }
-        } else
-        {
+        } else {
             template.setVisitor(false);
             template.setEmail(guest.getEmail());
             template.setFirstName(guest.getFirstName());
@@ -149,8 +136,7 @@ public class UserServiceImpl implements UserService {
             template.setLastName(guest.getLastName());
             template.setUser(guest.getUser());
             template.setGuestInformation(guest.getGuestInformation());
-            if(template != null)
-            {
+            if (template != null) {
                 ServerLogger.log(String.format("Guest mutated (id): %s", template.getId()));
             }
         }
@@ -181,10 +167,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public Iterable<Role> createRoles(Role[] roles) {
         Iterable<Role> roleIterable = new ArrayList<>();
-        if(roles != null) {
-            for (int i = 0; i < roles.length; i++)
-            {
-                if(!roleRepository.exists(roles[i].getName())) {
+        if (roles != null) {
+            for (int i = 0; i < roles.length; i++) {
+                if (!roleRepository.exists(roles[i].getName())) {
                     ((ArrayList<Role>) roleIterable).add(roles[i]);
                 }
             }
@@ -202,17 +187,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Privilege createPrivilege(Privilege privilege) {
-        if(privilegeRepository.exists(privilege.getName())) return null;
+        if (privilegeRepository.exists(privilege.getName())) return null;
         return privilegeRepository.save(privilege);
     }
 
     @Override
     public Iterable<Privilege> createPrivileges(Privilege[] privileges) {
         Iterable<Privilege> privilegeIterable = new ArrayList<>();
-        if(privileges != null) {
-            for (int i = 0; i < privileges.length; i++)
-            {
-                if(!privilegeRepository.exists(privileges[i].getName())) {
+        if (privileges != null) {
+            for (int i = 0; i < privileges.length; i++) {
+                if (!privilegeRepository.exists(privileges[i].getName())) {
                     ((ArrayList<Privilege>) privilegeIterable).add(privileges[i]);
                 }
             }
@@ -226,10 +210,9 @@ public class UserServiceImpl implements UserService {
     public Iterable<User> createEmployees(User[] users) {
 
         Iterable<User> userIterable = new ArrayList<>();
-        if(users != null) {
-            for (int i = 0; i < users.length; i++)
-            {
-                if(!userRepository.exists(users[i].getUsername())) {
+        if (users != null) {
+            for (int i = 0; i < users.length; i++) {
+                if (!userRepository.exists(users[i].getUsername())) {
                     ((ArrayList<User>) userIterable).add(users[i]);
                 }
             }

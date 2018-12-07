@@ -7,12 +7,11 @@ public class ServerLogger {
 
     private static final Logger logger = Logger.getLogger("com.molvenolakeresort.services");
 
-    public static void log(String data)
-    {
+    public static void log(String data) {
         logger.info(data);
     }
-    public static void log(Level level, String data)
-    {
+
+    public static void log(Level level, String data) {
         logger.log(level, data);
     }
 }

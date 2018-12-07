@@ -1,12 +1,12 @@
 package com.molvenolakeresort.models.generic;
 
-import com.molvenolakeresort.models.generic.Address;
 import com.molvenolakeresort.models.generic.security.GuestInformation;
 import com.molvenolakeresort.models.generic.security.Profile;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import java.time.LocalDate;
+
+import static org.junit.Assert.*;
 
 public class GuestInformationTest {
 
@@ -19,7 +19,7 @@ public class GuestInformationTest {
     private final Profile profile;
 
     public GuestInformationTest() {
-        this.dateOfBirth = LocalDate.of(1990, 01,01);
+        this.dateOfBirth = LocalDate.of(1990, 01, 01);
         this.isSubscribedToNewsletter = true;
         this.address = new Address();
         this.profile = new Profile();
@@ -39,7 +39,7 @@ public class GuestInformationTest {
         assertNotNull(guestInformation.getAddress());
         assertNotNull(guestInformation.getProfile());
 
-        assertEquals(LocalDate.of(1990,01,01), guestInformation.getDateOfBirth());
+        assertEquals(LocalDate.of(1990, 01, 01), guestInformation.getDateOfBirth());
         assertEquals(true, guestInformation.isSubscribedToNewsletter());
     }
 }

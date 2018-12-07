@@ -44,7 +44,8 @@ public class Profile {
     @Nullable
     private User user;
 
-    public Profile() {}
+    public Profile() {
+    }
 
     public long getId() {
         return id;

@@ -23,30 +23,11 @@ public class StartUpImpl {
     @Autowired
     private UserServiceImpl userService;
 
-    public StartUpImpl() {}
-
-    public class JSONReader<T>{
-
-        public T[] initObject(Class<T> type, String resourceNameOrPath) throws IOException, NullPointerException
-        {
-            Class<T> classOfT;
-            T[] returnArray = (T[]) Array.newInstance(type, 0);
-
-            ClassLoader classLoader = getClass().getClassLoader();
-            File file = new File(classLoader.getResource(resourceNameOrPath).getFile());
-            if (file.canRead()) {
-                ObjectMapper mapper = new ObjectMapper();
-                returnArray = (T[]) mapper.readValue(file, returnArray.getClass());
-                if (returnArray == null) {
-                    returnArray = (T[]) Array.newInstance(type, 0);
-                }
-            }
-            return returnArray;
-        }
+    public StartUpImpl() {
     }
 
     @PostConstruct
-    public void init(){
+    public void init() {
         ServerLogger.log("==> Dataset - Initializing records...");
         initialiseCountries();
         initialiseDefaultPermissions();
@@ -69,10 +50,10 @@ public class StartUpImpl {
 
         Country country = genericService.findCountryByCode("NL");
 
-        Address address = new Address("ardennen", null,"22", "helmond", "5706 RE", country);
+        Address address = new Address("ardennen", null, "22", "helmond", "5706 RE", country);
 
         GuestInformation guestInformation = new GuestInformation();
-        guestInformation.setDateOfBirth(LocalDate.of(1990, 01,01));
+        guestInformation.setDateOfBirth(LocalDate.of(1990, 01, 01));
         guestInformation.setSubscribedToNewsletter(true);
         guestInformation.setAddress(address);
 
@@ -111,9 +92,8 @@ public class StartUpImpl {
     private void initialiseDefaultUsers() {
         try {
             User[] users = new JSONReader<User>().initObject(User.class, "json/default-users.json");
-            if(users != null) {
-                for (int userIndex = 0; userIndex < users.length; userIndex++)
-                {
+            if (users != null) {
+                for (int userIndex = 0; userIndex < users.length; userIndex++) {
                     users[userIndex].setRole(userService.findRoleByName(users[userIndex].getRole().getName()));
                     users[userIndex].setPassword(users[userIndex].getPassword(), false);
                     users[userIndex].setPasswordResetURI(PasswordEncryption.getPasswordRecoveryUri(users[userIndex]));
@@ -152,6 +132,25 @@ public class StartUpImpl {
         } catch (NullPointerException e) {
             //volatile error, likely due to incorrect translation
             e.printStackTrace();
+        }
+    }
+
+    public class JSONReader<T> {
+
+        public T[] initObject(Class<T> type, String resourceNameOrPath) throws IOException, NullPointerException {
+            Class<T> classOfT;
+            T[] returnArray = (T[]) Array.newInstance(type, 0);
+
+            ClassLoader classLoader = getClass().getClassLoader();
+            File file = new File(classLoader.getResource(resourceNameOrPath).getFile());
+            if (file.canRead()) {
+                ObjectMapper mapper = new ObjectMapper();
+                returnArray = (T[]) mapper.readValue(file, returnArray.getClass());
+                if (returnArray == null) {
+                    returnArray = (T[]) Array.newInstance(type, 0);
+                }
+            }
+            return returnArray;
         }
     }
 }

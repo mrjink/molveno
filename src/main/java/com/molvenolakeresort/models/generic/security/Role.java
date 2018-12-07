@@ -1,8 +1,6 @@
 package com.molvenolakeresort.models.generic.security;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,7 +21,7 @@ public class Role {
     @JsonIgnore
     private Collection<User> users;
 
-    @ManyToMany(fetch=FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "roles_privileges",
             joinColumns = @JoinColumn(
@@ -56,25 +54,21 @@ public class Role {
         return name;
     }
 
-    public void addUser(User user)
-    {
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void addUser(User user) {
         user.setRole(this);
-        if(this.users == null)
-        {
+        if (this.users == null) {
             this.users = new ArrayList<>();
         }
     }
 
-    public void removeUser(User user)
-    {
-        if(this.users != null)
-        {
+    public void removeUser(User user) {
+        if (this.users != null) {
             this.users.remove(user);
         }
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Collection<User> getUsers() {

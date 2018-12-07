@@ -1,9 +1,9 @@
 package com.molvenolakeresort.models.generic;
 
-import com.molvenolakeresort.security.PasswordEncryption;
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
 import com.molvenolakeresort.models.generic.security.User;
+import com.molvenolakeresort.security.PasswordEncryption;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -50,8 +50,7 @@ public class UserTest {
     }
 
     @Test
-    public void testSecurity()
-    {
+    public void testSecurity() {
         User secureUser = new User();
         secureUser.setUsername(this.username);
         secureUser.setPassword(this.password);

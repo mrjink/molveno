@@ -19,7 +19,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name="username", unique = true)
+    @Column(name = "username", unique = true)
     private String username;
 
     private String password;
@@ -48,6 +48,10 @@ public class User implements UserDetails {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return false;
@@ -68,20 +72,15 @@ public class User implements UserDetails {
         return false;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> list = new ArrayList<GrantedAuthority>();
 
         list.add(new SimpleGrantedAuthority(role.getName()));
-        if(role.getPrivileges() != null)
-        for(Privilege p : role.getPrivileges())
-        {
-            list.add(new SimpleGrantedAuthority(p.getName()));
-        }
+        if (role.getPrivileges() != null)
+            for (Privilege p : role.getPrivileges()) {
+                list.add(new SimpleGrantedAuthority(p.getName()));
+            }
 
         return list;
     }
@@ -92,6 +91,7 @@ public class User implements UserDetails {
 
     /**
      * Unsafe method for storing password if the password is not hashed yet. Please check the 2nd overload attribute.
+     *
      * @param password
      */
     public void setPassword(String password) {
@@ -100,11 +100,12 @@ public class User implements UserDetails {
 
     /**
      * Set password with security (used for storing passwords or parsing unhashed pwd retrievals).
+     *
      * @param password
      * @param isHashed if the password is already hashed set true, else set false.
      */
     public void setPassword(String password, boolean isHashed) {
-        if(isHashed) {
+        if (isHashed) {
             this.password = password;
         } else {
             this.password = PasswordEncryption.getHashedPassword(password);
