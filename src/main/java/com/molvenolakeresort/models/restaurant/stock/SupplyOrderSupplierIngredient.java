@@ -1,7 +1,6 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
 import javax.persistence.*;
-import java.util.Optional;
 
 @Entity(name = "SupplyOrderSupplierIngredient")
 @Table(name = "supply_order_supplier_ingredient")
@@ -32,27 +31,43 @@ public class SupplyOrderSupplierIngredient {
         this.quantity = quantity;
     }
 
+    public SupplyOrderSupplierIngredientId getIdSupplyOrderSupplierIngredient() {
+        return idSupplyOrderSupplierIngredient;
+    }
+
+    public void setIdSupplyOrderSupplierIngredient(SupplyOrderSupplierIngredientId idSupplyOrderSupplierIngredient) {
+        this.idSupplyOrderSupplierIngredient = idSupplyOrderSupplierIngredient;
+    }
+
     public SupplyOrder getSupplyOrder() {
         return supplyOrder;
+    }
+
+    public void setSupplyOrder(SupplyOrder supplyOrder) {
+        this.supplyOrder = supplyOrder;
     }
 
     public Ingredient getIngredient() {
         return ingredient;
     }
 
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public SupplyOrderSupplierIngredientId getId() {
-        return idSupplyOrderSupplierIngredient;
-    }
-
-    public SupplyOrderSupplierIngredientId getIdSupplyOrderSupplierIngredient() {
-        return idSupplyOrderSupplierIngredient;
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
     }
 
     public Supplier getSupplier() {
         return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
     }
 }

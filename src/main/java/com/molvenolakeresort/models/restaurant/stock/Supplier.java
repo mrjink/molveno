@@ -7,8 +7,7 @@ import java.util.List;
 @Entity(name = "Supplier")
 @Table(name = "supplier")
 public class Supplier {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long idSupplier;
     private String name;
     private String email;
@@ -22,7 +21,22 @@ public class Supplier {
     )
     private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
 
+    @OneToMany(
+            mappedBy = "supplier",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<SupplierIngredient> supplierIngredients;
+
     public Supplier() {
+    }
+
+    public Long getIdSupplier() {
+        return idSupplier;
+    }
+
+    public void setIdSupplier(Long idSupplier) {
+        this.idSupplier = idSupplier;
     }
 
     public String getName() {
@@ -57,7 +71,19 @@ public class Supplier {
         this.notes = notes;
     }
 
-    public Long getId() {
-        return idSupplier;
+    public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
+        return supplyOrderSupplierIngredients;
+    }
+
+    public void setSupplyOrderSupplierIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
+        this.supplyOrderSupplierIngredients = supplyOrderSupplierIngredients;
+    }
+
+    public List<SupplierIngredient> getSupplierIngredients() {
+        return supplierIngredients;
+    }
+
+    public void setSupplierIngredients(List<SupplierIngredient> supplierIngredients) {
+        this.supplierIngredients = supplierIngredients;
     }
 }
