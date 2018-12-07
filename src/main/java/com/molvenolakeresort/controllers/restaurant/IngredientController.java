@@ -14,7 +14,6 @@ public class IngredientController {
 
     @Autowired
     private final IngredientRepository repository;
-//
 
     public IngredientController(IngredientRepository repository) {
         this.repository = repository;
