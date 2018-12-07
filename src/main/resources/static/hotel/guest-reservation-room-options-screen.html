@@ -323,7 +323,7 @@ Pet:            Yes</PRE>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btnconfirm1">Confirm Booking</button>
+                    <button type="button" class="btn btnconfirm1" onclick="tijdelijkeForward()">Confirm Booking</button>
                 </div>
             </div>
         </div>
@@ -332,7 +332,11 @@ Pet:            Yes</PRE>
 
 
 <script src="/js/hotel/guest-reservation-room-options-screen.js"></script>
-
+<script>
+function tijdelijkeForward(){
+    window.location.href = "/hotel/guest-dashboard.html";;
+}
+</script>
 </body>
 
 </html>
