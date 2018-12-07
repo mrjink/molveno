@@ -265,18 +265,6 @@
             <a class="navbar-brand" href="#"><p id="list_items_paragraph" style="color:white">0 item in list</p></a>
             <a class="navbar-brand" ><button class="btn btn-success" type="button" onclick="viewOrder();">View Order</button></a>
     </nav>
-
-
-    <!-- selection dialog -->
-    
-    <!-- <div class="w3-container">
-
-        <h2>Model title</h2>
-        <p>Content section</p>
-        <button onclick="document.getElementById('selection_dialog')"> Launch dialog</button>
-
-    </div> -->
-    
     
     <div id="selection_dialog" class="w3-modal">
         <!-- selection dialog content -->
@@ -340,20 +328,9 @@
 
       function orderIngredient(selected_ingredient) {
 
-        //   alert(selected_ingredient.rowIndex+" add to order list");
-
-        
         var ingredient = document.getElementById("ingredient_list_table").rows[selected_ingredient.rowIndex].cells[0].innerHTML;
         document.getElementById("dialog_ingredient_name").innerHTML = ingredient;
-        //alert("Row index is: "+order_number);
         document.getElementById('selection_dialog').style.display='block'
-
-        //window.location.href = '/restaurant/SupplierOrder/order_details.html' + '#' + order_number;
-            
-
-        // alert(ingredient+" add to order list at index: "+selected_ingredient.rowIndex);
-
-        // window.location.pathname = "/restaurant/ingredient_order_list/ingredient_order_list.html";
       }
 
    </script>
