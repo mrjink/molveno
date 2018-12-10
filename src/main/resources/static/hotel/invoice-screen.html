@@ -20,6 +20,9 @@
             crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
+            integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
+            crossorigin="anonymous"></script>
 </head>
 
 
@@ -179,32 +182,12 @@
     </div>
 </div>
 
-<script>
-  $(document).ready(function() {
-    var table = $("#myTable").DataTable();
-    $.ajax({
-      url: "/api/invoices/all",
-      type: "get",
-      success: function(result) {
-        $("#myTableBody").html("");
-        $.each(result, function(index, invoice) {
-          var totalAmountBills = 0;
-          for (var i = 0; i < invoice.invoiceLines.length; i++) {
-            totalAmountBills += invoice.invoiceLines[i].invoiceLineCost;
-          }
-          table.row
-            .add([
-              invoice.createdDate.substring(0, 10),
-              invoice.origin,
-              totalAmountBills,
-              invoice.paid
-            ])
-            .draw(false);
-        });
-      }
-    });
-  });
-</script>
+<script src="/js/hotel/invoice-pdf-generator.js">
+ </script>
+
+
+
+
 
 </body>
 
