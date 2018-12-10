@@ -1,8 +1,10 @@
 package com.molvenolakeresort.models.event;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
 
 @Entity
@@ -10,52 +12,14 @@ public class Event {
     @Id
     @GeneratedValue
     private long id;
+    private String name;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private String address;
-    @OneToMany
-    private List<User> users;
-    private int maxUsers;
     private long price;
+    private int maxParticipants;
     private boolean catering;
-    private String location;
-
-    //Hashmap for the language and the eventname
-    HashMap<String, String> eventnameCollection = new HashMap<String, String>();
-
-    //Hashmap for the language and the activity
-    HashMap<String, String> activityCollection = new HashMap<String, String>();
-
-    //Hashmap for the language and the eventInformation
-    HashMap<String, String> eventinformationCollection = new HashMap<String, String>();
-
-    public Event() {
-
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public HashMap<String, String> getEventnameCollection() {
-        return eventnameCollection;
-    }
-
-    public void setEventnameCollection(HashMap<String, String> eventnameCollection) {
-        this.eventnameCollection = eventnameCollection;
-    }
-
-    public HashMap<String, String> getActivityCollection() {
-        return activityCollection;
-    }
-
-    public void setActivityCollection(HashMap<String, String> activityCollection) {
-        this.activityCollection = activityCollection;
-    }
+    private String additionalInformation;
+    //LIST (PROFILES)
 
     public LocalDateTime getStartDate() {
         return startDate;
@@ -73,44 +37,20 @@ public class Event {
         this.endDate = endDate;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public HashMap<String, String> getEventinformationCollection() {
-        return eventinformationCollection;
-    }
-
-    public void setEventinformationCollection(HashMap<String, String> eventinformationCollection) {
-        this.eventinformationCollection = eventinformationCollection;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public int getMaxUsers() {
-        return maxUsers;
-    }
-
-    public void setMaxUsers(int maxUsers) {
-        this.maxUsers = maxUsers;
-    }
-
     public long getPrice() {
         return price;
     }
 
     public void setPrice(long price) {
         this.price = price;
+    }
+
+    public int getMaxParticipants() {
+        return maxParticipants;
+    }
+
+    public void setMaxParticipants(int maxParticipants) {
+        this.maxParticipants = maxParticipants;
     }
 
     public boolean isCatering() {
@@ -121,11 +61,27 @@ public class Event {
         this.catering = catering;
     }
 
-    public String getLocation() {
-        return location;
+    public String getAdditionalInformation() {
+        return additionalInformation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setAdditionalInformation(String additionalInformation) {
+        this.additionalInformation = additionalInformation;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
