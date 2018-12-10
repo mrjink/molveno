@@ -1,6 +1,7 @@
 package com.molvenolakeresort.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.molvenolakeresort.ServerLogger;
 import com.molvenolakeresort.models.generic.Address;
 import com.molvenolakeresort.models.generic.Country;
 import com.molvenolakeresort.models.generic.security.*;
@@ -85,7 +86,7 @@ public class StartUpImpl {
             ServerLogger.log(e.getMessage());
         } catch (NullPointerException e) {
             //volatile error, likely due to incorrect translation
-            e.printStackTrace();
+            ServerLogger.err(e.getMessage());
         }
     }
 
@@ -105,7 +106,7 @@ public class StartUpImpl {
             ServerLogger.log(e.getMessage());
         } catch (NullPointerException e) {
             //volatile error, likely due to incorrect translation
-            e.printStackTrace();
+            ServerLogger.err(e.getMessage());
         }
     }
 
@@ -118,7 +119,7 @@ public class StartUpImpl {
             ServerLogger.log(e.getMessage());
         } catch (NullPointerException e) {
             //volatile error, likely due to incorrect translation
-            e.printStackTrace();
+            ServerLogger.err(e.getMessage());
         }
     }
 
@@ -131,7 +132,7 @@ public class StartUpImpl {
             ServerLogger.log(e.getMessage());
         } catch (NullPointerException e) {
             //volatile error, likely due to incorrect translation
-            e.printStackTrace();
+            ServerLogger.err(e.getMessage());
         }
     }
 

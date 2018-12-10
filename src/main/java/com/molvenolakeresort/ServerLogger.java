@@ -1,4 +1,4 @@
-package com.molvenolakeresort.services.impl;
+package com.molvenolakeresort;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -10,7 +10,7 @@ public class ServerLogger {
     public static void log(String data) {
         logger.info(data);
     }
-
+    public static void err(String data) { logger.severe(data);}
     public static void log(Level level, String data) {
         logger.log(level, data);
     }

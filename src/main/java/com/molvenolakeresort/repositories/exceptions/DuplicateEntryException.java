@@ -18,19 +18,4 @@ public class DuplicateEntryException extends Exception{
         super(String.format("%s already exists: %s", obj.getClass(), obj));
     }
 
-    private DuplicateEntryException() {
-    }
-
-
-    private DuplicateEntryException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    private DuplicateEntryException(Throwable cause) {
-        super(cause);
-    }
-
-    private DuplicateEntryException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
 }

@@ -5,6 +5,9 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.sql.SQLException;
 
 public class DBExceptionHelper {
+
+    private DBExceptionHelper() {}
+
     public static String parseMessage(Exception baseException, String warningIfParsed)
     {
         String message = baseException.getMessage();

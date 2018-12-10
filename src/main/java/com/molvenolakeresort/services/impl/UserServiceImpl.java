@@ -1,5 +1,6 @@
 package com.molvenolakeresort.services.impl;
 
+import com.molvenolakeresort.ServerLogger;
 import com.molvenolakeresort.models.generic.security.Privilege;
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
