@@ -25,27 +25,49 @@ public class SupplyOrderSupplierIngredient {
     public SupplyOrderSupplierIngredient() {
     }
 
-    public SupplyOrder getSupplyOrder() {
-        return supplyOrder;
-    }
-
-    public Ingredient getIngredient() {
-        return ingredient;
-    }
-
-    public double getQuantity() {
-        return quantity;
-    }
-
-    public SupplyOrderSupplierIngredientId getId() {
-        return idSupplyOrderSupplierIngredient;
+    public SupplyOrderSupplierIngredient(Ingredient ingredient, Supplier supplier, double quantity) {
+        this.ingredient = ingredient;
+        this.supplier = supplier;
+        this.quantity = quantity;
     }
 
     public SupplyOrderSupplierIngredientId getIdSupplyOrderSupplierIngredient() {
         return idSupplyOrderSupplierIngredient;
     }
 
+    public void setIdSupplyOrderSupplierIngredient(SupplyOrderSupplierIngredientId idSupplyOrderSupplierIngredient) {
+        this.idSupplyOrderSupplierIngredient = idSupplyOrderSupplierIngredient;
+    }
+
+    public SupplyOrder getSupplyOrder() {
+        return supplyOrder;
+    }
+
+    public void setSupplyOrder(SupplyOrder supplyOrder) {
+        this.supplyOrder = supplyOrder;
+    }
+
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
+    }
+
     public Supplier getSupplier() {
         return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
     }
 }

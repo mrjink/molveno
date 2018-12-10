@@ -13,7 +13,7 @@ public class SupplyOrderSupplierIngredientId implements Serializable {
     @Column(name = "supplier_id")
     private Long idSupplier;
 
-    private SupplyOrderSupplierIngredientId() {
+    public SupplyOrderSupplierIngredientId() {
     }
 
 
@@ -27,11 +27,23 @@ public class SupplyOrderSupplierIngredientId implements Serializable {
         return idSupplyOrder;
     }
 
+    public void setIdSupplyOrder(Long idSupplyOrder) {
+        this.idSupplyOrder = idSupplyOrder;
+    }
+
     public Long getIdIngredient() {
         return idIngredient;
     }
 
+    public void setIdIngredient(Long idIngredient) {
+        this.idIngredient = idIngredient;
+    }
+
     public Long getIdSupplier() {
         return idSupplier;
+    }
+
+    public void setIdSupplier(Long idSupplier) {
+        this.idSupplier = idSupplier;
     }
 }
