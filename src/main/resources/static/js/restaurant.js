@@ -77,14 +77,14 @@ function addReservation(json){
         contentType: "application/json;",
         success: function(){
             console.log("Het is gelukt.., toch?");
-            window.location.href = "/restaurant/reservation/confirm";
+            window.location.href = "/restaurant/reservation/confirm.html";
         },
         error: function(xhr,ajaxOptions,thrownError){
             console.log("Niet gelukt jammer joh");
             //TODO: fail state should not send to confirm
-            window.location.href = "/restaurant/reservation/confirm";
-        	alert(xhr.status);
-        	alert(thrownError);
+            window.location.href = "/restaurant/reservation/confirm.html";
+//        	alert(xhr.status);
+//        	alert(thrownError);
         }
     });
 }
