@@ -5,29 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Order Menu</title>
     <link rel="icon" href="/img/logo_128.png" type="image/png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/event/style.css" type="text/css"/>
-    <link rel="stylesheet" href="/css/restaurant.css" type="text/css"/>
 
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
 
-    <link href="../css/restaurant.css" rel="stylesheet">
+    <link href="../../../css/restaurant.css" rel="stylesheet">
+    <link href="../../../css/event/sticky-footer-navbar.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-    <!--&lt;!&ndash; Bootstrap core CSS &ndash;&gt;-->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src=../../../../js/menu.js></script>
     <script src="../../../../js/restaurant/TabletMenu.js"></script>
 
@@ -41,6 +33,11 @@
         includeHTML();
 
 
+
+
+
+
+
         </script>
 
     </header>
@@ -49,185 +46,117 @@
     <main>
 
         <div class="container">
-            <h3>Table number .....</h3>
-            <h3>Guest name: ....</h3>
+            <div class="card" style="">
+                <div class="card-body">
+            <h5>Table number: .....</h5>
+            <h5>Guest name: ....</h5>
+            </div>
+            </div>
             <br>
-            <ul class="nav nav-tabs">
-                <li ><a data-toggle="tab" href="#home">Food</a></li>
-                <li><a data-toggle="tab" href="#menu1">Drinks</a></li>
-                <li class="active"><a data-toggle="tab" href="#menu2">Order</a></li>
-                <li><a data-toggle="tab" href="#menu3">Order History</a></li>
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                       aria-controls="home" aria-selected="true">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="menu1-tab" data-toggle="tab" href="#menu1" role="tab" aria-controls="menu1"
+                       aria-selected="false">Drinks</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="menu2-tab" data-toggle="tab" href="#menu2" role="tab" aria-controls="menu2"
+                       aria-selected="false">Order</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="menu3-tab" data-toggle="tab" href="#menu3" role="tab" aria-controls="menu3"
+                       aria-selected="false">Order History</a>
+                </li>
             </ul>
 
+
             <div class="tab-content">
-                <div id="home" class="tab-pane fade in active">
+                <div id="home" class="tab-pane fade show active" role="tabpanel">
 
                     <!--food items-->
-                    <form id="food-form" data-cart-submit="data-cart-submit">
-                        <div id="accordion">
-                            <div class="card">
-                                <div class="card-header" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                                aria-expanded="true" aria-controls="collapseOne">
-                                            Multi course menu's
-                                        </button>
-                                    </h5>
-                                </div>
+                    <form id="food-form">
+                        <table id="CourseMenu" class="table table-sm justify-content-center">
+                            <thead>
+                            <tr>
 
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                     data-parent="#accordion">
-                                    <div class="card-body">
-
-                                        <table id="course-menu's" class="table table-sm justify-content-center">
-                                            <thead>
-                                            <tr>
-                                                <td>3 course Diner</td>
-                                                <td>
-                                                    <input type="number" min="0" max="12" class="form-control"
-                                                           name="amount">
-                                                </td>
-
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingTwo">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseTwo"
-                                                aria-expanded="false" aria-controls="collapseTwo">
-                                            Breakfast
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                     data-parent="#accordion">
-                                    <div class="card-body">
-
-                                        <table id="Breakfast-menu" class="table table-sm justify-content-center">
-                                            <thead>
-                                            <tr>
-                                                <th>Breakfast</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Menu</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseThree" aria-expanded="false"
-                                                aria-controls="collapseThree">
-                                            Lunch
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                     data-parent="#accordion">
-                                    <div class="card-body">
-
-                                        <table id="Lunch-menu" class="table table-sm justify-content-center">
-                                            <thead>
-                                            <tr>
-                                                <th>Lunch</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Menu</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingFour">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseFour" aria-expanded="false"
-                                                aria-controls="collapseFour">
-                                            A la Carte
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
-                                     data-parent="#accordion">
-                                    <div class="card-body">
-
-                                        <table id="Diner-menu" class="table table-sm justify-content-center">
-                                            <thead>
-                                            <tr>
-                                                <th>A la Carte</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Menu</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingFive">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                data-target="#collapseFive" aria-expanded="false"
-                                                aria-controls="collapseFive">
-                                            Dessert
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive"
-                                     data-parent="#accordion">
-                                    <div class="card-body">
-
-                                        <table id="Dessert-menu" class="table table-sm justify-content-center">
-                                            <thead>
-                                            <tr>
-                                                <th>Dessert</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>Menu</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                                <th>Multi course dinners</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>3 course Diner</td>
+                                <td>$25.00</td>
+                                <td>
+                                    <input type="number" min="0" max="12" class="form-control"
+                                           name="amount">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>5 course Diner</td>
+                                <td>$30.00</td>
+                                <td>
+                                    <input type="number" min="0" max="12" class="form-control"
+                                           name="amount">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
 
 
-                        </div>
+                        <table id="Breakfast-menu" class="table table-sm justify-content-center">
+                            <thead>
+                            <tr>
+                                <th>Breakfast (until 12.00 hour)</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Croissant</td>
+                                <td>$2.25</td>
+                                <td>
+                                    <input type="number" min="0" max="12" class="form-control"
+                                           name="amount">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table id="Diner-menu" class="table table-sm justify-content-center">
+                            <thead>
+                            <tr>
+                                <th>A la Carte</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Menu</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table id="Dessert-menu" class="table table-sm justify-content-center">
+                            <thead>
+                            <tr>
+                                <th>Dessert</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Menu</td>
+                            </tr>
+                            </tbody>
+                        </table>
                         <br>
                         <div>
-                            <button id="addFood" type="submit" class="btn btn-outline-primary">Add Items to order
+                            <button id="addFood" type="submit" class="btn btn-outline-primary">Add Items to
+                                order
                             </button>
                         </div>
                     </form>
                 </div>
-                <div id="menu1" class="tab-pane fade">
+                <div id="menu1" class="tab-pane fade" role="tabpanel">
                     <form id="drink-form" data-cart-submit="data-cart-submit">
                         <table id="Drinks-menu" class="table justify-content-center">
                             <thead>
@@ -258,44 +187,44 @@
                     </form>
                 </div>
 
-                <div id="menu2" class="tab-pane fade">
-                        <table id="Order" class="table">
-                            <thead>
-                            <tr>
-                                <th>Amount</th>
-                                <th>Item</th>
-                                <th>Price per Item</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>3x</td>
-                                <td>Item 1</td>
-                                <td>$5.80</td>
-                                <td>
-                                    <button class="btn btn-outline-primary">Remove</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6x</td>
-                                <td>Item 2</td>
-                                <td>$2.80</td>
-                                <td>
-                                    <button class="btn btn-outline-primary">Remove</button>
-                                </td>
+                <div id="menu2" class="tab-pane fade" role="tabpanel">
+                    <table id="Order" class="table">
+                        <thead>
+                        <tr>
+                            <th>Amount</th>
+                            <th>Item</th>
+                            <th>Price per Item</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>3x</td>
+                            <td>Item 1</td>
+                            <td>$5.80</td>
+                            <td>
+                                <button class="btn btn-outline-primary">Remove</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6x</td>
+                            <td>Item 2</td>
+                            <td>$2.80</td>
+                            <td>
+                                <button class="btn btn-outline-primary">Remove</button>
+                            </td>
 
-                            </tr>
-                            </tbody>
+                        </tr>
+                        </tbody>
 
-                        </table>
-                        <button onclick="PlaceOrder()" class="btn btn-outline-primary" href="#PlaceOrder" type="button">
-                            Order
-                            Items
-                        </button>
+                    </table>
+                    <button onclick="PlaceOrder()" class="btn btn-outline-primary" href="#PlaceOrder" type="button">
+                        Order
+                        Items
+                    </button>
 
 
                 </div>
-                <div id="menu3" class="tab-pane fade">
+                <div id="menu3" class="tab-pane fade" role="tabpanel">
                     <table id="OrderHistoryT" class="table ">
                         <thead>
                         <tr>
@@ -347,8 +276,6 @@
         crossorigin="anonymous"></script>
 <!--page specific-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <!--cart script https://cartjs.org/pages/guide-->
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/shopify-cartjs/0.4.1/cart.min.js"></script>-->
