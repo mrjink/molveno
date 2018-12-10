@@ -29,7 +29,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         //Login,logout page and resources are permitted for all users
         http.authorizeRequests().antMatchers("/", "/login", "/logout", "/resources/**").permitAll();
+
+        http.headers().frameOptions().disable();
     }
-
-
 }

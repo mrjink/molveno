@@ -26,7 +26,7 @@ public class GuestController {
     }
 
     @RequestMapping(value = "newsletterStatus/{id}", method = RequestMethod.PATCH)
-    public Guest setNewsLetterStatus(@PathVariable int id, @RequestBody Guest guestFromWebsite){
+    public Guest setNewsLetterStatus(@PathVariable long id, @RequestBody Guest guestFromWebsite){
         Guest guestFromDatabase = guestRepository.getOne(id);
         guestFromDatabase.setNewsletterSubscribed(guestFromWebsite.isNewsletterSubscribed());
         guestRepository.save(guestFromDatabase);

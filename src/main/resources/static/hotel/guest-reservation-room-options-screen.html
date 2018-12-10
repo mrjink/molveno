@@ -123,7 +123,7 @@
 
         <div class="card">
             <div class="card-body">
-                <div align="center" ;>
+                <div align="center">
                     <b>Main Booker</b>
                 </div>
                 <div>
@@ -151,49 +151,58 @@ Pet:            Yes</PRE>
         </div>
     </div>
 
-
     <div class="col-4">
 
         <div class="container" style="background-color: #eeeeee; color: #005693;">
             <div class="list-group">
                 <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
-                        onmouseover="yoran.src='/img/luxury2.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
-                    Room with 3 King size beds<br>
-                    <div class="float-right"><span class="alert alert-primary">Rooms left: 5!</span></div>
+                        data-toggle="modal" data-target="#myModal"
+                        onmouseover="yoran.src='/img/luxury2.jpg';"
+                        onclick="printRoom(1)">
+                    <p id="par1"><nobr>Room with 3 King size beds</nobr><br><nobr>TV + Balcony view + Air conditioning</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 5</span><br></div>
                     <br>
-                    TV + Balcony view + Air conditioning
+
                 </button>
                 <br>
                 <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
-                        onmouseover="yoran.src='/img/kingsize.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
-                    Room with 2 King size beds + 1 Single Person Bed<br>
-                    <div class="float-right"><span class="alert alert-primary">Rooms left: 3!</span></div>
+                        onmouseover="yoran.src='/img/kingsize.jpg';"
+                        data-toggle="modal" data-target="#myModal"
+                        onclick="printRoom(2)">
+                    <p id="par2"><nobr>Room with 2 King size beds + 1 Single Person Bed</nobr><br><nobr>TV + Air conditioning</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 3</span></div>
                     <br>
-                    TV + Air conditioning
+
                 </button>
                 <br>
                 <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
-                        onmouseover="yoran.src='/img/queensize.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
-                    Room with 1 King size bed + 1 Queen Size Beds<br>
-                    <div class="float-right"><span class="alert alert-primary">Rooms left: 1!</span></div>
+                        onmouseover="yoran.src='/img/queensize.jpg';"
+                        data-toggle="modal" data-target="#myModal"
+                        onclick="printRoom(3)">
+                    <p id="par3"><nobr>Room with 1 King size bed + 1 Queen Size Bed</nobr><br><nobr>TV</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 1</span></div>
                     <br>
-                    TV
+
                 </button>
                 <br>
                 <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
-                        onmouseover="yoran.src='/img/dualspbed.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
-                    Room with 1 Queen size bed + 2 Single Person Beds<br>
-                    <div class="float-right"><span class="alert alert-primary">Rooms left: 7!</span></div>
+                        onmouseover="yoran.src='/img/dualspbed.jpg';"
+                        data-toggle="modal" data-target="#myModal"
+                        onclick="printRoom(4)">
+                    <p id="par4"><nobr>Room with 1 Queen size bed + 2 Single Person Beds</nobr><br><nobr>TV + Balcony View</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 7</span></div>
                     <br>
-                    TV + Balcony View
+
                 </button>
                 <br>
                 <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
-                        onmouseover="yoran.src='/img/dualspbed.jpg';" onmouseout="yoran.src='/img/logo_4000.png';">
-                    Room with 1 Queen size bed + 2 Single Person Beds<br>
-                    <div class="float-right"><span class="alert alert-primary">Rooms left: 10!</span></div>
+                        onmouseover="yoran.src='/img/dualspbed.jpg';"
+                        data-toggle="modal" data-target="#myModal"
+                        onclick="printRoom(5)">
+                    <p id="par5"><nobr>Room with 1 Queen size bed + 2 Single Person Beds</nobr><br><nobr>Air conditioning</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 10</span></div>
                     <br>
-                    Air conditioning
+
                 </button>
             </div>
         </div>
@@ -205,9 +214,129 @@ Pet:            Yes</PRE>
 
 </div>
 
+<div class="container" style="font-size: 12px;">
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header" style="align-self: center;">
+                    <h4 class="modal-title">Your booking</h4>
+                    <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 20px;">
+                        &times;
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="modal-body">
+                            <b>Main Booker:</b><br>
+                            <br>
+                            Name<br>
+                            Address<br>
+                            Postal Code<br>
+                            City<br>
+                            Country<br>
+                            Birth Date<br>
+                            <br>
+                            <b>Time of stay</b><br>
+                            <br>
+                            Booking Date<br>
+                            Adults<br>
+                            Children<br>
+                            Pet<br>
+                            <br>
+                            <b>Other guests:</b><br>
+                            <br>
+                            Name<br>
+                            Birth Date<br>
+                            <br>
+                            <b>Pet:</b><br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="modal-body">
+                            <br>
+                            <br>
+                            Simon Boonstra<br>
+                            Reykjavikplein 1<br>
+                            3543KA<br>
+                            Utrecht<br>
+                            Netherlands<br>
+                            02-05-1969<br>
+                            <br>
+                            <br>
+                            <br>
+                            01/12/2018 - 10-12-2018<br>
+                            2<br>
+                            0<br>
+                            Yes<br>
+                            <br>
+                            <br>
+                            <br>
+                            Cornelia Foefel<br>
+                            09-05-1983<br>
+                            <br>
+                            Dog
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="col-6">
+                            <b>Room information:</b><br>
+                            <br>
+                            <p id="output"></p>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="modal-body">
+                            <b>Payment information:</b><br>
+                            <br>
+                            Price<br>
+                            <nobr>City Tax</nobr>
+                            <br>
+                            <br>
+                            Total ex. VAT<br>
+                            <nobr>VAT (26,67%)</nobr>
+                            <br>
+                            <br>
+                            Total<br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-4" style="text-align: right;">
+                        <div class="modal-body">
+                            <br><br><br>
+                            50,-&nbsp;<br>
+                            25,-&nbsp;<br>
+                            _______+<br>
+
+                            75,-&nbsp;<br>
+                            20,-&nbsp;<br>
+                            _______+<br>
+                            95,-&nbsp;<br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btnconfirm1" onclick="tijdelijkeForward()">Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script src="/js/hotel/guest-reservation-room-options-screen.js"></script>
-
-
+<script>
+function tijdelijkeForward(){
+    window.location.href = "/hotel/guest-dashboard.html";;
+}
+</script>
 </body>
 
 </html>
