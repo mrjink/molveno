@@ -99,9 +99,8 @@ return $('#events').DataTable({
 {
 "text": 'Create Event',
 "className": "btn",
-"init": function (dt, node, config) {
-$(node[0]).attr("data-toggle", "modal");
-$(node[0]).attr("data-target", "#newEvent");
+"action": function () {
+otherPage();
 }
 },
 {
@@ -118,7 +117,7 @@ $(node[0]).attr("data-target", "#newEvent");
 "className": "btn",
 "action": function (e, dt, button, config) {
 var event = dt.data()[dt.rows({selected: true})[0]];
-toggleWatched(event);
+cancelEvent(event);
 }
 },
 {
@@ -143,35 +142,15 @@ deleteEvent(event);
 });
 }());
 
+var otherPage = function(){
+    location.href='create.html';
+};
+
 var getEvents = function () {
 eventsTable.ajax.reload(null, false);
 };
 
-
-/* var postData = function () {
-var eventTitle = $('#eventTitle').val();
-if (eventTitle === "") {
-return;
-}
-$.ajax({
-url: "http://localhost:8080/event",
-type: "post",
-data: JSON.stringify({
-title: eventTitle
-}),
-contentType: "application/json",
-success: function (result) {
-$('#eventTitle').val("");
-$('#newEvent').modal('hide');
-getEvents();
-},
-error: function (result) {
-window.alert("Couldn't add event! " + result.responseText);
-}
-});
-};
-
-var toggleWatched = function (event) {
+var cancelEvent = function (event) {
 $.ajax({
 url: event["_links"]["self"]["href"],
 type: "patch",
@@ -187,7 +166,7 @@ window.alert("Couldn't change '" + event.name + "'! " + result.responseText);
 }
 });
 };
-*/
+
 var deleteEvent = function (event) {
 if (window.confirm("Are you sure you want to delete '" + event.name + "'?")) {
 $.ajax({
