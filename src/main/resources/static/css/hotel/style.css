@@ -82,18 +82,13 @@
      text-align: left;
      background-color: #005693;
      color: white;
-     padding-right: 0\;
-     padding-right: 0px;
      padding-right: 0px;
  }
 
  #mealOptions {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    padding-left: 0\;
     padding-left: 0px;
-    padding-left: 0px;
-
     float: left;
  }
 
