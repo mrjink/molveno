@@ -103,15 +103,28 @@
             <button id="add" class="btn btn-primary" type="submit" onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">ADD</button>
         </div>
 
-        <!--Pop-up option-->
+        <div class="form-group col-12 col-md-5">
+            <label>Notes</label>
+            <textarea class="form-control" placeholder="Type your notes here..." rows="3" style="font-size:12px; font-style:italic;"></textarea>
+        </div>
+
+        <!--Pop-up Search Ingredient-->
         <div class="w3-container">
 
             <div id="id01" class="w3-modal">
                 <div class="w3-modal-content">
-                    <div class="w3-container">
+                    <div id="pad" class="w3-container">
                         <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                        <input type="search" id="mySearch" placeholder="Search..." style="font-style:italic;">
-                        <button onclick="myFunction()">OK</button>
+
+                        <div id="custom-search-input" class="row col-md-6 rounded float-right" style="margin-bottom: 10px;">
+                            <div class="input-group col-md-12">
+                                <input type="search" class="form-control input-lg" placeholder="Search..." />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" onclick="myFunction()">OK</button>
+                                </span>
+                            </div>
+                        </div>
+
                         <table class="table table-striped" >
                             <thead>
                                 <tr>
@@ -151,15 +164,52 @@
                             </tfoot>
                         </table>
 
-                        <button class="btn btn-primary" type="submit">ADD</button>
+                        <button class="btn btn-primary rounded float-right" type="submit" onclick="document.getElementById('id02').style.display='block'">Add ingredient</button>
+                        <button class="btn btn-primary rounded float-right" type="submit" style="margin-right:10px">Ok</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="form-group col-12 col-md-5">
-            <label>Notes</label>
-            <textarea class="form-control" placeholder="Type your notes here..." rows="3" style="font-size:12px; font-style:italic;"></textarea>
+
+
+<!--Pop-up 2 Add ingredient-->
+        <div id="id02" class="w3-modal">
+            <div class="w3-modal-content">
+                <div id="pad2" class="w3-container">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+
+                    <div class="row col-12 col-md-5">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Name..." style= "font-style:italic; margin-bottom:10px;">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-12 col-md-4">
+                        <label>Type Dish</label>
+                        <select class="form-control">
+                            <option selected>Choose Dish</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-12 col-md-4">
+                        <label>Unit</label>
+                        <select class="form-control">
+                            <option selected>Choose Unit</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-12 col-md-10">
+                        <label>Notes</label>
+                        <textarea class="form-control" placeholder="Type your notes here..." rows="5" style="font-size:12px; font-style:italic;"></textarea>
+                    </div>
+
+
+                </div>
+            </div>
         </div>
 
         <button id="add2" class="btn btn-primary" type="submit">ADD</button>
