@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var table = $("#myTable").DataTable();
     $.ajax({
-        url: "/api/invoices/all",
+        url: "/api/invoice/all",
         type: "get",
         success: function(result) {
             $("#myTableBody").html("");

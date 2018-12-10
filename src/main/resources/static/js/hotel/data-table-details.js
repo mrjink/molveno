@@ -58,7 +58,7 @@ function generateTableRow( g ) {
 $(document).ready( function () {
     var table = $('#myTable').DataTable({
         ajax: {
-	        url: '../api/rooms/all',
+	        url: '../api/room/all',
 	        dataSrc: ''
         },
         columns: [
