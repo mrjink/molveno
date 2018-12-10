@@ -1,7 +1,5 @@
 package com.molvenolakeresort.repositories.exceptions;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public class DuplicateEntryException extends Exception{
 
     public DuplicateEntryException(String message) {

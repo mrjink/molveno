@@ -1,13 +1,8 @@
 package com.molvenolakeresort.controllers.generic;
 
-import com.molvenolakeresort.controllers.exceptions.EntityNotFoundException;
-import com.molvenolakeresort.models.generic.security.GuestInformation;
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.services.GenericService;
 import com.molvenolakeresort.services.UserService;
-import com.molvenolakeresort.services.impl.GenericServiceImpl;
-import com.molvenolakeresort.services.impl.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import javax.inject.Inject;
 import java.util.Optional;
 
