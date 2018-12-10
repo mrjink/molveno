@@ -174,3 +174,7 @@ overflow:hidden;
 #roomStatusPicture{
   padding: 0px;
 }
+
+#unsubEmail{
+  font-size: 12pt;
+}
