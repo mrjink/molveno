@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/restaurant/reservation")
+@RequestMapping("api/restaurant/restaurantreservation")
 public class RestaurantReservationController {
 
     private final RestaurantReservationRepository repository;
