@@ -14,21 +14,30 @@
 
     <link rel="stylesheet" href="/css/event/sticky-footer-navbar.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/event/event.css" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowgroup/1.1.0/css/rowGroup.bootstrap4.min.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.6/css/select.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="/css/event/event.css" type="text/css"/>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
+            crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/responsive.bootstrap4.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/responsive/2.2.2/js/responsive.bootstrap4.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.6/js/dataTables.select.min.js"></script>
 </head>
@@ -47,14 +56,14 @@
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Activity</th>
                     <th>Start date</th>
                     <th>End date</th>
-                    <th>Description</th>
-                    <th>Address</th>
-                    <th>Location</th>
-                    <th>Max users</th>
                     <th>Price</th>
+                    <th>Max. participants</th>
+                    <th>Catering</th>
+                    <th>Activity</th>
+                    <th>Information</th>
+                    <th>Additional information</th>
                 </tr>
                 </thead>
             </table>
@@ -70,112 +79,130 @@ return $('#events').DataTable({
 "dom": "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-4'f>>" +
 "<'row'<'col-sm-12'tr>>" +
 "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-"buttons": [
-{
-"text": 'Add movie',
-"className": "btn",
-"init": function (dt, node, config) {
-$(node[0]).attr("data-toggle", "modal");
-$(node[0]).attr("data-target", "#newMovie");
-}
-},
-{
-"extend": 'selected',
-"text": 'Toggle watched',
-"className": "btn",
-"action": function (e, dt, button, config) {
-var movie = dt.data()[dt.rows({selected: true})[0]];
-toggleWatched(movie);
-}
-},
-{
-"extend": 'selected',
-"text": 'Delete',
-"className": "btn btn-danger",
-"action": function (e, dt, button, config) {
-var movie = dt.data()[dt.rows({selected: true})[0]];
-deleteMovie(movie);
-}
-}
-],
 "select": "single",
 "ajax": {
 "url": "http://localhost:8080/event",
 "dataSrc": "_embedded.events"
 },
 "columns": [
-{"data": "eventnameCollection"},
-{"data": "activityCollection"},
+{"data": "name"},
 {"data": "startDate"},
 {"data": "endDate"},
-{"data": "eventinformationCollection"},
-{"data": "address"},
-{"data": "location"},
-{"data": "maxUsers"},
-{"data": "price"}
+{"data": "price"},
+{"data": "maxParticipants"},
+{"data": "catering"},
+{"data": "additionalInformation"},
+{"data": "activity"},
+{"data": "information"}
+],
+"buttons": [
+{
+"text": 'Create Event',
+"className": "btn",
+"init": function (dt, node, config) {
+$(node[0]).attr("data-toggle", "modal");
+$(node[0]).attr("data-target", "#newEvent");
+}
+},
+{
+"text": 'Edit Event',
+"className": "btn",
+"init": function (dt, node, config) {
+$(node[0]).attr("data-toggle", "modal");
+$(node[0]).attr("data-target", "#newEvent");
+}
+},
+{
+"extend": 'selected',
+"text": 'Cancel Event',
+"className": "btn",
+"action": function (e, dt, button, config) {
+var event = dt.data()[dt.rows({selected: true})[0]];
+toggleWatched(event);
+}
+},
+{
+"extend": 'selected',
+"text": 'Delete Event',
+"className": "btn btn-danger",
+"action": function (e, dt, button, config) {
+var event = dt.data()[dt.rows({selected: true})[0]];
+deleteEvent(event);
+}
+},
+{
+"extend": 'selected',
+"text": 'Export to pdf',
+"className": "btn",
+"action": function (e, dt, button, config) {
+var event = dt.data()[dt.rows({selected: true})[0]];
+deleteEvent(event);
+}
+}
 ]
 });
 }());
 
-var getMovies = function () {
-moviesTable.ajax.reload(null, false);
+var getEvents = function () {
+eventsTable.ajax.reload(null, false);
 };
 
 
 /* var postData = function () {
-var movieTitle = $('#movieTitle').val();
-if (movieTitle === "") {
+var eventTitle = $('#eventTitle').val();
+if (eventTitle === "") {
 return;
 }
 $.ajax({
-url: "http://localhost:8080/api/movie",
+url: "http://localhost:8080/event",
 type: "post",
 data: JSON.stringify({
-title: movieTitle
+title: eventTitle
 }),
 contentType: "application/json",
 success: function (result) {
-$('#movieTitle').val("");
-$('#newMovie').modal('hide');
-getMovies();
+$('#eventTitle').val("");
+$('#newEvent').modal('hide');
+getEvents();
 },
 error: function (result) {
-window.alert("Couldn't add movie! " + result.responseText);
+window.alert("Couldn't add event! " + result.responseText);
 }
 });
 };
 
-var toggleWatched = function (movie) {
+var toggleWatched = function (event) {
 $.ajax({
-url: movie["_links"]["self"]["href"],
+url: event["_links"]["self"]["href"],
 type: "patch",
 data: JSON.stringify({
-"watched": !movie.watched
+"watched": !event.watched
 }),
 contentType: "application/json",
 success: function (result) {
-getMovies();
+getEvents();
 },
 error: function (result) {
-window.alert("Couldn't change '" + movie.title + "'! " + result.responseText);
+window.alert("Couldn't change '" + event.name + "'! " + result.responseText);
 }
 });
 };
 
-var deleteMovie = function (movie) {
-if (window.confirm("Are you sure you want to delete '" + movie.title + "'?")) {
+var deleteEvent = function (event) {
+if (window.confirm("Are you sure you want to delete '" + event.name + "'?")) {
 $.ajax({
-url: movie["_links"]["self"]["href"],
+url: event["_links"]["self"]["href"],
 type: "delete",
 success: function (result) {
-getMovies();
+getEvents();
 },
 error: function (result) {
-window.alert("Couldn't delete '" + movie.title + "'! " + result.responseText);
+window.alert("Couldn't delete '" + event.name + "'! " + result.responseText);
 }
 });
 }
 };*/
+
 </script>
 </body>
 </html>

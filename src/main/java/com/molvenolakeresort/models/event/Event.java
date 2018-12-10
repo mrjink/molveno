@@ -19,6 +19,8 @@ public class Event {
     private int maxParticipants;
     private boolean catering;
     private String additionalInformation;
+    private String activity;
+    private String information;
     //LIST (PROFILES)
 
     public LocalDateTime getStartDate() {
@@ -83,5 +85,21 @@ public class Event {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
     }
 }
