@@ -51,7 +51,6 @@
             url: "http://localhost:8080/event",
             type: "post",
             data: JSON.stringify({
-                //address:eventAdress
                 name:name
                 ,startDate:sdatetime
                 ,endDate:edatetime
