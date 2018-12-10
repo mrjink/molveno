@@ -48,12 +48,12 @@
                       document.getElementById("user").innerHTML = "<b>Kitchen Chef</b>";
                       document.getElementById("header_title").innerHTML = "Table bills";
 
-                       
                        if(myFunctionTag == 1)
                        {
                         document.getElementById("header_title").innerHTML = "Inventory Orders1";
                        }
 
+                       alert("Current state: "+global);
                       }
                   if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
                   //Remove the attribute, and call this function once more:
@@ -88,6 +88,15 @@ a {
 
        <script>
             includeHTML();
+
+            // window.onload = function() {
+            //   // yourFunction(param1, param2);
+            //   checkState(1);
+
+            //   console.log('Windows on load!');
+            // };
+
+
         </script>
         <!--Include customer header-->
 
@@ -109,28 +118,28 @@ a {
                           <td class="table_number">1</td>
                           <td></td>
                           <td></td>
-                          <td>$250,85</td>
+                          <td>$698,50</td>
                       </tr>
                       <tr onclick="showOrderDetail(this)">
                         <th scope="row"><input type="checkbox" name="order12_checkbox" value="table_2"><br></th>
                         <td class="table_number">2</td>
                         <td></td>
                         <td></td>
-                        <td>€65,85</td>
+                        <td>$65,85</td>
                       </tr>
                         <tr onclick="showOrderDetail(this)">
                         <th scope="row"><input type="checkbox" name="order12_checkbox" value="table_3"><br></th>
                         <td class="table_number">3</td>
                         <td></td>
                         <td></td>
-                        <td>€650,85</td>
+                        <td>$650,85</td>
                       </tr>
                       <tr onclick="showOrderDetail(this)">
                         <th scope="row"><input type="checkbox" name="order12_checkbox" value="table_4"><br></th>
                         <td class="table_number">4</td>
                         <td></td>
                         <td></td>
-                        <td>€300,85</td>
+                        <td>$300,85</td>
                       </tr>
                       </tbody>
                   </table>
@@ -148,7 +157,7 @@ a {
         <!-- selection dialog content -->
         <div class="w3-modal-content">
             <header style="background-color:#005693; height: 38px;">
-                <span onclick="document.getElementById('selection_dialog').style.display='none'" class="w3-button w3-display-topright" style="color: white; height: 38px;">
+                <span onclick="document.getElementById('order_detail_dialog').style.display='none'" class="w3-button w3-display-topright" style="color: white; height: 38px;">
                         &times;
                 </span>
                 <div style="height: 40px;">
