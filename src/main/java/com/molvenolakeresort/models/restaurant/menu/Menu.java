@@ -15,9 +15,6 @@ public class Menu {
     @Id
     @GeneratedValue
     private Long idMenu;
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    private List<MenuItem> menuItems;
-    //Name of menuItem bundle
     private String name;
     private MenuCategory category;
 
@@ -28,8 +25,20 @@ public class Menu {
     public Menu() {
     }
 
-    public Long getId() {
+    public Long getIdMenu() {
         return idMenu;
+    }
+
+    public void setIdMenu(Long idMenu) {
+        this.idMenu = idMenu;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public MenuCategory getCategory() {
@@ -46,13 +55,5 @@ public class Menu {
 
     public void setMenuItems(List<MenuItem> menuItems) {
         this.menuItems = menuItems;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
