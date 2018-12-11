@@ -24,20 +24,13 @@
     <script src="../../../../js/restaurant/TabletMenu.js"></script>
 
 </head>
-<body>
+<body onload="getDataTablet()">
 <div class="content">
     <header>
         <div w3-include-html="/../header_admin/header.html"></div>
 
         <script>
         includeHTML();
-
-
-
-
-
-
-
         </script>
 
     </header>
@@ -85,24 +78,24 @@
                                 <th>Multi course dinners</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td>3 course Diner</td>
-                                <td>$25.00</td>
-                                <td>
-                                    <input type="number" min="0" max="12" class="form-control"
-                                           name="amount">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5 course Diner</td>
-                                <td>$30.00</td>
-                                <td>
-                                    <input type="number" min="0" max="12" class="form-control"
-                                           name="amount">
-                                </td>
-                            </tr>
-                            </tbody>
+                            <!--<tbody>-->
+                            <!--<tr>-->
+                                <!--<td>3 course Diner</td>-->
+                                <!--<td>$25.00</td>-->
+                                <!--<td>-->
+                                    <!--<input type="number" min="0" max="12" class="form-control"-->
+                                           <!--name="amount">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--<tr>-->
+                                <!--<td>5 course Diner</td>-->
+                                <!--<td>$30.00</td>-->
+                                <!--<td>-->
+                                    <!--<input type="number" min="0" max="12" class="form-control"-->
+                                           <!--name="amount">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            <!--</tbody>-->
                         </table>
 
 
@@ -112,41 +105,32 @@
                                 <th>Breakfast (until 12.00 hour)</th>
                             </tr>
                             </thead>
-                            <tbody>
+
+                        </table>
+                        <table id="Lunch-menu" class="table table-sm justify-content-center">
+                            <thead>
                             <tr>
-                                <td>Croissant</td>
-                                <td>$2.25</td>
-                                <td>
-                                    <input type="number" min="0" max="12" class="form-control"
-                                           name="amount">
-                                </td>
+                                <th>Lunch</th>
                             </tr>
-                            </tbody>
+                            </thead>
+
                         </table>
 
-                        <table id="Diner-menu" class="table table-sm justify-content-center">
+                        <table id="Dinner-menu" class="table table-sm justify-content-center">
                             <thead>
                             <tr>
                                 <th>A la Carte</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td>Menu</td>
-                            </tr>
-                            </tbody>
+
                         </table>
-                        <table id="Dessert-menu" class="table table-sm justify-content-center">
+                        <table id="Desert-menu" class="table table-sm justify-content-center">
                             <thead>
                             <tr>
-                                <th>Dessert</th>
+                                <th>Desert</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <td>Menu</td>
-                            </tr>
-                            </tbody>
+
                         </table>
                         <br>
                         <div>

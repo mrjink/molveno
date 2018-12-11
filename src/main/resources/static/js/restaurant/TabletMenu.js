@@ -13,6 +13,60 @@ function Pay() {
     confirm("Do you want to pay the bill now?");
 }
 
+
+ function getDataTablet () {
+
+            $.ajax({
+            url: "http://localhost:8080/api/restaurant/menuitem/all",
+            type: "get",
+            success: function (result) {
+                console.log(result);
+
+                $.each(result, function (index, menuItem) {
+
+                    var tr = $("<tr></tr>");
+                    var name = $("<td></td>").text(menuItem.name);
+                    var description= $("<td></td>").text(menuItem.description);
+                     var price= $("<td></td>").text("$"+menuItem.price);
+                    var category= $("<td></td>").text(menuItem.category);
+                    var order = $("<td></td>").text("Order").click(function () {
+                        orderItem(menuItem.id)                    });
+                    tr.append(name, description, price, order );
+                    ((menuItem.category=="BREAKFAST")? $('#Breakfast-menu').append(tr): '');
+                    ((menuItem.category=="LUNCH")? $('#Lunch-menu').append(tr): '');
+                    ((menuItem.category=="DINNER")? $('#Dinner-menu').append(tr): '');
+                    ((menuItem.category=="DESERT")? $('#Desert-menu').append(tr): '');
+                     ((menuItem.category=="DRINKS")? $('#Drinks-menu').append(tr): '');
+                });
+            },
+            error: function (result) {
+                console.log(result);
+                $('#menu').html(result.responseText);
+            }
+        });
+        };
+
+   function orderItem (id) {
+
+            $.ajax({
+                url: "http://localhost:8080/api/restaurant/order/add/",
+                type: "post",
+                data: ({
+                                id: id
+                            }),
+
+                success: function (result) {
+                    <!--getData();-->
+                },
+                error: function (result) {
+                    console.log(result);
+                    window.alert("Couldn't add order! " + result.responseText);
+                }
+            });
+
+    };
+
+
 // https://cartjs.org/
 //  add items to order
 //$('.food-form').each(function() {

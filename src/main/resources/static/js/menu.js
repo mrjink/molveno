@@ -22,34 +22,15 @@ $(document).ready(function() {
                     tr.append(name, description, price );
                     ((menuItem.category==menu)? $('#menu').append(tr): '')
                 });
-
             },
             error: function (result) {
                 console.log(result);
                 $('#menu').html(result.responseText);
             }
         });
-
-
         };
 
 
-
-   function orderItem (id) {
-
-            $.ajax({
-                url: "http://localhost:8080/api/restaurant/order/add/" + id,
-                type: "post",
-                success: function (result) {
-                    <!--getData();-->
-                },
-                error: function (result) {
-                    console.log(result);
-                    window.alert("Couldn't add order! " + result.responseText);
-                }
-            });
-
-    };
 
 function getMenus(){
     $.get("/api/restaurant/menu/all", function(data, status){
