@@ -1,4 +1,4 @@
-package com.molvenolakeresort.models.restaurant.stock.dto;
+package com.molvenolakeresort.models.restaurant.dto;
 
 import com.molvenolakeresort.models.restaurant.enums.Unit;
 import com.molvenolakeresort.models.restaurant.stock.Ingredient;

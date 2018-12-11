@@ -16,7 +16,6 @@ import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -53,7 +52,7 @@ public class SupplyOrderController {
         List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients = new ArrayList<>();
 
         for (SupplyOrderSupplierIngredient supplyOrderSupplierIngredient : supplyOrder.getSupplyOrderSupplierIngredients()) {
-            Long idIngredient = supplyOrderSupplierIngredient.getIngredient().getIdIngredient();
+            Long idIngredient = supplyOrderSupplierIngredient.getIngredient().getID();
             Long idSupplier = supplyOrderSupplierIngredient.getSupplier().getIdSupplier();
             double quantity = supplyOrderSupplierIngredient.getQuantity();
 
