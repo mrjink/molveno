@@ -9,7 +9,7 @@ $(document).ready(function() {
             type: "get",
             success: function (result) {
                 console.log(result);
-                $('#breakfast-menu').html("<tr><th>Breakfast</th><th>Description</th><th>Price</th></tr>");
+                $('#menu').html("<tr><th>Breakfast</th><th>Description</th><th>Price</th></tr>");
                 $.each(result, function (index, menuItem) {
 
                     var tr = $("<tr></tr>");
@@ -20,13 +20,13 @@ $(document).ready(function() {
                     var order = $("<td></td>").text("Order").click(function () {
                         orderItem(menuItem.id)                    });
                     tr.append(name, description, price );
-                    ((menuItem.category==menu)? $('#breakfast-menu').append(tr): '')
+                    ((menuItem.category==menu)? $('#menu').append(tr): '')
                 });
 
             },
             error: function (result) {
                 console.log(result);
-                $('#breakfast-menu').html(result.responseText);
+                $('#menu').html(result.responseText);
             }
         });
 

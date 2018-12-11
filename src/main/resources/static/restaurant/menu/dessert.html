@@ -22,10 +22,11 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom styles for this template -->
-        <script src="/js/header_function/import_general_header.js"></script>
-        <script src="js/header_function/header_functions.js"></script>
+
+        <script src="../../js/header_function/import_general_header.js"></script>
+        <script src="../../js/header_function/header_functions.js"></script>
     </head>
-    <body>
+    <body onload="getDataWeb(menu)">
 
         <!--Include customer header-->
         <div w3-include-html="/general_header/general_header.html"></div>
@@ -33,6 +34,7 @@
         <script>
          includeHTML();
          setCurrentActiveItem(RESTAURANT_ITEM);
+
 
         function onEnglishLanguageSelected()
         {
@@ -45,8 +47,10 @@
             //Chinese language is selected translate the page
             console.log('Chinese language is selected')
         }
-     </script>
 
+        </script>
+        <!--script set menu category-->
+        <script>  var menu = "DESERT";</script>
 
 
         <!--Custom start-->
@@ -57,6 +61,7 @@
 
                 <div class="" id="">
                     <nav class="navbar navbar-light justify-content-around" style="background-color: #e3f2fd;">
+
                         <ul class="nav nav-tabs" id="navbarMenuItems">
                             <li class="nav-item p-2">
                                 <a class="nav-link " href="/restaurant/menu/menu.html">Course-menu's</a>
@@ -71,7 +76,7 @@
                             <li class="nav-item p-2">
                                 <a class="nav-link" href="/restaurant/menu/diner.html">Diner</a>
                             </li>
-                            <li class="nav-item p-2 ">
+                            <li class="nav-item p-2">
                                 <a class="nav-link active" href="/restaurant/menu/dessert.html">Dessert</a>
                             </li>
                             <li class="nav-item p-2">
@@ -84,16 +89,16 @@
 
             </div>
             <br>
-            <div class= "container" id="main-menuPage">
-                <table id="course-menu's" class="table table-sm justify-content-center">
+            <div class="container" id="main-menuPage">
+                <table id="menu" class="display">
                     <thead>
                         <tr>
-                            <th>Dessert</th>
+                            <th>Desserts</th>
+                            <th>Description</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr><td>Menu </td></tr>
-                    </tbody>
+
                 </table>
             </div>
 
@@ -103,7 +108,7 @@
         <br>
         <!--FOOTER-->
         <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="https://www.molveno.com/"> www.molveno.com</a>
+            <a href="https://www.molveno.com/">www.molveno.com</a>
         </div>
 
 
@@ -118,6 +123,9 @@
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous"></script>
         <script src=../../../../js/menu.js></script>
+        <script type="text/javascript" charset="utf8"
+                src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
 
     </body>
 
