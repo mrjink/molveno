@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,175 +14,189 @@
     <link rel="icon" href="../../../../favicon.ico">
 
     <link rel="stylesheet" href="/css/event/sticky-footer-navbar.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/event/event.css" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowgroup/1.1.0/css/rowGroup.bootstrap4.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.6/css/select.bootstrap4.min.css"/>
-    <link rel="stylesheet" href="/css/event/event.css" type="text/css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/event/event.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.2/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/rowgroup/1.1.0/css/rowGroup.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.2.6/css/select.bootstrap4.min.css" />
+    <link rel="stylesheet" href="/css/event/event.css" type="text/css" />
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
-            crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/responsive/2.2.2/js/responsive.bootstrap4.min.js"></script>
-    <script type="text/javascript"
-            src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.2/js/responsive.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/rowgroup/1.1.0/js/dataTables.rowGroup.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.4/js/dataTables.buttons.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.6/js/dataTables.select.min.js"></script>
 </head>
 
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <h1>Event overview</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>Event overview</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <table id="events" class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Start date</th>
+                            <th>End date</th>
+                            <th>Price</th>
+                            <th>Max. participants</th>
+                            <th>Catering</th>
+                            <th>Activity</th>
+                            <th>Information</th>
+                            <th>Additional information</th>
+                            <th>Event canceled</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <table id="events" class="table">
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Start date</th>
-                    <th>End date</th>
-                    <th>Price</th>
-                    <th>Max. participants</th>
-                    <th>Catering</th>
-                    <th>Activity</th>
-                    <th>Information</th>
-                    <th>Additional information</th>
-                </tr>
-                </thead>
-            </table>
-        </div>
-    </div>
-</div>
+    <script type="application/javascript" language="JavaScript">
+        var eventsTable;
+        $(document).ready(
+            eventsTable = function () {
+                return $('#events').DataTable({
+                    "dom": "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-4'f>>" +
+                        "<'row'<'col-sm-12'tr>>" +
+                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                    "select": "single",
+                    "ajax": {
+                        "url": "http://localhost:8080/event",
+                        "dataSrc": "_embedded.events"
+                    },
+                    "columns": [
+                        { "data": "name" },
+                        { "data": "startDate" },
+                        { "data": "endDate" },
+                        { "data": "price" },
+                        { "data": "maxParticipants" },
+                        { "data": "catering" },
+                        { "data": "additionalInformation" },
+                        { "data": "activity" },
+                        { "data": "information" },
+                        { "data": "cancelEvent" }
+                    ],
+                    "buttons": [
+                        {
+                            "text": 'Create Event',
+                            "className": "btn",
+                            "action": function () {
+                                otherPage();
+                            }
+                        },
+                        {
+                            "text": 'PDF Event',
+                            "className": "btn",
+                            "extend": 'pdf',
+                            // "action": function(){
+                            //     exportOptions {
+                            //         modifier: {
+                            //         page: 'current'
+                            //     }
+                            // }
+                            // }
+                        },
+                        {
+                            "text": 'Edit Event',
+                            "className": "btn",
+                            "init": function (dt, node, config) {
+                                $(node[0]).attr("data-toggle", "modal");
+                                $(node[0]).attr("data-target", "#newEvent");
+                            }
+                        },
+                        {
+                            "extend": 'selected',
+                            "text": 'Cancel Event',
+                            "className": "btn",
+                            "action": function (e, dt, button, config) {
+                                var event = dt.data()[dt.rows({ selected: true })[0]];
+                                cancelEvent(event);
+                            }
+                        },
+                        {
+                            "extend": 'selected',
+                            "text": 'Delete Event',
+                            "className": "btn btn-danger",
+                            "action": function (e, dt, button, config) {
+                                var event = dt.data()[dt.rows({ selected: true })[0]];
+                                deleteEvent(event);
+                            }
+                        },
+                        {
+                            "text": 'Export to pdf',
+                            "className": "btn",
+                            "action": function (e, dt, button, config) {
+                                var event = dt.data();
+                                exportEvent(event);
+                            }
+                        }
+                    ]
+                });
+            }());
 
-<script type="application/javascript" language="JavaScript">
-var eventsTable;
-$(document).ready(
-eventsTable = function () {
-return $('#events').DataTable({
-"dom": "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-4'f>>" +
-"<'row'<'col-sm-12'tr>>" +
-"<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-"select": "single",
-"ajax": {
-"url": "http://localhost:8080/event",
-"dataSrc": "_embedded.events"
-},
-"columns": [
-{"data": "name"},
-{"data": "startDate"},
-{"data": "endDate"},
-{"data": "price"},
-{"data": "maxParticipants"},
-{"data": "catering"},
-{"data": "additionalInformation"},
-{"data": "activity"},
-{"data": "information"}
-],
-"buttons": [
-{
-"text": 'Create Event',
-"className": "btn",
-"action": function () {
-otherPage();
-}
-},
-{
-"text": 'Edit Event',
-"className": "btn",
-"init": function (dt, node, config) {
-$(node[0]).attr("data-toggle", "modal");
-$(node[0]).attr("data-target", "#newEvent");
-}
-},
-{
-"extend": 'selected',
-"text": 'Cancel Event',
-"className": "btn",
-"action": function (e, dt, button, config) {
-var event = dt.data()[dt.rows({selected: true})[0]];
-cancelEvent(event);
-}
-},
-{
-"extend": 'selected',
-"text": 'Delete Event',
-"className": "btn btn-danger",
-"action": function (e, dt, button, config) {
-var event = dt.data()[dt.rows({selected: true})[0]];
-deleteEvent(event);
-}
-},
-{
-"extend": 'selected',
-"text": 'Export to pdf',
-"className": "btn",
-"action": function (e, dt, button, config) {
-var event = dt.data()[dt.rows({selected: true})[0]];
-deleteEvent(event);
-}
-}
-]
-});
-}());
+        var otherPage = function () {
+            location.href = 'create.html';
+        };
 
-var otherPage = function(){
-    location.href='create.html';
-};
+        var getEvents = function () {
+            eventsTable.ajax.reload(null, false);
+        };
 
-var getEvents = function () {
-eventsTable.ajax.reload(null, false);
-};
+        var cancelEvent = function (event) {
+            $.ajax({
+                url: event["_links"]["self"]["href"],
+                type: "patch",
+                data: JSON.stringify({
+                    "cancelEvent": !event.cancelEvent
+                }),
+                contentType: "application/json",
+                success: function (result) {
+                    getEvents();
+                },
+                error: function (result) {
+                    window.alert("Couldn't change '" + event.name + "'! " + result.responseText);
+                }
+            });
+        };
 
-var cancelEvent = function (event) {
-$.ajax({
-url: event["_links"]["self"]["href"],
-type: "patch",
-data: JSON.stringify({
-"watched": !event.watched
-}),
-contentType: "application/json",
-success: function (result) {
-getEvents();
-},
-error: function (result) {
-window.alert("Couldn't change '" + event.name + "'! " + result.responseText);
-}
-});
-};
+        var deleteEvent = function (event) {
+            if (window.confirm("Are you sure you want to delete '" + event.name + "'?")) {
+                $.ajax({
+                    url: event["_links"]["self"]["href"],
+                    type: "delete",
+                    success: function (result) {
+                        getEvents();
+                    },
+                    error: function (result) {
+                        window.alert("Couldn't delete '" + event.name + "'! " + result.responseText);
+                    }
+                });
+            }
+        };
 
-var deleteEvent = function (event) {
-if (window.confirm("Are you sure you want to delete '" + event.name + "'?")) {
-$.ajax({
-url: event["_links"]["self"]["href"],
-type: "delete",
-success: function (result) {
-getEvents();
-},
-error: function (result) {
-window.alert("Couldn't delete '" + event.name + "'! " + result.responseText);
-}
-});
-}
-};
+        var exportEvent = function (event) {
 
-</script>
+        };
+
+    </script>
 </body>
+
 </html>

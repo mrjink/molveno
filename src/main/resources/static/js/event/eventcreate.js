@@ -19,7 +19,6 @@
 
         //EventName english
         var eventnameEnglish = $('#eventnameEnglish').val();
-        var eventnameChinese = $('#eventnameChinese').val();
 
         var eventactivityEnglish = $('#eventactivityEnglish').val();
         var eventactivityChinese = $('#eventactivityChinese').val();
