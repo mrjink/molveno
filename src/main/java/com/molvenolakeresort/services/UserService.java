@@ -5,6 +5,7 @@ import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.models.generic.security.Role;
 import com.molvenolakeresort.models.generic.security.User;
 
+import java.util.Collection;
 import java.util.Optional;
 
 public interface UserService {
@@ -44,4 +45,5 @@ public interface UserService {
 
     Iterable<Privilege> createPrivileges(Privilege[] privileges);
 
+    Iterable<Privilege> findAllPermissions();
 }

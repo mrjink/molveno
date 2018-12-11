@@ -34,9 +34,21 @@ public class PathController {
         return "index";
     }
 
+    @GetMapping("/index.html")
+    public String index()
+    {
+        return "index";
+    }
+
     @GetMapping("/login")
     public String login()
     {
         return "login";
+    }
+
+    @GetMapping("/cplogin")
+    public String employeeLogin()
+    {
+        return "cplogin";
     }
 }

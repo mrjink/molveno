@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
+import java.util.Collection;
 
 @Component
 public class StartUpImpl {
@@ -113,6 +114,13 @@ public class StartUpImpl {
     private void initialiseDefaultRoles() {
         try {
             Role[] roles = new JSONReader<Role>().initObject(Role.class, "json/default-roles.json");
+            if(roles != null)
+                for(int i = 0; i < roles.length; i++)
+                    if(roles[i].isEmployeeRole() &&
+                            (roles[i].getName().toUpperCase().equals("ADMIN")||
+                                    roles[i].getName().toUpperCase().equals("MANAGER")
+                            ))
+                    roles[i].setPrivileges((Collection<Privilege>) userService.findAllPermissions());
             userService.createRoles(roles);
         } catch (IOException e) {
             //non volatile error (file does not exist or locked), does not affect system

@@ -1,4 +1,6 @@
 [
+  {"name": "ROLE_CP_LOGIN"},
+
   {"name": "ROLE_CREATE_AND_EDIT_USERS"},
   {"name": "ROLE_VIEW_USERS"},
   {"name": "ROLE_DELETE_USERS"},

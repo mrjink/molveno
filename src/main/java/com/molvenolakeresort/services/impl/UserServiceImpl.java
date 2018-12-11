@@ -212,6 +212,11 @@ public class UserServiceImpl implements UserService {
         return privilegeIterable;
     }
 
+    @Override
+    public Iterable<Privilege> findAllPermissions() {
+        return privilegeRepository.findAll();
+    }
+
     public Iterable<User> createEmployees(User[] users) {
 
         Iterable<User> userIterable = new ArrayList<>();
