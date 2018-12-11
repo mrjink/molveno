@@ -1,4 +1,5 @@
 package com.molvenolakeresort.models.generic;
+
 import javax.persistence.*;
 
 @Entity(name = "Languagestring")
