@@ -3,6 +3,7 @@ package com.molvenolakeresort.models.generic.security;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -16,7 +17,7 @@ public class Privilege {
 
     @ManyToMany(mappedBy = "privileges")
     @JsonIgnore
-    private Collection<Role> roles;
+    private Collection<Role> roles = new ArrayList<>();
 
     public Privilege() {
     }

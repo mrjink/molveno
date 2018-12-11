@@ -9,7 +9,6 @@ import java.util.Collection;
 @Entity
 @Table(name = "role")
 public class Role {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -19,7 +18,7 @@ public class Role {
 
     @OneToMany(mappedBy = "role")
     @JsonIgnore
-    private Collection<User> users;
+    private Collection<User> users = new ArrayList<>();
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(

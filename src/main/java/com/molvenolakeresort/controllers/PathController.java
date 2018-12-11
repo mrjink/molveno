@@ -1,6 +1,7 @@
 package com.molvenolakeresort.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -25,5 +26,17 @@ public class PathController {
 
     @RequestMapping(path = {"/restaurant/menu", "/restaurant/menu/"})
     public  String getMenu() { return "/restaurant/menu/menu.html";
+    }
+
+    @GetMapping("/")
+    public String root()
+    {
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String login()
+    {
+        return "login";
     }
 }

@@ -109,6 +109,10 @@ public class UserServiceImpl implements UserService {
     public Profile createGuest(Profile guest) {
         if (userRepository.exists(guest.getUser().getUsername())) return null;
 
+        Role role = roleRepository.findByName("ROLE_GUEST");
+        if(role == null) return null;
+        guest.getUser().setRole(role);
+
         Profile template = null;
 
         Profile eventVisitor = profileRepository.findByEmail(guest.getEmail());

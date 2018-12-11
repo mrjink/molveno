@@ -1,5 +1,6 @@
 package com.molvenolakeresort.controllers.generic;
 
+import com.molvenolakeresort.controllers.ControllerPingTest;
 import com.molvenolakeresort.models.generic.security.Profile;
 import com.molvenolakeresort.services.GenericService;
 import com.molvenolakeresort.services.UserService;
@@ -15,23 +16,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/guests/")
-public class GuestController {
+public class GuestController implements ControllerPingTest {
 
     @Inject
     GenericService genericService;
 
     @Inject
     UserService userService;
-
-    /**
-     * Default test to check if controller is available.
-     * @return pong response on ping.
-     */
-    @RequestMapping(value = "/ping", method = RequestMethod.GET)
-    public String ping()
-    {
-        return "pong";
-    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity getGuests()
