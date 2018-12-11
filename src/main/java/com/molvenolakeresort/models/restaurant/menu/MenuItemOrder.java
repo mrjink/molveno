@@ -35,4 +35,12 @@ public class MenuItemOrder {
     public MenuItemOrderId getIdMenuItemOrder() {
         return idMenuItemOrder;
     }
+
+    public void setMenuItem(MenuItem menuItem) {
+        this.menuItem = menuItem;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
 }

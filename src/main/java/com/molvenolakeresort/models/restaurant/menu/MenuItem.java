@@ -21,7 +21,7 @@ public class MenuItem {
     private MenuItemType type;
     @OneToMany(
         mappedBy = "menuItem",
-        cascade = CascadeType.ALL,
+        cascade = CascadeType.REMOVE,
         orphanRemoval = true
     )
     private List<IngredientMenuItem> ingredientMenuItems;
