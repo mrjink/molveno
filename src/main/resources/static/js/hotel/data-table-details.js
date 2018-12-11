@@ -7,9 +7,17 @@ function format ( d ) {
 		    	'<td>'+d.roomAmenities.roomType+'</td>'+
 		    '</tr>'+
 		    '<tr>'+
-		    	'<td>Number of beds:</td>'+
-		    	'<td>'+d.numberOfBeds+'</td>'+
-		    '</tr>'+
+		    	'<td>Number of single beds:</td>'+
+		    	'<td>'+d.roomAmenities.singleSizeBeds+'</td>'+
+			'</tr>'+
+			'<tr>'+
+			'<td>Number of King size beds:</td>'+
+			'<td>'+d.roomAmenities.kingSizeBeds+'</td>'+
+		'</tr>'+
+		'<tr>'+
+		'<td>Number of Queen size beds:</td>'+
+		'<td>'+d.roomAmenities.queenSizeBeds+'</td>'+
+	'</tr>'+
 	    '</table>'+
 	'<h4>Guests</h4>'+
 		'<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
@@ -75,7 +83,7 @@ $(document).ready( function () {
 	        { "data": "bookedBy" },
 	        { "data": "startDate" },
 	        { "data": "endDate" },
-	        { "data": "numberOfBeds" },
+			{ "data": "numberOfBeds" },
 	        { "data": "roomStatus" },
 	        { "data": "pet" },
 	        { "data": "roomBlocked" }
@@ -86,14 +94,14 @@ $(document).ready( function () {
     // Add event listener for opening and closing details
     $('#myTable tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
-        var row = table.row( tr );
-
+		var row = table.row( tr );
+		console.log(row.data.d)
         if ( row.child.isShown() ) {
             // This row is already open - close it
             row.child.hide();
             tr.removeClass('shown');
         } else {
-            // Open this row
+			// Open this row
             row.child( format(row.data()) ).show();
             tr.addClass('shown');
         }
