@@ -112,64 +112,8 @@
                     </thead>
                     <tbody id="myTableBody">
 
-                    <!---->
-                    <!--<tr>-->
-                        <!--<td>01-06-2018</td>-->
-                        <!--<td>Restaurant</td>-->
-                        <!--<td>¥5570,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr>-->
-                    <!--<tr>-->
-                        <!--<td>07-08-2018</td>-->
-                        <!--<td>Hotel</td>-->
-                        <!--<td>¥12370,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>04-03-2018</td>-->
-                        <!--<td>Evenement X</td>-->
-                        <!--<td>¥1230,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>08-08-2018</td>-->
-                        <!--<td>Restaurant</td>-->
-                        <!--<td>¥9000,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>02-02-2018</td>-->
-                        <!--<td>Bar</td>-->
-                        <!--<td>¥10,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>04-08-2018</td>-->
-                        <!--<td>Restaurant</td>-->
-                        <!--<td>¥150,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>01-06-2018</td>-->
-                        <!--<td>Restaurant</td>-->
-                        <!--<td>¥70,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>01-06-2018</td>-->
-                        <!--<td>Restaurant</td>-->
-                        <!--<td>¥70,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>08-03-2018</td>-->
-                        <!--<td>Restaurant</td>-->
-                        <!--<td>¥550,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>03-09-2018</td>-->
-                        <!--<td>Restaurant</td>-->
-                        <!--<td>¥3470,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr><tr>-->
-                        <!--<td>01-09-2018</td>-->
-                        <!--<td>Restaurant</td>-->
-                        <!--<td>¥1710,00</td>-->
-                        <!--<td>No</td>-->
-                    <!--</tr>-->
+                   <!--table generated with table script, see bottom-->
+
                     </tbody>
                 </table>
             </div>
@@ -192,8 +136,34 @@
     </div>
 </div>
 
+<!--<script>-->
+
+    <!--type="application/javascript" language="JavaScript">-->
+    <!--var getData = function (){-->
+        <!--$.ajax({-->
+            <!--url: "http://localhost:8080/api/invoice/all",-->
+            <!--type: "get",-->
+            <!--success: function (result){-->
+                <!--console.log(result);-->
+                <!--$('#myTableBody').html("");-->
+                <!--$.each(result, function(index, invoice) {-->
+                    <!--$('#myTableBody').append(-->
+                        <!--"<tr><td>" + invoice.createdDate + "</td> <td>" + invoice.origin + "</td> <td>" + invoice.amount + "</td> <td>" + invoice.isPaid + "</td> </tr>"-->
+                    <!--);-->
+                <!--});-->
+            <!--},-->
+            <!--error: function(result) {-->
+                <!--console.log(result);-->
+                <!--$('#myTable').html(result.responseText);-->
+            <!--}-->
+        <!--});-->
+    <!--};-->
+<!--</script>-->
+
+<script src="/js/hotel/invoice-table-filler.js">
+</script>
 <script src="/js/hotel/invoice-pdf-generator.js">
- </script>
+</script>
 
 
 
