@@ -18,26 +18,32 @@
 
 
         //EventName english
-        var eventnameEnglish = $('#eventnameEnglish').val();
-        var eventnameChinese = $('#eventnameChinese').val();
+        //var eventnameChinese = $('#eventnameChinese').val();
 
-        var eventactivityEnglish = $('#eventactivityEnglish').val();
-        var eventactivityChinese = $('#eventactivityChinese').val();
+        //var eventactivityEnglish = $('#eventactivityEnglish').val();
+        //var eventactivityChinese = $('#eventactivityChinese').val();
 
-        var eventinfoEnglish = $('#eventinfoEnglish').val();
-        var eventinfoChinese = $('#eventinfoChinese').val();
+        //var eventinfoEnglish = $('#eventinfoEnglish').val();
+        //var eventinfoChinese = $('#eventinfoChinese').val();
 
-        var name = $('#eventnameEnglish').val();
+        //var name = $('#eventnameEnglish').val();
         //Start en enddate hiernder
+
+         var eventnameEnglish = $('#eventnameEnglish').val();
+
+
                 //maak van date en time datetime object (STARTDATE)
         var sdate = document.getElementById("eventStartDate").value;
+        //console.log(sdate);
         var stime = document.getElementById("eventStartTime").value;
-        var sdatetime = new Date(sdate +" "+ stime);
+        //console.log(stime);
+        var sdatetime = sdate +"T"+ stime;
+        //console.log(sdatetime);
 
         //maak van date en time datetime object (ENDDATE)
         var edate = document.getElementById("eventEndDate").value;
         var etime = document.getElementById("eventEndTime").value;
-        var edatetime = new Date(edate +" "+ etime);
+        var edatetime = edate +"T"+ etime;
 
         var eventprice = $('#eventprice').val();
         var eventmaxUsers = $('#eventmaxUsers').val();
@@ -51,7 +57,7 @@
             url: "http://localhost:8080/event",
             type: "post",
             data: JSON.stringify({
-                name:name
+                name:eventnameEnglish
                 ,startDate:sdatetime
                 ,endDate:edatetime
                 ,price:eventprice
