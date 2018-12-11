@@ -130,7 +130,7 @@
             </div>
             </a>
           </div>
-          <div class="col-md-4 extraMargin">
+          <div class="col-md-4 extraMargin" id="divSubscribeNewsletter"> 
               <div class="dashboardButtonNoHover">
                 <p>Subscribe to Newsletter</p>
                 <form id="subscribeNewsletter">
@@ -140,6 +140,16 @@
                     </form>
               </div>
           </div>
+
+          <div class="col-md-4 extraMargin" id="divUnSubscribeNewsletter" style="display: none;">
+            <div class="dashboardButtonNoHover">
+              <p>Unsubscribe newsletter</p>
+              <form id="unSubscribeNewsletter">
+                      <p id="unsubEmail"> </p>
+                      <input class="btn btn-outline-success my-2 my-sm-0 btnsubmitemail" id="submitButton" type="button" value="Submit" onclick="unSubscribeNewsletter()">
+                  </form>
+            </div>
+        </div>
           <div class="col-md-4 extraMargin">
             <a href="/hotel/invoice-screen.html">
               <div class="dashboardButton"><p>Check Invoice</p></div>
@@ -175,9 +185,24 @@
      }
 
     function subscribeNewsletter(){
-      alert("Emailaddress " + document.getElementById("inputEmail").value + " is (NOT YET) subscribed to the newsletter!");4
+      var email = document.getElementById("inputEmail").value;
+      alert("Emailaddress " + email + " is subscribed to the newsletter!");
       document.getElementById("inputEmail").value = "";
+      changeTileToUnsubscribe(email);
     }
+
+    function changeTileToUnsubscribe(Emailaddress){
+      divSubscribeNewsletter.style.display = 'none';
+      divUnSubscribeNewsletter.style.display = 'inline';
+      document.getElementById("unsubEmail").innerHTML = Emailaddress;
+    }
+
+    function unSubscribeNewsletter(){
+      alert("Emailaddress " +  document.getElementById("unsubEmail").innerHTML + " is unsubscribed!");
+      divUnSubscribeNewsletter.style.display = 'none';
+      divSubscribeNewsletter.style.display = 'inline';
+    }
+
  </script>
   </body>
 </html>

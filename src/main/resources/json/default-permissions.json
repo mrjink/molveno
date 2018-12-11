@@ -1,0 +1,17 @@
+[
+  {"name": "ROLE_CREATE_AND_EDIT_USERS"},
+  {"name": "ROLE_VIEW_USERS"},
+  {"name": "ROLE_DELETE_USERS"},
+
+  {"name": "ROLE_CREATE_AND_EDIT_EMPLOYEES"},
+  {"name": "ROLE_VIEW_EMPLOYEES"},
+  {"name": "ROLE_DELETE_EMPLOYEES"},
+
+  {"name": "ROLE_CREATE_AND_EDIT_ADMINISTRATORS"},
+  {"name": "ROLE_VIEW_ADMINISTRATORS"},
+  {"name": "ROLE_DELETE_ADMINISTRATORS"},
+
+  {"name": "ROLE_CREATE_AND_EDIT_EVENTS"},
+  {"name": "ROLE_VIEW_EVENTS"},
+  {"name": "ROLE_DELETE_EVENTS"}
+]
