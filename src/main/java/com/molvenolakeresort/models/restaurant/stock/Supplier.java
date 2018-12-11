@@ -14,19 +14,19 @@ public class Supplier {
     private String telephone;
     private String notes;
 
-    @OneToMany(
-        mappedBy = "supplier",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true
-    )
-    private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
+//    @OneToMany(
+//        mappedBy = "supplier",
+//        cascade = CascadeType.ALL,
+//        orphanRemoval = true
+//    )
+//    private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
 
     @OneToMany(
             mappedBy = "supplier",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<SupplierIngredient> supplierIngredients;
+    private List<Stock> stocks;
 
     public Supplier() {
     }
@@ -71,19 +71,19 @@ public class Supplier {
         this.notes = notes;
     }
 
-    public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
-        return supplyOrderSupplierIngredients;
+//    public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
+//        return supplyOrderSupplierIngredients;
+//    }
+//
+//    public void setSupplyOrderSupplierIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
+//        this.supplyOrderSupplierIngredients = supplyOrderSupplierIngredients;
+//    }
+
+    public List<Stock> getStocks() {
+        return stocks;
     }
 
-    public void setSupplyOrderSupplierIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
-        this.supplyOrderSupplierIngredients = supplyOrderSupplierIngredients;
-    }
-
-    public List<SupplierIngredient> getSupplierIngredients() {
-        return supplierIngredients;
-    }
-
-    public void setSupplierIngredients(List<SupplierIngredient> supplierIngredients) {
-        this.supplierIngredients = supplierIngredients;
+    public void setStocks(List<Stock> stocks) {
+        this.stocks = stocks;
     }
 }

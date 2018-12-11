@@ -3,9 +3,12 @@ package com.molvenolakeresort.controllers.restaurant;
 import com.molvenolakeresort.models.restaurant.stock.Ingredient;
 import com.molvenolakeresort.repositories.restaurant.stock.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -41,7 +44,16 @@ public class IngredientController {
     }
     //
     @DeleteMapping("/delete/{id}")
-    public void deleteIngredient(@PathVariable Long id) {
-        repository.deleteById(id);
+
+//    @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "ingredient_not_found")
+    public ResponseEntity<String> deleteIngredient(@PathVariable Long id) {
+        try{
+            repository.deleteById(id);
+            return ResponseEntity.ok("id deleted");
+        }catch (IllegalArgumentException e)
+        {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+            return ResponseEntity.ok("not found");
+        }
     }
 }
