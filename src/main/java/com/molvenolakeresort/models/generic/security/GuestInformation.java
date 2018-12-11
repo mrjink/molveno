@@ -1,5 +1,6 @@
 package com.molvenolakeresort.models.generic.security;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.molvenolakeresort.models.generic.Address;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -17,14 +18,18 @@ public class GuestInformation {
     @DateTimeFormat
     private LocalDate dateOfBirth;
 
-    @ManyToOne(optional = false)
+    private boolean isSubscribedToNewsletter;
+
+    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToOne(mappedBy = "guestInformation", cascade = CascadeType.ALL)
-    @JoinColumn(name = "profile_id")
+    @OneToOne(mappedBy = "guestInformation", optional = false)
+    @JsonIgnore
     private Profile profile;
 
-    public GuestInformation() {}
+    public GuestInformation() {
+    }
 
     public GuestInformation(LocalDate dateOfBirth, Address address) {
         this.dateOfBirth = dateOfBirth;
@@ -61,5 +66,13 @@ public class GuestInformation {
 
     public void setProfile(Profile profile) {
         this.profile = profile;
+    }
+
+    public boolean isSubscribedToNewsletter() {
+        return isSubscribedToNewsletter;
+    }
+
+    public void setSubscribedToNewsletter(boolean subscribedToNewsletter) {
+        isSubscribedToNewsletter = subscribedToNewsletter;
     }
 }

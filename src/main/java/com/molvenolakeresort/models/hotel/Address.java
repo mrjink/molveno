@@ -3,8 +3,10 @@ package com.molvenolakeresort.models.hotel;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity
+@Entity(name="Hotel_Address")
+@Table(name="hoteladdress")
 public class Address {
 
     @Id
