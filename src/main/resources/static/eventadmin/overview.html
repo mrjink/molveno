@@ -76,9 +76,9 @@
         $(document).ready(
             eventsTable = function () {
                 return $('#events').DataTable({
-                    "dom": "<'row'<'col-sm-12 col-md-4'l><'col-sm-12 col-md-4'B><'col-sm-12 col-md-4'f>>" +
+                    "dom": "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
                         "<'row'<'col-sm-12'tr>>" +
-                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-12'B><'col-sm-12 col-md-7'p>>",
                     "select": "single",
                     "ajax": {
                         "url": "http://localhost:8080/event",
@@ -132,7 +132,7 @@
                         },
                         {
                             "text": 'Export to pdf',
-                            "className": "btn",
+                            "className": "btn export",
                             "action": function (e, dt, button, config) {
                                 var event = dt.data();
                                 exportEvent(event);
@@ -184,11 +184,11 @@
 
         var exportEvent = function (event) {
             var doc = new jsPDF('landscape');
+            doc.text(110, 10, 'Molveno Lake Resort - Events');
             var elem = document.getElementById("events");
             var res = doc.autoTableHtmlToJson(elem);
-
             doc.autoTable(res.columns, res.data);
-            doc.save("table.pdf");
+            doc.save("Events.pdf");
         };
     </script>
 </body>
