@@ -1,8 +1,7 @@
-package com.molvenolakeresort.services.impl;
+package com.molvenolakeresort.security;
 
 
-import com.molvenolakeresort.models.generic.security.Profile;
-import com.molvenolakeresort.repositories.generic.ProfileRepository;
+import com.molvenolakeresort.models.generic.security.User;
 import com.molvenolakeresort.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -10,16 +9,20 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
+import javax.annotation.ManagedBean;
 
+@ManagedBean
 @Component
-public class CustomAuthentication implements AuthenticationProvider {
+public class CustomAuthenticationProvider implements AuthenticationProvider {
 
     @Autowired
     private UserService userService;
+
+    public CustomAuthenticationProvider() {
+        super();
+    }
 
     @Override
     public Authentication authenticate(Authentication auth)
@@ -28,25 +31,25 @@ public class CustomAuthentication implements AuthenticationProvider {
         String username = auth.getName();
         String password = auth.getCredentials().toString();
 
-        Profile user = null;
+        User user = userService.findUserByUsername(username);
         //user = userService.findGuest(username);
         //user = userService.findEmployee(username);
-        if(user==null){
+        if (user == null) {
             throw new BadCredentialsException("Username Not Found");
         }
 
-        if(!password.equals(user.getPassword())){
+        if (!PasswordEncryption.isMatchingPassword(password, user.getPassword())) {
             throw new BadCredentialsException("Username Or Password Is invalid");
         }
 
-
-        return new UsernamePasswordAuthenticationToken(username,password,
-                Arrays.asList(new SimpleGrantedAuthority(user.getRoles().iterator().next().getName())));
+        return new UsernamePasswordAuthenticationToken(username, password,
+                user.getAuthorities());
     }
 
     @Override
-    public boolean supports(Class<?> arg0) {
-        return true;
+    public boolean supports(Class<?> auth) {
+        return auth.equals(
+                UsernamePasswordAuthenticationToken.class);
     }
 
 }
