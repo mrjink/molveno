@@ -21,6 +21,7 @@ public class Event {
     private String additionalInformation;
     private String activity;
     private String information;
+    private boolean cancelEvent;
     //LIST (PROFILES)
 
     public LocalDateTime getStartDate() {
@@ -101,5 +102,13 @@ public class Event {
 
     public void setInformation(String information) {
         this.information = information;
+    }
+
+    public boolean isCancelEvent() {
+        return cancelEvent;
+    }
+
+    public void setCancelEvent(boolean cancelEvent) {
+        this.cancelEvent = cancelEvent;
     }
 }
