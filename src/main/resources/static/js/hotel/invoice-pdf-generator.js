@@ -24,11 +24,24 @@ $(document).ready(function() {
 
 
     var doc = new jsPDF({
-        orientation: 'landscape',
+        orientation: 'portrait',
         unit: 'in',
-        format: [4, 2]
+        format: [14, 8]
     })
 
-    doc.text('Hello world!', 1, 1)
-    doc.save('two-by-four.pdf')
+
+//    doc.addFont('Arial', 'normal', 'sans-serif');
+//    doc.setFont('Arial');
+
+    doc.setFontSize(12);
+    doc.text('                                                          INVOICE', 1, 1)
+    doc.text('', 1, 1)
+    doc.text('ik ben hier', 1, 1)
+
+    $("#pdfobject").attr("src", doc.output("datauri"));
+
+
+
+
+   // doc.save('two-by-four.pdf')
 });
