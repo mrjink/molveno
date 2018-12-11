@@ -28,7 +28,7 @@ public class Role {
                     name = "role_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "privilege_id", referencedColumnName = "id"))
-    private Collection<Privilege> privileges;
+    private Collection<Privilege> privileges = new ArrayList<>();
 
     public Role() {
     }
