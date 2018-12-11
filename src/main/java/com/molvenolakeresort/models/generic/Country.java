@@ -3,16 +3,18 @@ package com.molvenolakeresort.models.generic;
 
 import javax.persistence.*;
 
-@Entity(name = "Country")
-@Table(name = "country", uniqueConstraints = @UniqueConstraint(columnNames = { "name" }))
+@Entity
+@Table(name = "country")
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(unique = true)
     private String name;
     private String code;
 
-    public Country(){}
+    public Country() {
+    }
 
     public Country(String name, String code) {
         this.name = name;

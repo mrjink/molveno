@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 
-@Entity
+@Entity(name = "EVENT_USER")
 public abstract class User {
     @Id
     @GeneratedValue
