@@ -39,4 +39,10 @@ public class PathController {
     {
         return "login";
     }
+
+    @GetMapping("/cplogin")
+    public String employeeLogin()
+    {
+        return "cplogin";
+    }
 }
