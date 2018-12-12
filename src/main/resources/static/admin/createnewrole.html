@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Molveno Lake Resort</title>
 
     <!-- IMPORTS VOOR HEADER AND FOOTER-->
     <meta charset="UTF-8">
@@ -18,22 +18,14 @@
     <link rel="icon" href="../../../../favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <!-- Bootstrap core CSS -->
-    <!--DEZE GEEFT OOK EEN ERROR
-    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-    -->
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
     <!-- IMPORTS VOOR HEADER AND FOOTER-->
-
-
 </head>
 <body>
 
 <!-- BEGIN HEADER -->
 <header>
-
-
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
         <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a class="navbar-brand" href="#">Molveno Lake Resort</a>
@@ -97,12 +89,9 @@
         </div>
     </nav>
 </header>
-
 <!-- END HEADER -->
 
-
 <!-- BEGIN PAGE CONTENT-->
-
 <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/admin/empaccountmanagement.html">Back</a></button>
 
 <!-- MAAK TWEE POPUPS VOOR DELETE EN BLOCK (in script)-->
@@ -111,10 +100,8 @@ function confirmCreate() {
     var agreed = confirm("Are you sure you create this new role?");
     if(agreed){
         //CREATE DE ROLE
-
         var naam = $('#rolename').val();
         var isActive = document.getElementById("active").checked;
-
 
         $.ajax({
             url: "http://localhost:8080/api/role",
@@ -123,25 +110,12 @@ function confirmCreate() {
                 name:naam
                 ,employeeRole:true
                 ,active:isActive
-
-
                 }),
             contentType: "application/json",
             success: function (result){
                 //$('#eventAdress').val("");
                 //$('#eventmaxUsers').val("");
                 //$('#eventprice').val("");
-
-
-
-
-
-
-
-
-
-
-
             },
             error: function(result){
                 console.log(result);
@@ -149,22 +123,18 @@ function confirmCreate() {
             }
 
         })
-
-
-
         alert("ROLE IS created");
     }
     else{
         alert("NIET GELUKT");
     }
 }
-
 </script>
 
 <div class="carousel row">
 
-    <div class="col-md-12">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button"><a href="/admin/empaccountmanagement.html">Back</a></button>
+    <div class="col-md-12 admin">
+        <button class="btn btn-outline-success my-2 my-sm-0 back" type="button"><a href="/admin/empaccountmanagement.html">Back</a></button>
 
         <div class="container theme-showcase">
             <h1>Create Role Form</h1>
@@ -172,7 +142,7 @@ function confirmCreate() {
         </div>
 
         <div class="container">
-            <div class="col-md-5">
+            <div class="col-md-12 admin-form">
                 <div class="form-area">
                     <form role="form">
             <form>
@@ -324,25 +294,14 @@ function confirmCreate() {
         <a href="https://www.molveno.com/"> www.molveno.com</a>
     </div>
     <!-- Copyright -->
-
 </footer>
 <!-- END FOOTER-->
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-
-<script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-
-
-
 </body>
 </html>

@@ -14,6 +14,7 @@ const CHINESE = 'Chinese';
 
 function setCurrentActiveItem(current_active_nav_item)
 {
+    alert('active item: '+ current_active_nav_item)
     active_nav_item = current_active_nav_item;
     localStorage.setItem(ACTIVE_ITEM,current_active_nav_item);
 }

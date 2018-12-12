@@ -562,24 +562,34 @@ div.col-md-12 div.container.theme-showcase {
     text-align: center;
 }
 
-div.col-md-12 div.col-md-12.edit-event-form {
+div.col-md-12 div.col-md-12.edit-event-form,
+div.col-md-12 div.col-md-12.admin-form {
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
 
-div.col-md-12 div.col-md-12.edit-event-form div.form-area button.btn.btn-outline-success {
+div.col-md-12 div.col-md-12.admin-form div.form-area button.btn.btn-outline-success,
+div.col-md-12.admin button.btn-outline-success.my-2.my-sm-0.back {
     color: rgba(0,0,0,.5) !important;
     border-color: #0084c4 !important;
     margin-right: 15px;
 }
 
-div.col-md-12 div.col-md-12.edit-event-form div.form-area button.btn.btn-outline-success:hover {
+div.col-md-12.admin button.btn-outline-success.my-2.my-sm-0.back {
+    margin-left: 10px;
+}
+
+div.col-md-12 div.col-md-12.edit-event-form div.form-area button.btn.btn-outline-success:hover,
+div.col-md-12 div.col-md-12.admin-form div.form-area button.btn.btn-outline-success:hover,
+div.col-md-12.admin button.btn-outline-success.my-2.my-sm-0.back:hover {
     background-color:#0084c4 !important;
     margin-right: 15px;
 }
 
-div.col-md-12 div.col-md-12.edit-event-form div.form-area button.btn.btn-outline-success:hover a {
+div.col-md-12 div.col-md-12.edit-event-form div.form-area button.btn.btn-outline-success:hover a,
+div.col-md-12 div.col-md-12.admin-form div.form-area button.btn.btn-outline-success:hover a,
+div.col-md-12.admin button.btn-outline-success.my-2.my-sm-0.back:hover a {
     color: white !important;
     text-decoration: none;
 }
