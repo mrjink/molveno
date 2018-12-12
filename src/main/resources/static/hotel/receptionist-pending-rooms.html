@@ -51,16 +51,18 @@
         <table class="table table-hover table-bordered" id="myTable" style="width:100%">
             <thead>
             <tr id="g315">
-                <th scope="col"></th>
                 <th scope="col"><b>Last Name</b></th>
                 <th scope="col"><b>First Name</b></th>
                 <th scope="col"><b>E-mail</b></th>
-                <th scope="col"><b>Pets</b></th>
                 <th scope="col"><b>Room categories</b></th>
+                <th scope="col"><b>Starting date</b></th>
+                <th scope="col"><b>End date</b></th>
                 <th scope="col"><b>No. Adults</b></th>
                 <th scope="col"><b>No. Children</b></th>
+                <th scope="col"><b>Pets</b></th>
                 <th scope="col"><b>Remarks</b></th>
                 <th scope="col"><b>Approve</b></th>
+                <th scope="col"><b></b></th>
             </tr>
             </thead>
             <tbody id="tableBody">
@@ -75,31 +77,53 @@
 
  <script type="application/javascript" language="JavaScript">
  $(document).ready( function () {
+
     var table = $('#myTable').DataTable({
         ajax: {
-            url: 'http://localhost:8080/api/room/all',
+            url: 'http://localhost:8080/api/reservation/all',
             dataSrc: ''
         },
         columns: [
-            {
-                "className":      'details-control',
-                "orderable":      false,
-                "data":           null,
-                "defaultContent": ''
-            },
 
-            { "data": "mainBooker.lastName" },
-            { "data": "mainBooker.firstName"},
-            { "data": "mainBooker.email"},
-            { "data": "pet"},
-            { "data": "roomAmenities.roomType"},
+            { "data": "lastName" },
+            { "data": "firstName"},
+            { "data": "email"},
+            { "data": "roomTypes"},
+            { "data": "startDate"},
+            { "data": "endDate"},
             { "data": "nrAdults"},
             { "data": "nrChildren"},
+            { "data": "pet"},
             { "data": "remarks"},
-            { "data": "approved"}
+            {"defaultContent": "<button onclick=\"approve2(id)\">approve</button>"}
 
         ],
         order: [[1, 'asc']]
     });
-});    
+});
+
+
+// var approve = function(){
+//        $.ajax({
+//             url: 'http://localhost:8080/api/reservation/all',
+//             type: "get",
+//             dataSrc: '',
+//             data: {"data": 'id'},
+//             success: function(data){
+//             $.ajax({
+//             url: "http://localhost:8080/api/reservation/set-approved/" + data,
+//             type: "patch"
+//             });
+//     }
+// });
+
+var approve2 = function(id){
+    console.log("id = " + id);
+            $.ajax({
+            url: "http://localhost:8080/api/reservation/set-approved/" + 1,
+            type: "patch",
+            data: JSON.stringify({approved: true}),
+            contentType: "application/json"
+            });
+};       
 </script> 
