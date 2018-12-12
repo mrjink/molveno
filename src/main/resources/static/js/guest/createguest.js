@@ -19,27 +19,6 @@
         //boolean
         var accepttermsconditions = document.getElementById("checkbox2").checked;
 
-//        alert(JSON.stringify({
-//                              firstName:firstname
-//                              ,lastName:lastname
-//                              ,dateOfBirth:dateofbirth
-//                              ,address:{
-//                                  street:street,
-//                                  number:number,
-//                                  numberextension:numberextension,
-//                                  postalCode:postalcode,
-//                                  country:country
-//                              }
-//
-//                              ,phoneNumber:phonenumber
-//                              ,email:email
-//                              ,phoneNumber:phonenumber
-//                              ,Password:password
-//                              ,newsletterSubscribed:newslettersubscribed
-//                              ,accepttermsconditions:accepttermsconditions
-//
-//                              }));
-
         //vul eerst de variabele van java:vul dan de variabele van javascript
         $.ajax({
             url: "http://localhost:8080/api/guest",
@@ -52,11 +31,12 @@
                 ,number:number
                 ,numberextension:numberextension
                 ,postalCode:postalcode
+                ,city:city
                 ,country:country
                 ,phoneNumber:phonenumber
                 ,email:email
                 ,phoneNumber:phonenumber
-                ,Password:password
+                ,password:password
                 ,newsletterSubscribed:newslettersubscribed
                 ,accepttermsconditions:accepttermsconditions
 
@@ -82,7 +62,7 @@
             },
             error: function(result){
                 console.log(result);
-                  window.alert("test "+result.responseText);
+//                  window.alert("test "+result.responseText);
             }
 
         })
