@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	console.log("Works");
     //Controleren of sessies worden ondersteund door de browser.
@@ -77,14 +78,25 @@ function addReservation(json){
         contentType: "application/json;",
         success: function(){
             console.log("Het is gelukt.., toch?");
-            window.location.href = "/restaurant/reservation/confirm";
+            window.location.href = "/restaurant/reservation/confirm.html";
         },
         error: function(xhr,ajaxOptions,thrownError){
             console.log("Niet gelukt jammer joh");
             //TODO: fail state should not send to confirm
-            window.location.href = "/restaurant/reservation/confirm";
-        	alert(xhr.status);
-        	alert(thrownError);
+            window.location.href = "/restaurant/reservation/confirm.html";
+//        	alert(xhr.status);
+//        	alert(thrownError);
         }
     });
 }
+
+    /*
+$('.date-picker-2').popover({
+    html : true,
+    content: function() {
+      return $("#example-popover-2-content").html();
+    },
+    title: function() {
+      return $("#example-popover-2-title").html();
+    }
+});*/

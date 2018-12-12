@@ -1,0 +1,32 @@
+td.details-control {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+td.details-control:before {
+    top: 20px;
+    left: 10px;
+    height: 14px;
+    width: 14px;
+    display: block;
+    position: absolute;
+    color: white;
+    border: 2px solid white;
+    border-radius: 14px;
+    box-shadow: 0 0 3px #444;
+    box-sizing: content-box;
+    text-align: center;
+    text-indent: 0 !important;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 14px;
+    content: '+';
+    background-color: #31b131;
+}
+tr.shown + tr{
+    background-color: rgba(0,0,0,.075) !important;
+}
+tr.shown td.details-control:before {
+    content: '-';
+    background-color: #d33333;
+
+}

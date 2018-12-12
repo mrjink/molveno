@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -93,9 +94,9 @@
     </nav>
 </header>
 
-<body>
+<body style="margin-right: 25px;">
 
-<div class="row" style="margin: 20px;">
+<div class="row" style="margin-top: 20px;">
     <div class="col-4">
     </div>
     <div class="col-4">
@@ -167,13 +168,141 @@
     </div>
     <div class="col-2">
         <div class="container" style="margin-top: 10px; background-color: #eeeeee; color: #005693;">
-            <div align="right" class="form-row">
-                <input type="date" class="form-control" placeholder="Date">
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle btnroominfo" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Number
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">1</a>
+                    <a class="dropdown-item" href="#">2</a>
+                    <a class="dropdown-item" href="#">3</a>
+                    <a class="dropdown-item" href="#">4</a>
+                    <a class="dropdown-item" href="#">5</a>
+                    <a class="dropdown-item" href="#">6</a>
+                </div>
             </div>
         </div>
     </div>
-
     <div class="col-5">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-2">
+        <div class="container" style="margin-top: 15px; background-color: #eeeeee; color: #005693;">
+            Number of children (3-18):
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="container" style="margin-top: 10px; background-color: #eeeeee; color: #005693;">
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle btnroominfo" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Number
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">1</a>
+                    <a class="dropdown-item" href="#">2</a>
+                    <a class="dropdown-item" href="#">3</a>
+                    <a class="dropdown-item" href="#">4</a>
+                    <a class="dropdown-item" href="#">5</a>
+                    <a class="dropdown-item" href="#">6</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-2">
+        <div class="container" style="margin-top: 15px; background-color: #eeeeee; color: #005693;">
+            Number of children (0-2):
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="container" style="margin-top: 10px; background-color: #eeeeee; color: #005693;">
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle btnroominfo" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Number
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">1</a>
+                    <a class="dropdown-item" href="#">2</a>
+                    <a class="dropdown-item" href="#">3</a>
+                    <a class="dropdown-item" href="#">4</a>
+                    <a class="dropdown-item" href="#">5</a>
+                    <a class="dropdown-item" href="#">6</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-2">
+        <div class="container" style="margin-top: 15px; background-color: #eeeeee; color: #005693;">
+            Will you be taking a pet with you? (1 max. per room)
+        </div>
+    </div>
+    <div class="col-2">
+        <div class="container" style="margin-top: 10px; background-color: #eeeeee; color: #005693;">
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle btnroominfo" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    Choice
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Yes</a>
+                    <a class="dropdown-item" href="#">No</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-5">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-5">
+    </div>
+    <div class="col-4">
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Additional remarks:</label>
+            <select multiple class="form-control" id="exampleFormControlSelect2">
+                <option>(255 char max)</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-3">
+    </div>
+</div>
+
+<div class="row" style="margin-top: 5px;">
+    <div class="col-5">
+    </div>
+    <div class="col-4">
+        <div class="container" style="margin-top: 15px; background-color: #eeeeee; color: #005693;">
+            <div class="btn-group">
+                <button type="button" class="btn btnroominfo" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" onclick="goToRoomInfo()">
+                    <h4>Confirm</h4>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-3">
     </div>
 </div>
 
@@ -181,43 +310,9 @@
 <script>$(document).ready( function () {
 $('#myTable').DataTable();
 } );
+function goToRoomInfo(){
+    window.location.replace("/hotel/guest-reservation-room-options-screen.html");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 </script>
-
 </body>

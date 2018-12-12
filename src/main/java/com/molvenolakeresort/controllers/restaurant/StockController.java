@@ -1,7 +1,7 @@
 package com.molvenolakeresort.controllers.restaurant;
 
 import com.molvenolakeresort.models.restaurant.stock.Stock;
-import com.molvenolakeresort.models.restaurant.stock.dto.StockDTO;
+import com.molvenolakeresort.models.restaurant.dto.*;
 import com.molvenolakeresort.repositories.restaurant.stock.StockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
