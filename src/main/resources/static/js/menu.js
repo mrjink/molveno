@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    getMenus();
-});
+//$(document).ready(function() {
+//    getMenus();
+//});
 
         function getDataWeb (menu) {
 
@@ -15,41 +15,22 @@ $(document).ready(function() {
                     var tr = $("<tr></tr>");
                     var name = $("<td></td>").text(menuItem.name);
                     var description= $("<td></td>").text(menuItem.description);
-                     var price= $("<td></td>").text(menuItem.price);
+                     var price= $("<td></td>").text("$"+menuItem.price);
                     var category= $("<td></td>").text(menuItem.category);
                     var order = $("<td></td>").text("Order").click(function () {
                         orderItem(menuItem.id)                    });
                     tr.append(name, description, price );
                     ((menuItem.category==menu)? $('#menu').append(tr): '')
                 });
-
             },
             error: function (result) {
                 console.log(result);
                 $('#menu').html(result.responseText);
             }
         });
-
-
         };
 
 
-
-   function orderItem (id) {
-
-            $.ajax({
-                url: "http://localhost:8080/api/restaurant/order/add/" + id,
-                type: "post",
-                success: function (result) {
-                    <!--getData();-->
-                },
-                error: function (result) {
-                    console.log(result);
-                    window.alert("Couldn't add order! " + result.responseText);
-                }
-            });
-
-    };
 
 function getMenus(){
     $.get("/api/restaurant/menu/all", function(data, status){

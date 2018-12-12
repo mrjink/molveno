@@ -29,86 +29,31 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 
-
+</head>
 <body>
 
-<header>
 
+    <!--Include customer header-->
+    <div w3-include-html="/general_header/general_header.html"></div>
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-        <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png"/><a class="navbar-brand" href="/">Molveno Lake
-        Resort</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    <script>
+         includeHTML();
+         setCurrentActiveItem(RESTAURANT_ITEM);
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
+        function onEnglishLanguageSelected()
+        {
+            //English language is selected translate the page
+            console.log('English language is selected')
+        }
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="/hotel.html">
-                        Hotel
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Optie1</a>
-                        <a class="dropdown-item" href="#">Optie2</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Optie3</a>
-                    </div>
-                </li>
+        function onChineseSelected()
+        {
+            //Chinese language is selected translate the page
+            console.log('Chinese language is selected')
+        }
+     </script>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="/restaurant/">
-                        Restaurant
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Optie1</a>
-                        <a class="dropdown-item" href="#">Optie2</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Optie3</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="/events.html">
-                        Events
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Optie1</a>
-                        <a class="dropdown-item" href="#">Optie2</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Optie3</a>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact.html">Contact</a>
-                </li>
-            </ul>
-
-            <ul class="languagepicker">
-                <a href="#en">
-                    <li><img src="/img/EN.png"/>English</li>
-                </a>
-                <a href="#cn">
-                    <li><img src="/img/CN.png"/>Chinese</li>
-                </a>
-            </ul>
-
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Register</button>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
-        </div>
-    </nav>
-</header>
-
-
-</div>
-
-<div class="row">
+    <div class="row">
 
     <div id="carousel" class="col-xs-12 carousel slide" data-ride="carousel">
 
