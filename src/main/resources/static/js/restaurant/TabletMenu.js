@@ -24,15 +24,14 @@ var orderList=[];
 
                 $.each(result, function (index, menuItem) {
 
-                    var tr = $("<tr></tr>");
+                    var tr = $("<tr id=\"row\" ></tr>");
                     var name = $("<td></td>").text(menuItem.name);
                     var description= $("<td></td>").text(menuItem.description);
                      var price= $("<td></td>").text("$"+menuItem.price);
-                    var category= $("<td></td>").text(menuItem.category);
-                    var amount = $("<td>").append("<input id="+menuItem.idMenuItem+" type=\"number\" min=\"0\" max=\"12\" class=\"form-control\"  name=\"amount\"></td>");
-
-                    var order = $("<td>").append("<button class=\"btn-primary\">Order</button></td>").click($(this).button(function () {
-                        orderItem(menuItem)                    }));
+                   
+                    var amount = $("<td>").append("<input id=\"rowMenu\" type="+index+" min=\"0\" max=\"12\" class=\"form-control\"  name=\"amount\"></td>");
+                    // var order = $("<td>").append("<button onclick=\"orderItem(menuItem);\" class=\"btn-primary\">Order</button></td>").click(orderItem(menuItem)  );
+                    var order = $("<td>").append("<button  onclick=\"orderItem(this)\" class=\"iAddbutton\">Order</button></td>");
 
                     tr.append(name, description, price, amount, order );
 
@@ -42,6 +41,14 @@ var orderList=[];
                     ((menuItem.category=="DESERT")? $('#Desert-menu').append(tr): '');
                      ((menuItem.category=="DRINKS")? $('#Drinks-menu').append(tr): '');
                 });
+                $(function() {
+                  $(document ).on("click","#rowMenu button.iAddbutton",function() {
+                    let tr = $(this).closest('tr');
+                    let a = tr.find('input[name="amount"]').val();
+
+                    alert('Table 2: ' + a );
+                  });
+                })
             },
             error: function (result) {
                 console.log(result);
@@ -54,9 +61,13 @@ var orderList=[];
 
    function orderItem (menuItem) {
 //   add item to orderlist
-        var orderAmount = $("#"+menuItem.idMenuItem).val()
-        orderList.push({"idMenuItem": menuItem.idMenuItem,"amount":orderAmount});
-        console.log(orderList);
+
+   alert('works '+menuItem.idMenuItem);
+
+
+        // var orderAmount = $("#"+menuItem.idMenuItem).val()
+        // orderList.push({"idMenuItem": menuItem.idMenuItem,"amount":orderAmount});
+        // console.log(orderList);
 
 
 //            $.ajax({
@@ -102,10 +113,10 @@ var orderList=[];
                   document.getElementById("user").innerHTML = "<b>Guest</b>";
                   document.getElementById("header_title").innerHTML = "Order from menu";
 
-                   if(myFunctionTag == 1)
-                   {
-                    document.getElementById("header_title").innerHTML = "Inventory Orders1";
-                   }
+//                   if(myFunctionTag == 1)
+//                   {
+//                    document.getElementById("header_title").innerHTML = "Inventory Orders1";
+//                   }
 
                   }
               if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
