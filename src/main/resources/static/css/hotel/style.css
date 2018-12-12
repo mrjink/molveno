@@ -178,3 +178,16 @@ overflow:hidden;
 #unsubEmail{
   font-size: 12pt;
 }
+
+.bookRoomText{
+  margin-top: 15px; 
+  background-color: #eeeeee; 
+  color: #005693;
+}
+.textAreaRemarks{
+  border-radius: 3px;
+  width: 400px;
+}
+.roomserviceAmount{
+  height: 53.25px;
+}
