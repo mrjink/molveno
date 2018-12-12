@@ -23,11 +23,14 @@
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
 
     <!--DATE PICKER TIME SLOT CSS -->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
+    <!--Include custom header-->
+    <script src="/js/header_function/import_general_header.js"></script>
+    <script src="js/header_function/header_functions.js"></script>
 
 </head>
 <body>
@@ -151,8 +154,9 @@
         <div class="col align-self-end">
             <h2></h2>
             <div class="d-flex align-items-end">
-                <button
-                <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation" class="btn btn-outline-primary"><!--Make reservation</input>-->
+                <button class="btn btn-primary">
+                    <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation" class="btn btn-outline-primary"><!--Make reservation</input>-->
+                </button>
             </div>
 
             <div id="errorMessage"></div>
