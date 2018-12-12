@@ -184,8 +184,7 @@ overflow:hidden;
   background-color: #eeeeee; 
   color: #005693;
 }
-.formtextfield{
-  
+.textAreaRemarks{
+  border-radius: 3px;
   width: 400px;
- height: 200px;
 }
