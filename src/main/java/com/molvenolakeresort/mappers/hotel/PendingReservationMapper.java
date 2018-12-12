@@ -13,6 +13,7 @@ public class PendingReservationMapper {
     public static PendingReservationInformationView mapReservationToPendingReservationInformationView(Reservation reservation) {
         PendingReservationInformationView view = new PendingReservationInformationView();
 
+        view.setId(reservation.getId());
         view.setApproved(false);
         view.setNrAdults(reservation.getNrAdults());
         view.setNrChildren(reservation.getNrChildren());

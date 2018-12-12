@@ -3,6 +3,7 @@ package com.molvenolakeresort.views.hotel;
 import java.time.LocalDateTime;
 
 public class PendingReservationInformationView {
+    private long id;
     private String lastName;
     private String firstName;
     private String email;
@@ -14,6 +15,14 @@ public class PendingReservationInformationView {
     private int nrChildren;
     private String remarks;
     private boolean approved;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getLastName() {
         return lastName;
