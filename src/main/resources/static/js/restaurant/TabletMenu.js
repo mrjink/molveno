@@ -61,8 +61,6 @@ var orderList=[];
     var order_array = [];
 
    function orderItem (menuItemButtonID) {
-
-
     var name = "";
     var quantity = "";
     var price = "";
@@ -81,11 +79,44 @@ var orderList=[];
       price = document.getElementById(String(index)+"2").textContent;   
    }
 
-    var orderItem = {"quantity":quantity,
-    "name":name,
-    "price":price};
+    var orderItem = {order_item_quantity:quantity,
+    order_item_name:name,
+    order_item_price:price};
     order_array.push(orderItem);
+
     };
+
+    function createOrderList()
+    {
+        var table = "<table id=\"Order\" class=\"table\"><thead><tr><th>Amount</th><th>Item</th><th>Price per Item</th></tr></thead><tbody>";
+
+        for (var i = 0; i < order_array.length; i++) {
+            var orderItem = order_array[i];
+            table += "<tr><td>"+orderItem.order_item_quantity+"</td><td id=\""+i+"\">"+orderItem.order_item_name+"</td><td>"+orderItem.order_item_price+"</td><td><button id= \"0"+i+"\" onclick=\"deleteOrderItem(this);\" class=\"btn btn-outline-primary\">Remove</button></td></tr>";
+        }
+
+        table += "</tbody>";
+        document.getElementById('menu2').innerHTML = table;
+    }
+
+    function deleteOrderItem(delete_button_pressed)
+    {
+        var index = delete_button_pressed.id == '00' ? '0' : delete_button_pressed.id.replace("0", "");
+        order_array.splice(index,1);
+        createOrderList();
+    }
+
+    function loadOrderList(value, index, array)
+    {
+        var table = "<table id=\"Order\" class=\"table\"><thead><tr><th>Amount</th><th>Item</th><th>Price per Item</th></tr></thead><tbody>";
+
+        order_array.forEach(value, index, array)
+        {
+            table.concat("<tr><td>"+value.order_item_quantity+"</td><td>"+value.order_item_name+"</td><td>"+value.order_item_price+"</td><td><button class=\"btn btn-outline-primary\">Remove</button></td></tr>")
+        }
+
+        table.concat("</tbody>"); 
+    }
 
 
 
@@ -110,12 +141,6 @@ var orderList=[];
                   //TODO: Make API call to get the authorized user that is logged in
                   document.getElementById("user").innerHTML = "<b>Guest</b>";
                   document.getElementById("header_title").innerHTML = "Order from menu";
-
-//                   if(myFunctionTag == 1)
-//                   {
-//                    document.getElementById("header_title").innerHTML = "Inventory Orders1";
-//                   }
-
                   }
               if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
               //Remove the attribute, and call this function once more:

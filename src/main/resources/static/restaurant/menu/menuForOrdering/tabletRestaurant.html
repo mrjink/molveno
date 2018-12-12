@@ -8,7 +8,7 @@
 
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="/img/favicon.ico">
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -56,7 +56,7 @@
                        aria-selected="false">Drinks</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="menu2-tab" data-toggle="tab" href="#menu2" role="tab" aria-controls="menu2"
+                    <a class="nav-link" id="menu2-tab" data-toggle="tab" href="#menu2" role="tab" aria-controls="menu2" onclick="createOrderList();"
                        aria-selected="false">Order</a>
                 </li>
                 <li class="nav-item">
@@ -155,7 +155,8 @@
                 </div>
 
                 <div id="menu2" class="tab-pane fade" role="tabpanel">
-                    <table id="Order" class="table">
+
+                    <!-- <table id="Order" class="table">
                         <thead>
                         <tr>
                             <th>Amount</th>
@@ -183,7 +184,11 @@
                         </tr>
                         </tbody>
 
-                    </table>
+                    </table> -->
+
+                    <script>
+                    createOrderList();
+                    </script>
                     <button onclick="PlaceOrder()" class="btn btn-outline-primary" href="#PlaceOrder" type="button">
                         Order
                         Items
