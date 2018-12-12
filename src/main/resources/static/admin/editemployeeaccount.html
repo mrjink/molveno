@@ -132,14 +132,20 @@ function confirmSave() {
     var agreed = confirm("Are you sure you want save the changes to this role?");
     if(agreed){
         //DELETE DE ROLE
-        alert("ROLE IS gesaved");
+        patchData();
+        alert("Role saved successfully!");
     }
     else{
-        alert("NIET GELUKT");
+        alert("Couldnt save the role!");
     }
 }
 
 </script>
+
+
+
+
+
 <div class="carousel row">
 
     <div class="col-md-12">
@@ -154,37 +160,43 @@ function confirmSave() {
             <div class="col-md-5">
                 <div class="form-area">
                     <form role="form">
+                        <form>
+                            <fieldset>
+                                <legend>Role Name:</legend>
+                                <p><input type = "text" id="rolename"></p>
 
-            <form>
-                <fieldset>
-                    <legend>Role Rights:</legend>
-                    Lijst van acties die deze role kan doen
-                    <p><input type = "radio">Add an event</p>
-                    <p><input type = "radio">Edit an event</p>
-                    <p><input type = "radio">Delete an event</p>
 
-                </fieldset>
-            </form>
-            <!-- Status box (blocked of niet) -->
-            <form>
-                <fieldset>
-                    <legend>Status:</legend>
-                    <p><input type = "radio">Active</p>
-                    <p><input type = "radio">Inactive</p>
-                </fieldset>
-            </form>
+                            </fieldset>
+                        </form>
+                        <form>
+                            <fieldset>
+                                <legend>Role Rights:</legend>
+                                Lijst van acties die deze role kan doen
+                                <p><input type = "radio">Add an event</p>
+                                <p><input type = "radio">Edit an event</p>
+                                <p><input type = "radio">Delete an event</p>
 
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmSave()"><a>Save changes</a></button>
-                   </form>
+                            </fieldset>
+                        </form>
+                        <!-- Status box (blocked of niet) -->
+                        <form>
+                            <fieldset>
+                                <legend>Status:</legend>
+                                <p><input type = "radio" id="active" name="RAD">Active</p>
+                                <p><input type = "radio" name="RAD">Inactive</p>
+                            </fieldset>
+                        </form>
 
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmSave()"><a href="/admin/empaccountmanagement.html">Save Role</a></button>
+
+                    </form>
                 </div>
             </div>
         </div>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmDelete()"><a>Delete this role</a></button>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmBlock()"><a>Block this role</a></button>
-
     </div>
 </div>
+
+
 
 
 <!-- Role VIEW-->
@@ -316,6 +328,9 @@ function confirmSave() {
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+<script src="/js/event/roleedit.js"></script><!--Javascript-->
+
 
 
 </body>

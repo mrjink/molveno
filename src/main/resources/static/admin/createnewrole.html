@@ -110,7 +110,48 @@
 function confirmCreate() {
     var agreed = confirm("Are you sure you create this new role?");
     if(agreed){
-        //DELETE DE ROLE
+        //CREATE DE ROLE
+
+        var naam = $('#rolename').val();
+        var isActive = document.getElementById("active").checked;
+
+
+        $.ajax({
+            url: "http://localhost:8080/api/role",
+            type: "post",
+            data: JSON.stringify({
+                name:naam
+                ,employeeRole:true
+                ,active:isActive
+
+
+                }),
+            contentType: "application/json",
+            success: function (result){
+                //$('#eventAdress').val("");
+                //$('#eventmaxUsers').val("");
+                //$('#eventprice').val("");
+
+
+
+
+
+
+
+
+
+
+
+            },
+            error: function(result){
+                console.log(result);
+                $('#events').html(result.responseText);
+            }
+
+        })
+
+
+
         alert("ROLE IS created");
     }
     else{
@@ -137,7 +178,7 @@ function confirmCreate() {
             <form>
                 <fieldset>
                     <legend>Role Name:</legend>
-                    <p><input type = "text"></p>
+                    <p><input type = "text" id="rolename"></p>
 
 
                 </fieldset>
@@ -156,12 +197,12 @@ function confirmCreate() {
             <form>
                 <fieldset>
                     <legend>Status:</legend>
-                    <p><input type = "radio">Active</p>
-                    <p><input type = "radio">Inactive</p>
+                    <p><input type = "radio" id="active" name="RAD">Active</p>
+                    <p><input type = "radio" name="RAD">Inactive</p>
                 </fieldset>
             </form>
 
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmCreate()"><a>Create Role</a></button>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="confirmCreate()"><a  href="/admin/empaccountmanagement.html">Create Role</a></button>
 
                     </form>
                 </div>
@@ -300,6 +341,7 @@ function confirmCreate() {
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
 
 
 </body>
