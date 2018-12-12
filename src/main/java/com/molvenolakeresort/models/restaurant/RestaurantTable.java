@@ -29,4 +29,8 @@ public class RestaurantTable {
     public Long getId() {
         return idRestaurantTable;
     }
+
+    public void setIdRestaurantTable(Long idRestaurantTable) {
+        this.idRestaurantTable = idRestaurantTable;
+    }
 }

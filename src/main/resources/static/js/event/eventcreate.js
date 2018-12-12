@@ -54,7 +54,7 @@
         var additionalinfo = $('#additionalinfoEnglish').val();
 
         $.ajax({
-            url: "http://localhost:8080/event",
+            url: "http://localhost:8080/api/event",
             type: "post",
             data: JSON.stringify({
                 name:eventnameEnglish

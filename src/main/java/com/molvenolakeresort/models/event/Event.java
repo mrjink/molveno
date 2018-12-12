@@ -1,8 +1,10 @@
 package com.molvenolakeresort.models.event;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
 
 @Entity
@@ -10,30 +12,17 @@ public class Event {
     @Id
     @GeneratedValue
     private long id;
+    private String name;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private String address;
-    @OneToMany
-    private List<User> users;
-    private int maxUsers;
     private long price;
+    private int maxParticipants;
     private boolean catering;
     private String additionalInformation;
     private String activity;
     private String information;
     private boolean cancelEvent;
-
-    public Event() {
-
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    //LIST (PROFILES)
 
     public LocalDateTime getStartDate() {
         return startDate;
@@ -51,36 +40,20 @@ public class Event {
         this.endDate = endDate;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public int getMaxUsers() {
-        return maxUsers;
-    }
-
-    public void setMaxUsers(int maxUsers) {
-        this.maxUsers = maxUsers;
-    }
-
     public long getPrice() {
         return price;
     }
 
     public void setPrice(long price) {
         this.price = price;
+    }
+
+    public int getMaxParticipants() {
+        return maxParticipants;
+    }
+
+    public void setMaxParticipants(int maxParticipants) {
+        this.maxParticipants = maxParticipants;
     }
 
     public boolean isCatering() {
@@ -90,7 +63,31 @@ public class Event {
     public void setCatering(boolean catering) {
         this.catering = catering;
     }
-    
+
+    public String getAdditionalInformation() {
+        return additionalInformation;
+    }
+
+    public void setAdditionalInformation(String additionalInformation) {
+        this.additionalInformation = additionalInformation;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getActivity() {
         return activity;
     }

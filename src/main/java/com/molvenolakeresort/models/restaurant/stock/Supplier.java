@@ -1,31 +1,42 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "Supplier")
 @Table(name = "supplier")
 public class Supplier {
-    @Id
-    @GeneratedValue
-    private Long id;
+    @Id @GeneratedValue
+    private Long idSupplier;
     private String name;
     private String email;
     private String telephone;
     private String notes;
 
-    public Supplier(String name, String email, String telephone, String notes) {
-        this.name = name;
-        this.email = email;
-        this.telephone = telephone;
-        this.notes = notes;
+//    @OneToMany(
+//        mappedBy = "supplier",
+//        cascade = CascadeType.ALL,
+//        orphanRemoval = true
+//    )
+//    private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
+
+    @OneToMany(
+            mappedBy = "supplier",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Stock> stocks;
+
+    public Supplier() {
     }
 
-    public Long getId() {
-        return id;
+    public Long getIdSupplier() {
+        return idSupplier;
+    }
+
+    public void setIdSupplier(Long idSupplier) {
+        this.idSupplier = idSupplier;
     }
 
     public String getName() {
@@ -58,5 +69,21 @@ public class Supplier {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+//    public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
+//        return supplyOrderSupplierIngredients;
+//    }
+//
+//    public void setSupplyOrderSupplierIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
+//        this.supplyOrderSupplierIngredients = supplyOrderSupplierIngredients;
+//    }
+
+    public List<Stock> getStocks() {
+        return stocks;
+    }
+
+    public void setStocks(List<Stock> stocks) {
+        this.stocks = stocks;
     }
 }
