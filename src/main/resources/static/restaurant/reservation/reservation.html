@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/restaurantReservation.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -152,24 +153,16 @@
                 <p>
                     <label for="amountOfPeople">People: </label>
                     <input type="number" min="1" max="12" class="form-control" id="amountOfPeople"
-                           name="amountOfPeople" required>
-                    <!--TODO: Show only available dates-->
-                    <!--
-                    <label for="date">Date: </label>
-                    <input type="date" class="form-control" id="date" name="date" required>
-
-                    <label for="time">Time: </label>
-                    <input type="time" class="form-control" id="time" name="time" required>
--->
+                           name="amountOfPeople" value="2" required readonly>
                 </p>
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <div class="date-picker-2" placeholder="Recipient's username" id="ttry"
                              aria-describedby="basic-addon2">
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="panel panel-default">Available timeslots:
+                        <div class="panel panel-default" id="panelSize"><h3>&nbsp;&nbsp;Available timeslots:</h3>
                             <div class="panel-body">
                                 <span id="example-popover-2"></span>
                                 <div id="example-popover-2-content"></div>
@@ -191,7 +184,7 @@
                 <p>
                     <span class="subtitle">Fill in your contact details below (no account necessary). Or <a
                             href="#login"><b>log in</b></a> / <a href="#register"><b>register</b></a></span>
-
+                    <br>
                     <label for="name">Name: </label>
                     <input type="text" class="form-control" id="name" name="name" required>
                     <label for="phone">Phone: </label>
