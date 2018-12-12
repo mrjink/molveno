@@ -1,6 +1,6 @@
-$(document).ready(function() {
-    getMenus();
-});
+//$(document).ready(function() {
+//    getMenus();
+//});
 
         function getDataWeb (menu) {
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
                     var tr = $("<tr></tr>");
                     var name = $("<td></td>").text(menuItem.name);
                     var description= $("<td></td>").text(menuItem.description);
-                     var price= $("<td></td>").text(menuItem.price);
+                     var price= $("<td></td>").text("$"+menuItem.price);
                     var category= $("<td></td>").text(menuItem.category);
                     var order = $("<td></td>").text("Order").click(function () {
                         orderItem(menuItem.id)                    });
