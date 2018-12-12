@@ -25,13 +25,13 @@ var orderList=[];
                 $.each(result, function (index, menuItem) {
 
                     var tr = $("<tr id=\"row\" ></tr>");
-                    var name = $("<td></td>").text(menuItem.name);
+                    var name = $("<td id=\""+index+"1\"></td>").text(menuItem.name);
                     var description= $("<td></td>").text(menuItem.description);
-                     var price= $("<td></td>").text("$"+menuItem.price);
+                     var price= $("<td id=\""+index+"2\"></td>").text("$"+menuItem.price);
                    
-                    var amount = $("<td>").append("<input id=\"rowMenu\" type="+index+" min=\"0\" max=\"12\" class=\"form-control\"  name=\"amount\"></td>");
+                    var amount = $("<td>").append("<input id=\""+index+"\" type=\"number\" min=\"0\" max=\"12\" class=\"form-control\"  name=\"amount\"></td>");
                     // var order = $("<td>").append("<button onclick=\"orderItem(menuItem);\" class=\"btn-primary\">Order</button></td>").click(orderItem(menuItem)  );
-                    var order = $("<td>").append("<button  onclick=\"orderItem(this)\" class=\"iAddbutton\">Order</button></td>");
+                    var order = $("<td>").append("<button type='button' id=\"0"+index+"\" onclick=\"orderItem(this.id)\" class=\"iAddbutton\">Order</button></td>");
 
                     tr.append(name, description, price, amount, order );
 
@@ -58,35 +58,33 @@ var orderList=[];
         };
 
 
+    var order_array = [];
 
-   function orderItem (menuItem) {
-//   add item to orderlist
-
-   alert('works '+menuItem.idMenuItem);
+   function orderItem (menuItemButtonID) {
 
 
-        // var orderAmount = $("#"+menuItem.idMenuItem).val()
-        // orderList.push({"idMenuItem": menuItem.idMenuItem,"amount":orderAmount});
-        // console.log(orderList);
+    var name = "";
+    var quantity = "";
+    var price = "";
 
+   if (menuItemButtonID == '00')
+   {
+      name = document.getElementById("01").textContent;
+      quantity = document.getElementById("0").value;
+      price = document.getElementById("02").textContent;
 
-//            $.ajax({
-//                url: "http://localhost:8080/api/restaurant/order/add/",
-//                type: "post",
-//                data: ({
-//                                id: id
-//
-//                            }),
-//
-//                success: function (result) {
-//                    <!--getData();-->
-//                },
-//                error: function (result) {
-//                    console.log(result);
-//                    window.alert("Couldn't add order! " + result.responseText);
-//                }
-//            });
+   }else{
+       var index = menuItemButtonID.replace("0", "");
 
+      name = document.getElementById(String(index)+"1").textContent;
+      quantity = document.getElementById(String(index)).value;
+      price = document.getElementById(String(index)+"2").textContent;   
+   }
+
+    var orderItem = {"quantity":quantity,
+    "name":name,
+    "price":price};
+    order_array.push(orderItem);
     };
 
 
