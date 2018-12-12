@@ -15,7 +15,7 @@ public class Order {
     @Id @GeneratedValue
     private Long idOrder;
     private SupplierOrderStatus status;
-    private int totalPrice;
+    private double totalPrice;
 
     @ManyToOne
     private Room room;

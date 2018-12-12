@@ -1,55 +1,78 @@
 package com.molvenolakeresort.models.restaurant.stock;
 
-import com.molvenolakeresort.models.restaurant.enums.Unit;
-
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
 
 @Entity(name = "Stock")
 @Table(name = "stock")
-public class Stock {
-    @Id @GeneratedValue
-    private Long idStock;
-    @ManyToOne
+@IdClass(Stock.StockId.class)
+public class Stock implements Serializable{
+
+//    @EmbeddedId
+//    private SupplyOrderSupplierIngredientId idSupplyOrderIngredient;
+
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idSupplier")
+    private Supplier supplier;
+
+    @Id
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idIngredient")
     private Ingredient ingredient;
-    private Unit unit;
-    private String notes;
+
+    private double price;
+
     private int quantity;
 
-    public Stock(){
+    public Stock() {
 
     }
 
-    public void setIngredient(Ingredient ingredient) {
-        this.ingredient = ingredient;
+    public static class StockId implements Serializable {
+
+        private Supplier supplier;
+        private Ingredient ingredient;
+
+        public StockId() {
+        }
+
+        public StockId(Supplier supplier, Ingredient ingredient) {
+            this.supplier = supplier;
+            this.ingredient = ingredient;
+        }
+    }
+
+//    public SupplyOrderSupplierIngredientId getIdSupplyOrderIngredient() {
+//        return idSupplyOrderIngredient;
+//    }
+//
+//    public void setIdSupplyOrderIngredient(SupplyOrderSupplierIngredientId idSupplyOrderIngredient) {
+//        this.idSupplyOrderIngredient = idSupplyOrderIngredient;
+//    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 
     public Ingredient getIngredient() {
         return ingredient;
     }
 
-    public Long getIdStock() {
-        return idStock;
+    public void setIngredient(Ingredient ingredient) {
+        this.ingredient = ingredient;
     }
 
-    public Unit getUnit() {
-        return unit;
+    public double getPrice() {
+        return price;
     }
 
-    public void setUnit(Unit unit) {
-        this.unit = unit;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     public int getQuantity() {

@@ -1,0 +1,6 @@
+[
+  {"name": "ROLE_ADMINISTRATOR", "employeeRole": true},
+  {"name": "ROLE_MANAGER", "employeeRole": true},
+  {"name": "ROLE_EMPLOYEE", "employeeRole": true},
+  {"name": "ROLE_GUEST", "employeeRole": false}
+]

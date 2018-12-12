@@ -4,6 +4,7 @@ import com.molvenolakeresort.models.restaurant.enums.MenuCategory;
 import com.molvenolakeresort.models.restaurant.enums.MenuItemType;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 // This is not a menu carte.
@@ -14,24 +15,30 @@ public class Menu {
     @Id
     @GeneratedValue
     private Long idMenu;
-    @ManyToMany(cascade = CascadeType.REMOVE)
-    private List<MenuItem> menuItem;
-    //Name of menuItem bundle
     private String name;
     private MenuCategory category;
 
-//    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    //@ManyToMany(cascade = CascadeType.ALL)
-    //@JoinTable(name = "menu_menu_items", joinColumns = @JoinColumn(name = "idMenu"), inverseJoinColumns = @JoinColumn(name = "idMenuItem"))
-
-    //private List<MenuItem> menuItems = new ArrayList<>();
-
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name = "menu_menu_items", joinColumns = @JoinColumn(name = "idMenu"), inverseJoinColumns = @JoinColumn(name = "idMenuItem"))
+    private List<MenuItem> menuItems;
 
     public Menu() {
     }
 
-    public Long getId() {
+    public Long getIdMenu() {
         return idMenu;
+    }
+
+    public void setIdMenu(Long idMenu) {
+        this.idMenu = idMenu;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public MenuCategory getCategory() {
@@ -42,19 +49,11 @@ public class Menu {
         this.category = category;
     }
 
-    public List<MenuItem> getMenuItem() {
-        return menuItem;
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
     }
 
-    public void setMenuItem(List<MenuItem> menuItem) {
-        this.menuItem = menuItem;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setMenuItems(List<MenuItem> menuItems) {
+        this.menuItems = menuItems;
     }
 }

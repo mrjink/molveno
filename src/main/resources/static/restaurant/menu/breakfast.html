@@ -23,10 +23,10 @@
 
         <!-- Custom styles for this template -->
 
-        <script src="/js/header_function/import_general_header.js"></script>
-        <script src="js/header_function/header_functions.js"></script>
+        <script src="../../js/header_function/import_general_header.js"></script>
+        <script src="../../js/header_function/header_functions.js"></script>
     </head>
-    <body>
+    <body onload="getDataWeb(menu)">
 
         <!--Include customer header-->
         <div w3-include-html="/general_header/general_header.html"></div>
@@ -34,6 +34,7 @@
         <script>
          includeHTML();
          setCurrentActiveItem(RESTAURANT_ITEM);
+
 
         function onEnglishLanguageSelected()
         {
@@ -46,8 +47,10 @@
             //Chinese language is selected translate the page
             console.log('Chinese language is selected')
         }
-     </script>
 
+        </script>
+        <!--script set menu category-->
+        <script>  var menu = "BREAKFAST";</script>
 
 
         <!--Custom start-->
@@ -86,18 +89,20 @@
 
             </div>
             <br>
-            <div class= "container" id="main-menuPage">
-                <table id="course-menu's" class="table table-sm justify-content-center">
+            <div class="container" id="main-menuPage">
+                <table id="menu" class="display">
                     <thead>
                         <tr>
-                            <th>Breakfast</th><th>Price</th>
+                            <th>Breakfast</th>
+                            <th>Description</th>
+                            <th>Price</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr><td>Scrambled eggs</td><td>$ 3.50</td></tr>
-                        <tr><td>Yogurt</td><td>$ 1.50</td></tr>
-                        <tr><td>Croissant</td><td>$ 2.50</td></tr>
-                    </tbody>
+                    <!--<tbody>-->
+                    <!--<tr><td>Scrambled eggs</td><td>$ 3.50</td></tr>-->
+                    <!--<tr><td>Yogurt</td><td>$ 1.50</td></tr>-->
+                    <!--<tr><td>Croissant</td><td>$ 2.50</td></tr>-->
+                    <!--</tbody>-->
                 </table>
             </div>
 
@@ -107,7 +112,7 @@
         <br>
         <!--FOOTER-->
         <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="https://www.molveno.com/"> www.molveno.com</a>
+            <a href="https://www.molveno.com/">www.molveno.com</a>
         </div>
 
 
@@ -122,6 +127,9 @@
                 integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
                 crossorigin="anonymous"></script>
         <script src=../../../../js/menu.js></script>
+        <script type="text/javascript" charset="utf8"
+                src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
 
     </body>
 

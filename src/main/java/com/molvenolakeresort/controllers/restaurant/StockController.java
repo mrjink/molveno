@@ -27,8 +27,8 @@ public class StockController {
     }
 
     @PostMapping("/add")
-    public Stock addStock(@RequestBody StockDTO stock) {
-        return repository.save(createStockObject(stock));
+    public Stock addStock(@RequestBody Stock stock) {
+        return repository.save(stock);
     }
     //
     @GetMapping("/get/{id}")
@@ -38,9 +38,9 @@ public class StockController {
     }
     //
     @PutMapping("/update/{id}")
-    public Stock updateStock(@RequestBody StockDTO updatedStock, @PathVariable Long id) {
+    public Stock updateStock(@RequestBody Stock stock, @PathVariable Long id) {
 
-        return repository.save(createStockObject(updatedStock));
+        return repository.save(stock);
     }
 
     @DeleteMapping("/delete/{id}")
@@ -56,9 +56,6 @@ public class StockController {
     private Stock createStockObject(StockDTO stockDTO)
     {
         Stock stockObject = new Stock();
-        stockObject.setIngredient(stockDTO.getIngredient());
-        stockObject.setUnit(stockDTO.getUnit());
-        stockObject.setNotes(stockDTO.getNotes());
         stockObject.setQuantity(stockDTO.getQuantity());
 
         return stockObject;
