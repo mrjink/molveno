@@ -116,7 +116,7 @@
                                 <div id="example-popover-2-content"></div>
                             </div>
                         </div>
-                        <script src=../../../../js/reservationDateTimePicker.js></script></head>
+                        <script src=../../../../js/reservationDateTimePicker.js></script>
                     </div>
                     <div class="col-md-4 col-xs-12">
                         <label for="date">Date: </label>
@@ -149,15 +149,14 @@
                     </select>
                 </p>
             </div>
+            <div class="d-flex align-items-end">
+                <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation" class="btn btn-outline-primary" style="background-color:#007bff; color:white;" onclick="confirmReservation();"><!--Make reservation</input>-->
+            </div>
         </div>
         <!--<span class="validity"></span>-->
         <div class="col align-self-end">
             <h2></h2>
-            <div class="d-flex align-items-end">
-                <button class="btn btn-primary">
-                    <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation" class="btn btn-outline-primary"><!--Make reservation</input>-->
-                </button>
-            </div>
+
 
             <div id="errorMessage"></div>
         </div>
@@ -185,6 +184,13 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <script src=../../../../js/restaurant.js></script>
+
+    <script>
+    function confirmReservation(){
+    //confirm reservation on make reservation page
+    window.location.href = '/restaurant/reservation/confirm.html';
+    }
+    </script>
 
 </body>
 </html>
