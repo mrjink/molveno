@@ -128,7 +128,7 @@
                 </div>
                 <div>
                     <br>
-                    <PRE>
+                    <PRE id="bookerInfo">
 Name:       Simon Boonstra
 Birth Date: 02-05-1969
 Country:    Netherlands
@@ -142,9 +142,8 @@ Address:    Reykjavikplein 1,
                 <div align="center"><b>Booking Information</b></div>
                 <br>
                 <div>
-                    <PRE>
-Arrival Date:   01-12-2018
-Departure Date: 10-12-2018
+                    <PRE id="bookingInfo">
+Arrival Date:   01-12-2018 until 10-12-2018
 Adults:         2
 Children:       0
 Pet:            Yes</PRE>
@@ -335,6 +334,42 @@ Pet:            Yes</PRE>
 
 <script src="/js/hotel/guest-reservation-room-options-screen.js"></script>
 <script>
+$(document).ready( function () {
+    $.ajax({
+            url: "/api/guest/all",
+            type: "get",
+            success: function(result){
+                var guest = result[0];
+                var string = "" +
+                "Name:       " + guest.firstName + " " + guest.lastName + "\n" +
+                "Birth Date: " + guest.dateOfBirth + "\n" +
+                "Country:    " + guest.address.country + "\n" +
+                "Address:    " + guest.address.street + " " + guest.address.number + guest.address.numberextension + ", " + guest.address.postalCode + " " + guest.address.city;
+                $('#bookerInfo').html(string);
+            },
+            error: function(result){
+                console.log(result);
+            }
+    })
+    $.ajax({
+            url: "/api/reservation/all",
+            type: "get",
+            success: function(result){
+                var reservation = result[0];
+                var string = "" +
+                "Arrival Date:   " + reservation.startDate + "\n" +
+                "Adults:         " + reservation.nrAdults + "\n" +
+                "Children:       " + reservation.nrChildren + "\n" +
+                "Pet:            " + reservation.pet;
+                $('#bookingInfo').html(string);
+            },
+            error: function(result){
+                console.log(result);
+            }
+    })
+});
+
+
 function tijdelijkeForward(){
     window.location.href = "/hotel/guest-dashboard.html";;
 }
