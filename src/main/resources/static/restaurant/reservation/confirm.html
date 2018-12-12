@@ -136,9 +136,27 @@
 <!--class="col-xs-12"-->
 
 <main id="content">
-    <br>
-    <div class="container"><h2>Thank you for your reservation in our Restaurant. </h2></div>
+    <div class="container">
+        <h2>Thank you for your reservation in our Restaurant. </h2>
+    </div>
 
+    <div id="reservation" class="col-12 col-md-3">
+        <div class="formContainer">
+            <h3>Your reservation</h3>
+            <label for="amountOfPeople">People: </label>
+            <input type="number" min="1" max="12" class="form-control" id="amountOfPeople" name="amountOfPeople" readonly>
+            <!--TODO: Show only available dates-->
+            <label for="date">Date: </label>
+            <input type="text" class="form-control" id="date" name="date" readonly>
+            <!--TODO: Time slots (variates per day) -->
+            <label for="time">Time: </label>
+            <input type="text" class="form-control" id="time" name="time" readonly>
+        </div>
+
+        <div class="d-flex align-items-end">
+            <input type="submit" name="goBack" value="Go back to Restaurant" class="btn btn-outline-primary" style="margin-top:10px; background-color:#007bff; color:white;" onclick="backRestaurant();"><!--Make reservation</input>-->
+        </div>
+    </div>
 </main>
 
 <br>
@@ -161,8 +179,14 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 
+<script>
+    function backRestaurant(){
+        //confirm reservation on make reservation page
+        window.location.href = '/restaurant.html';
+    }
+</script>
 
 
-
+<script src=../../../../js/restaurant.js></script>
 </body>
 </html>
