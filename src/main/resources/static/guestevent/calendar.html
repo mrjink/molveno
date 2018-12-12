@@ -33,11 +33,32 @@
     <script type="text/javascript" src="https://cdn.datatables.net/select/1.2.6/js/dataTables.select.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.js"></script>
+
+    <!--Include custom header-->
+    <script src="/js/header_function/import_general_header.js"></script>
+    <script src="js/header_function/header_functions.js"></script>
 </head>
 
 <body>
+<div w3-include-html="/general_header/general_header.html"></div>
+
+<script>
+includeHTML();
+setCurrentActiveItem(EVENT_ITEM);
+
+function onEnglishLanguageSelected() {
+    //English language is selected translate the page
+    console.log('English language is selected')
+}
+
+function onChineseSelected() {
+    //Chinese language is selected translate the page
+    console.log('Chinese language is selected')
+}
+</script>
+
 <div class="container-fluid">
-    <div class="row">
+    <div class="carousel row">
         <div class="col-12">
             <h1>Event overview</h1>
         </div>
@@ -98,6 +119,96 @@
             location.href = 'detail.html?id='+value;
         };
     </script>
+
+<!-- Footer -->
+<footer class="page-footer font-small blue pt-4">
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+        <!-- Grid row -->
+        <div class="row">
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+                <!-- Links -->
+                <h5 class="text-uppercase">Links</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+                <!-- Links -->
+                <h5 class="text-uppercase">Links</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+                <!-- Links -->
+                <h5 class="text-uppercase">Links</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!">Link 4</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 mt-md-0 mt-3">
+                <!-- Content -->
+                <h5 class="text-uppercase">Footer Content</h5>
+                <p>Here you can use rows and columns here to organize your footer content.</p>
+            </div>
+            <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <a href="https://www.molveno.com/"> www.molveno.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<!-- Footer -->
 </body>
 
 </html>
