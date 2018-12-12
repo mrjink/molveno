@@ -31,12 +31,12 @@ public class PathController {
     @GetMapping("/")
     public String root()
     {
-        return "index";
+        return "/index.html";
     }
 
     @GetMapping("/login")
     public String login()
     {
-        return "login";
+        return "/login.html";
     }
 }
