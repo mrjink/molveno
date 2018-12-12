@@ -284,7 +284,7 @@
                 </div>
               </div>
             </div>
-            <div class="row">
+            <div class="row" id="heide" style="visibility:hidden">
               <div class="col-4 roomserviceButton"><p>Omelette du fromage</p></div>
               <div class="btn-group" style="margin-left : 10px;">
                     <div class="container bookRoomText" style="margin-top:0px;">
@@ -296,7 +296,7 @@
               </div>
               <div class="col-2 roomserviceButton"><p>¥20</p></div>
               <div class="col-2" style="margin-left: 32px; margin-top: 4px;">
-                <i class="fa fa-close"></i>
+                <i class="fa fa-close" onclick="hideOmelette()"></i>
               </div>
             </div>
 
@@ -350,7 +350,10 @@
           "<tr>                        <th>Drinks</th>                    </tr>                    <tr>                        <td>Beer</td>                    </tr>                    <tr>                        <td>Wine</td>                    </tr>                    <tr>                        <td>Sake</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                    <tr>                        <td>x</td>                    </tr>                 ";
       }
       function setOmelette(){
-
+heide.style.visibility = 'visible';
+      }
+      function hideOmelette(){
+heide.style.visibility = 'hidden';
       }
     </script>
   </body>
