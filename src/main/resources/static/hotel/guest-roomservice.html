@@ -240,7 +240,8 @@
               class="container"
               style="height: 145px;  background-color: white; border-style: solid; border-color:#005693; border-radius: 3px; margin-top: 10px;"
             >
-              Roomnumber
+              Roomnumber <br><br><br>
+              1
             </div>
           </div>
         </div>
@@ -289,7 +290,7 @@
               <div class="btn-group" style="margin-left : 10px;">
                     <div class="container bookRoomText" style="margin-top:0px;">
                             <div class="btn-group">
-                                <input type="number" class="btn btnroominfo roomserviceAmount" value="1" min="1" max="99">
+                                <input type="number" id = "nummerEi" onchange="setPrice()" class="btn btnroominfo roomserviceAmount" value="1" min="1" max="99">
                             </input>
                             </div>
                         </div>
@@ -309,11 +310,12 @@
             <div
               class="container"
               style="height: 145px;  background-color: white; border-style: solid; border-color:#005693; border-radius: 3px; margin-top: 10px;"
+              id="price"
             >
-              <div class="row">Subtotal</div>
-              <div class="row">Delivery charge</div>
-              <div class="row">Tax</div>
-              <div class="row">Total</div>
+              <br>Subtotal
+              <br>Delivery charge (10%)
+              <br>Tax
+              <br>Total
             </div>
           </div>
         </div>
@@ -351,9 +353,23 @@
       }
       function setOmelette(){
 heide.style.visibility = 'visible';
+setPrice()
       }
       function hideOmelette(){
 heide.style.visibility = 'hidden';
+hidePrice();
+      }
+      function setPrice(){
+          var subtotal = nummerEi.value*20;
+          var deliveryCharge = subtotal*0.1;
+          var total = subtotal + deliveryCharge ;
+          var tax = total*.2;
+          var output = "               <br>Subtotal   ¥" + subtotal + "<br>Delivery charge (10%)    ¥"+deliveryCharge+"<br>Tax (20%)           ¥"+tax +"<br>Total ¥" +total;
+        price.innerHTML=output;
+
+      }
+      function hidePrice(){
+price.innerHTML="               <br>Subtotal              <br>Delivery charge (10%)              <br>Tax (20%)             <br>Total"
       }
     </script>
   </body>
