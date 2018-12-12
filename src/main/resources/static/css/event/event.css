@@ -545,3 +545,15 @@ div.Event-short-info label.font-weight-bold {
 div.event-info.col-md-10{
     padding-top: 1%;
 }
+
+/* CSS STYLING FOR THE EVENTS TABLE */
+div.col-sm-12 table#events {
+    width: 100% !important;
+}
+
+@media (min-width: 1000px) {
+    button.dt-button.btn.export {
+        position: absolute;
+        right: 10px;
+    }
+}

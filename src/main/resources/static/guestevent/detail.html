@@ -94,41 +94,66 @@
     <div class="carousel col-md-12">
         <!-- Nieuwe gedeelte  -->
         <div class="col-md-6">
-<p><label class="font-weight-bold">Edit Event</label></p>
-        <div class="Event-short-info">
-            <div class="col-md-6">
-            <label class="font-weight-bold">Enter Name:</label>
-                <input class="form-control" placeholder="Enter Name"></div>
+<p><label class="font-weight-bold">Event</label></p>
+<div class="Event-short-info">
+    <div class="col-md-6">
+    <label class="font-weight-bold">Name:</label>
+    <label id ="eventnameEnglish"></label></div>
 
-               <div class="col-md-6">
-            <label class="font-weight-bold ">Enter Date:</label>
-                   <input class="form-control" placeholder="Enter Date"></div>
-
-            <div class="col-md-6">
-            <label class="font-weight-bold">Enter Activity:</label>
-                <input class="form-control" placeholder="Enter Activity"></div>
-
-            <div class="col-md-6">
-                <label class="font-weight-bold">Enter Location:</label>
-                <input class="form-control" placeholder="Enter Location"></div>
-        </div>
-        </div>
+    <div class="col-md-6">
+        <label class="font-weight-bold">Activity:</label>
+        <label id ="eventactivityEnglish"></label></div>
 
 
-<div class="event-info col-md-10">
-        <p><label class="font-weight-bold">Detail Event Information</label>
-        </p>
+    <div class="col-md-6">
+    <label class="font-weight-bold ">Start Date:</label>
+    <label id="eventStartDate"></label></div>
 
-            <textarea class="form-control" rows="5" id="comment" placeholder="Enter Event Information"></textarea>
-    </div>
+    <div class="col-md-6">
+        <label class="font-weight-bold ">Start Time:</label>
+        <label id="eventStartTime"></label></div>
+
+    <div class="col-md-6">
+        <label class="font-weight-bold ">End Date:</label>
+        <label id="eventEndDate"></label></div>
+
+    <div class="col-md-6">
+        <label class="font-weight-bold ">End Time:</label>
+        <label id="eventEndTime"></label></div>
+
+    <div class="col-md-6">
+        <label class="font-weight-bold ">Price:</label>
+        <label id="eventprice"></label></div>
+
+    <div class="col-md-6">
+        <label class="font-weight-bold ">Catering:</label>
+        <label id="eventcatering"></label></div>
+
+
+</div>
+<div class="subscribe-button-div">
+    <button type="button" class="btn btn-primary"><a href="/admin/eventmanager.html">Subscribe</a></button>
+</div>
+</div>
 
 
 <div class="col-md-10">
-<div class="subscribe-button-div">
-    <button type="button" class="btn btn-primary"><a href="/admin/eventmanager.html">Save Changes</a></button>
+    <p><label class="font-weight-bold">Detailed event Information</label>
+    </p>
+    <div class="Event-big-info">
+        <label id ="eventinfoEnglish"></label>
+    </div>
 </div>
+<div class="col-md-10">
+    <p><label class="font-weight-bold">Additional event Information</label>
+    </p>
+    <div class="Event-big-info">
+        <label id="additionalinfoEnglish"></label>
+    </div>
 </div>
-        <!--<p><input type="date" id="eventStartDate"></p>-->
+
+
+<!--<p><input type="date" id="eventStartDate"></p>-->
         <!--<p>StartTime:</p>-->
         <!--<p><input type="time" id="eventStartTime"></p>-->
 
@@ -312,7 +337,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-<script src="/js/event/eventcreate.js"></script><!--Javascript-->
+<script src="/js/event/showevent.js"></script><!--Javascript-->
 
 
 
