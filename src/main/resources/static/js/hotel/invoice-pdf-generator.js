@@ -8,7 +8,7 @@ doc.setFontSize(20);
 doc.setFontType("bold");
 doc.text(20, 20,'MOLVENO LAKE RESORT');
 doc.setFontSize(18);
-doc.text(94, 60, 'INVOICE');
+doc.text(90, 56, 'INVOICE');
 doc.setFontType("normal");
 doc.setFontSize(12);
 
@@ -21,6 +21,10 @@ doc.text(20, 70, 'Guest Name');
 doc.text(20, 74, 'Guest Address');
 doc.text(20, 78, 'Guest City, ZipCode');
 doc.text(20, 82, 'Guest Country');
+
+doc.text(153, 64, 'Invoice');
+doc.text(153, 68, 'Date');
+
 
 doc.setFontType("bold");
 doc.text(21, 94, 'Amount');
@@ -42,31 +46,31 @@ doc.line(19, 65, 51, 65)
 doc.line(19, 61, 19, 65)
 doc.line(51, 61, 51, 65)
 
+
+//date/time/invoicenumber
+
+doc.line(152, 61, 198, 61)
+doc.line(152, 65, 198, 65)
+doc.line(152, 69, 198, 69)
+doc.line(152, 61, 152, 69)
+doc.line(198, 61, 198, 69)
+doc.line(172, 61, 172, 69)
+
+
 doc.setLineWidth(0.75)
 
 // 'table' section
 
 //Outline
-doc.line(20, 90, 188, 90)
-doc.line(20, 280, 188, 280)
+doc.line(20, 90, 198, 90)
+doc.line(20, 280, 198, 280)
 doc.line(20, 90, 20, 280)
-doc.line(188, 90, 188, 280)
-
-//date/time/invoicenumber
-
-
+doc.line(198, 90, 198, 280)
 
 //body
-doc.line(20, 96, 188, 96)
+doc.line(20, 96, 198, 96)
 doc.line(50, 90, 50, 280)
 doc.line(148, 90, 148, 280)
-
-
-
-
-
-
-
 
 $("#pdfobject").attr("src", doc.output("datauri"));
 

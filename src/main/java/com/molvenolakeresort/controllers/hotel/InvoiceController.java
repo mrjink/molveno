@@ -4,6 +4,7 @@ import com.molvenolakeresort.models.hotel.Invoice;
 import com.molvenolakeresort.repositories.hotel.InvoiceRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,25 @@ public class InvoiceController {
             }
         }
     }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    public void change(@PathVariable long id, @RequestBody String origin) {
+        Invoice invoice = this.invoiceRepository.findById(id).get();
+        invoice.setOrigin(origin);
+        this.invoiceRepository.save(invoice);
+    }
+
+    @RequestMapping(value = "paid/{id}", method = RequestMethod.PUT)
+    public void togglePaid(@PathVariable long id) {
+        Invoice invoice = this.invoiceRepository.findById(id).get();
+        if (invoice.isPaid()) {
+            invoice.setPaid(false);
+        } else {
+            invoice.setPaid(true);
+        }
+        invoiceRepository.save(invoice);
+    }
+
 
     @RequestMapping(value = "delete/{billNumber}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String billNumber) {

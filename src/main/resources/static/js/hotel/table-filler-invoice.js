@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
     var table = $("#myTable").DataTable();
     $.ajax({
         url: "/api/invoice/all",
         type: "get",
-        success: function(result) {
+        success: function (result) {
             $("#myTableBody").html("");
-            $.each(result, function(index, invoice) {
+            $.each(result, function (index, invoice) {
                 var totalAmountBills = 0;
                 for (var i = 0; i < invoice.invoiceLines.length; i++) {
                     totalAmountBills += invoice.invoiceLines[i].invoiceLineCost;
@@ -20,11 +20,10 @@ $(document).ready(function() {
                     .draw(false);
             });
         }
+
     });
-
-
-    var doc = new jsPDF({
-        orientation: 'portrait',
-        unit: 'in',
-        format: [14, 8]
-    })
+    $('#myTable #myTableBody').on('click', 'tr', function () {
+        var data = table.row(this).data();
+        alert('Deze invoice is gemaakt in het ' + data[1]);
+    });
+});
