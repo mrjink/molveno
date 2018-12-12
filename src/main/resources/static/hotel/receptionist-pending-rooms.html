@@ -55,10 +55,12 @@
                 <th scope="col"><b>Last Name</b></th>
                 <th scope="col"><b>First Name</b></th>
                 <th scope="col"><b>E-mail</b></th>
-                <th scope="col"><b>Pets</b></th>
                 <th scope="col"><b>Room categories</b></th>
+                <th scope="col"><b>Starting date</b></th>
+                <th scope="col"><b>End date</b></th>
                 <th scope="col"><b>No. Adults</b></th>
                 <th scope="col"><b>No. Children</b></th>
+                <th scope="col"><b>Pets</b></th>
                 <th scope="col"><b>Remarks</b></th>
                 <th scope="col"><b>Approve</b></th>
             </tr>
@@ -77,7 +79,7 @@
  $(document).ready( function () {
     var table = $('#myTable').DataTable({
         ajax: {
-            url: 'http://localhost:8080/api/room/all',
+            url: 'http://localhost:8080/api/reservation/all',
             dataSrc: ''
         },
         columns: [
@@ -88,13 +90,15 @@
                 "defaultContent": ''
             },
 
-            { "data": "mainBooker.lastName" },
-            { "data": "mainBooker.firstName"},
-            { "data": "mainBooker.email"},
-            { "data": "pet"},
-            { "data": "roomAmenities.roomType"},
+            { "data": "lastName" },
+            { "data": "firstName"},
+            { "data": "email"},
+            { "data": "roomTypes"},
+            { "data": "startDate"},
+            { "data": "endDate"},
             { "data": "nrAdults"},
             { "data": "nrChildren"},
+            { "data": "pet"},
             { "data": "remarks"},
             { "data": "approved"}
 
