@@ -1,4 +1,4 @@
-
+console.log("Restaurant reservation javascript loaded")
 $(document).ready(function() {
 	console.log("Works");
     //Controleren of sessies worden ondersteund door de browser.
@@ -19,6 +19,9 @@ $(document).ready(function() {
 
 
     $("#startReservationProcressBtn").on( "click", function() {
+        //snelle fix. Probleem is dat DatePicker niet de on change function aanroept..
+        sessionStorage.setItem("date", $("#date").val());
+        sessionStorage.setItem("time", $("#time").val());
         window.location.href = "/restaurant/reservation/";
     });
 

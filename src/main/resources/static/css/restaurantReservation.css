@@ -23,3 +23,8 @@
 
 td{
 margin-left:10px;}
+
+.row #content
+{
+	margin-right:0px;
+}
