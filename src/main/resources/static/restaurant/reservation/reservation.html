@@ -21,6 +21,13 @@
     <!-- Custom styles for this template -->
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
 
+    <!--DATE PICKER TIME SLOT CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+
 </head>
 <body>
 <header>
@@ -137,8 +144,9 @@
 <!--class="col-xs-12"-->
 
 <main id="content">
-    <div class="d-flex flex-row flex-wrap">
-        <form id ="restaurantReservationForm">
+    <!--<div class="d-flex flex-row flex-wrap">-->
+    <form id="restaurantReservationForm">
+        <div class="container">
             <div class="col">
                 <h2>Your reservation</h2>
                 <p>
@@ -146,14 +154,39 @@
                     <input type="number" min="1" max="12" class="form-control" id="amountOfPeople"
                            name="amountOfPeople" required>
                     <!--TODO: Show only available dates-->
+                    <!--
                     <label for="date">Date: </label>
                     <input type="date" class="form-control" id="date" name="date" required>
-                    <!--TODO: Time slots (variates per day) -->
+
                     <label for="time">Time: </label>
                     <input type="time" class="form-control" id="time" name="time" required>
+-->
                 </p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="date-picker-2" placeholder="Recipient's username" id="ttry"
+                             aria-describedby="basic-addon2">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="panel panel-default">Available timeslots:
+                            <div class="panel-body">
+                                <span id="example-popover-2"></span>
+                                <div id="example-popover-2-content"></div>
+                            </div>
+                        </div>
+                        <script src=../../../../js/reservationDateTimePicker.js></script>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="date">Date: </label>
+                        <input type="date" class="form-control" id="date" name="date" readonly required>
+
+                        <label for="time">Time: </label>
+                        <input type="time" class="form-control" id="time" name="time" readonly required>
+                    </div>
+                </div>
             </div>
-            <div class="col">
+            <div>
                 <h2>Your information</h2>
                 <p>
                     <span class="subtitle">Fill in your contact details below (no account necessary). Or <a
@@ -175,31 +208,27 @@
                     </select>
                 </p>
             </div>
+        </div>
+        <!--<span class="validity"></span>-->
+        <div class="col align-self-end">
+            <h2></h2>
+            <div class="d-flex align-items-end">
+                <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation"
+                       class="btn btn-outline-primary"><!--Make reservation</input>-->
 
-            <!--<span class="validity"></span>-->
-            <div class="col align-self-end">
-                <h2></h2>
-                <div class="d-flex align-items-end">
-                    <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation"
-                           class="btn btn-outline-primary"><!--Make reservation</input>-->
-
-                </div>
-
-                <div id = "errorMessage"></div>
             </div>
-        </form>
 
-    </div>
+            <div id="errorMessage"></div>
+        </div>
+    </form>
 </main>
 
 <br>
 <!--<input id="submitReservationBtn" type="submit" name="reserve" value="Submit">-->
 <!--<div id="reservationError">Fill this with error messages</div>-->
 <!--FOOTER-->
-<div class="row">
-    <footer id="footer" class="col-xs-12">
-        &copy; 2018 Molveno Lake Resort, all rights reserved
-    </footer>
+<div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <a href="https://www.molveno.com/"> www.molveno.com</a>
 </div>
 </div>
 

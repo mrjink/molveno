@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
@@ -20,12 +20,39 @@
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
 
+    <!--Include custom header-->
+    <script src="/js/header_function/import_general_header.js"></script>
+    <script src="js/header_function/header_functions.js"></script>
+
 </head>
 <body>
-<header>
+
+        <div w3-include-html="/general_header/general_header.html"></div>
+
+        <script>
+                includeHTML();
+                setCurrentActiveItem(HOTEL_ITEM);
+       
+               function onEnglishLanguageSelected()
+               {
+                   //English language is selected translate the page
+                   console.log('English language is selected')
+               }
+           
+               function onChineseSelected()
+               {
+                   //Chinese language is selected translate the page
+                   console.log('Chinese language is selected')
+               }
+         </script>
+    
+        
 
 
-    <!-- Fixed navbar -->
+<!-- <header> -->
+
+
+    <!-- Fixed navbar
     <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
         <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a class="navbar-brand" href="#">Molveno Lake Resort</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,7 +114,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
         </div>
     </nav>
-</header>
+</header> -->
 
 <!-- Begin page content -->
 <div class="row">
