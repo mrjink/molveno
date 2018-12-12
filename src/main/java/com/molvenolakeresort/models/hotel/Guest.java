@@ -23,7 +23,6 @@ public class Guest {
     private boolean newsletterSubscribed;
     private LocalDate dateOfBirth;
 
-
     @OneToMany(mappedBy = "guest")
     @JsonIgnore
     private Set<ReservationGuest> reservationGuests = new HashSet<>();
