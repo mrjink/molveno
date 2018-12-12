@@ -29,9 +29,9 @@ var orderList=[];
                     var description= $("<td></td>").text(menuItem.description);
                      var price= $("<td></td>").text("$"+menuItem.price);
                    
-                    var amount = $("<td>").append("<input id=\"rowMenu\" type="+index+" min=\"0\" max=\"12\" class=\"form-control\"  name=\"amount\"></td>");
+                    var amount = $("<td>").append("<input id=\""+index+"\" type=\"number\" min=\"0\" max=\"12\" class=\"form-control\"  name=\"amount\"></td>");
                     // var order = $("<td>").append("<button onclick=\"orderItem(menuItem);\" class=\"btn-primary\">Order</button></td>").click(orderItem(menuItem)  );
-                    var order = $("<td>").append("<button  onclick=\"orderItem(this)\" class=\"iAddbutton\">Order</button></td>");
+                    var order = $("<td>").append("<button type='button' id=\"0"+index+"\" onclick=\"orderItem(this.id)\" class=\"iAddbutton\">Order</button></td>");
 
                     tr.append(name, description, price, amount, order );
 
@@ -59,10 +59,23 @@ var orderList=[];
 
 
 
-   function orderItem (menuItem) {
+   function orderItem (menuItemButtonID) {
 //   add item to orderlist
 
-   alert('works '+menuItem.idMenuItem);
+
+var str = "Visit Microsoft!";
+var res = str.replace("Microsoft", "W3Schools");
+
+   if (menuItemButtonID == '00')
+   {
+
+      alert('selected index value: '+document.getElementById("0").value);
+   }else{
+       var index = menuItemButtonID.replace("0", "");
+
+     alert('selected index value: '+document.getElementById(String(index)).value);
+
+   }
 
 
         // var orderAmount = $("#"+menuItem.idMenuItem).val()
