@@ -6,7 +6,6 @@
     <link rel="icon" href="/img/logo_128.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/event/style.css" type="text/css"/>
     <link rel="stylesheet" href="/css/restaurant.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -19,6 +18,11 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- Custom selection dialog propertiess -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <script>
         function includeHTML() {
           var z, i, elmnt, file, xhttp;
@@ -70,8 +74,258 @@
         <script>
         includeHTML();
         </script>
-        <!--Include customer header-->
+
+        <!--form options-->
+        <img id="bottom" class="left rounded float-left" src="/img/slideshow/restaurant/kipMetRijst.jpg" alt="Noodles" style="width:14rem;">
+
+        <div class="left row col-12 col-md-3 rounded float-left">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Name input description" style="font-size:12px; font-style:italic;">
+                </div>
+            </div>
+
+        <div class="form-group col-12 col-md-9 rounded float-left">
+            <label></label>
+            <textarea class="form-control"  placeholder="Description..." rows="3" style="font-size:12px; font-style:italic;"></textarea>
+        </div>
+
+        <div class="form-group col-12 col-md-2">
+            <label for="inputState">Type Dish</label>
+            <select id="inputState" class="form-control">
+                <option selected>Choose Dish</option>
+                <option>...</option>
+            </select>
+        </div>
+
+        <div class="form-group col-12 col-md-5">
+            <label>Ingredients</label>
+            <textarea class="form-control" rows="5" style="font-size:12px; font-style:italic;"></textarea>
+            <button id="add" class="btn btn-primary" type="submit" onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">ADD</button>
+        </div>
+
+        <div class="form-group col-12 col-md-5">
+            <label>Notes</label>
+            <textarea class="form-control" placeholder="Type your notes here..." rows="3" style="font-size:12px; font-style:italic;"></textarea>
+        </div>
+
+        <button id="add2" class="btn btn-primary" type="submit" onclick="addMenuIngredient()";>ADD</button>
+
+        <!--Pop-up Search Ingredient-->
+        <div class="w3-container">
+
+            <div id="id01" class="w3-modal">
+                <div class="w3-modal-content">
+                    <header style="background-color:#005693; height: 38px; margin-bottom:50px;">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright" style="height:38px; color:white;">&times;</span>
+                        <div style="height: 38px;">
+                            <p style="font-size: 18px; font-weight: bold; text-align: center; padding-top: 5px; color: white;">Search Ingredient</p>
+                        </div>
+                    </header>
+                    <div id="pad" class="w3-container">
 
 
+                        <div id="custom-search-input" class="row col-md-6 rounded float-right" style="margin-bottom: 10px;">
+                            <div class="input-group col-md-12">
+                                <input type="search" class="form-control input-lg" placeholder="Search..." />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" onclick="myFunction()">OK</button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <table class="table table-striped" >
+                            <thead>
+                                <tr>
+                                    <th scope="col">Suppliers</th>
+                                    <th scope="col">Ingredient</th>
+                                    <th scope="col">Price(kg)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                        <button class="btn btn-primary rounded float-right" type="submit" onclick="document.getElementById('id02').style.display='block'">Add ingredient</button>
+                        <button class="btn btn-primary rounded float-right" type="submit" style="margin-right:10px" onclick="searchIngredient();">Ok</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!--Pop-up 2 Add ingredient-->
+        <div id="id02" class="w3-modal">
+            <div class="w3-modal-content">
+                <header style="background-color:#005693; height: 38px; margin-bottom:50px;">
+                    <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright" style="height:38px; color:white;">&times;</span>
+                    <div style="height: 38px;">
+                        <p style="font-size: 18px; font-weight: bold; text-align: center; padding-top: 5px; color: white;">Add Ingredient</p>
+                    </div>
+                </header>
+                <div id="pad2" class="w3-container">
+                    <div class="row col-12 col-md-5">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Name" style= "font-style:italic; margin-bottom:10px;">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-12 col-md-4 rounded float-left">
+                        <select class="form-control">
+                            <option selected>Choose Supplier</option>
+                            <option></option>
+                        </select>
+                    </div>
+                     <button class="btn btn-primary" type="submit" onclick="document.getElementById('id03').style.display='block'">+</button>
+
+                    <div class="form-group col-12 col-md-4">
+                        <select class="form-control">
+                            <option selected>Choose Unit</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-12 col-md-10">
+                        <label>Notes</label>
+                        <textarea class="form-control" placeholder="Type your notes here..." rows="5" style="font-size:12px; font-style:italic;"></textarea>
+                    </div>
+
+                    <button class="btn btn-primary rounded float-right" type="submit" style="margin-right:10px" onclick="addIngredient();">Ok</button>
+
+                </div>
+            </div>
+        </div>
+<!--Pop-up 3 Add new supplier-->
+        <div id="id03" class="w3-modal">
+            <div class="w3-modal-content">
+                <header style="background-color:#005693; height: 38px; margin-bottom:50px;">
+                    <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-display-topright" style="color:white;">&times;</span>
+                    <div style="height: 38px;">
+                        <p style="font-size: 18px; font-weight: bold; text-align: center; padding-top: 5px; color: white;">Add new supplier</p>
+                    </div>
+                </header>
+                <div id="pad3"class="w3-container">
+                    <div class="row col-12 col-md-5">
+                        <div class="col">
+                            <input id="supplier_name" type="text" class="form-control" placeholder="Name" style= "font-style:italic; margin-bottom:10px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group row col-12 col-md-5">
+                        <div class="col">
+                            <input id="supplier_address" type="text" class="form-control" placeholder="Address" style= "font-style:italic;">
+                        </div>
+                    </div>
+
+                    <div class="form-group row col-12 col-md-5">
+                        <div class="col">
+                            <input id="supplier_city" type="text" class="form-control" placeholder="City" style= "font-style:italic;">
+                        </div>
+                    </div>
+
+                    <div class="form-group row col-12 col-md-5">
+                        <div class="col">
+                            <input id="supplier_zipcode" type="text" class="form-control" placeholder="Zip-code" style= "font-style:italic;">
+                        </div>
+                    </div>
+
+                    <div class="form-group row col-12 col-md-5">
+                        <div class="col">
+                            <select id="supplier_country" class="form-control">
+                                <option selected>Choose Country</option>
+                                <option></option> //default value
+                                <option>China</option>
+                                <option>The Netherlands</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row col-12 col-md-5">
+                        <div class="col">
+                            <h5>Contact person</h5>
+                            <input id="supplier_contact_person_name"type="text" class="form-control" placeholder="Name" style= "font-style:italic; margin-bottom:10px;">
+                        </div>
+                    </div>
+
+                    <div class="row col-12 col-md-5">
+                        <div class="col">
+                            <input id="supplier_contact_person_phone_number" type="text" class="form-control" placeholder="Phone number" style= "font-style:italic; margin-bottom:10px;">
+                        </div>
+                    </div>
+
+                    <div class="row col-12 col-md-5">
+                        <div class="col">
+                            <input id="supplier_contact_person_email" type="email" class="form-control" placeholder="E-mail" style= "font-style:italic; margin-bottom:10px;">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12 col-md-10">
+                        <label>Notes</label>
+                        <textarea id="supplier_contact_person_notes" class="form-control" placeholder="Type your notes here..." rows="5" style="font-size:12px; font-style:italic;"></textarea>
+                    </div>
+
+                    <button id="ok_button" class="btn btn-primary rounded float-right" type="submit" style="margin-right:10px" onclick="addSupplier();">Ok</button>
+                </div>
+            </div>
+        </div>
+
+
+        <script>
+            function myFunction() {
+                <!--var x = document.getElementById("mySearch").placeholder;-->
+                <!--document.getElementById("demo").innerHTML = x;-->
+                alert('it works');
+                }
+
+            function searchIngredient() {
+                //search ingredient
+                document.getElementById('id01').style.display='none';
+                }
+
+            function addSupplier() {
+                //verify data
+                document.getElementById('id03').style.display='none';
+                }
+
+            function addIngredient(){
+                //add ingredient in the search ingredient pop-up
+                document.getElementById('id02').style.display='none';
+                }
+
+            function addMenuIngredient(){
+                //add menu ingredient to menu page
+                window.location.href = '/restaurant/menu/menu.html';
+                }
+
+</script>
     </body>
 </html>

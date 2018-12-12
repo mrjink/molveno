@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/restaurant/reservation")
+@RequestMapping("api/restaurant/restaurantreservation")
 public class RestaurantReservationController {
 
     private final RestaurantReservationRepository repository;
@@ -23,8 +23,8 @@ public class RestaurantReservationController {
     }
 
     @PostMapping("/add")
-    public RestaurantReservation addReservation(@RequestBody RestaurantReservation RestaurantReservation) {
-        return repository.save(RestaurantReservation);
+    public RestaurantReservation addReservation(@RequestBody RestaurantReservation restaurantReservation) {
+        return repository.save(restaurantReservation);
     }
 //
     @GetMapping("/get/{id}")

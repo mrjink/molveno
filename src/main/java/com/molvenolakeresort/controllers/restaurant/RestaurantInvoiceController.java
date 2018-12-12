@@ -26,8 +26,8 @@ public class RestaurantInvoiceController {
     }
 
     @PostMapping("/add")
-    public RestaurantInvoice addRestaurantInvoice(@RequestBody RestaurantInvoice RestaurantInvoice) {
-        return repository.save(RestaurantInvoice);
+    public RestaurantInvoice addRestaurantInvoice(@RequestBody RestaurantInvoice restaurantInvoice) {
+        return repository.save(restaurantInvoice);
     }
     //
     @GetMapping("/get/{id}")

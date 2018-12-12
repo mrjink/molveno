@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Table bill</title>
+
+    <link rel="icon" href="/img/logo_128.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/event/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/restaurant.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- Custom selection dialog propertiess -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          //Iterate through the collection of all HTML elements:
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+
+            //Search for elements with a certain atrribute:
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+
+              //Make an HTTP request using the attribute value as the file name:
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {
+                      elmnt.innerHTML = this.responseText;
+
+                      //TODO: Make API call to get the authorized user that is logged in
+                      document.getElementById("user").innerHTML = "<b>Kitchen Chef</b>";
+                      document.getElementById("header_title").innerHTML = "Table bills";
+
+                       if(myFunctionTag == 1)
+                       {
+                        document.getElementById("header_title").innerHTML = "Inventory Orders1";
+                       }
+
+                       alert("Current state: "+global);
+                      }
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  //Remove the attribute, and call this function once more:
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              }
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              return;
+            }
+          }
+          };
+  </script>
+
+
+<style>
+a {
+  color:blue;
+}
+
+.table_number {
+  color:blue;
+}
+
+</style>
+
+</head>
+<body>
+        <!--Include customer header-->
+        <div w3-include-html="/header_admin/header.html"></div>
+
+       <script>
+            includeHTML();
+
+            // window.onload = function() {
+            //   // yourFunction(param1, param2);
+            //   checkState(1);
+
+            //   console.log('Windows on load!');
+            // };
+
+
+        </script>
+        <!--Include customer header-->
+
+        <main id="content" class="row">
+          <div class="table-responsive" style="margin-left: 80px; margin-right: 80px; padding-top: 35px">
+                  <table class="table table-striped" id="table_orders_tables">
+                      <thead>
+                      <tr>
+                          <th scope="col"></th>
+                          <th scope="col">Table number</th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                          <th scope="col">Price</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr onclick="showOrderDetail(this)">
+                          <th scope="row"><input type="checkbox" name="order12_checkbox" value="table_1"><br></th>
+                          <td class="table_number">1</td>
+                          <td></td>
+                          <td></td>
+                          <td>$698,50</td>
+                      </tr>
+                      <tr onclick="showOrderDetail(this)">
+                        <th scope="row"><input type="checkbox" name="order12_checkbox" value="table_2"><br></th>
+                        <td class="table_number">2</td>
+                        <td></td>
+                        <td></td>
+                        <td>$65,85</td>
+                      </tr>
+                        <tr onclick="showOrderDetail(this)">
+                        <th scope="row"><input type="checkbox" name="order12_checkbox" value="table_3"><br></th>
+                        <td class="table_number">3</td>
+                        <td></td>
+                        <td></td>
+                        <td>$650,85</td>
+                      </tr>
+                      <tr onclick="showOrderDetail(this)">
+                        <th scope="row"><input type="checkbox" name="order12_checkbox" value="table_4"><br></th>
+                        <td class="table_number">4</td>
+                        <td></td>
+                        <td></td>
+                        <td>$300,85</td>
+                      </tr>
+                      </tbody>
+                  </table>
+          </div>
+      
+          <div id="place_order_button_container" style="margin-left:auto; margin-right:80px">
+              <button type="button" class="btn btn-success" onclick="printOrder();">Print Order</button>
+          </div>
+      
+      </main>
+
+      
+
+      <div id="order_detail_dialog" class="w3-modal">
+        <!-- selection dialog content -->
+        <div class="w3-modal-content">
+            <header style="background-color:#005693; height: 38px;">
+                <span onclick="document.getElementById('order_detail_dialog').style.display='none'" class="w3-button w3-display-topright" style="color: white; height: 38px;">
+                        &times;
+                </span>
+                <div style="height: 40px;">
+                    <p id="order_dialog_title" style="font-size: 18px; font-weight: bold; text-align: center; padding-top: 5px; color: white;">Order</p>
+                </div>
+            </header>
+            <div class="w3-container">
+                    
+              <div class="table-responsive">
+                <table class="table table-striped" id="order_table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Description</th>
+                        <th scope="col"></th>
+                        <th scope="col">Price</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th>2</th>
+                        <td><p>Coca Cola</p></td>
+                        <td></td>
+                        <td><p>$2,50</p></td>
+                        <td><p>$5,00</p></td>
+                    </tr>
+                    <tr>
+                        <th>4</th>
+                        <td><p>3 course meal</p></td>
+                        <td></td>
+                        <td><p>$25,00</p></td>
+                        <td><p>$100,00</p></td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td><p>5 course meal</p></td>
+                        <td></td>
+                        <td><p>$45,00</p></td>
+                        <td><p>$135,00</p></td>
+                    </tr>
+                    <tr>
+                      <th>5</th>
+                      <td><p>7 course meal</p></td>
+                      <td></td>
+                      <td><p>$65,00</p></td>
+                      <td><p>$325,00</p></td>
+                    </tr>
+                    <tr>
+                      <th>1</th>
+                      <td><p>Wine bottle</p></td>
+                      <td></td>
+                      <td>$35,00</td>
+                      <td>$35,00</td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                          <th>Subtotal</th>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td>$635,00</td>
+                      </tr>
+                      <tr>
+                        <th>VAT (10%)</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>$63,50</td>
+                      </tr>
+                      <tr>
+                        <th><p><b>Total</b></p></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><p><u><b>$698,50 (¥4374.94)</b></u></p></td>
+                      </tr>
+                    </tfoot>
+
+                </table>
+        </div>
+            <div id="add_to_list_button_container" style="float: right; margin-bottom: 10px;">
+              <button type="button" class="btn btn-primary" id="add_to_list_button" style="width: 100px;" onclick="performTask(false);">Ok</button>
+            </div>
+
+            <div id="add_to_list_button_container" style="float: right; margin-bottom: 10px; margin-right: 10px;">
+              <button type="button" class="btn btn-primary" id="add_to_list_button" onclick="performTask(true);">Print Invoice</button>
+            </div>
+                    
+            </div>
+        </div>
+        <!-- selection dialog content -->
+    </div>
+    <!-- selection dialog -->
+
+
+    <script>
+        function printOrder() {
+            alert("Submit order!");
+        }
+
+
+        function performTask(invoiceRequired)
+        {
+          closeDialog();
+
+          if(invoiceRequired)
+          printInvoice()
+        }
+
+        function closeDialog()
+        {
+          document.getElementById('order_detail_dialog').style.display='none'
+        }
+
+        function printInvoice()
+        {
+          alert('Invoice printed');
+        }         
+
+        function showOrderDetail(selected_order) {
+        
+        var table_number = document.getElementById("table_orders_tables").rows[selected_order.rowIndex].cells[1].innerHTML;
+        //alert("Row index is: "+order_number);
+        document.getElementById("order_dialog_title").innerHTML = "Order table "+ String(table_number);
+        document.getElementById('order_detail_dialog').style.display='block'
+
+
+         
+        //window.location.href = '/restaurant/SupplierOrder/order_details.html' + '#' + order_number;
+            
+
+        // alert(ingredient+" add to order list at index: "+selected_ingredient.rowIndex);
+
+        // window.location.pathname = "/restaurant/ingredient_order_list/ingredient_order_list.html";
+
+
+        }
+      </script>
+
+  
+</body>
+</html>
