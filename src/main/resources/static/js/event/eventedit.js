@@ -180,12 +180,12 @@ window.onload = function getData(){
                 //maak van date en time datetime object (STARTDATE)
         var sdate = document.getElementById("eventStartDate").value;
         var stime = document.getElementById("eventStartTime").value;
-        var sdatetime = new Date(sdate +" "+ stime);
+        var sdatetime = new Date(sdate +"T"+ stime);
 
         //maak van date en time datetime object (ENDDATE)
         var edate = document.getElementById("eventEndDate").value;
         var etime = document.getElementById("eventEndTime").value;
-        var edatetime = new Date(edate +" "+ etime);
+        var edatetime = new Date(edate +"T"+ etime);
 
         var eventprice = $('#eventprice').val();
         var eventmaxUsers = $('#eventmaxUsers').val();
