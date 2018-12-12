@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.molvenolakeresort.models.hotel.Guest;
 import com.molvenolakeresort.models.restaurant.enums.Course;
 import com.molvenolakeresort.models.restaurant.temp.User;
 
@@ -24,7 +25,7 @@ public class RestaurantReservation {
     Long idRestaurantReservation;
     private Integer amountOfPeople;
     @OneToOne(cascade = CascadeType.ALL)
-    private User user;
+    private Guest guest;
     private LocalDate date;
     private LocalTime time;
     private Course course;
@@ -36,8 +37,8 @@ public class RestaurantReservation {
     }
 
 
-    public User getUser() {
-        return user;
+    public Guest getGuest() {
+        return guest;
     }
 /*
     public List<RestaurantTable> getTables() {
@@ -62,5 +63,33 @@ public class RestaurantReservation {
 
     public Integer getAmountOfPeople() {
         return amountOfPeople;
+    }
+
+    public void setIdRestaurantReservation(Long idRestaurantReservation) {
+        this.idRestaurantReservation = idRestaurantReservation;
+    }
+
+    public void setAmountOfPeople(Integer amountOfPeople) {
+        this.amountOfPeople = amountOfPeople;
+    }
+
+    public void setGuest(Guest guest) {
+        this.guest = guest;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public void setTime(LocalTime time) {
+        this.time = time;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
+    public void setRestaurantTables(List<RestaurantTable> restaurantTables) {
+        this.restaurantTables = restaurantTables;
     }
 }

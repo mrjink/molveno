@@ -26,8 +26,8 @@ public class OrderController {
     }
 
     @PostMapping("/add")
-    public Order addOrder(@RequestBody Order Order) {
-        return repository.save(Order);
+    public Order addOrder(@RequestBody Order order) {
+        return repository.save(order);
     }
     //
     @GetMapping("/get/{id}")
