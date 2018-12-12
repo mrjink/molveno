@@ -11,10 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/guest/")
-public class GuestController {
+public class HotelGuestController {
 
     private GuestRepository guestRepository;
-    public GuestController(GuestRepository guestRepository) { this.guestRepository = guestRepository; }
+    public HotelGuestController(GuestRepository guestRepository) { this.guestRepository = guestRepository; }
 
     @RequestMapping(value = "all", method = RequestMethod.GET)
     public List<GuestInformationView> getAll() {
