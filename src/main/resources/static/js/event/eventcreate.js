@@ -11,60 +11,66 @@
     var postData = function(){
 
 
-        var eventAdress = $('#eventAdress').val();
-        var eventmaxUsers = $('#eventmaxUsers').val();
-        var eventprice = $('#eventprice').val();
+        //var eventAdress = $('#eventAdress').val();
+
 
         //get de waarde van de checkbox (true of false)
-        var eventcatering = document.getElementById("eventcatering").checked;
 
+
+        //EventName english
+        //var eventnameChinese = $('#eventnameChinese').val();
+
+        //var eventactivityEnglish = $('#eventactivityEnglish').val();
+        //var eventactivityChinese = $('#eventactivityChinese').val();
+
+        //var eventinfoEnglish = $('#eventinfoEnglish').val();
+        //var eventinfoChinese = $('#eventinfoChinese').val();
+
+        //var name = $('#eventnameEnglish').val();
         //Start en enddate hiernder
-        //maak van date en time datetime object (STARTDATE)
-        var sdate = document.getElementById("eventStartDate").value;
-        var stime = document.getElementById("eventStartTime").value;
 
-        var sdatetime = new Date(sdate +" "+ stime);
+         var eventnameEnglish = $('#eventnameEnglish').val();
+
+
+                //maak van date en time datetime object (STARTDATE)
+        var sdate = document.getElementById("eventStartDate").value;
+        //console.log(sdate);
+        var stime = document.getElementById("eventStartTime").value;
+        //console.log(stime);
+        var sdatetime = sdate +"T"+ stime;
+        //console.log(sdatetime);
 
         //maak van date en time datetime object (ENDDATE)
         var edate = document.getElementById("eventEndDate").value;
         var etime = document.getElementById("eventEndTime").value;
-        var edatetime = new Date(edate +" "+ etime);
+        var edatetime = edate +"T"+ etime;
 
+        var eventprice = $('#eventprice').val();
+        var eventmaxUsers = $('#eventmaxUsers').val();
+        var eventcatering = document.getElementById("eventcatering").checked;
 
-        //EventName english
-        var eventnameEnglish = $('#eventnameEnglish').val();
-        var eventnameChinese = $('#eventnameChinese').val();
-
-        var eventactivityEnglish = $('#eventactivityEnglish').val();
-        var eventactivityChinese = $('#eventactivityChinese').val();
-
-        var eventinfoEnglish = $('#eventinfoEnglish').val();
-        var eventinfoChinese = $('#eventinfoChinese').val();
-
-        var names = {"english": eventnameEnglish,"chinese": eventnameChinese};
-        var activity = {"english": eventactivityEnglish,"chinese": eventactivityChinese};
-        var info = {"english": eventinfoEnglish,"chinese": eventinfoChinese};
-
-
+        var activity = $('#eventactivityEnglish').val();
+        var info = $('#eventinfoEnglish').val();
+        var additionalinfo = $('#additionalinfoEnglish').val();
 
         $.ajax({
             url: "http://localhost:8080/api/event",
             type: "post",
             data: JSON.stringify({
-                address:eventAdress
-                ,maxUsers:eventmaxUsers
-                ,price:eventprice
-                ,catering:eventcatering
+                name:eventnameEnglish
                 ,startDate:sdatetime
                 ,endDate:edatetime
-                ,eventnameCollection:names
-                ,activityCollection:activity
-                ,eventinformationCollection:info
+                ,price:eventprice
+                ,maxParticipants:eventmaxUsers
+                ,catering:eventcatering
+                ,activity:activity
+                ,information:info
+                ,additionalInformation:additionalinfo
 
                 }),
             contentType: "application/json",
             success: function (result){
-                $('#eventAdress').val("");
+                //$('#eventAdress').val("");
                 $('#eventmaxUsers').val("");
                 $('#eventprice').val("");
                 //reset Start: date and time inputbox
@@ -75,11 +81,13 @@
                 $('#eventEndTime').val("");
                 $('#eventcatering').prop('checked',false);
                 $('#eventnameEnglish').val("");
-                $('#eventnameChinese').val("");
+                //$('#eventnameChinese').val("");
                 $('#eventactivityEnglish').val("");
-                $('#eventactivityChinese').val("");
+                //$('#eventactivityChinese').val("");
                 $('#eventinfoEnglish').val("");
-                $('#eventinfoChinese').val("");
+                //$('#eventinfoChinese').val("");
+                $('#additionalinfoEnglish').val("");
+
 
 
 

@@ -22,6 +22,10 @@ public class Reservation {
     private LocalDateTime checkOutDate;
     private String bookedBy;
     private Pet pet;
+    private int nrAdults;
+    private int nrChildren;
+    private String remarks;
+    private boolean approved;
 
     @OneToMany(mappedBy = "reservation")
     private Set<Invoice> invoices = new HashSet<>();
@@ -133,5 +137,37 @@ public class Reservation {
 
     public void setPet(Pet pet) {
         this.pet = pet;
+    }
+
+    public int getNrAdults() {
+        return nrAdults;
+    }
+
+    public void setNrAdults(int nrAdults) {
+        this.nrAdults = nrAdults;
+    }
+
+    public int getNrChildren() {
+        return nrChildren;
+    }
+
+    public void setNrChildren(int nrChildren) {
+        this.nrChildren = nrChildren;
+    }
+
+    public String getRemarks() {
+        return remarks;
+    }
+
+    public void setRemarks(String remarks) {
+        this.remarks = remarks;
+    }
+
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
     }
 }
