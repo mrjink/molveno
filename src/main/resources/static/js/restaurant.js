@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 	console.log("Works");
     //Controleren of sessies worden ondersteund door de browser.
@@ -88,3 +89,14 @@ function addReservation(json){
         }
     });
 }
+
+    /*
+$('.date-picker-2').popover({
+    html : true,
+    content: function() {
+      return $("#example-popover-2-content").html();
+    },
+    title: function() {
+      return $("#example-popover-2-title").html();
+    }
+});*/

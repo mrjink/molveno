@@ -1,7 +1,6 @@
 package com.molvenolakeresort.models.restaurant.dto;
 
 import com.molvenolakeresort.models.restaurant.stock.IngredientMenuItem;
-import com.molvenolakeresort.models.restaurant.stock.SupplierIngredient;
 import com.molvenolakeresort.models.restaurant.stock.SupplyOrderSupplierIngredient;
 
 import java.util.List;
@@ -12,7 +11,7 @@ public class IngredientDTO
     private String unit;
     private String notes;
     private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
-    private List<SupplierIngredient> supplierIngredients;
+    private List<SupplyOrderSupplierIngredient> supplierIngredients;
     private List<IngredientMenuItem> ingredientMenuItems;
 
     public List<IngredientMenuItem> getIngredientMenuItems() {
@@ -23,11 +22,11 @@ public class IngredientDTO
         this.ingredientMenuItems = ingredientMenuItems;
     }
 
-    public List<SupplierIngredient> getSupplierIngredients() {
+    public List<SupplyOrderSupplierIngredient> getSupplierIngredients() {
         return supplierIngredients;
     }
 
-    public void setSupplierIngredients(List<SupplierIngredient> supplierIngredients) {
+    public void setSupplierIngredients(List<SupplyOrderSupplierIngredient> supplierIngredients) {
         this.supplierIngredients = supplierIngredients;
     }
 
