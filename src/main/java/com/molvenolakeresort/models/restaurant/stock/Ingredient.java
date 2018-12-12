@@ -38,11 +38,11 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Long getIdIngredient() {
+    public Long getID() {
         return idIngredient;
     }
 
-    public void setIdIngredient(Long idIngredient) {
+    public void setID(Long idIngredient) {
         this.idIngredient = idIngredient;
     }
 
@@ -59,6 +59,9 @@ public class Ingredient {
     }
 
     public void setUnit(Unit unit) {
+
+        System.out.println("Set unit: "+unit);
+
         this.unit = unit;
     }
 

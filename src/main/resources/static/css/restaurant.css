@@ -53,9 +53,13 @@ margin-bottom: 20px;
 }
 
 #pad{
-padding-right:50 px;
-padding-bottom: 50px;}
+padding-right:20 px;
+padding-bottom: 20px;}
 
 #pad2{
-padding-right:50 px;
-padding-bottom: 50px;}
+padding-right:20 px;
+padding-bottom: 20px;}
+
+#pad3{
+padding-right: 20px;
+padding-bottom: 20px;}

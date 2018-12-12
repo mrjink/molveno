@@ -16,7 +16,6 @@ import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -46,27 +45,27 @@ public class SupplyOrderController {
 
     @PostMapping("/add")
     public SupplyOrder addSupplyOrder(@RequestBody SupplyOrder supplyOrder) {
-//        Date deliveryDate = supplyOrder.getDeliveryDate();
-//        Date orderDate = supplyOrder.getOrderDate();
-//        SupplierOrderStatus supplierOrderStatus = supplyOrder.getSupplierOrderStatus();
-//
-//        List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients = new ArrayList<>();
-//
-//        for (SupplyOrderSupplierIngredient supplyOrderSupplierIngredient : supplyOrder.getSupplyOrderSupplierIngredients()) {
-//            Long idIngredient = supplyOrderSupplierIngredient.getIngredient().getIdIngredient();
-//            Long idSupplier = supplyOrderSupplierIngredient.getSupplier().getIdSupplier();
-//            double quantity = supplyOrderSupplierIngredient.getQuantity();
-//
-//            Ingredient ingredient = ingredientRepository.findById(idIngredient).get();
-//            Supplier supplier = supplierRepository.findById(idSupplier).get();
-//
-//            supplyOrderSupplierIngredients.add(new SupplyOrderSupplierIngredient(ingredient, supplier, quantity));
-//        }
-//
-//        supplyOrder.setDeliveryDate(deliveryDate);
-//        supplyOrder.setOrderDate(orderDate);
-//        supplyOrder.setSupplierOrderStatus(supplierOrderStatus);
-//        supplyOrder.setSupplyOrderSupplierIngredients(supplyOrderSupplierIngredients);
+        Date deliveryDate = supplyOrder.getDeliveryDate();
+        Date orderDate = supplyOrder.getOrderDate();
+        SupplierOrderStatus supplierOrderStatus = supplyOrder.getSupplierOrderStatus();
+
+        List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients = new ArrayList<>();
+
+        for (SupplyOrderSupplierIngredient supplyOrderSupplierIngredient : supplyOrder.getSupplyOrderSupplierIngredients()) {
+            Long idIngredient = supplyOrderSupplierIngredient.getIngredient().getID();
+            Long idSupplier = supplyOrderSupplierIngredient.getSupplier().getIdSupplier();
+            double quantity = supplyOrderSupplierIngredient.getQuantity();
+
+            Ingredient ingredient = ingredientRepository.findById(idIngredient).get();
+            Supplier supplier = supplierRepository.findById(idSupplier).get();
+
+            supplyOrderSupplierIngredients.add(new SupplyOrderSupplierIngredient(ingredient, supplier, quantity));
+        }
+
+        supplyOrder.setDeliveryDate(deliveryDate);
+        supplyOrder.setOrderDate(orderDate);
+        supplyOrder.setSupplierOrderStatus(supplierOrderStatus);
+        supplyOrder.setSupplyOrderSupplierIngredients(supplyOrderSupplierIngredients);
 
         return supplyOrderRepository.save(supplyOrder);
     }

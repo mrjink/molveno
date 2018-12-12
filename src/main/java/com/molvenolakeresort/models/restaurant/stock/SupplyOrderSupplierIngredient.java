@@ -12,13 +12,13 @@ public class SupplyOrderSupplierIngredient {
 //    @MapsId("idSupplyOrder")
 //    private SupplyOrder supplyOrder;
 //
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @MapsId("idIngredient")
-//    private Ingredient ingredient;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idIngredient")
+    private Ingredient ingredient;
 //
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @MapsId("idSupplier")
-//    private Supplier supplier;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @MapsId("idSupplier")
+    private Supplier supplier;
 
     @Id @GeneratedValue
     private Long idSupplyOrderSupplierIngredient;
@@ -35,11 +35,11 @@ public class SupplyOrderSupplierIngredient {
     public SupplyOrderSupplierIngredient() {
     }
 
-//    public SupplyOrderSupplierIngredient(Ingredient ingredient, Supplier supplier, double quantity) {
-//        this.ingredient = ingredient;
-//        this.supplier = supplier;
-//        this.quantity = quantity;
-//    }
+    public SupplyOrderSupplierIngredient(Ingredient ingredient, Supplier supplier, double quantity) {
+        this.ingredient = ingredient;
+        this.supplier = supplier;
+        this.quantity = quantity;
+    }
 
 //    public SupplyOrderSupplierIngredientId getIdSupplyOrderSupplierIngredient() {
 //        return idSupplyOrderSupplierIngredient;
@@ -57,17 +57,17 @@ public class SupplyOrderSupplierIngredient {
 //        this.supplyOrder = supplyOrder;
 //    }
 //
-//    public Ingredient getIngredient() {
-//        return ingredient;
-//    }
+    public Ingredient getIngredient() {
+        return ingredient;
+    }
 //
 //    public void setIngredient(Ingredient ingredient) {
 //        this.ingredient = ingredient;
 //    }
 //
-//    public Supplier getSupplier() {
-//        return supplier;
-//    }
+    public Supplier getSupplier() {
+        return supplier;
+    }
 //
 //    public void setSupplier(Supplier supplier) {
 //        this.supplier = supplier;

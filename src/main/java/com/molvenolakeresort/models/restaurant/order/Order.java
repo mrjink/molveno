@@ -17,64 +17,32 @@ public class Order {
     private SupplierOrderStatus status;
     private double totalPrice;
 
-    //@OneToOne(cascade = CascadeType.REMOVE)
-    //private Room room;
-    //@OneToOne(cascade = CascadeType.REMOVE)
-    //private Event event;
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @ManyToOne
+    private Room room;
+
+    @OneToOne
     private RestaurantTable restaurantTable;
 
-    //EVENT????
-    /*@ManyToOne(
-        //mappedBy = "order",
-        cascade = CascadeType.REMOVE
-    )
-    private List<MenuItemOrder> menuItem_orders;*/
     @OneToMany(
             mappedBy = "order",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
+
     private List<MenuItemOrder> menuItem_orders;
 
-
     public Long getIdOrder() {
+
         return idOrder;
+
     }
 
-    public void setIdOrder(Long idOrder) {
-        this.idOrder = idOrder;
-    }
+
 
     public SupplierOrderStatus getStatus() {
+
         return status;
+
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public void setStatus(SupplierOrderStatus status) {
-        this.status = status;
-    }
-
-    public List<MenuItemOrder> getMenuItem_orders() {
-        return menuItem_orders;
-    }
-
-    public void setMenuItem_orders(List<MenuItemOrder> menuItem_orders) {
-        this.menuItem_orders = menuItem_orders;
-    }
-
-    public RestaurantTable getRestaurantTable() {
-        return restaurantTable;
-    }
-
-    public void setRestaurantTable(RestaurantTable restaurantTable) {
-        this.restaurantTable = restaurantTable;
-    }
 }
