@@ -29,8 +29,9 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
 
-</head>
+
 <body>
+
 <header>
 
 
@@ -157,8 +158,7 @@
                 </p>
                 <div class="row">
                     <div class="col-md-4 col-xs-12">
-                        <div class="date-picker-2" placeholder="Recipient's username" id="ttry"
-                             aria-describedby="basic-addon2">
+                        <div class="date-picker-2" placeholder="Recipient's username" id="ttry" aria-describedby="basic-addon2">
                         </div>
                     </div>
                     <div class="col-md-4 col-xs-12" id="divLeftMargin">
@@ -168,14 +168,14 @@
                                 <div id="example-popover-2-content"></div>
                             </div>
                         </div>
-                        <script src=../../../../js/reservationDateTimePicker.js></script>
+                        <script src=../../../../js/reservationDateTimePicker.js></script></head>
                     </div>
                     <div class="col-md-4 col-xs-12">
                         <label for="date">Date: </label>
-                        <input type="date" class="form-control" id="date" name="date" readonly required>
+                        <input type="text" class="form-control" id="date" name="date" value="dd/mm/yyyy" readonly required>
 
                         <label for="time">Time: </label>
-                        <input type="time" class="form-control" id="time" name="time" readonly required>
+                        <input type="text" class="form-control" id="time" name="time" value="-- : --" readonly required>
                     </div>
                 </div>
             </div>
@@ -206,9 +206,8 @@
         <div class="col align-self-end">
             <h2></h2>
             <div class="d-flex align-items-end">
-                <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation"
-                       class="btn btn-outline-primary"><!--Make reservation</input>-->
-
+                <button
+                <input id="submitReservationBtn" type="submit" name="reserve" value="Make reservation" class="btn btn-outline-primary"><!--Make reservation</input>-->
             </div>
 
             <div id="errorMessage"></div>
