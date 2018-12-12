@@ -11,7 +11,7 @@ public class Invoice {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String billNumber;
     private String payType;
     private LocalDateTime createdDate;
@@ -36,7 +36,7 @@ public class Invoice {
     public Invoice() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
