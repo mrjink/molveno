@@ -14,34 +14,37 @@ public class Ingredient {
     private Unit unit;
     private String notes;
 
-    @OneToMany(
-        mappedBy = "ingredient",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true
-    )
-    private List<SupplyOrderIngredient> supplyOrder_ingredients;
+//    @OneToMany(
+//        mappedBy = "ingredient",
+//        cascade = CascadeType.ALL,
+//        orphanRemoval = true
+//    )
+//    private List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients;
 
     @OneToMany(
         mappedBy = "ingredient",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<SupplierIngredient> supplier_ingredients;
+    private List<Stock> stocks;
 
     @OneToMany(
         mappedBy = "ingredient",
         cascade = CascadeType.ALL,
         orphanRemoval = true
     )
-    private List<IngredientMenuItem> ingredient_menuItems;
+    private List<IngredientMenuItem> ingredientMenuItems;
 
     public Ingredient() {
     }
 
-    public Long getId() {
+    public Long getID() {
         return idIngredient;
     }
 
+    public void setID(Long idIngredient) {
+        this.idIngredient = idIngredient;
+    }
 
     public String getName() {
         return name;
@@ -56,6 +59,9 @@ public class Ingredient {
     }
 
     public void setUnit(Unit unit) {
+
+        System.out.println("Set unit: "+unit);
+
         this.unit = unit;
     }
 
@@ -67,31 +73,27 @@ public class Ingredient {
         this.notes = notes;
     }
 
-    public Long getIdIngredient() {
-        return idIngredient;
+//    public List<SupplyOrderSupplierIngredient> getSupplyOrderSupplierIngredients() {
+//        return supplyOrderSupplierIngredients;
+//    }
+//
+//    public void setSupplyOrderSupplierIngredients(List<SupplyOrderSupplierIngredient> supplyOrderSupplierIngredients) {
+//        this.supplyOrderSupplierIngredients = supplyOrderSupplierIngredients;
+//    }
+
+    public List<Stock> getStocks() {
+        return stocks;
     }
 
-    public List<SupplyOrderIngredient> getSupplyOrder_ingredients() {
-        return supplyOrder_ingredients;
+    public void setStocks(List<Stock> stocks) {
+        this.stocks = stocks;
     }
 
-    public void setSupplyOrder_ingredients(List<SupplyOrderIngredient> supplyOrder_ingredients) {
-        this.supplyOrder_ingredients = supplyOrder_ingredients;
+    public List<IngredientMenuItem> getIngredientMenuItems() {
+        return ingredientMenuItems;
     }
 
-    public List<SupplierIngredient> getSupplier_ingredients() {
-        return supplier_ingredients;
-    }
-
-    public void setSupplier_ingredients(List<SupplierIngredient> supplier_ingredients) {
-        this.supplier_ingredients = supplier_ingredients;
-    }
-
-    public List<IngredientMenuItem> getIngredient_menuItems() {
-        return ingredient_menuItems;
-    }
-
-    public void setIngredient_menuItems(List<IngredientMenuItem> ingredient_menuItems) {
-        this.ingredient_menuItems = ingredient_menuItems;
+    public void setIngredientMenuItems(List<IngredientMenuItem> ingredientMenuItems) {
+        this.ingredientMenuItems = ingredientMenuItems;
     }
 }
