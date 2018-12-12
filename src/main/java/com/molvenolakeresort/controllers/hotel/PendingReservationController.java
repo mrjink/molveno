@@ -24,11 +24,19 @@ public class PendingReservationController {
     public List<PendingReservationInformationView> getAll() {
         List<PendingReservationInformationView> result = new ArrayList<>();
         for (Reservation reservation : this.reservationRepository.findAll()) {
-            result.add(PendingReservationMapper.mapReservationToPendingReservationInformationView(reservation));
+            if (!reservation.isApproved()) {
+                result.add(PendingReservationMapper.mapReservationToPendingReservationInformationView(reservation));
+            }
         }
         return result;
     }
 
-    //@TODO make update call for setting approved and setting room number.
+
+    @RequestMapping(value = "set-approved/{id}", method = RequestMethod.PATCH)
+    public void setApproved(@PathVariable long id, @RequestBody Reservation reservationFromWebsite) {
+        Reservation reservationFromDatabase = reservationRepository.getOne(id);
+        reservationFromDatabase.setApproved(reservationFromWebsite.isApproved());
+        reservationRepository.save(reservationFromDatabase);
+    }
 
 }
