@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/hotel/style.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
@@ -19,6 +20,9 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"
+            integrity="sha384-THVO/sM0mFD9h7dfSndI6TS0PgAGavwKvB5hAxRRvc0o9cPLohB0wb/PTA7LdUHs"
             crossorigin="anonymous"></script>
 </head>
 
@@ -174,37 +178,26 @@
     <div class="col-6">
         <div class="container" style="height: 1000px; margin-top: 150px; background-color: #eeeeee;">
 
-            <iframe class="embed-responsive-item" src="/pdf/invoice.pdf#view=FitH" type="application/pdf" width="100%" height="600px"/></iframe>
+            <!--<iframe class="embed-responsive-item" src="/pdf/invoice.pdf#view=FitH" type="application/pdf" width="100%" height="600px"/></iframe>-->
+
+            <embed id="pdfobject" class="pdfobject" src="data:application/pdf;base64,JVBERi0xLjMKJbrfrOAKMyAwIG9iago8PC9UeXBlIC9QYWdlCi9QYXJlbnQgMSAwIFIKL1Jlc291cmNlcyAyIDAgUgovTWVkaWFCb3ggWzAgMCA1OTUuMjggODQxLjg5XQovQ29udGVudHMgNCAwIFIKPj4KZW5kb2JqCjQgMCBvYmoKPDwvTGVuZ3RoIDM5NT4+CnN0cmVhbQowLjU3IHcKMCBHCkJUCi9GMSAxNiBUZgoxOC40MCBUTAowLjM5MiBnCjU2LjY5IDc4NS4yMCBUZAooVGhpcyBpcyBncmF5LikgVGoKRVQKQlQKL0YxIDE2IFRmCjE4LjQwIFRMCjAuNTg4IGcKNTYuNjkgNzU2Ljg1IFRkCihUaGlzIGlzIGxpZ2h0IGdyYXkuKSBUagpFVApCVAovRjEgMTYgVGYKMTguNDAgVEwKMS4wMDAgMC4wMDAgMC4wMDAgcmcKNTYuNjkgNzI4LjUwIFRkCihUaGlzIGlzIHJlZC4pIFRqCkVUCkJUCi9GMSAxNiBUZgoxOC40MCBUTAowLjAwMCAxLjAwMCAwLjAwMCByZwo1Ni42OSA3MDAuMTYgVGQKKFRoaXMgaXMgZ3JlZW4uKSBUagpFVApCVAovRjEgMTYgVGYKMTguNDAgVEwKMC4wMDAgMC4wMDAgMS4wMDAgcmcKNTYuNjkgNjcxLjgxIFRkCihUaGlzIGlzIGJsdWUuKSBUagpFVAplbmRzdHJlYW0KZW5kb2JqCjEgMCBvYmoKPDwvVHlwZSAvUGFnZXMKL0tpZHMgWzMgMCBSIF0KL0NvdW50IDEKPj4KZW5kb2JqCjUgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9IZWx2ZXRpY2EKL1N1YnR5cGUgL1R5cGUxCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCi9GaXJzdENoYXIgMzIKL0xhc3RDaGFyIDI1NQo+PgplbmRvYmoKNiAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkCi9TdWJ0eXBlIC9UeXBlMQovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjcgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZQovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iago4IDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGRPYmxpcXVlCi9TdWJ0eXBlIC9UeXBlMQovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjkgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9Db3VyaWVyCi9TdWJ0eXBlIC9UeXBlMQovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjEwIDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvQ291cmllci1Cb2xkCi9TdWJ0eXBlIC9UeXBlMQovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjExIDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvQ291cmllci1PYmxpcXVlCi9TdWJ0eXBlIC9UeXBlMQovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjEyIDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvQ291cmllci1Cb2xkT2JsaXF1ZQovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iagoxMyAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL1RpbWVzLVJvbWFuCi9TdWJ0eXBlIC9UeXBlMQovRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZwovRmlyc3RDaGFyIDMyCi9MYXN0Q2hhciAyNTUKPj4KZW5kb2JqCjE0IDAgb2JqCjw8Ci9UeXBlIC9Gb250Ci9CYXNlRm9udCAvVGltZXMtQm9sZAovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iagoxNSAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL1RpbWVzLUl0YWxpYwovU3VidHlwZSAvVHlwZTEKL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcKL0ZpcnN0Q2hhciAzMgovTGFzdENoYXIgMjU1Cj4+CmVuZG9iagoxNiAwIG9iago8PAovVHlwZSAvRm9udAovQmFzZUZvbnQgL1RpbWVzLUJvbGRJdGFsaWMKL1N1YnR5cGUgL1R5cGUxCi9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nCi9GaXJzdENoYXIgMzIKL0xhc3RDaGFyIDI1NQo+PgplbmRvYmoKMTcgMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9aYXBmRGluZ2JhdHMKL1N1YnR5cGUgL1R5cGUxCi9GaXJzdENoYXIgMzIKL0xhc3RDaGFyIDI1NQo+PgplbmRvYmoKMTggMCBvYmoKPDwKL1R5cGUgL0ZvbnQKL0Jhc2VGb250IC9TeW1ib2wKL1N1YnR5cGUgL1R5cGUxCi9GaXJzdENoYXIgMzIKL0xhc3RDaGFyIDI1NQo+PgplbmRvYmoKMiAwIG9iago8PAovUHJvY1NldCBbL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSV0KL0ZvbnQgPDwKL0YxIDUgMCBSCi9GMiA2IDAgUgovRjMgNyAwIFIKL0Y0IDggMCBSCi9GNSA5IDAgUgovRjYgMTAgMCBSCi9GNyAxMSAwIFIKL0Y4IDEyIDAgUgovRjkgMTMgMCBSCi9GMTAgMTQgMCBSCi9GMTEgMTUgMCBSCi9GMTIgMTYgMCBSCi9GMTMgMTcgMCBSCi9GMTQgMTggMCBSCj4+Ci9YT2JqZWN0IDw8Cj4+Cj4+CmVuZG9iagoxOSAwIG9iago8PAovUHJvZHVjZXIgKGpzUERGIDAuMC4wKQovQ3JlYXRpb25EYXRlIChEOjIwMTgxMjEwMTUwOTU3KzAxJzAwJykKPj4KZW5kb2JqCjIwIDAgb2JqCjw8Ci9UeXBlIC9DYXRhbG9nCi9QYWdlcyAxIDAgUgovT3BlbkFjdGlvbiBbMyAwIFIgL0ZpdEggbnVsbF0KL1BhZ2VMYXlvdXQgL09uZUNvbHVtbgo+PgplbmRvYmoKeHJlZgowIDIxCjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDU2OCAwMDAwMCBuIAowMDAwMDAyMzg1IDAwMDAwIG4gCjAwMDAwMDAwMTUgMDAwMDAgbiAKMDAwMDAwMDEyNCAwMDAwMCBuIAowMDAwMDAwNjI1IDAwMDAwIG4gCjAwMDAwMDA3NTAgMDAwMDAgbiAKMDAwMDAwMDg4MCAwMDAwMCBuIAowMDAwMDAxMDEzIDAwMDAwIG4gCjAwMDAwMDExNTAgMDAwMDAgbiAKMDAwMDAwMTI3MyAwMDAwMCBuIAowMDAwMDAxNDAyIDAwMDAwIG4gCjAwMDAwMDE1MzQgMDAwMDAgbiAKMDAwMDAwMTY3MCAwMDAwMCBuIAowMDAwMDAxNzk4IDAwMDAwIG4gCjAwMDAwMDE5MjUgMDAwMDAgbiAKMDAwMDAwMjA1NCAwMDAwMCBuIAowMDAwMDAyMTg3IDAwMDAwIG4gCjAwMDAwMDIyODkgMDAwMDAgbiAKMDAwMDAwMjYzMyAwMDAwMCBuIAowMDAwMDAyNzE5IDAwMDAwIG4gCnRyYWlsZXIKPDwKL1NpemUgMjEKL1Jvb3QgMjAgMCBSCi9JbmZvIDE5IDAgUgovSUQgWyA8ODgzRTAwQThGMDNCRkM1RTBDQURCQzU3RUE2OEIwM0E+IDw4ODNFMDBBOEYwM0JGQzVFMENBREJDNTdFQTY4QjAzQT4gXQo+PgpzdGFydHhyZWYKMjgyMwolJUVPRg==" type="application/pdf" style="overflow: auto; width: 80%; height: 60%;" internalinstanceid="26">
+
+            <a title="Download PDF" download="Sample.PDF" href="data:application/pdf;base64,%PDFCONTENT%">Click here to download</a>
+
+
+
+
+
         </div>
     </div>
 </div>
 
-<script>
-  $(document).ready(function() {
-    var table = $("#myTable").DataTable();
-    $.ajax({
-      url: "/api/invoices/all",
-      type: "get",
-      success: function(result) {
-        $("#myTableBody").html("");
-        $.each(result, function(index, invoice) {
-          var totalAmountBills = 0;
-          for (var i = 0; i < invoice.invoiceLines.length; i++) {
-            totalAmountBills += invoice.invoiceLines[i].invoiceLineCost;
-          }
-          table.row
-            .add([
-              invoice.createdDate,
-              invoice.origin,
-              totalAmountBills,
-              invoice.paid
-            ])
-            .draw(false);
-        });
-      }
-    });
-  });
-</script>
+<script src="/js/hotel/invoice-pdf-generator.js">
+ </script>
+
+
+
+
 
 </body>
 

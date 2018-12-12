@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Molveno Lake Resort</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" type="text/css">
+    <link rel="icon" href="/img/logo_128.png" type="image/png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/hotel/style.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/hotel/badge-outline.css" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"
+            crossorigin="anonymous"></script>
+
+</head>
+
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+        <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png"/><a class="navbar-brand" href="#">Molveno Lake
+        Resort</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/hotel.html">
+                        Hotel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/restaurant.html">
+                        Restaurant
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" href="/events.html">
+                        Events
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact.html">Contact</a>
+                </li>
+            </ul>
+
+            <ul class="languagepicker">
+                <a href="#en">
+                    <li><img src="/img/EN.png"/>English</li>
+                </a>
+                <a href="#cn">
+                    <li><img src="/img/CN.png"/>Chinese</li>
+                </a>
+            </ul>
+
+            <button class="btn btn-outline-primary my-2 my-sm-0 btnroominfo" type="button">Register</button>
+            <button class="btn btn-outline-primary my-2 my-sm-0 btnroominfo" type="button">Login</button>
+        </div>
+    </nav>
+</header>
+
+<body style="margin-right: 25px;">
+
+<div class="row" style="margin-top: 175px;">
+    <div class="col-1"></div>
+    <div class="col-3" align="center">
+        <div class="container" style="background-color: #eeeeee; color: #005693">
+            <h3>Guest information</h3>
+        </div>
+    </div>
+
+    <div class="col-4">
+
+        <div class="container" align="center" style="background-color: #eeeeee; color: #005693">
+            <h3>Room options</h3>
+        </div>
+
+    </div>
+</div>
+
+<div class="row" style="margin-top: 20px;">
+
+    <div class="col-1"></div>
+    <div class="col-3">
+
+        <div class="card">
+            <div class="card-body">
+                <div align="center">
+                    <b>Main Booker</b>
+                </div>
+                <div>
+                    <br>
+                    <PRE>
+Name:       Simon Boonstra
+Birth Date: 02-05-1969
+Country:    Netherlands
+Address:    Reykjavikplein 1, 3543KA Utrecht</PRE>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div align="center"><b>Booking Information</b></div>
+                <br>
+                <div>
+                    <PRE>
+Booking Date:   01-12-2018 until 10-12-2018
+Adults:         2
+Children:       0
+Pet:            Yes</PRE>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4">
+
+        <div class="container" style="background-color: #eeeeee; color: #005693;">
+            <div class="list-group">
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        data-toggle="modal" data-target="#myModal"
+                        onmouseover="yoran.src='/img/luxury2.jpg';"
+                        onclick="printRoom(1)">
+                    <p id="par1"><nobr>Room with 3 King size beds</nobr><br><nobr>TV + Balcony view + Air conditioning</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 5</span><br></div>
+                    <br>
+
+                </button>
+                <br>
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/kingsize.jpg';"
+                        data-toggle="modal" data-target="#myModal"
+                        onclick="printRoom(2)">
+                    <p id="par2"><nobr>Room with 2 King size beds + 1 Single Person Bed</nobr><br><nobr>TV + Air conditioning</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 3</span></div>
+                    <br>
+
+                </button>
+                <br>
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/queensize.jpg';"
+                        data-toggle="modal" data-target="#myModal"
+                        onclick="printRoom(3)">
+                    <p id="par3"><nobr>Room with 1 King size bed + 1 Queen Size Bed</nobr><br><nobr>TV</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 1</span></div>
+                    <br>
+
+                </button>
+                <br>
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/dualspbed.jpg';"
+                        data-toggle="modal" data-target="#myModal"
+                        onclick="printRoom(4)">
+                    <p id="par4"><nobr>Room with 1 Queen size bed + 2 Single Person Beds</nobr><br><nobr>TV + Balcony View</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 7</span></div>
+                    <br>
+
+                </button>
+                <br>
+                <button type="button" class="list-group-item list-group-item-action btn-outline-primary btnroominfo"
+                        onmouseover="yoran.src='/img/dualspbed.jpg';"
+                        data-toggle="modal" data-target="#myModal"
+                        onclick="printRoom(5)">
+                    <p id="par5"><nobr>Room with 1 Queen size bed + 2 Single Person Beds</nobr><br><nobr>Air conditioning</nobr></p>
+                    <div class="float-right"><span class="alert alert-primary">Rooms left: 10</span></div>
+                    <br>
+
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <img id="yoran" src="/img/logo_4000.png" width="576px;" height="576px;">
+    </div>
+
+
+</div>
+
+<div class="container" style="font-size: 12px;">
+
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header" style="align-self: center;">
+                    <h4 class="modal-title">Your booking</h4>
+                    <button type="button" class="close" data-dismiss="modal" style="position: absolute; right: 20px;">
+                        &times;
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="modal-body">
+                            <b>Main Booker:</b><br>
+                            <br>
+                            Name<br>
+                            Address<br>
+                            Postal Code<br>
+                            City<br>
+                            Country<br>
+                            Birth Date<br>
+                            <br>
+                            <b>Time of stay</b><br>
+                            <br>
+                            Booking Date<br>
+                            Adults<br>
+                            Children<br>
+                            Pet<br>
+                            <br>
+                            <b>Other guests:</b><br>
+                            <br>
+                            Name<br>
+                            Birth Date<br>
+                            <br>
+                            <b>Pet:</b><br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <div class="modal-body">
+                            <br>
+                            <br>
+                            Simon Boonstra<br>
+                            Reykjavikplein 1<br>
+                            3543KA<br>
+                            Utrecht<br>
+                            Netherlands<br>
+                            02-05-1969<br>
+                            <br>
+                            <br>
+                            <br>
+                            01/12/2018 - 10-12-2018<br>
+                            2<br>
+                            0<br>
+                            Yes<br>
+                            <br>
+                            <br>
+                            <br>
+                            Cornelia Foefel<br>
+                            09-05-1983<br>
+                            <br>
+                            Dog
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="modal-body">
+                        <div class="col-6">
+                            <b>Room information:</b><br>
+                            <br>
+                            <p id="output"></p>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <div class="modal-body">
+                            <b>Payment information:</b><br>
+                            <br>
+                            Price<br>
+                            <nobr>City Tax</nobr>
+                            <br>
+                            <br>
+                            Total ex. VAT<br>
+                            <nobr>VAT (26,67%)</nobr>
+                            <br>
+                            <br>
+                            Total<br>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="col-4" style="text-align: right;">
+                        <div class="modal-body">
+                            <br><br><br>
+                            50,-&nbsp;<br>
+                            25,-&nbsp;<br>
+                            _______+<br>
+
+                            75,-&nbsp;<br>
+                            20,-&nbsp;<br>
+                            _______+<br>
+                            95,-&nbsp;<br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btnconfirm1" onclick="tijdelijkeForward()">Confirm Booking</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/hotel/guest-reservation-room-options-screen.js"></script>
+<script>
+function tijdelijkeForward(){
+    window.location.href = "/hotel/guest-dashboard.html";;
+}
+</script>
+</body>
+
+</html>

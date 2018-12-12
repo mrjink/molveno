@@ -1,6 +1,5 @@
 package com.molvenolakeresort.services.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.molvenolakeresort.ServerLogger;
 import com.molvenolakeresort.models.generic.Address;
 import com.molvenolakeresort.models.generic.Country;
@@ -10,9 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 
 @Component
@@ -133,25 +130,6 @@ public class StartUpImpl {
         } catch (NullPointerException e) {
             //volatile error, likely due to incorrect translation
             ServerLogger.err(e.getMessage());
-        }
-    }
-
-    public class JSONReader<T> {
-
-        public T[] initObject(Class<T> type, String resourceNameOrPath) throws IOException, NullPointerException {
-            Class<T> classOfT;
-            T[] returnArray = (T[]) Array.newInstance(type, 0);
-
-            ClassLoader classLoader = getClass().getClassLoader();
-            File file = new File(classLoader.getResource(resourceNameOrPath).getFile());
-            if (file.canRead()) {
-                ObjectMapper mapper = new ObjectMapper();
-                returnArray = (T[]) mapper.readValue(file, returnArray.getClass());
-                if (returnArray == null) {
-                    returnArray = (T[]) Array.newInstance(type, 0);
-                }
-            }
-            return returnArray;
         }
     }
 }

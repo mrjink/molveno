@@ -9,7 +9,7 @@ public class Room {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String roomNumber;
     private String roomStatus;
     private String roomBlocked;
@@ -30,7 +30,7 @@ public class Room {
     public Room() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
