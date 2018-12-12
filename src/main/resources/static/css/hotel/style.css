@@ -178,3 +178,14 @@ overflow:hidden;
 #unsubEmail{
   font-size: 12pt;
 }
+
+.bookRoomText{
+  margin-top: 15px; 
+  background-color: #eeeeee; 
+  color: #005693;
+}
+.formtextfield{
+  
+  width: 400px;
+ height: 200px;
+}
