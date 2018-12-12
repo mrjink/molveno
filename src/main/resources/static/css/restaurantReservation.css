@@ -1,0 +1,22 @@
+#panelSize
+{
+	height:100%;
+	padding-left:10px;
+}
+.btn-success
+{
+	width:50%;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+#divLeftMargin
+{
+	/*margin-left:20px;*/
+	min-width: 17em;
+
+}
+.date-picker-2 .ui-datepicker
+{
+	width:100%;
+	margin-right:5px;
+}
