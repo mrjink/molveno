@@ -1,6 +1,10 @@
 package com.molvenolakeresort.models.hotel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.molvenolakeresort.models.hotel.enums.Pet;
+
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,16 +14,19 @@ public class Reservation {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private LocalDateTime bookedDate;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;
+    private String bookedBy;
+    private Pet pet;
 
     @OneToMany(mappedBy = "reservation")
     private Set<Invoice> invoices = new HashSet<>();
     @OneToMany(mappedBy = "reservation")
+    @JsonIgnore
     private Set<ReservationGuest> reservationGuests = new HashSet<>();
 
 
@@ -34,7 +41,17 @@ public class Reservation {
     public Reservation() {
     }
 
-    public int getId() {
+    public boolean isCheckedIn() {
+        return checkInDate != null && checkOutDate == null;
+    }
+
+    public boolean isReservationValid() {
+        LocalDate today = LocalDate.now();
+        return ((today.compareTo(startDate.toLocalDate()) >= 0 &&
+                 today.compareTo(endDate.toLocalDate()) <= 0) || isCheckedIn());
+    }
+
+    public long getId() {
         return id;
     }
 
@@ -100,5 +117,21 @@ public class Reservation {
 
     public void setInvoices(Set<Invoice> invoices) {
         this.invoices = invoices;
+    }
+
+    public String getBookedBy() {
+        return bookedBy;
+    }
+
+    public void setBookedBy(String bookedBy) {
+        this.bookedBy = bookedBy;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }
