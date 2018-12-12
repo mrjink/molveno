@@ -39,6 +39,8 @@ public class InvoiceController {
         }
     }
 
+    // tussen deze en volgende comment zijn tijdelijk - overigens werken de laatste twee niet!
+
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
     public void change(@PathVariable long id, @RequestBody String origin) {
         Invoice invoice = this.invoiceRepository.findById(id).get();
@@ -46,17 +48,20 @@ public class InvoiceController {
         this.invoiceRepository.save(invoice);
     }
 
-    @RequestMapping(value = "paid/{id}", method = RequestMethod.PUT)
-    public void togglePaid(@PathVariable long id) {
-        Invoice invoice = this.invoiceRepository.findById(id).get();
-        if (invoice.isPaid()) {
-            invoice.setPaid(false);
-        } else {
-            invoice.setPaid(true);
-        }
-        invoiceRepository.save(invoice);
+    @RequestMapping(value = "paid/{id2}", method = RequestMethod.PUT)
+    public void toggleWatched(@PathVariable long id2) {
+        Invoice invoice = this.invoiceRepository.getOne(id2);
+        invoice.setPaid(!invoice.isPaid());
+        this.invoiceRepository.save(invoice);
     }
 
+    @RequestMapping(value = "{addAmount/id3}", method = RequestMethod.PUT)
+    public void setAmount(@PathVariable long id3, @RequestBody String amount) {
+        Invoice invoice = this.invoiceRepository.findById(id3).get();
+        invoice.getInvoiceLines();
+        this.invoiceRepository.save(invoice);
+    }
+    // tussen deze en voorgaande comment zijn tijdelijk ivm vullen h2database - overigens werken de laatste twee niet!
 
     @RequestMapping(value = "delete/{billNumber}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String billNumber) {

@@ -120,9 +120,9 @@
             <label for="id2">Invoice ID</label><input type="text" id="id2"/>
             <br><br>
 
-            <button type="button" class="btn btn-primary" onclick="putData()">Verander invoice</button>
-            <label for="id">Invoice ID</label><input type="text" id="id"/>
-            <label for="changeMe">Change</label><input type="text" id="changeMe"/><br><br>
+            <button type="button" class="btn btn-primary" onclick="putData()">Amount</button>
+            <label for="id3">Invoice ID</label><input type="text" id="id3"/>
+            <label for="amount">Change</label><input type="text" id="amount"/><br><br>
 
             <div class="table-wrapper-scroll-y" style="margin-top: 15px;">
                 <table class="table table-hover table-bordered" id="myTable">
@@ -159,6 +159,8 @@
     </div>
 </div>
 
+
+// hieronder tijdelijke scripts om h2 data te vullen. kan weg als de database gevuld wordt met echte data
 
 <script type="application/javascript" language="JavaScript">
     var getData = function () {
@@ -230,7 +232,7 @@
             },
             error: function (result) {
                 console.log(result);
-                window.alert("Couldn't add plane to airport! " + result.responseText);
+                window.alert("Couldn't change origin!" + result.responseText);
             }
         });
     };
@@ -248,10 +250,10 @@
             return;
         }
         $.ajax({
-            url: "http://localhost:8080/api/invoice/" + id3,
+            url: "http://localhost:8080/api/invoice/addAmount" + id3,
             type: "put",
             data: JSON.stringify({
-                origin: changeMe
+                amount: amount
             }),
             contentType: "application/json",
             success: function (result) {
@@ -260,31 +262,21 @@
             },
             error: function (result) {
                 console.log(result);
-                window.alert("Couldn't add plane to airport! " + result.responseText);
+                window.alert("Couldn't set amount! " + result.responseText);
             }
         });
     };
 
-    var togglePaid = function () {
-        var id2 = $('#id2').val();
-        console.log(id2);
-        if (id2 == "") {
-            return;
-        }
+    var togglePaid = function (id2) {
         $.ajax({
             url: "http://localhost:8080/api/invoice/paid/" + id2,
-            type: "patch",
-            contentType: "application/json",
-            data: JSON.stringify({
-                id: id2
-            }),
+            type: "put",
             success: function (result) {
-                $('#changeMe').val("");
                 getData();
             },
             error: function (result) {
                 console.log(result);
-                window.alert("Couldn't add plane to airport! " + result.responseText);
+                window.alert("Couldn't change! " + result.responseText);
             }
         });
     };
