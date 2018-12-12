@@ -1,11 +1,9 @@
 package com.molvenolakeresort.models.event;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Event {
@@ -13,8 +11,8 @@ public class Event {
     @GeneratedValue
     private long id;
     private String name;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private String startDate;
+    private String endDate;
     private long price;
     private int maxParticipants;
     private boolean catering;
@@ -22,23 +20,15 @@ public class Event {
     private String activity;
     private String information;
     private boolean cancelEvent;
+
+    @ElementCollection
+    private Set<String> participants;
+
+
+
     //LIST (PROFILES)
 
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
 
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
 
     public long getPrice() {
         return price;
@@ -110,5 +100,30 @@ public class Event {
 
     public void setCancelEvent(boolean cancelEvent) {
         this.cancelEvent = cancelEvent;
+    }
+
+
+    public Set<String> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(Set<String> participants) {
+        this.participants = participants;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }
