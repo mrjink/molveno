@@ -6,12 +6,12 @@ import com.molvenolakeresort.services.GenericService;
 import com.molvenolakeresort.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @RestController
@@ -34,12 +34,40 @@ public class GuestController implements ControllerPingTest {
         return entity;
     }
 
-    @RequestMapping(value = "/{index}", method = RequestMethod.GET)
-    public ResponseEntity getGuest(@PathVariable("index") long index)
+    @GetMapping(value = "/{index}")
+    public ResponseEntity getGuest(UsernamePasswordAuthenticationToken principal, @PathVariable("index") long index)
     {
+        ResponseEntity entity = new ResponseEntity<Profile>(HttpStatus.OK);
+
+        Optional<Profile> guestProfile = userService.findGuest(index);
+        if(guestProfile.isPresent()) {
+            boolean hasOtherRole = true;
+            if(principal.getAuthorities() != null) {
+                if(principal.getAuthorities().size() > 0) {
+                    for (GrantedAuthority authority : principal.getAuthorities()) {
+                        if (authority.getAuthority().equals("ROLE_GUEST") || authority.getAuthority().equals("GUEST")) {
+                            hasOtherRole = false;
+                        }
+                    }
+                } else {
+                    hasOtherRole = false;
+                }
+            } else {
+                hasOtherRole = false;
+            }
+
+            if(guestProfile.get().getUser().getUsername().equals(principal.getName()) || hasOtherRole) {
+                entity = new ResponseEntity<Optional<Profile>>(guestProfile, HttpStatus.OK);
+            }
+        }
+        return entity;
+    }
+
+    @GetMapping(value = "/register")
+    public ResponseEntity registerGuest(Profile guest){
         ResponseEntity entity;
 
-        entity = new ResponseEntity<Optional<Profile>>(userService.findGuest(index), HttpStatus.OK);
+        entity = new ResponseEntity<Profile>(userService.createGuest(guest), HttpStatus.OK);
 
         return entity;
     }

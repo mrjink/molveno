@@ -43,8 +43,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/*", "/img/**", "/index.html", "/event/**", "/hotel/**", "/guest/**", "/restaurant/**", "/js/**", "/pdf/**", "/login.html").permitAll()
-                .antMatchers("/api/**").authenticated()
-                .anyRequest().fullyAuthenticated();
+                .antMatchers("/secured/**").authenticated()
+                .antMatchers("/**").permitAll()
+                .anyRequest().authenticated();
         http.exceptionHandling().authenticationEntryPoint(authenticationEntryPoint);
         http.formLogin().successHandler(authenticationSuccessHandler);
         http.formLogin().failureHandler(authenticationFailureHandler);

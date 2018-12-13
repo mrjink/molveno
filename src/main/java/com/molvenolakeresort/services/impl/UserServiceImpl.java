@@ -107,6 +107,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Profile createGuest(Profile guest) {
+        if(guest.getUser() == null ||
+                guest.getEmail() == null ||
+                guest.getFirstName() == null ||
+                guest.getMiddleName() == null ||
+                guest.getLastName() == null ||
+                guest.getGuestInformation() == null) return null;
         if (userRepository.exists(guest.getUser().getUsername())) return null;
 
         Role role = roleRepository.findByName("ROLE_GUEST");

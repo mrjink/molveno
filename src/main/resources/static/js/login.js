@@ -8,10 +8,12 @@ $(document).ready(function ($) {
             type: 'POST',
             url: '/login'
         }).done(function(data, textStatus, jqXHR) {
-            var preLoginInfo = JSON.parse($.cookie('dashboard.pre.login.request'));
-            window.location = preLoginInfo.url;
+            alert(data + textStatus + jqXHR)
+            alert(document.cookie);
+            alert(window.location);
+            //window.location = preLoginInfo.url;
         }).fail(function(jqXHR, textStatus, errorThrown) {
-            alert('Booh! Wrong credentials, try again!');
+            alert('Incorrect username or password, please try again.');
         });
     });
 });
