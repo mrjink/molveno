@@ -115,6 +115,7 @@
     if(agreed){
         //CONFIRM REGISTRATION
         alert("Thank you for your registration!");
+        location.href = 'guest/login.html';
     }
     else{
         alert("Please proceed your registration");
@@ -176,7 +177,7 @@
                                         <label for="dateofbirth"
                                                class="col-md-4 col-form-label text-md-right">Birthdate</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="dateofbirth" class="form-control" name="dateofbirth">
+                                            <input type="date" id="dateofbirth" class="form-control" name="dateofbirth">
                                         </div>
                                     </div>
                                 </div>
@@ -279,33 +280,48 @@
                             </div>
 
                             <!-- uitklapscherm toevoegen----->
-
-
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col">
                                     <div class="form-group row">
-                                        <label for="country" class="col-md-4 col-form-label text-md-right">
-                                            Country</label>
-                                        <form id="Login">
-                                            <div class="col-sm-6">
-                                                <div class="input-group">
-                                                    <select class="custom-select" id="inputGroupSelect04">
-                                                        <option selected></option>
-                                                        <option value="1">China</option>
-                                                        <option value="2">List to be loaded...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </form>
+                                        <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="country" class="form-control" name="country">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="form-group row">
-                                        <div class="col-md-6">
+                                        <div class="col-sm-6">
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+                            <!--<div class="row">-->
+                                <!--<div class="col-6">-->
+                                    <!--<div class="form-group row">-->
+                                        <!--<label for="country" class="col-md-4 col-form-label text-md-right">-->
+                                            <!--Country</label>-->
+                                        <!--<form id="Login">-->
+                                            <!--<div class="col-sm-6">-->
+                                                <!--<div class="input-group">-->
+                                                    <!--<select class="custom-select" id="inputGroupSelect04">-->
+                                                        <!--<option selected></option>-->
+                                                        <!--<option value="1">China</option>-->
+                                                        <!--<option value="2">List to be loaded...</option>-->
+                                                    <!--</select>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                        <!--</form>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-6">-->
+                                    <!--<div class="form-group row">-->
+                                        <!--<div class="col-md-6">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
 
 
                             <div class="row">
@@ -349,7 +365,7 @@
                                         <label for="password"
                                                class="col-md-4 col-form-label text-md-right">Password*</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="password" class="form-control" name="password">
+                                            <input type="password" id="password" class="form-control" name="password">
                                         </div>
                                     </div>
                                 </div>
@@ -367,7 +383,7 @@
                                         <label for="passwordcheck" class="col-md-4 col-form-label text-md-right">Re-enter
                                             Password</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="passwordcheck" class="form-control"
+                                            <input type="password" id="passwordcheck" class="form-control"
                                                    name="passwordcheck">
                                         </div>
                                     </div>
@@ -411,8 +427,10 @@
                                         <button type="button" class="btn btn-secondary" onclick="confirmDelete()">
                                             Cancel
                                         </button>
-                                        <button type="button" class="btn btn-secondary" onclick="postData()">
+                                        <!--<button type="button" class="btn btn-secondary" onclick="postData()"><a href="/guest/login.html">Register</a></button>-->
                                             <!--<a href="/guest/login.html">Register</a>-->
+                                            <button class="btn btn-secondary" type="button" onclick="confirmRegistration();postData();"><a href="/guest/login.html">Register</a></button>
+                                            <!--<button class="btn btn-secondary" type="button" onclick="postData();"><a href="/guest/login.html">Register</a></button>-->
                                         </button>
 
                                     </div>

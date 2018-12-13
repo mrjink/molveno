@@ -28,9 +28,8 @@ public class Guest {
     private String email;
     private boolean newsletterSubscribed;
     private LocalDate dateOfBirth;
-    private long Password;
+    private String password;
     private boolean accepttermsconditions;
-
 
     @OneToMany(mappedBy = "guest")
     @JsonIgnore
@@ -65,6 +64,46 @@ public class Guest {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public boolean isNewsletterSubscribed() {
+        return newsletterSubscribed;
+    }
+
+    public void setNewsletterSubscribed(boolean newsletterSubscribed) {
+        this.newsletterSubscribed = newsletterSubscribed;
+    }
+
+    public Set<ReservationGuest> getReservationGuests() {
+        return reservationGuests;
+    }
+
+    public void setReservationGuests(Set<ReservationGuest> reservationGuests) {
+        this.reservationGuests = reservationGuests;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     public String getCountry() {
@@ -115,53 +154,12 @@ public class Guest {
         this.city = city;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isNewsletterSubscribed() {
-        return newsletterSubscribed;
-    }
-
-    public void setNewsletterSubscribed(boolean newsletterSubscribed) {
-        this.newsletterSubscribed = newsletterSubscribed;
-    }
-
-    public Set<ReservationGuest> getReservationGuests() {
-        return reservationGuests;
-    }
-
-    public void setReservationGuests(Set<ReservationGuest> reservationGuests) {
-        this.reservationGuests = reservationGuests;
-    }
-
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-
-    public long getPassword() {
-        return Password;
-    }
-
-    public void setPassword(long password) {
-        Password = password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public boolean isAccepttermsconditions() {
