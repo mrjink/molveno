@@ -4,11 +4,12 @@ import com.molvenolakeresort.models.hotel.Invoice;
 import com.molvenolakeresort.repositories.hotel.InvoiceRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/invoices/")
+@RequestMapping("api/invoice/")
 public class InvoiceController {
 
     private InvoiceRepository invoiceRepository;
@@ -37,6 +38,30 @@ public class InvoiceController {
             }
         }
     }
+
+    // tussen deze en volgende comment zijn tijdelijk - overigens werken de laatste twee niet!
+
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    public void change(@PathVariable long id, @RequestBody String origin) {
+        Invoice invoice = this.invoiceRepository.findById(id).get();
+        invoice.setOrigin(origin);
+        this.invoiceRepository.save(invoice);
+    }
+
+    @RequestMapping(value = "paid/{id2}", method = RequestMethod.PUT)
+    public void toggleWatched(@PathVariable long id2) {
+        Invoice invoice = this.invoiceRepository.getOne(id2);
+        invoice.setPaid(!invoice.isPaid());
+        this.invoiceRepository.save(invoice);
+    }
+
+    @RequestMapping(value = "{addAmount/id3}", method = RequestMethod.PUT)
+    public void setAmount(@PathVariable long id3, @RequestBody String amount) {
+        Invoice invoice = this.invoiceRepository.findById(id3).get();
+        invoice.getInvoiceLines();
+        this.invoiceRepository.save(invoice);
+    }
+    // tussen deze en voorgaande comment zijn tijdelijk ivm vullen h2database - overigens werken de laatste twee niet!
 
     @RequestMapping(value = "delete/{billNumber}", method = RequestMethod.DELETE)
     public void delete(@PathVariable String billNumber) {

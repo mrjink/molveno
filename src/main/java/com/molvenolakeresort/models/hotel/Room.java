@@ -1,5 +1,7 @@
 package com.molvenolakeresort.models.hotel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +11,7 @@ public class Room {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
     private String roomNumber;
     private String roomStatus;
     private String roomBlocked;
@@ -30,7 +32,7 @@ public class Room {
     public Room() {
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

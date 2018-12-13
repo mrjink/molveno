@@ -1,0 +1,193 @@
+.dashboardButton,
+.dashboardButtonNoHover {
+  background-color: #005693; /* Blue */
+  border: none;
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s;
+  border-radius: 3px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  padding: 20px;
+  width: 330px;
+  height: 250px;
+  min-width: 200px;
+}
+
+.dashboardButton:hover {
+  background-color: #0074c7;
+}
+
+.dashboardButtonHotel:hover {
+    background: url('/hotel/skyline.jpg');
+    background-size:cover;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.dashboardButton > p, .dashboardButtonNoHover > p, .dashboardInteractiveText {
+  display: inline-block;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.extraMargin {
+  margin-bottom: 20px;
+}
+
+#inputEmail {
+  width: 100%;
+}
+
+.btnsubmitemail {
+  background-color: #eeeeee;
+  border-color: #005693;
+  color: #005693;
+}
+
+.btnsubmitemail:hover {
+  background-color: #0074c7;
+  border-color: #eeeeee;
+  color: #eeeeee;
+}
+
+.btnsubmitemail:active {
+    background-color: #0074c7;
+    border-color: #eeeeee;
+    color: #eeeeee;
+  }
+
+
+#roomserviceMenu {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+ }
+
+ #roomserviceMenu td, #roomserviceMenu th {
+     border: 1px solid #ddd;
+     padding: 8px;
+ }
+
+ #roomserviceMenu tr:nth-child(even){background-color: #f2f2f2;}
+
+ #roomserviceMenu tr:hover {background-color: #ddd;}
+
+ #roomserviceMenu th {
+     padding-top: 12px;
+     padding-bottom: 12px;
+     text-align: left;
+     background-color: #005693;
+     color: white;
+     padding-right: 0px;
+ }
+
+ #mealOptions {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    padding-left: 0px;
+    float: left;
+ }
+
+ #mealOptions td, #mealOptions th {
+      border: 1px solid #ddd;
+      padding: 8px;
+ }
+
+ #mealOptions tr:nth-child(even){background-color: #f2f2f2;}
+
+ #mealOptions tr:hover {background-color: #ddd;}
+
+ #mealOptions th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #005693;
+      color: white;
+ }
+
+ #wrapper {
+     width: 500px;
+     border: 1px solid black;
+     overflow: hidden; /* add this to contain floated children */
+ }
+
+ .floatLeft { width: 45%; float: left; }
+ .floatRight {width: 65; float: right; }
+ .container { overflow: hidden; }
+
+  .popover{
+      max-width: 100%; /* Max Width of the popover (depending on the container!) */
+  }
+  .dashboardInteractiveText{
+  font-size: 12pt;
+  }
+
+
+.roomserviceButton,
+.roomserviceButtonNoHover {
+  background-color: white; /* Blue */
+  border: none;
+  color: black;
+  text-decoration: none;
+  font-size: 12pt;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+
+  #dashboardTilesRow{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.btnconfirm1 {
+    background-color: #005693;
+    color: #FFF;
+    }
+
+
+
+.roomserviceButton > p {
+    margin-bottom: 0;
+}
+
+.h4center{
+text-align: center;
+}
+
+.roomInfoContainer{
+height: 450px;
+overflow:hidden;
+}
+
+#roomStatusPicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#roomStatusPicture{
+  padding: 0px;
+}
+
+#unsubEmail{
+  font-size: 12pt;
+}
+
+.bookRoomText{
+  margin-top: 15px; 
+  background-color: #eeeeee; 
+  color: #005693;
+}
+.textAreaRemarks{
+  border-radius: 3px;
+  width: 400px;
+}
+.roomserviceAmount{
+  height: 53.25px;
+}

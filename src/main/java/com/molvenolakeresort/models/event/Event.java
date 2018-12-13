@@ -2,105 +2,33 @@ package com.molvenolakeresort.models.event;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
-
+import java.util.Set;
 
 @Entity
 public class Event {
     @Id
     @GeneratedValue
-    long id;
-    LocalDateTime startDate;
-    LocalDateTime endDate;
-    String address;
-    @OneToMany
-    List<User> users;
-    int maxUsers;
-    long price;
-    boolean catering;
-    String location;
+    private long id;
+    private String name;
+    private String startDate;
+    private String endDate;
+    private long price;
+    private int maxParticipants;
+    private boolean catering;
+    private String additionalInformation;
+    private String activity;
+    private String information;
+    private boolean cancelEvent;
 
-    //Hashmap for the language and the eventname
-    HashMap<String, String> eventnameCollection = new HashMap<String, String>();
+    @ElementCollection
+    private Set<String> participants;
 
-    //Hashmap for the language and the activity
-    HashMap<String, String> activityCollection = new HashMap<String, String>();
 
-    //Hashmap for the language and the eventInformation
-    HashMap<String, String> eventinformationCollection = new HashMap<String, String>();
 
-    public long getId() {
-        return id;
-    }
+    //LIST (PROFILES)
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public HashMap<String, String> getEventnameCollection() {
-        return eventnameCollection;
-    }
-
-    public void setEventnameCollection(HashMap<String, String> eventnameCollection) {
-        this.eventnameCollection = eventnameCollection;
-    }
-
-    public HashMap<String, String> getActivityCollection() {
-        return activityCollection;
-    }
-
-    public void setActivityCollection(HashMap<String, String> activityCollection) {
-        this.activityCollection = activityCollection;
-    }
-
-    public LocalDateTime getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDateTime startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDateTime getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDateTime endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public HashMap<String, String> getEventinformationCollection() {
-        return eventinformationCollection;
-    }
-
-    public void setEventinformationCollection(HashMap<String, String> eventinformationCollection) {
-        this.eventinformationCollection = eventinformationCollection;
-    }
-
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public int getMaxUsers() {
-        return maxUsers;
-    }
-
-    public void setMaxUsers(int maxUsers) {
-        this.maxUsers = maxUsers;
-    }
 
     public long getPrice() {
         return price;
@@ -110,11 +38,92 @@ public class Event {
         this.price = price;
     }
 
+    public int getMaxParticipants() {
+        return maxParticipants;
+    }
+
+    public void setMaxParticipants(int maxParticipants) {
+        this.maxParticipants = maxParticipants;
+    }
+
     public boolean isCatering() {
         return catering;
     }
 
     public void setCatering(boolean catering) {
         this.catering = catering;
+    }
+
+    public String getAdditionalInformation() {
+        return additionalInformation;
+    }
+
+    public void setAdditionalInformation(String additionalInformation) {
+        this.additionalInformation = additionalInformation;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getActivity() {
+        return activity;
+    }
+
+    public void setActivity(String activity) {
+        this.activity = activity;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public void setInformation(String information) {
+        this.information = information;
+    }
+
+    public boolean isCancelEvent() {
+        return cancelEvent;
+    }
+
+    public void setCancelEvent(boolean cancelEvent) {
+        this.cancelEvent = cancelEvent;
+    }
+
+
+    public Set<String> getParticipants() {
+        return participants;
+    }
+
+    public void setParticipants(Set<String> participants) {
+        this.participants = participants;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }

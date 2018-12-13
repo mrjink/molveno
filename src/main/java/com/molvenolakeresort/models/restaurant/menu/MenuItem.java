@@ -13,49 +13,44 @@ public class MenuItem {
     @Id
     @GeneratedValue
     private Long idMenuItem;
-    private MenuItemType type;
-    private MenuCategory category;
-    private String imagePath;
-    private String description;
-    private double price;
     private String name;
+    private String description;
+    private String imagePath;
+    private double price;
+    private MenuCategory category;
+    private MenuItemType type;
     @OneToMany(
         mappedBy = "menuItem",
-        cascade = CascadeType.ALL,
+        cascade = CascadeType.REMOVE,
         orphanRemoval = true
     )
     private List<IngredientMenuItem> ingredientMenuItems;
+
+    @OneToMany(
+            mappedBy = "menuItem",
+            cascade = CascadeType.MERGE,
+            orphanRemoval = true
+    )
+    private List<IngredientMenuItem> menus;
     private boolean availableSeparately;
 
     public MenuItem() {
     }
 
-    public Long getId() {
+    public Long getIdMenuItem() {
         return idMenuItem;
     }
 
-    public MenuItemType getType() {
-        return type;
+    public void setIdMenuItem(Long idMenuItem) {
+        this.idMenuItem = idMenuItem;
     }
 
-    public void setType(MenuItemType type) {
-        this.type = type;
+    public String getName() {
+        return name;
     }
 
-    public MenuCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(MenuCategory category) {
-        this.category = category;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -66,6 +61,14 @@ public class MenuItem {
         this.description = description;
     }
 
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
     public double getPrice() {
         return price;
     }
@@ -74,12 +77,36 @@ public class MenuItem {
         this.price = price;
     }
 
-    public String getName() {
-        return name;
+    public MenuCategory getCategory() {
+        return category;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCategory(MenuCategory category) {
+        this.category = category;
+    }
+
+    public MenuItemType getType() {
+        return type;
+    }
+
+    public void setType(MenuItemType type) {
+        this.type = type;
+    }
+
+    public List<IngredientMenuItem> getIngredientMenuItems() {
+        return ingredientMenuItems;
+    }
+
+    public void setIngredientMenuItems(List<IngredientMenuItem> ingredientMenuItems) {
+        this.ingredientMenuItems = ingredientMenuItems;
+    }
+
+    public List<IngredientMenuItem> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(List<IngredientMenuItem> menus) {
+        this.menus = menus;
     }
 
     public boolean isAvailableSeparately() {

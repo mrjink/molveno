@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <!-- Bootstrap core CSS -->
@@ -20,75 +20,28 @@
     <!-- Custom styles for this template -->
     <link href="/css/event/sticky-footer-navbar.css" rel="stylesheet">
 
+    <!--Include custom header-->
+    <script src="/js/header_function/import_general_header.js"></script>
+    <script src="/js/header_function/header_functions.js"></script>
+
 </head>
 <body>
-<header>
+<div w3-include-html="/general_header/general_header.html"></div>
 
+<script>
+    includeHTML();
+    setCurrentActiveItem(EVENT_ITEM);
 
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
-        <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a class="navbar-brand" href="#">Molveno Lake Resort</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    function onEnglishLanguageSelected() {
+        //English language is selected translate the page
+        console.log('English language is selected')
+    }
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="/hotel.html">
-                        Hotel
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Optie1</a>
-                        <a class="dropdown-item" href="#">Optie2</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Optie3</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="/restaurant.html">
-                        Restaurant
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Optie1</a>
-                        <a class="dropdown-item" href="#">Optie2</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Optie3</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown active">
-                    <a class="nav-link" href="/events.html">
-                        Events
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Optie1</a>
-                        <a class="dropdown-item" href="#">Optie2</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Optie3</a>
-                    </div>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact.html">Contact</a>
-                </li>
-            </ul>
-
-            <ul class="languagepicker">
-                <a href="#en"><li><img src="/img/EN.png"/>English</li></a>
-                <a href="#cn"><li><img src="/img/CN.png"/>Chinese</li></a>
-            </ul>
-
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Register</button>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
-        </div>
-    </nav>
-</header>
+    function onChineseSelected() {
+        //Chinese language is selected translate the page
+        console.log('Chinese language is selected')
+    }
+</script>
 
 <!-- Begin page content -->
 <div class="row">

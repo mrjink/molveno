@@ -134,12 +134,13 @@
                     </div>
                     <div class="card-body">
                         <form name="my-form" onsubmit="return validform()" action="success.php" method="">
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="first_name" class="col-md-4 col-form-label text-md-right">First Name</label>
+                                        <label for="firstname" class="col-md-4 col-form-label text-md-right">First
+                                            Name</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="first_name" class="form-control" name="first-name">
+                                            <input type="text" id="firstname" class="form-control" name="firstname">
                                         </div>
                                     </div>
                                 </div>
@@ -150,28 +151,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="middle_name" class="col-md-4 col-form-label text-md-right">Middle Name</label>
+                                        <label for="lastname" class="col-md-4 col-form-label text-md-right">Last
+                                            Name</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="middle_name" class="form-control" name="middle-name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group row">
-                                        <div class="col-sm-6">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class = "row">
-                                <div class="col">
-                                    <div class="form-group row">
-                                        <label for="last_name" class="col-md-4 col-form-label text-md-right">Last Name</label>
-                                        <div class="col-sm-6">
-                                            <input type="text" id="last_name" class="form-control" name="last-name">
+                                            <input type="text" id="lastname" class="form-control" name="lastname">
                                         </div>
                                     </div>
                                 </div>
@@ -184,13 +170,13 @@
                             </div>
 
 
-
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="birthdate" class="col-md-4 col-form-label text-md-right">Birthdate</label>
+                                        <label for="dateofbirth"
+                                               class="col-md-4 col-form-label text-md-right">Birthdate</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="birthdate" class="form-control" name="birthdate">
+                                            <input type="text" id="dateofbirth" class="form-control" name="dateofbirth">
                                         </div>
                                     </div>
                                 </div>
@@ -203,12 +189,13 @@
                             </div>
 
 
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="street_name" class="col-md-4 col-form-label text-md-right">Street Name</label>
+                                        <label for="street" class="col-md-4 col-form-label text-md-right">Street
+                                            Name</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="street_name" class="form-control" name="street-name">
+                                            <input type="text" id="street" class="form-control" name="street">
                                         </div>
                                     </div>
                                 </div>
@@ -220,12 +207,13 @@
                                 </div>
                             </div>
 
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="home_number" class="col-md-4 col-form-label text-md-right">Home Number</label>
+                                        <label for="number" class="col-md-4 col-form-label text-md-right">Home
+                                            Number</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="home_number" class="form-control" name="home-number">
+                                            <input type="text" id="number" class="form-control" name="number">
                                         </div>
                                     </div>
                                 </div>
@@ -237,12 +225,13 @@
                                 </div>
                             </div>
 
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="postal_code" class="col-md-4 col-form-label text-md-right">Postal Code</label>
+                                        <label for="numberextension" class="col-md-4 col-form-label text-md-right">Home
+                                            Number Extension</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="postal_code" class="form-control" name="postal-code">
+                                            <input type="text" id="numberextension" class="form-control" name="numberextension">
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +243,25 @@
                                 </div>
                             </div>
 
-                            <div class = "row">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group row">
+                                        <label for="postalcode" class="col-md-4 col-form-label text-md-right">Postal
+                                            Code</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" id="postalcode" class="form-control" name="postalcode">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="city" class="col-md-4 col-form-label text-md-right">City</label>
@@ -274,13 +281,11 @@
                             <!-- uitklapscherm toevoegen----->
 
 
-
-
-
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col-6">
                                     <div class="form-group row">
-                                        <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
+                                        <label for="country" class="col-md-4 col-form-label text-md-right">
+                                            Country</label>
                                         <form id="Login">
                                             <div class="col-sm-6">
                                                 <div class="input-group">
@@ -303,13 +308,14 @@
                             </div>
 
 
-
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                        <label for="phonenumber" class="col-md-4 col-form-label text-md-right">Phone
+                                            Number</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="phone_number" class="form-control" name="phone-number">
+                                            <input type="text" id="phonenumber" class="form-control"
+                                                   name="phonenumber">
                                         </div>
                                     </div>
                                 </div>
@@ -320,7 +326,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
                                         <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
@@ -337,10 +343,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="password" class="col-md-4 col-form-label text-md-right">Password*</label>
+                                        <label for="password"
+                                               class="col-md-4 col-form-label text-md-right">Password*</label>
                                         <div class="col-sm-6">
                                             <input type="text" id="password" class="form-control" name="password">
                                         </div>
@@ -354,12 +361,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
-                                        <label for="re_enter_password" class="col-md-4 col-form-label text-md-right">Re-enter Password</label>
+                                        <label for="passwordcheck" class="col-md-4 col-form-label text-md-right">Re-enter
+                                            Password</label>
                                         <div class="col-sm-6">
-                                            <input type="text" id="re_enter_password" class="form-control" name="re_enter_password">
+                                            <input type="text" id="passwordcheck" class="form-control"
+                                                   name="passwordcheck">
                                         </div>
                                     </div>
                                 </div>
@@ -371,7 +380,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class = "row">
+                            <div class="row">
                                 <div class="col">
                                     <div class="form-group row">
                                         <div class="col-sm-6">
@@ -382,22 +391,30 @@
                                     <!--<div class="form-group row">-->
                                     <div class="float-sm-right">
 
-                                        <div class = "registration-validation">
-                                        Registration Validation
+                                        <div class="registration-validation">
+                                            Registration Validation
                                         </div>
 
                                         <div class="form-check test">
-                                            <div class = "form-check testtextbox1">
-                                            <input type="checkbox" class="checkbox style-2 pull-right" id="checkbox1">
+                                            <div class="form-check testtextbox1">
+                                                <input type="checkbox" class="checkbox style-2 pull-right"
+                                                       id="checkbox1">
                                             </div>
-                                            <label class="form-check-label" for="checkbox1">Subscribe for newsletter:</label>
+                                            <label class="form-check-label" for="checkbox1">Subscribe for
+                                                newsletter:</label>
                                         </div>
                                         <div class="form-check test1">
                                             <input type="checkbox" class="checkbox style-2 pull-right" id="checkbox2">
-                                            <label class="form-check-label" for="checkbox2">Accept terms and conditions:</label>
+                                            <label class="form-check-label" for="checkbox2">Accept terms and
+                                                conditions:</label>
                                         </div>
-                                        <button type="button" class="btn btn-secondary" onclick="confirmDelete()">Cancel</button>
-                                        <button type="button" class="btn btn-secondary" onclick="confirmRegistration()">Register</button>
+                                        <button type="button" class="btn btn-secondary" onclick="confirmDelete()">
+                                            Cancel
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" onclick="postData()">
+                                            <!--<a href="/guest/login.html">Register</a>-->
+                                        </button>
+
                                     </div>
                                     <!--</div>-->
                                 </div>
@@ -534,5 +551,19 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<!--
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<script src="/js/guest/createguest.js"></script><!--Javascript-->
+
+
+
 </body>
 </html>

@@ -1,0 +1,79 @@
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+        <img id="logo" alt="Molveno Lake Resort" src="/img/logo_128.png" /><a class="navbar-brand" href="/">Molveno Lake Resort</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li id="home_nav_item" class="nav-item">
+                    <a class="nav-link" href="/index.html" onClick="setCurrentActiveItem(HOME_ITEM);">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li id="hotel_nav_item" class="nav-item dropdown">
+                    <a class="nav-link" href="/hotel.html" onClick="setCurrentActiveItem(HOTEL_ITEM);">
+                        Hotel
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+                <!-- /restaurant/restaurant.html -->
+                <li id="restaurant_nav_item" class="nav-item dropdown ">
+                    <a class="nav-link" href="/restaurant.html" onClick="setCurrentActiveItem(RESTAURANT_ITEM);">
+                        Restaurant
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- <a class="dropdown-item" href="/administration/restaurant_admin_dashboard.html">Admin portal demo</a> -->
+                        <a class="dropdown-item" href="/restaurant/reservation/reservation.html">Reservation</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/restaurant/menu/">Menu</a>
+                        <!-- <a class="dropdown-item" href="/restaurant/menu/ModifyMenuItems.html">Modify Menu (test1)</a>
+                        <a class="dropdown-item" href="/restaurant/menu/menuForOrdering/tabletRestaurant.html">Menu for ordering from tablet</a> -->
+                    </div>
+                </li>
+                <li id="event_nav_item" class="nav-item dropdown">
+                    <a class="nav-link" href="/events.html" onClick="setCurrentActiveItem(EVENT_ITEM);">
+                        Events
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item">Optie1</a>
+                        <a class="dropdown-item" href="#">Optie2</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Optie3</a>
+                    </div>
+                </li>
+
+                <li id="contact_nav_item" class="nav-item">
+                    <a class="nav-link" href="/contact.html" onClick="setCurrentActiveItem(CONTACT_ITEM);">Contact</a>
+                </li>
+            </ul>
+
+            <div id="language" class="languagepicker"></div>
+            
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="performEvent('register');">Register</button>
+            <a href="#"><button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="performEvent('login');" >Login</button></a>
+        </div>
+    </nav>
+</header>
+
+
+<script>
+function login()
+{
+    alert("login html");
+}
+
+function updatState(active_item)
+{
+    
+
+    // setCurrentActiveItem(active_item);
+    // alert(active_nav_item);
+}
+</script>
